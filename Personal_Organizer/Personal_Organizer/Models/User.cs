@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Personal_Organizer.Models
+{
+    public class User
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public Roles Role { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Address { get; set; }
+        public string PhotoPath { get; set; }
+        //public List<Note> Notes;
+    }
+    public enum Roles
+    {
+        Admin = 1,
+        User,
+        Part_Time_User
+    }
+}
