@@ -15,6 +15,7 @@ namespace Personal_Organizer
         public Giris()
         {
             InitializeComponent();
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void btnGiris_Click(object sender, EventArgs e)
@@ -36,6 +37,14 @@ namespace Personal_Organizer
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Kayıt kayıt = new Kayıt();
+            kayıt.Show();
+            this.Hide();
+
         }
     }
 }

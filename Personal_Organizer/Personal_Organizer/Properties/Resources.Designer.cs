@@ -93,6 +93,26 @@ namespace Personal_Organizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap laptop_8770486_1280 {
+            get {
+                object obj = ResourceManager.GetObject("laptop-8770486_1280", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap man_8702916_1280 {
+            get {
+                object obj = ResourceManager.GetObject("man-8702916_1280", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_burger {
             get {
                 object obj = ResourceManager.GetObject("menu-burger", resourceCulture);
@@ -146,6 +166,16 @@ namespace Personal_Organizer.Properties {
         internal static System.Drawing.Bitmap user_salary {
             get {
                 object obj = ResourceManager.GetObject("user-salary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wirte {
+            get {
+                object obj = ResourceManager.GetObject("wirte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

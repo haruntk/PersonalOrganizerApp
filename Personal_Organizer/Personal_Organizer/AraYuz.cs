@@ -48,5 +48,12 @@ namespace Personal_Organizer
             reminder.ShowDialog();
             this.Hide();
         }
+
+        private void btnNotes_Click(object sender, EventArgs e)
+        {
+            Notes notes = new Notes();
+            notes.ShowDialog();
+            this.Hide();
+        }
     }
 }

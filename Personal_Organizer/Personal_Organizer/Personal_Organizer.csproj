@@ -61,6 +61,18 @@
     <Compile Include="Giris.Designer.cs">
       <DependentUpon>Giris.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kayıt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kayıt.Designer.cs">
+      <DependentUpon>Kayıt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notes.Designer.cs">
+      <DependentUpon>Notes.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonalInformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +100,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Giris.resx">
       <DependentUpon>Giris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kayıt.resx">
+      <DependentUpon>Kayıt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notes.resx">
+      <DependentUpon>Notes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PersonalInformation.resx">
       <DependentUpon>PersonalInformation.cs</DependentUpon>
@@ -139,6 +157,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man-8702916_1280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laptop-8770486_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wirte.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

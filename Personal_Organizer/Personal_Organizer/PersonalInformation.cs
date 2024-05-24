@@ -67,5 +67,10 @@ namespace Personal_Organizer
                 }
             }
         }
+
+        private void menubtn_Click(object sender, EventArgs e)
+        {
+           sidebartimer.Start();
+        }
     }
 }

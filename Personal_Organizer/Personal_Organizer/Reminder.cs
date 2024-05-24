@@ -96,5 +96,10 @@ namespace Personal_Organizer
         {
             logoutbtn.BackColor = Color.Firebrick;
         }
+
+        private void homebtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
