@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Design\AddList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Design\AddList.Designer.cs">
+      <DependentUpon>AddList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Design\AddReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Design\AddReminder.Designer.cs">
+      <DependentUpon>AddReminder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Design\AraYuz.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +111,12 @@
     <Compile Include="Design\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="Design\AddList.resx">
+      <DependentUpon>AddList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Design\AddReminder.resx">
+      <DependentUpon>AddReminder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Design\AraYuz.resx">
       <DependentUpon>AraYuz.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +191,23 @@
   <ItemGroup>
     <None Include="Resources\wirte.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meeting-alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list-check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
