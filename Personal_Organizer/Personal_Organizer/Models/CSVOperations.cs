@@ -4,13 +4,16 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Globalization;
+
 
 namespace Personal_Organizer.Models
 {
     public class CSVOperations
     {
         //FilePath'i kendinizin path'ini yazın.
-        private string FilePath = @"C:\Users\harun_rvth\OneDrive\Desktop\repositories\PersonalOrganizerApp\Personal_Organizer\Personal_Organizer\Data\data.csv";
+        private string FilePath = ConfigurationManager.AppSettings["DataPath"];
         public List<User> ReadAllUsers()
         {
             var users = new List<User>();
@@ -59,5 +62,78 @@ namespace Personal_Organizer.Models
             }));
             File.WriteAllLines(FilePath, lines);
         }
+
+
+        private string NotesFilePath = ConfigurationManager.AppSettings["NotesDataPath"];
+
+        public List<Note> ReadNotes()
+        {
+            List<Note> notes = new List<Note>();
+
+            using (var reader = new StreamReader(NotesFilePath))
+            {
+                string line;
+                bool isFirstLine = true;
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (isFirstLine)
+                    {
+                        isFirstLine = false;
+                        continue; // Skip the header line
+                    }
+
+                    var fields = line.Split(',');
+                    var note = new Note
+                    {
+                        UserID = int.Parse(fields[0]),
+                        Date = DateTime.ParseExact(fields[1], "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                        Text = fields[2]
+                    };
+
+                    notes.Add(note);
+                }
+            }
+
+            return notes;
+        }
+
+        public void WriteNote(Note note)
+        {
+            using (var writer = new StreamWriter(NotesFilePath, append: true))
+            {
+                var line = $"{note.UserID},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
+                writer.WriteLine(line);
+            }
+        }
+
+        public void DeleteNote(Note noteToDelete)
+        {
+            var notes = ReadNotes();
+            var updatedNotes = new List<Note>();
+
+            foreach (var note in notes)
+            {
+                if (note.Date != noteToDelete.Date)
+                {
+                    updatedNotes.Add(note);
+                }
+            }
+
+            // Rewrite the CSV file with the updated list of notes
+            using (var writer = new StreamWriter(NotesFilePath, false))
+            {
+                writer.WriteLine("UserID,Date,Text"); // Rewrite the header line
+
+                foreach (var note in updatedNotes)
+                {
+                    var line = $"{note.UserID},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
+                    writer.WriteLine(line);
+                }
+            }
+        }
+
+
+
     }
 }
