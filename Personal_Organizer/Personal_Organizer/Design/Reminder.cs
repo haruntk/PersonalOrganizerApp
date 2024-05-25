@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personal_Organizer.Design;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Personal_Organizer
 {
     public partial class Reminder : Form
     {
+        bool sidebarExpand;
         public Reminder()
         {
             InitializeComponent();
@@ -99,7 +101,69 @@ namespace Personal_Organizer
 
         private void homebtn_Click(object sender, EventArgs e)
         {
+            AraYuz araYuz = new AraYuz();
+            araYuz.ShowDialog();
+            this.Hide();
+        }
 
+        private void addlistbtn_Click(object sender, EventArgs e)
+        {
+            AddList addList = new AddList();
+            addList.ShowDialog();
+        }
+
+        private void addreminderbtn_Click(object sender, EventArgs e)
+        {
+            AddReminder addReminder = new AddReminder();
+            addReminder.ShowDialog();
+            this.Hide();
+        }
+
+        private void personalinfobtn_Click(object sender, EventArgs e)
+        {
+            PersonalInformation personalInformation = new PersonalInformation();
+            personalInformation.ShowDialog();
+            this.Hide();
+        }
+
+        private void menubtn_Click(object sender, EventArgs e)
+        {
+            sidebartimer.Start();
+        }
+
+        private void sidebartimer_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                sidebarflowLayoutPanel.Width -= 10;
+                if (sidebarflowLayoutPanel.Width == sidebarflowLayoutPanel.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebartimer.Stop();
+                }
+            }
+            else
+            {
+                sidebarflowLayoutPanel.Width += 10;
+                if (sidebarflowLayoutPanel.Width == sidebarflowLayoutPanel.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebartimer.Stop();
+                }
+            }
+        }
+
+        private void Reminder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }
