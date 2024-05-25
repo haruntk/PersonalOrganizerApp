@@ -18,6 +18,7 @@ namespace Personal_Organizer
         public Kayıt()
         {
             InitializeComponent();
+            users = csvOperations.ReadAllUsers();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
