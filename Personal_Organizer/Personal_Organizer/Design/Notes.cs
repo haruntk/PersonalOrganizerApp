@@ -14,13 +14,20 @@ namespace Personal_Organizer
 {
     public partial class Notes : Form
     {
-
+        bool sidebarExpand;
         private CSVOperations CSVOperations;
+        private string originalUpdateText;
         public Notes()
         {
             InitializeComponent();
             CSVOperations = new CSVOperations();
             LoadNotesListBox();
+            updateNoteBtn.Visible = false;
+            noteTxt.Visible = false;
+            donebtn.Visible = false;
+            donebtn.Enabled = false;
+            updateTextBox.Visible = false;
+
         }
 
         private void Notes_FormClosing(object sender, FormClosingEventArgs e)
@@ -35,85 +42,7 @@ namespace Personal_Organizer
                 }
             }
         }
-        private void homebtn_MouseLeave(object sender, EventArgs e)
-        {
-            homebtn.BackColor = Color.Gold;
-        }
 
-        private void homebtn_MouseEnter(object sender, EventArgs e)
-        {
-            homebtn.BackColor = Color.Goldenrod;
-        }
-
-        private void personalinfobtn_MouseEnter(object sender, EventArgs e)
-        {
-            personalinfobtn.BackColor = Color.Goldenrod;
-        }
-
-        private void personalinfobtn_MouseLeave(object sender, EventArgs e)
-        {
-            personalinfobtn.BackColor = Color.Gold;
-        }
-
-        private void phonebookbtn_MouseEnter(object sender, EventArgs e)
-        {
-            phonebookbtn.BackColor = Color.Goldenrod;
-        }
-
-        private void phonebookbtn_MouseLeave(object sender, EventArgs e)
-        {
-            phonebookbtn.BackColor = Color.Gold;
-        }
-
-        private void notesbtn_MouseEnter(object sender, EventArgs e)
-        {
-            notesbtn.BackColor = Color.Goldenrod;
-        }
-
-        private void notesbtn_MouseLeave(object sender, EventArgs e)
-        {
-            notesbtn.BackColor = Color.Gold;
-        }
-
-        private void salarycalcbtn_MouseEnter(object sender, EventArgs e)
-        {
-            salarycalcbtn.BackColor = Color.Goldenrod;
-        }
-
-        private void salarycalcbtn_MouseLeave(object sender, EventArgs e)
-        {
-            salarycalcbtn.BackColor = Color.Gold;
-        }
-
-        private void reminderbtn_MouseEnter(object sender, EventArgs e)
-        {
-            reminderbtn.BackColor = Color.Goldenrod;
-        }
-
-        private void reminderbtn_MouseLeave(object sender, EventArgs e)
-        {
-            reminderbtn.BackColor = Color.Gold;
-        }
-
-        private void usermanagmentbtn_MouseEnter(object sender, EventArgs e)
-        {
-            usermanagmentbtn.BackColor = Color.Goldenrod;
-        }
-
-        private void usermanagmentbtn_MouseLeave(object sender, EventArgs e)
-        {
-            usermanagmentbtn.BackColor = Color.Gold;
-        }
-
-        private void logoutbtn_MouseEnter(object sender, EventArgs e)
-        {
-            logoutbtn.BackColor = Color.Goldenrod;
-        }
-
-        private void logoutbtn_MouseLeave(object sender, EventArgs e)
-        {
-            logoutbtn.BackColor = Color.Gold;
-        }
 
         private void LoadNotesListBox()
         {
@@ -131,28 +60,11 @@ namespace Personal_Organizer
         }
         private void addNote_Click(object sender, EventArgs e)
         {
-            string text = noteTxt.Text.Trim();
-
-            if (!string.IsNullOrEmpty(text))
-            {
-                // Create a Note object
-                Note note = new Note
-                {
-                    UserID = 1, // Assuming UserID is fixed for now
-                    Date = DateTime.Now,
-                    Text = text
-                };
-
-                // Write the note to CSV
-                CSVOperations.WriteNote(note);
-
-                // Refresh the notesListBox
-                LoadNotesListBox();
-            }
-            else
-            {
-                MessageBox.Show("Please enter a note text.");
-            }
+            noteTxt.Visible=true;
+            noteTxt.Clear();
+            donebtn.Visible=true;
+            updateTextBox.Visible=false;
+            updateNoteBtn.Visible=false;
         }
         private void deleteNote_Click(object sender, EventArgs e)
         {
@@ -214,6 +126,7 @@ namespace Personal_Organizer
 
                     // Clear the updateTextBox
                     updateTextBox.Clear();
+                    updateNoteBtn.Enabled = false;
                 }
                 else
                 {
@@ -224,6 +137,7 @@ namespace Personal_Organizer
             {
                 MessageBox.Show("Please select a note to update.");
             }
+            
         }
 
         private void notesListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,7 +145,181 @@ namespace Personal_Organizer
             // Get the selected note details
             string selectedItem = notesListBox.SelectedItem.ToString();
             string[] parts = selectedItem.Split(',');
+            updateNoteBtn.Visible = true;
+            updateTextBox.Visible = true;
             updateTextBox.Text = parts[2];
+            originalUpdateText = parts[2];
+            updateNoteBtn.Enabled = false;
+        }
+
+        private void homebtn_MouseEnter(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.Goldenrod;
+        }
+
+        private void homebtn_MouseLeave(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.Gold;
+        }
+
+        private void personalinfobtn_MouseEnter(object sender, EventArgs e)
+        {
+            personalinfobtn.BackColor = Color.Goldenrod;
+        }
+
+        private void personalinfobtn_MouseLeave(object sender, EventArgs e)
+        {
+            personalinfobtn.BackColor = Color.Gold;
+        }
+
+        private void phonebookbtn_MouseEnter(object sender, EventArgs e)
+        {
+            phonebookbtn.BackColor = Color.Goldenrod;
+        }
+
+        private void phonebookbtn_MouseLeave(object sender, EventArgs e)
+        {
+            phonebookbtn.BackColor = Color.Gold;
+        }
+
+        private void notesbtn_MouseEnter(object sender, EventArgs e)
+        {
+            notesbtn.BackColor = Color.Goldenrod;
+        }
+
+        private void notesbtn_MouseLeave(object sender, EventArgs e)
+        {
+            notesbtn.BackColor = Color.Gold;
+        }
+
+        private void salarycalcbtn_MouseEnter(object sender, EventArgs e)
+        {
+            salarycalcbtn.BackColor = Color.Goldenrod;
+        }
+
+        private void salarycalcbtn_MouseLeave(object sender, EventArgs e)
+        {
+            salarycalcbtn.BackColor = Color.Gold;
+        }
+
+        private void reminderbtn_MouseLeave(object sender, EventArgs e)
+        {
+            reminderbtn.BackColor = Color.Gold;
+        }
+
+        private void reminderbtn_MouseEnter(object sender, EventArgs e)
+        {
+            reminderbtn.BackColor = Color.Goldenrod;
+        }
+
+        private void usermanagmentbtn_MouseEnter(object sender, EventArgs e)
+        {
+            usermanagmentbtn.BackColor = Color.Goldenrod;
+        }
+
+        private void usermanagmentbtn_MouseLeave(object sender, EventArgs e)
+        {
+            usermanagmentbtn.BackColor = Color.Gold;
+        }
+
+        private void logoutbtn_MouseEnter(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor = Color.Goldenrod;
+        }
+
+        private void logoutbtn_MouseLeave(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor = Color.Gold;
+        }
+
+        private void menubtn_Click(object sender, EventArgs e)
+        {
+            sidebartimer.Start();
+        }
+
+        private void sidebartimer_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                sidebarflowLayoutPanel.Width -= 10;
+                if (sidebarflowLayoutPanel.Width == sidebarflowLayoutPanel.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebartimer.Stop();
+                }
+            }
+            else
+            {
+                sidebarflowLayoutPanel.Width += 10;
+                if (sidebarflowLayoutPanel.Width == sidebarflowLayoutPanel.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebartimer.Stop();
+                }
+            }
+        }
+
+        private void donebtn_Click(object sender, EventArgs e)
+        {
+            string text = noteTxt.Text.Trim();
+
+            if (!string.IsNullOrEmpty(text))
+            {
+                // Create a Note object
+                Note note = new Note
+                {
+                    UserID = 1, // Assuming UserID is fixed for now
+                    Date = DateTime.Now,
+                    Text = text
+                };
+
+                // Write the note to CSV
+                CSVOperations.WriteNote(note);
+
+                // Refresh the notesListBox
+                LoadNotesListBox();
+                noteTxt.Visible = false;
+                donebtn.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Please enter a note text.");
+            }
+        }
+
+        private void noteTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (noteTxt.Text.Length > 0)
+            {
+                donebtn.Enabled = true;
+            }
+        }
+
+        private void updateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            updateNoteBtn.Enabled = updateTextBox.Text != originalUpdateText;
+
+        }
+
+        private void homebtn_Click(object sender, EventArgs e)
+        {
+            AraYuz arayuz = new AraYuz();
+            arayuz.Show();
+            this.Hide();
+        }
+
+        private void personalinfobtn_Click(object sender, EventArgs e)
+        {
+            PersonalInformation personalInformation = new PersonalInformation();
+            personalInformation.Show();
+            this.Hide();
+        }
+
+        private void reminderbtn_Click(object sender, EventArgs e)
+        {
+            Reminder reminder = new Reminder();
+            reminder.Show();
+            this.Hide();
         }
     }
 }
