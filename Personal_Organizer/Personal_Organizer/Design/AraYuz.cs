@@ -56,5 +56,13 @@ namespace Personal_Organizer
             notes.ShowDialog();
             this.Hide();
         }
+
+        private void btnPhone_Click(object sender, EventArgs e)
+        {
+            Phonebook phonebook = new Phonebook();
+            phonebook.ShowDialog();
+            this.Hide();
+        }
+
     }
 }
