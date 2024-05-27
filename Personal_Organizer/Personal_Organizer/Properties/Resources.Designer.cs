@@ -65,7 +65,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap address_book {
             get {
-                object obj = ResourceManager.GetObject("address-book", resourceCulture);
+                object obj = ResourceManager.GetObject("address_book", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +85,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap circle_user {
             get {
-                object obj = ResourceManager.GetObject("circle-user", resourceCulture);
+                object obj = ResourceManager.GetObject("circle_user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,7 +95,27 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap circle_user1 {
             get {
-                object obj = ResourceManager.GetObject("circle-user1", resourceCulture);
+                object obj = ResourceManager.GetObject("circle_user1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clipart2598735 {
+            get {
+                object obj = ResourceManager.GetObject("clipart2598735", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -145,7 +165,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap laptop_8770486_1280 {
             get {
-                object obj = ResourceManager.GetObject("laptop-8770486_1280", resourceCulture);
+                object obj = ResourceManager.GetObject("laptop_8770486_1280", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -155,7 +175,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap list_check {
             get {
-                object obj = ResourceManager.GetObject("list-check", resourceCulture);
+                object obj = ResourceManager.GetObject("list_check", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -175,7 +195,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap man_8702916_1280 {
             get {
-                object obj = ResourceManager.GetObject("man-8702916_1280", resourceCulture);
+                object obj = ResourceManager.GetObject("man_8702916_1280", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -185,7 +205,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap meeting_alt {
             get {
-                object obj = ResourceManager.GetObject("meeting-alt", resourceCulture);
+                object obj = ResourceManager.GetObject("meeting_alt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -195,7 +215,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap menu_burger {
             get {
-                object obj = ResourceManager.GetObject("menu-burger", resourceCulture);
+                object obj = ResourceManager.GetObject("menu_burger", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -215,7 +235,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap note_sticky {
             get {
-                object obj = ResourceManager.GetObject("note-sticky", resourceCulture);
+                object obj = ResourceManager.GetObject("note_sticky", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +246,16 @@ namespace Personal_Organizer.Properties {
         internal static System.Drawing.Bitmap note2 {
             get {
                 object obj = ResourceManager.GetObject("note2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash1 {
+            get {
+                object obj = ResourceManager.GetObject("trash1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -255,7 +285,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap user_add {
             get {
-                object obj = ResourceManager.GetObject("user-add", resourceCulture);
+                object obj = ResourceManager.GetObject("user_add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -265,7 +295,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap user_add1 {
             get {
-                object obj = ResourceManager.GetObject("user-add1", resourceCulture);
+                object obj = ResourceManager.GetObject("user_add1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -275,7 +305,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap user_gear {
             get {
-                object obj = ResourceManager.GetObject("user-gear", resourceCulture);
+                object obj = ResourceManager.GetObject("user_gear", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -285,7 +315,7 @@ namespace Personal_Organizer.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap user_salary {
             get {
-                object obj = ResourceManager.GetObject("user-salary", resourceCulture);
+                object obj = ResourceManager.GetObject("user_salary", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

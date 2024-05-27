@@ -288,7 +288,6 @@
             // 
             this.deleteNoteBtn.FlatAppearance.BorderSize = 0;
             this.deleteNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteNoteBtn.Image = global::Personal_Organizer.Properties.Resources.trash;
             this.deleteNoteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.deleteNoteBtn.Location = new System.Drawing.Point(704, 105);
             this.deleteNoteBtn.Name = "deleteNoteBtn";
@@ -305,7 +304,6 @@
             this.addNoteBtn.FlatAppearance.BorderSize = 0;
             this.addNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addNoteBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNoteBtn.Image = global::Personal_Organizer.Properties.Resources.edit;
             this.addNoteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.addNoteBtn.Location = new System.Drawing.Point(794, 104);
             this.addNoteBtn.Name = "addNoteBtn";

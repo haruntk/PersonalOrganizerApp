@@ -312,7 +312,7 @@
             // 
             // deleteContactbtn
             // 
-            this.deleteContactbtn.Image = global::Personal_Organizer.Properties.Resources.trash2;
+            this.deleteContactbtn.Image = global::Personal_Organizer.Properties.Resources.trash1;
             this.deleteContactbtn.Location = new System.Drawing.Point(1081, 166);
             this.deleteContactbtn.Name = "deleteContactbtn";
             this.deleteContactbtn.Size = new System.Drawing.Size(59, 55);
