@@ -15,6 +15,7 @@ namespace Personal_Organizer
         public AraYuz()
         {
             InitializeComponent();
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void AraYuz_Load(object sender, EventArgs e)

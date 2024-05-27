@@ -1,6 +1,6 @@
-﻿namespace Personal_Organizer
+﻿namespace Personal_Organizer.Design
 {
-    partial class PersonalInformation
+    partial class SalaryCalculator
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.nametxt = new System.Windows.Forms.TextBox();
-            this.emailtxt = new System.Windows.Forms.TextBox();
-            this.passwordtxt = new System.Windows.Forms.TextBox();
-            this.surnametxt = new System.Windows.Forms.TextBox();
-            this.phonenumbertxt = new System.Windows.Forms.TextBox();
-            this.adresstxt = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.sidebarflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,10 +49,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.logoutbtn = new System.Windows.Forms.Button();
-            this.savebtn = new Personal_Organizer.RoundedButton();
-            this.sidebartimer = new System.Windows.Forms.Timer(this.components);
-            this.circularPicture3 = new Personal_Organizer.CircularPicture();
-            this.circularPicture2 = new Personal_Organizer.CircularPicture();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
@@ -77,146 +60,11 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPicture3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // nametxt
-            // 
-            this.nametxt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.nametxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nametxt.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nametxt.Location = new System.Drawing.Point(272, 237);
-            this.nametxt.Name = "nametxt";
-            this.nametxt.Size = new System.Drawing.Size(209, 22);
-            this.nametxt.TabIndex = 4;
-            // 
-            // emailtxt
-            // 
-            this.emailtxt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.emailtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailtxt.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.emailtxt.Location = new System.Drawing.Point(272, 301);
-            this.emailtxt.Name = "emailtxt";
-            this.emailtxt.Size = new System.Drawing.Size(209, 22);
-            this.emailtxt.TabIndex = 5;
-            // 
-            // passwordtxt
-            // 
-            this.passwordtxt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.passwordtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordtxt.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.passwordtxt.Location = new System.Drawing.Point(272, 375);
-            this.passwordtxt.Name = "passwordtxt";
-            this.passwordtxt.Size = new System.Drawing.Size(209, 22);
-            this.passwordtxt.TabIndex = 6;
-            // 
-            // surnametxt
-            // 
-            this.surnametxt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.surnametxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.surnametxt.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.surnametxt.Location = new System.Drawing.Point(592, 237);
-            this.surnametxt.Name = "surnametxt";
-            this.surnametxt.Size = new System.Drawing.Size(209, 22);
-            this.surnametxt.TabIndex = 7;
-            // 
-            // phonenumbertxt
-            // 
-            this.phonenumbertxt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.phonenumbertxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.phonenumbertxt.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.phonenumbertxt.Location = new System.Drawing.Point(592, 301);
-            this.phonenumbertxt.Name = "phonenumbertxt";
-            this.phonenumbertxt.Size = new System.Drawing.Size(209, 22);
-            this.phonenumbertxt.TabIndex = 8;
-            // 
-            // adresstxt
-            // 
-            this.adresstxt.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.adresstxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.adresstxt.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.adresstxt.Location = new System.Drawing.Point(592, 375);
-            this.adresstxt.Multiline = true;
-            this.adresstxt.Name = "adresstxt";
-            this.adresstxt.Size = new System.Drawing.Size(209, 27);
-            this.adresstxt.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(274, 212);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 17);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(274, 276);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 17);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "E-mail";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(589, 212);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 17);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Surname";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(589, 276);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 17);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Phone Number";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(274, 350);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 17);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Password";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label6.Location = new System.Drawing.Point(589, 350);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 17);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Adress";
             // 
             // sidebarflowLayoutPanel
             // 
-            this.sidebarflowLayoutPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.sidebarflowLayoutPanel.BackColor = System.Drawing.Color.MediumPurple;
             this.sidebarflowLayoutPanel.Controls.Add(this.panel1);
             this.sidebarflowLayoutPanel.Controls.Add(this.panel2);
             this.sidebarflowLayoutPanel.Controls.Add(this.panel3);
@@ -235,10 +83,11 @@
             this.sidebarflowLayoutPanel.MinimumSize = new System.Drawing.Size(62, 522);
             this.sidebarflowLayoutPanel.Name = "sidebarflowLayoutPanel";
             this.sidebarflowLayoutPanel.Size = new System.Drawing.Size(181, 522);
-            this.sidebarflowLayoutPanel.TabIndex = 17;
+            this.sidebarflowLayoutPanel.TabIndex = 18;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.MediumPurple;
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.menubtn);
             this.panel1.Location = new System.Drawing.Point(2, 2);
@@ -267,7 +116,6 @@
             this.menubtn.Size = new System.Drawing.Size(28, 28);
             this.menubtn.TabIndex = 18;
             this.menubtn.TabStop = false;
-            this.menubtn.Click += new System.EventHandler(this.menubtn_Click);
             // 
             // panel2
             // 
@@ -280,7 +128,7 @@
             // 
             // homebtn
             // 
-            this.homebtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.homebtn.BackColor = System.Drawing.Color.MediumPurple;
             this.homebtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.homebtn.Image = global::Personal_Organizer.Properties.Resources.home;
             this.homebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -306,7 +154,7 @@
             // 
             // personalinfobtn
             // 
-            this.personalinfobtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.personalinfobtn.BackColor = System.Drawing.Color.MediumPurple;
             this.personalinfobtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.personalinfobtn.Image = global::Personal_Organizer.Properties.Resources.user;
             this.personalinfobtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -314,11 +162,12 @@
             this.personalinfobtn.Margin = new System.Windows.Forms.Padding(2);
             this.personalinfobtn.Name = "personalinfobtn";
             this.personalinfobtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.personalinfobtn.Size = new System.Drawing.Size(193, 56);
+            this.personalinfobtn.Size = new System.Drawing.Size(203, 56);
             this.personalinfobtn.TabIndex = 23;
             this.personalinfobtn.Text = "            Personal Info";
             this.personalinfobtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.personalinfobtn.UseVisualStyleBackColor = false;
+            this.personalinfobtn.Click += new System.EventHandler(this.personalinfobtn_Click);
             // 
             // panel4
             // 
@@ -331,7 +180,7 @@
             // 
             // phonebookbtn
             // 
-            this.phonebookbtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.phonebookbtn.BackColor = System.Drawing.Color.MediumPurple;
             this.phonebookbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.phonebookbtn.Image = global::Personal_Organizer.Properties.Resources.address_book;
             this.phonebookbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -344,6 +193,7 @@
             this.phonebookbtn.Text = "             Phone Book";
             this.phonebookbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.phonebookbtn.UseVisualStyleBackColor = false;
+            this.phonebookbtn.Click += new System.EventHandler(this.phonebookbtn_Click);
             // 
             // panel5
             // 
@@ -356,7 +206,7 @@
             // 
             // notesbtn
             // 
-            this.notesbtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.notesbtn.BackColor = System.Drawing.Color.MediumPurple;
             this.notesbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.notesbtn.Image = global::Personal_Organizer.Properties.Resources.note_sticky;
             this.notesbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -369,6 +219,7 @@
             this.notesbtn.Text = "             Notes";
             this.notesbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.notesbtn.UseVisualStyleBackColor = false;
+            this.notesbtn.Click += new System.EventHandler(this.notesbtn_Click);
             // 
             // panel6
             // 
@@ -381,7 +232,7 @@
             // 
             // salarycalcbtn
             // 
-            this.salarycalcbtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.salarycalcbtn.BackColor = System.Drawing.Color.MediumPurple;
             this.salarycalcbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.salarycalcbtn.Image = global::Personal_Organizer.Properties.Resources.user_salary;
             this.salarycalcbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -389,7 +240,7 @@
             this.salarycalcbtn.Margin = new System.Windows.Forms.Padding(2);
             this.salarycalcbtn.Name = "salarycalcbtn";
             this.salarycalcbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.salarycalcbtn.Size = new System.Drawing.Size(205, 69);
+            this.salarycalcbtn.Size = new System.Drawing.Size(193, 69);
             this.salarycalcbtn.TabIndex = 26;
             this.salarycalcbtn.Text = "             Salary Calculator";
             this.salarycalcbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -406,7 +257,7 @@
             // 
             // reminderbtn
             // 
-            this.reminderbtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.reminderbtn.BackColor = System.Drawing.Color.MediumPurple;
             this.reminderbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.reminderbtn.Image = global::Personal_Organizer.Properties.Resources.note;
             this.reminderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -419,6 +270,7 @@
             this.reminderbtn.Text = "             Reminder";
             this.reminderbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reminderbtn.UseVisualStyleBackColor = false;
+            this.reminderbtn.Click += new System.EventHandler(this.reminderbtn_Click);
             // 
             // panel8
             // 
@@ -431,7 +283,7 @@
             // 
             // usermanagmentbtn
             // 
-            this.usermanagmentbtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.usermanagmentbtn.BackColor = System.Drawing.Color.MediumPurple;
             this.usermanagmentbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.usermanagmentbtn.Image = global::Personal_Organizer.Properties.Resources.user_gear;
             this.usermanagmentbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -444,13 +296,15 @@
             this.usermanagmentbtn.Text = "             User Managment";
             this.usermanagmentbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.usermanagmentbtn.UseVisualStyleBackColor = false;
+            this.usermanagmentbtn.Click += new System.EventHandler(this.usermanagmentbtn_Click);
             // 
             // panel9
             // 
+            this.panel9.BackColor = System.Drawing.Color.MediumPurple;
             this.panel9.Location = new System.Drawing.Point(2, 420);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(180, 18);
+            this.panel9.Size = new System.Drawing.Size(179, 18);
             this.panel9.TabIndex = 23;
             // 
             // panel20
@@ -464,7 +318,7 @@
             // 
             // logoutbtn
             // 
-            this.logoutbtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.logoutbtn.BackColor = System.Drawing.Color.MediumPurple;
             this.logoutbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.logoutbtn.Image = global::Personal_Organizer.Properties.Resources.exit;
             this.logoutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -477,70 +331,16 @@
             this.logoutbtn.Text = "             Log out";
             this.logoutbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logoutbtn.UseVisualStyleBackColor = false;
+            this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
             // 
-            // savebtn
-            // 
-            this.savebtn.BackColor = System.Drawing.Color.SteelBlue;
-            this.savebtn.FlatAppearance.BorderSize = 0;
-            this.savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebtn.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.savebtn.ForeColor = System.Drawing.Color.White;
-            this.savebtn.Location = new System.Drawing.Point(272, 432);
-            this.savebtn.Margin = new System.Windows.Forms.Padding(2);
-            this.savebtn.Name = "savebtn";
-            this.savebtn.Size = new System.Drawing.Size(130, 43);
-            this.savebtn.TabIndex = 18;
-            this.savebtn.Text = "Save";
-            this.savebtn.UseVisualStyleBackColor = false;
-            // 
-            // sidebartimer
-            // 
-            this.sidebartimer.Interval = 7;
-            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
-            // 
-            // circularPicture3
-            // 
-            this.circularPicture3.Location = new System.Drawing.Point(358, 51);
-            this.circularPicture3.Name = "circularPicture3";
-            this.circularPicture3.Size = new System.Drawing.Size(44, 46);
-            this.circularPicture3.TabIndex = 3;
-            this.circularPicture3.TabStop = false;
-            // 
-            // circularPicture2
-            // 
-            this.circularPicture2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.circularPicture2.Location = new System.Drawing.Point(260, 56);
-            this.circularPicture2.Name = "circularPicture2";
-            this.circularPicture2.Size = new System.Drawing.Size(142, 136);
-            this.circularPicture2.TabIndex = 2;
-            this.circularPicture2.TabStop = false;
-            // 
-            // PersonalInformation
+            // SalaryCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(938, 522);
-            this.Controls.Add(this.savebtn);
+            this.ClientSize = new System.Drawing.Size(800, 501);
             this.Controls.Add(this.sidebarflowLayoutPanel);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.adresstxt);
-            this.Controls.Add(this.phonenumbertxt);
-            this.Controls.Add(this.surnametxt);
-            this.Controls.Add(this.passwordtxt);
-            this.Controls.Add(this.emailtxt);
-            this.Controls.Add(this.nametxt);
-            this.Controls.Add(this.circularPicture3);
-            this.Controls.Add(this.circularPicture2);
-            this.Name = "PersonalInformation";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PersonalInformation";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PersonalInformation_FormClosing);
+            this.Name = "SalaryCalculator";
+            this.Text = "SalaryCalculator";
             this.sidebarflowLayoutPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -553,48 +353,30 @@
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.circularPicture3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private CircularPicture circularPicture2;
-        private CircularPicture circularPicture3;
-        private System.Windows.Forms.TextBox nametxt;
-        private System.Windows.Forms.TextBox emailtxt;
-        private System.Windows.Forms.TextBox passwordtxt;
-        private System.Windows.Forms.TextBox surnametxt;
-        private System.Windows.Forms.TextBox phonenumbertxt;
-        private System.Windows.Forms.TextBox adresstxt;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+
         private System.Windows.Forms.FlowLayoutPanel sidebarflowLayoutPanel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button homebtn;
-        private System.Windows.Forms.Button personalinfobtn;
-        private System.Windows.Forms.Button phonebookbtn;
-        private System.Windows.Forms.Button notesbtn;
-        private System.Windows.Forms.Button salarycalcbtn;
-        private System.Windows.Forms.Button reminderbtn;
-        private System.Windows.Forms.Button usermanagmentbtn;
-        private System.Windows.Forms.PictureBox menubtn;
         private System.Windows.Forms.Label label7;
-        private RoundedButton savebtn;
-        private System.Windows.Forms.Timer sidebartimer;
+        private System.Windows.Forms.PictureBox menubtn;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button homebtn;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button personalinfobtn;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button phonebookbtn;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button notesbtn;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button salarycalcbtn;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button reminderbtn;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button usermanagmentbtn;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button logoutbtn;
