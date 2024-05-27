@@ -15,6 +15,7 @@ namespace Personal_Organizer
         public AraYuz()
         {
             InitializeComponent();
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void AraYuz_Load(object sender, EventArgs e)
@@ -55,5 +56,13 @@ namespace Personal_Organizer
             notes.ShowDialog();
             this.Hide();
         }
+
+        private void btnPhone_Click(object sender, EventArgs e)
+        {
+            Phonebook phonebook = new Phonebook();
+            phonebook.ShowDialog();
+            this.Hide();
+        }
+
     }
 }
