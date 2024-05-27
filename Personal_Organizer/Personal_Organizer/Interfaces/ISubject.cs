@@ -10,6 +10,6 @@ namespace Personal_Organizer.Interfaces
     {
         void Attach(IObserver observer);
         void Detach(IObserver observer);
-        void Notify();
+        void Notify(Reminder reminder);
     }
 }

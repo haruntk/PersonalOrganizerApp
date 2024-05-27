@@ -1,4 +1,6 @@
 ﻿using Personal_Organizer.Design;
+using Personal_Organizer.Factories;
+using Personal_Organizer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,9 @@ namespace Personal_Organizer
     public partial class Reminder : Form
     {
         bool sidebarExpand;
+        List<IReminder> reminders = new List<IReminder>();
+        MeetingReminderFactory meetingFactory = new MeetingReminderFactory();
+        TaskReminderFactory taskFactory = new TaskReminderFactory();
         public Reminder()
         {
             InitializeComponent();
@@ -115,8 +120,18 @@ namespace Personal_Organizer
         private void addreminderbtn_Click(object sender, EventArgs e)
         {
             AddReminder addReminder = new AddReminder();
-            addReminder.ShowDialog();
-            this.Hide();
+           if(addReminder.ShowDialog() == DialogResult.OK)
+            {
+                if(addReminder.ReminderType == "meeting")
+                {
+                    reminders.Add(meetingFactory.CreateReminder(addReminder.ReminderDate, addReminder.ReminderTime, addReminder.Title, addReminder.Description, addReminder.Summary));
+                }
+                foreach (IReminder reminder in reminders) {
+                    string str = reminder.ToString();
+                    reminderListBox.Items.Add(str);
+                }
+            }
+
         }
 
         private void personalinfobtn_Click(object sender, EventArgs e)

@@ -11,7 +11,9 @@ namespace Personal_Organizer.Models
     {
         DateTime Date { get; set;}
         TimeSpan Time { get;set;}
+        string Title { get; set; }
         string Summary { get; set; }
         string Description { get; set; }
+        
     }
 }

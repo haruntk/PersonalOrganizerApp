@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,12 @@ namespace Personal_Organizer.Design
 {
     public partial class AddReminder : Form
     {
-
+        public DateTime ReminderDate { get; set; }
+        public TimeSpan ReminderTime { get; set; }
+        public string Summary { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string ReminderType { get; set; }
         public AddReminder()
         {
             InitializeComponent();
@@ -26,14 +32,26 @@ namespace Personal_Organizer.Design
             bool fieldsFilled = titletextbox.Text.Length > 0 &&
                                 descriptiontextbox.Text.Length > 0 &&
                                 summarytextbox.Text.Length > 0 &&
-            dateTimePicker1.Value != null &&
+            datePicker.Value != null &&
             (meetingradiobtn.Checked || taskradiobtn.Checked); 
             addbtn.Enabled = fieldsFilled;
         }
 
         private void addbtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            ReminderDate = datePicker.Value.Date;
+            ReminderTime = timePicker.Value.TimeOfDay;
+            Summary = summarytextbox.Text;
+            Title = titletextbox.Text;
+            Description = descriptiontextbox.Text;
+            if (meetingradiobtn.Checked)
+            {
+                ReminderType = "meeting";
+            }
+            else
+                ReminderType = "task";
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void titletextbox_TextChanged(object sender, EventArgs e)

@@ -9,6 +9,6 @@ namespace Personal_Organizer.Factories
 {
     public interface IReminderFactory
     {
-        IReminder CreateReminder();
+        IReminder CreateReminder(DateTime date, TimeSpan time, string title, string description, string summary);
     }
 }

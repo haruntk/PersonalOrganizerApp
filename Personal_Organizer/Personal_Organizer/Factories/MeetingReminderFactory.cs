@@ -9,9 +9,9 @@ namespace Personal_Organizer.Factories
 {
     public class MeetingReminderFactory : IReminderFactory
     {
-        public IReminder CreateReminder()
+        public IReminder CreateReminder(DateTime date, TimeSpan time, string title, string description, string summary)
         {
-            return new MeetingReminder();
+            return new MeetingReminder(date, time, title, description, summary);
         }
     }
 }

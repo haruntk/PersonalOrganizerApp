@@ -8,6 +8,6 @@ namespace Personal_Organizer.Interfaces
 {
     public interface IObserver
     {
-        void Shake();
+        void Shake(ISubject subject, Reminder reminder);
     }
 }
