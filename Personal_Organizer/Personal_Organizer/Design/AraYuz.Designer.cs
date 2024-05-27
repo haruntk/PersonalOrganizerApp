@@ -50,7 +50,7 @@
             // 
             this.lblAd.AutoSize = true;
             this.lblAd.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblAd.Location = new System.Drawing.Point(1586, 65);
+            this.lblAd.Location = new System.Drawing.Point(1617, 65);
             this.lblAd.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblAd.Name = "lblAd";
             this.lblAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -64,7 +64,7 @@
             this.lblMarka.AutoSize = true;
             this.lblMarka.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblMarka.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblMarka.Location = new System.Drawing.Point(24, 18);
+            this.lblMarka.Location = new System.Drawing.Point(65, 42);
             this.lblMarka.Name = "lblMarka";
             this.lblMarka.Size = new System.Drawing.Size(417, 54);
             this.lblMarka.TabIndex = 17;
@@ -75,7 +75,7 @@
             // 
             this.lblCıkıs.AutoSize = true;
             this.lblCıkıs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCıkıs.Location = new System.Drawing.Point(843, 490);
+            this.lblCıkıs.Location = new System.Drawing.Point(1735, 860);
             this.lblCıkıs.Name = "lblCıkıs";
             this.lblCıkıs.Size = new System.Drawing.Size(110, 30);
             this.lblCıkıs.TabIndex = 18;
@@ -87,19 +87,9 @@
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(6);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1888, 137);
+            this.splitter1.Size = new System.Drawing.Size(1894, 137);
             this.splitter1.TabIndex = 13;
             this.splitter1.TabStop = false;
-            // 
-            // circularPicture1
-            // 
-            this.circularPicture1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.circularPicture1.Location = new System.Drawing.Point(1732, 44);
-            this.circularPicture1.Margin = new System.Windows.Forms.Padding(6);
-            this.circularPicture1.Name = "circularPicture1";
-            this.circularPicture1.Size = new System.Drawing.Size(58, 58);
-            this.circularPicture1.TabIndex = 15;
-            this.circularPicture1.TabStop = false;
             // 
             // rdnManagement
             // 
@@ -108,9 +98,9 @@
             this.rdnManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rdnManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdnManagement.ForeColor = System.Drawing.Color.White;
-            this.rdnManagement.Location = new System.Drawing.Point(585, 234);
+            this.rdnManagement.Location = new System.Drawing.Point(1353, 386);
             this.rdnManagement.Name = "rdnManagement";
-            this.rdnManagement.Size = new System.Drawing.Size(318, 67);
+            this.rdnManagement.Size = new System.Drawing.Size(397, 117);
             this.rdnManagement.TabIndex = 12;
             this.rdnManagement.Text = "User Management";
             this.rdnManagement.UseVisualStyleBackColor = false;
@@ -122,9 +112,9 @@
             this.btnReminder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnReminder.ForeColor = System.Drawing.Color.White;
-            this.btnReminder.Location = new System.Drawing.Point(255, 369);
+            this.btnReminder.Location = new System.Drawing.Point(102, 557);
             this.btnReminder.Name = "btnReminder";
-            this.btnReminder.Size = new System.Drawing.Size(284, 235);
+            this.btnReminder.Size = new System.Drawing.Size(397, 273);
             this.btnReminder.TabIndex = 11;
             this.btnReminder.Text = "Reminder";
             this.btnReminder.UseVisualStyleBackColor = false;
@@ -137,9 +127,9 @@
             this.btnSalary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSalary.ForeColor = System.Drawing.Color.White;
-            this.btnSalary.Location = new System.Drawing.Point(459, 369);
+            this.btnSalary.Location = new System.Drawing.Point(935, 557);
             this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(284, 235);
+            this.btnSalary.Size = new System.Drawing.Size(397, 273);
             this.btnSalary.TabIndex = 10;
             this.btnSalary.Text = "Salary Calculator";
             this.btnSalary.UseVisualStyleBackColor = false;
@@ -151,9 +141,9 @@
             this.btnNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNotes.ForeColor = System.Drawing.Color.White;
-            this.btnNotes.Location = new System.Drawing.Point(661, 369);
+            this.btnNotes.Location = new System.Drawing.Point(1353, 557);
             this.btnNotes.Name = "btnNotes";
-            this.btnNotes.Size = new System.Drawing.Size(284, 235);
+            this.btnNotes.Size = new System.Drawing.Size(397, 273);
             this.btnNotes.TabIndex = 9;
             this.btnNotes.Text = "Notes";
             this.btnNotes.UseVisualStyleBackColor = false;
@@ -166,9 +156,9 @@
             this.btnPhone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPhone.ForeColor = System.Drawing.Color.White;
-            this.btnPhone.Location = new System.Drawing.Point(61, 369);
+            this.btnPhone.Location = new System.Drawing.Point(517, 557);
             this.btnPhone.Name = "btnPhone";
-            this.btnPhone.Size = new System.Drawing.Size(284, 235);
+            this.btnPhone.Size = new System.Drawing.Size(397, 273);
             this.btnPhone.TabIndex = 8;
             this.btnPhone.Text = "Phone Book";
             this.btnPhone.UseVisualStyleBackColor = false;
@@ -181,9 +171,9 @@
             this.btnPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPersonal.ForeColor = System.Drawing.Color.White;
-            this.btnPersonal.Location = new System.Drawing.Point(585, 125);
+            this.btnPersonal.Location = new System.Drawing.Point(1353, 252);
             this.btnPersonal.Name = "btnPersonal";
-            this.btnPersonal.Size = new System.Drawing.Size(318, 67);
+            this.btnPersonal.Size = new System.Drawing.Size(397, 110);
             this.btnPersonal.TabIndex = 7;
             this.btnPersonal.Text = "Personal Information";
             this.btnPersonal.UseVisualStyleBackColor = false;
@@ -196,9 +186,9 @@
             this.roundedButton1.FlatAppearance.BorderSize = 0;
             this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButton1.ForeColor = System.Drawing.Color.Yellow;
-            this.roundedButton1.Location = new System.Drawing.Point(39, 104);
+            this.roundedButton1.Location = new System.Drawing.Point(102, 228);
             this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(525, 232);
+            this.roundedButton1.Size = new System.Drawing.Size(1230, 275);
             this.roundedButton1.TabIndex = 19;
             this.roundedButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.roundedButton1.UseVisualStyleBackColor = false;
@@ -206,11 +196,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.BackColor = System.Drawing.Color.PaleTurquoise;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(67, 141);
+            this.label1.Location = new System.Drawing.Point(163, 274);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(284, 29);
+            this.label1.Size = new System.Drawing.Size(533, 55);
             this.label1.TabIndex = 21;
             this.label1.Text = "Welcome,Kullanıcı ismi";
             // 
@@ -218,16 +208,17 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.PaleTurquoise;
             this.pictureBox1.Image = global::Personal_Organizer.Properties.Resources.clipart2598735;
-            this.pictureBox1.Location = new System.Drawing.Point(373, 141);
+            this.pictureBox1.Location = new System.Drawing.Point(912, 236);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(166, 160);
+            this.pictureBox1.Size = new System.Drawing.Size(342, 234);
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
             // circularPicture1
             // 
             this.circularPicture1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.circularPicture1.Location = new System.Drawing.Point(866, 23);
+            this.circularPicture1.Location = new System.Drawing.Point(1777, 59);
+            this.circularPicture1.Margin = new System.Windows.Forms.Padding(6);
             this.circularPicture1.Name = "circularPicture1";
             this.circularPicture1.Size = new System.Drawing.Size(29, 30);
             this.circularPicture1.TabIndex = 15;
@@ -238,7 +229,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(944, 536);
+            this.ClientSize = new System.Drawing.Size(1894, 926);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.roundedButton1);
@@ -258,7 +249,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AraYuz";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AraYuz_FormClosing);
-            this.Load += new System.EventHandler(this.AraYuz_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPicture1)).EndInit();
             this.ResumeLayout(false);

@@ -18,10 +18,6 @@ namespace Personal_Organizer
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
-        private void AraYuz_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         private void btnPersonal_Click(object sender, EventArgs e)
         {
