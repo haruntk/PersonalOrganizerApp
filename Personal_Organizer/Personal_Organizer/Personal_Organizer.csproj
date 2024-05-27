@@ -191,9 +191,7 @@
   <ItemGroup>
     <None Include="Resources\wirte.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\meeting-alt.png" />
   </ItemGroup>
@@ -208,6 +206,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\note2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
