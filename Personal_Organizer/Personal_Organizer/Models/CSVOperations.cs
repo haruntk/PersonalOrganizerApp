@@ -6,14 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Globalization;
+using static System.Windows.Forms.LinkLabel;
 
 
 namespace Personal_Organizer.Models
 {
     public class CSVOperations
     {
-        //FilePath'i kendinizin path'ini yazın.
         private string FilePath = ConfigurationManager.AppSettings["DataPath"];
+        private string NotesFilePath = ConfigurationManager.AppSettings["NotesDataPath"];
+        private string PhoneBookDataPath = ConfigurationManager.AppSettings["PhoneBookDataPath"];
         public List<User> ReadAllUsers()
         {
             var users = new List<User>();
@@ -47,6 +49,8 @@ namespace Personal_Organizer.Models
 
             return users;
         }
+
+
         public void WriteUsers(List<User> users)
         {
             var lines = new List<string> { "Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo" };
@@ -63,9 +67,7 @@ namespace Personal_Organizer.Models
             File.WriteAllLines(FilePath, lines);
         }
 
-
-        private string NotesFilePath = ConfigurationManager.AppSettings["NotesDataPath"];
-
+        // Notes CSV Operations
         public List<Note> ReadNotes()
         {
             List<Note> notes = new List<Note>();
@@ -132,8 +134,44 @@ namespace Personal_Organizer.Models
                 }
             }
         }
-
-
+        // PhoneBook CSV Operations
+        public List<Phonebook> ReadPhoneBooks()
+        {
+            var phonebookList = new List<Phonebook>();
+            using (var reader = new StreamReader(PhoneBookDataPath))
+            {
+                string headerLine = reader.ReadLine();
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    var values = line.Split(',');
+                    var phonebookEntry = new Phonebook
+                    {
+                        Name = values[0],
+                        Surname = values[1],
+                        PhoneNumber = values[2],
+                        Address = values[3],
+                        Description = values[4],
+                        Email = values[5],
+                        UserId = 1
+                    };
+                    phonebookList.Add(phonebookEntry);
+                }
+            }
+            return phonebookList;
+        }
+        public void WritePhonebook(List<Phonebook> phonebookList)
+        {
+            using (var writer = new StreamWriter(PhoneBookDataPath))
+            {
+                writer.WriteLine("Name,Surname,PhoneNumber,Address,Description,Email,UserId");
+                foreach (var entry in phonebookList)
+                {
+                    var line = $"{entry.Name},{entry.Surname},{entry.PhoneNumber},{entry.Address},{entry.Description},{entry.Email},{entry.UserId}";
+                    writer.WriteLine(line);
+                }
+            }
+        }
 
     }
 }
