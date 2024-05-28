@@ -63,7 +63,7 @@
             this.titletextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.titletextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.titletextbox.Location = new System.Drawing.Point(60, 94);
-            this.titletextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.titletextbox.Margin = new System.Windows.Forms.Padding(2);
             this.titletextbox.Name = "titletextbox";
             this.titletextbox.Size = new System.Drawing.Size(289, 16);
             this.titletextbox.TabIndex = 4;
@@ -87,7 +87,7 @@
             this.summarytextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.summarytextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.summarytextbox.Location = new System.Drawing.Point(60, 208);
-            this.summarytextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.summarytextbox.Margin = new System.Windows.Forms.Padding(2);
             this.summarytextbox.Multiline = true;
             this.summarytextbox.Name = "summarytextbox";
             this.summarytextbox.Size = new System.Drawing.Size(289, 52);
@@ -112,7 +112,7 @@
             this.descriptiontextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.descriptiontextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.descriptiontextbox.Location = new System.Drawing.Point(60, 135);
-            this.descriptiontextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descriptiontextbox.Margin = new System.Windows.Forms.Padding(2);
             this.descriptiontextbox.Multiline = true;
             this.descriptiontextbox.Name = "descriptiontextbox";
             this.descriptiontextbox.Size = new System.Drawing.Size(289, 47);
@@ -123,7 +123,7 @@
             // 
             this.datePicker.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datePicker.Location = new System.Drawing.Point(60, 290);
-            this.datePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datePicker.Margin = new System.Windows.Forms.Padding(2);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(174, 23);
             this.datePicker.TabIndex = 11;
@@ -147,7 +147,7 @@
             this.meetingradiobtn.Font = new System.Drawing.Font("Microsoft Tai Le", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.meetingradiobtn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.meetingradiobtn.Location = new System.Drawing.Point(60, 324);
-            this.meetingradiobtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.meetingradiobtn.Margin = new System.Windows.Forms.Padding(2);
             this.meetingradiobtn.Name = "meetingradiobtn";
             this.meetingradiobtn.Size = new System.Drawing.Size(69, 18);
             this.meetingradiobtn.TabIndex = 13;
@@ -162,7 +162,7 @@
             this.taskradiobtn.Font = new System.Drawing.Font("Microsoft Tai Le", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.taskradiobtn.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.taskradiobtn.Location = new System.Drawing.Point(60, 351);
-            this.taskradiobtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.taskradiobtn.Margin = new System.Windows.Forms.Padding(2);
             this.taskradiobtn.Name = "taskradiobtn";
             this.taskradiobtn.Size = new System.Drawing.Size(48, 18);
             this.taskradiobtn.TabIndex = 14;
@@ -178,7 +178,7 @@
             this.addbtn.Font = new System.Drawing.Font("Microsoft Tai Le", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbtn.ForeColor = System.Drawing.SystemColors.Highlight;
             this.addbtn.Location = new System.Drawing.Point(140, 380);
-            this.addbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addbtn.Margin = new System.Windows.Forms.Padding(2);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(122, 28);
             this.addbtn.TabIndex = 5;
@@ -190,7 +190,7 @@
             // 
             this.pictureBox1.Image = global::Personal_Organizer.Properties.Resources.note2;
             this.pictureBox1.Location = new System.Drawing.Point(164, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 72);
             this.pictureBox1.TabIndex = 15;
@@ -199,10 +199,11 @@
             // timePicker
             // 
             this.timePicker.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.timePicker.Location = new System.Drawing.Point(272, 290);
             this.timePicker.Margin = new System.Windows.Forms.Padding(2);
             this.timePicker.Name = "timePicker";
+            this.timePicker.ShowUpDown = true;
             this.timePicker.Size = new System.Drawing.Size(77, 23);
             this.timePicker.TabIndex = 16;
             // 
@@ -238,7 +239,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addbtn);
             this.Controls.Add(this.titletextbox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddReminder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddReminder";

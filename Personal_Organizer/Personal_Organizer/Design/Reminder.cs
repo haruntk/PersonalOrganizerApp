@@ -113,7 +113,7 @@ namespace Personal_Organizer
         private void homebtn_Click(object sender, EventArgs e)
         {
             AraYuz araYuz = new AraYuz();
-            araYuz.ShowDialog();
+            araYuz.Show();
             this.Hide();
         }
 

@@ -24,6 +24,8 @@ namespace Personal_Organizer.Design
         {
             InitializeComponent();
             addbtn.Enabled =false;
+            timePicker.Format = DateTimePickerFormat.Custom;
+            timePicker.CustomFormat = "HH:mm";
         }
 
         private void CheckFields()
