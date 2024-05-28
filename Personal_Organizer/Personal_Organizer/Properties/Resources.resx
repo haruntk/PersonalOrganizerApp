@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="trash1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trash1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Chat_bot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chat_bot.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,6 +154,9 @@
   <data name="list_check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\list-check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logo3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user_add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-add1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,9 +166,6 @@
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Chat_bot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Chat_bot.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -174,6 +174,9 @@
   </data>
   <data name="user_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo31.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -186,6 +189,12 @@
   </data>
   <data name="man_8702916_1280" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\man-8702916_1280.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Data_extraction" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Data_extraction.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="note_sticky" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\note-sticky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,6 +214,9 @@
   <data name="info2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="trash1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trash1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="trash2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trash2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -217,7 +229,7 @@
   <data name="kadin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kadin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Data_extraction" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Data_extraction.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo32.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
