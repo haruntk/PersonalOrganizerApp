@@ -11,7 +11,7 @@ namespace Personal_Organizer.Factories
     {
             public IReminder CreateReminder(DateTime date, TimeSpan time, string title, string description, string summary)
             {
-                return new MeetingReminder(date, time, title, description, summary);
+                return new TaskReminder(date, time, title, description, summary);
             }
     }
 }

@@ -33,7 +33,9 @@ namespace Personal_Organizer.Design
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            //phonebook
+            PhoneBook phoneBook = new PhoneBook(); 
+            phoneBook.ShowDialog();
+            this.Close();
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
@@ -52,7 +54,9 @@ namespace Personal_Organizer.Design
 
         private void usermanagmentbtn_Click(object sender, EventArgs e)
         {
-            //usermanagement
+            UserManagament userManagament = new UserManagament();
+            userManagament.ShowDialog();
+            this.Close();
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)
