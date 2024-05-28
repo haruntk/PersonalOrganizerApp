@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,7 @@ namespace Personal_Organizer
         MeetingReminderFactory meetingFactory = new MeetingReminderFactory();
         TaskReminderFactory taskFactory = new TaskReminderFactory();
         CSVOperations csvOperations = new CSVOperations();
+        System.Timers.Timer timer;
         public Reminder()
         {
             InitializeComponent();
@@ -27,7 +29,9 @@ namespace Personal_Organizer
             foreach (IReminder reminder in reminders)
             {
                 reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
+                reminder.Attach(new TaskReminderObserver());
             }
+
         }
 
         private void homebtn_MouseLeave(object sender, EventArgs e)
@@ -131,10 +135,12 @@ namespace Personal_Organizer
                 if(addReminder.ReminderType == "meeting")
                 {
                     reminders.Add(meetingFactory.CreateReminder(addReminder.ReminderDate, addReminder.ReminderTime, addReminder.Title, addReminder.Description, addReminder.Summary));
+                    reminders[reminders.Count - 1].Attach(new MeetingReminderObserver());
                 }
                 else
                 {
                     reminders.Add(taskFactory.CreateReminder(addReminder.ReminderDate, addReminder.ReminderTime, addReminder.Title, addReminder.Description, addReminder.Summary));
+                    reminders[reminders.Count - 1].Attach(new TaskReminderObserver()); 
 
                 }
                 csvOperations.WriteRemindersToCsv(reminders);
@@ -194,5 +200,33 @@ namespace Personal_Organizer
             }
         }
 
+        private void Reminder_Load(object sender, EventArgs e)
+        {
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.AutoReset = true;
+            timer.Enabled = true;
+        }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            
+            foreach (IReminder reminder in reminders)
+            {
+                DateTime now = DateTime.Now;
+                DateTime reminderDate = reminder.Date + reminder.Time;
+                if (reminderDate.Year == now.Year &&
+            reminderDate.Month == now.Month &&
+            reminderDate.Day == now.Day &&
+            reminderDate.Hour == now.Hour &&
+            reminderDate.Minute == now.Minute)
+                {
+                    reminder.Notify(this,);
+                    reminder.IsTriggered = true;
+                }
+            }
+
+        }
     }
 }

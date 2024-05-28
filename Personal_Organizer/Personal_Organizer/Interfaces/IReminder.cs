@@ -15,6 +15,6 @@ namespace Personal_Organizer.Models
         string Title { get; set; }
         string Summary { get; set; }
         string Description { get; set; }
-        
+        bool IsTriggered { get; set; }
     }
 }
