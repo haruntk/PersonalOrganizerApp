@@ -8,6 +8,7 @@ namespace Personal_Organizer.Models
 {
     public class Phonebook
     {
+        public Phonebook() { }
         public int UserId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

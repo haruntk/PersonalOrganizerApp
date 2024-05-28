@@ -1,4 +1,5 @@
 ﻿using Personal_Organizer.Design;
+using Personal_Organizer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,13 +12,17 @@ using System.Windows.Forms;
 
 namespace Personal_Organizer
 {
-    public partial class Phonebook : Form
+    public partial class PhoneBook : Form
     {
         bool sidebarExpand;
-        public Phonebook()
+        private CSVOperations _csvOperations = new CSVOperations();
+        private List<Phonebook> phonebooks;
+        public PhoneBook()
         {
             InitializeComponent();
             SetPlaceholder();
+            phonebooks = _csvOperations.ReadPhoneBooks();
+            dataGridView1.DataSource = phonebooks;
         }
         private void SetPlaceholder()
         {
@@ -89,7 +94,7 @@ namespace Personal_Organizer
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AddContact addcontact = new AddContact();
+            AddContact addcontact = new AddContact(dataGridView1, ref phonebooks);
             addcontact.ShowDialog();
 
         }
@@ -203,23 +208,55 @@ namespace Personal_Organizer
         private void deleteContactbtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete this contact?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
             if (result == DialogResult.Yes)
             {
-
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    {
+                        var selectedData = row.DataBoundItem as Phonebook;
+                        phonebooks.Remove(selectedData);
+                    }
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = phonebooks;
+                    _csvOperations.WritePhonebook(phonebooks);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to delete.");
+                }
             }
         }
 
         private void editbtn_Click(object sender, EventArgs e)
         {
-            AddContact addContact = new AddContact();
-            addContact.ShowDialog();
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                EditContact editContact = new EditContact(dataGridView1, ref phonebooks);
+                editContact.ShowDialog();
+            }
+            else if (dataGridView1.SelectedRows.Count > 1)
+                MessageBox.Show("Aynı anda en fazla 1 kişinin bilgilerini değiştirebilirsiniz !");
+            else
+                MessageBox.Show("Lütfen bir kişi seçiniz !");
         }
 
         private void addContactbtn_Click(object sender, EventArgs e)
         {
-            AddContact addContact = new AddContact();
+            AddContact addContact = new AddContact(dataGridView1, ref phonebooks);
             addContact.ShowDialog();
+        }
+
+        private void searchtxtbox_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.DataSource != null && searchtxtbox.Text != string.Empty)
+            {
+                dataGridView1.DataSource = phonebooks.Where(x => x.Name.Contains(searchtxtbox.Text)).ToList();
+            }
+            if (searchtxtbox.Text == string.Empty)
+            {
+                dataGridView1.DataSource = phonebooks;
+            }
         }
     }
 }
