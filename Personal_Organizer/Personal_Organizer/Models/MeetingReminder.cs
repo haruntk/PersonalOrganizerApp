@@ -15,6 +15,7 @@ namespace Personal_Organizer.Models
         public string Title { get;set; }
         public string Summary { get; set; }
         public string Description { get; set; }
+        public bool IsTriggered { get; set; }
 
         public MeetingReminder(DateTime date, TimeSpan time, string title, string description, string summary)
         {
@@ -23,6 +24,7 @@ namespace Personal_Organizer.Models
             this.Title = title;
             this.Description = description;
             this.Summary = summary;
+            this.IsTriggered = false;
         }
 
         private List<IObserver> _observers = new List<IObserver>();
@@ -38,6 +40,7 @@ namespace Personal_Organizer.Models
 
         public void Notify(Reminder reminder)
         {
+            if (IsTriggered == true) return;
             foreach (IObserver observer in _observers)
             {
                 observer.Shake(this, reminder);
