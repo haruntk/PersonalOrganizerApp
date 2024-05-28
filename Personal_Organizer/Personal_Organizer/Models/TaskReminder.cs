@@ -9,11 +9,21 @@ namespace Personal_Organizer.Models
 {
     public class TaskReminder : IReminder
     {
+        public int UserID { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
         public string Title { get; set; }
         public string Summary { get; set; }
         public string Description { get; set; }
+
+        public TaskReminder(DateTime date, TimeSpan time, string title, string description, string summary)
+        {
+            this.Date = date;
+            this.Time = time;
+            this.Title = title;
+            this.Description = description;
+            this.Summary = summary;
+        }
 
         private List<IObserver> _observers = new List<IObserver>();
         public void Attach(IObserver observer)
