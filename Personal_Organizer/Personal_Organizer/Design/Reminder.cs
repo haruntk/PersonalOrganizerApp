@@ -19,9 +19,15 @@ namespace Personal_Organizer
         List<IReminder> reminders = new List<IReminder>();
         MeetingReminderFactory meetingFactory = new MeetingReminderFactory();
         TaskReminderFactory taskFactory = new TaskReminderFactory();
+        CSVOperations csvOperations = new CSVOperations();
         public Reminder()
         {
             InitializeComponent();
+            reminders = csvOperations.ReadRemindersFromCsv();
+            foreach (IReminder reminder in reminders)
+            {
+                reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
+            }
         }
 
         private void homebtn_MouseLeave(object sender, EventArgs e)
@@ -126,9 +132,16 @@ namespace Personal_Organizer
                 {
                     reminders.Add(meetingFactory.CreateReminder(addReminder.ReminderDate, addReminder.ReminderTime, addReminder.Title, addReminder.Description, addReminder.Summary));
                 }
-                foreach (IReminder reminder in reminders) {
-                    string str = reminder.ToString();
-                    reminderListBox.Items.Add(str);
+                else
+                {
+                    reminders.Add(taskFactory.CreateReminder(addReminder.ReminderDate, addReminder.ReminderTime, addReminder.Title, addReminder.Description, addReminder.Summary));
+
+                }
+                csvOperations.WriteRemindersToCsv(reminders);
+                reminderListBox.Items.Clear();
+                foreach(IReminder reminder in reminders)
+                {
+                    reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
                 }
             }
 

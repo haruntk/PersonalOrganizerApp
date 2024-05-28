@@ -33,8 +33,8 @@ namespace Personal_Organizer.Design
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            Phonebook phonebook = new Phonebook(); 
-            phonebook.ShowDialog();
+            PhoneBook phoneBook = new PhoneBook(); 
+            phoneBook.ShowDialog();
             this.Close();
         }
 

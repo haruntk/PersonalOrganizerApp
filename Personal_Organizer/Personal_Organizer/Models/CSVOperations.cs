@@ -182,7 +182,7 @@ namespace Personal_Organizer.Models
         public void WriteRemindersToCsv(List<IReminder> reminders)
         {
             var lines = new List<string> { "UserID,Date,Time,Title,Summary,Description,Type" };
-            lines.AddRange(reminders.Select(r => $"{r.UserID},{r.Date},{r.Time},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
+            lines.AddRange(reminders.Select(r => $"{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm\:ss")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
             File.WriteAllLines(ReminderDataPath,lines);
         }
 
@@ -196,7 +196,7 @@ namespace Personal_Organizer.Models
                 var values = line.Split(',');
                 if (values[6] == "TaskReminder")
                 {
-                    IReminder reminder = TaskFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy HH:mm:ss",null).Date,
+                    IReminder reminder = TaskFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy",null).Date,
                         TimeSpan.Parse(values[2]),
                         values[3],
                         values[4],
@@ -205,7 +205,7 @@ namespace Personal_Organizer.Models
                 }
                 else
                 {
-                    IReminder reminder = MeetingFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy HH:mm:ss", null).Date,
+                    IReminder reminder = MeetingFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy", null).Date,
                      TimeSpan.Parse(values[2]),
                      values[3],
                      values[4],
