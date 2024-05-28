@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Globalization;
 using static System.Windows.Forms.LinkLabel;
+using Personal_Organizer.Factories;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 
 namespace Personal_Organizer.Models
@@ -16,6 +18,10 @@ namespace Personal_Organizer.Models
         private string FilePath = ConfigurationManager.AppSettings["DataPath"];
         private string NotesFilePath = ConfigurationManager.AppSettings["NotesDataPath"];
         private string PhoneBookDataPath = ConfigurationManager.AppSettings["PhoneBookDataPath"];
+        private string ReminderDataPath = ConfigurationManager.AppSettings["ReminderDataPath"];
+        private TaskReminderFactory TaskFactory = new TaskReminderFactory();
+        private MeetingReminderFactory MeetingFactory = new MeetingReminderFactory();
+
         public List<User> ReadAllUsers()
         {
             var users = new List<User>();
@@ -173,5 +179,44 @@ namespace Personal_Organizer.Models
             }
         }
 
+        public void WriteRemindersToCsv(List<IReminder> reminders)
+        {
+            var lines = new List<string> { "UserID,Date,Time,Title,Summary,Description,Type" };
+            lines.AddRange(reminders.Select(r => $"{r.UserID},{r.Date},{r.Time},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
+            File.WriteAllLines(ReminderDataPath,lines);
+        }
+
+        public List<IReminder> ReadRemindersFromCsv()
+        {
+            var lines = File.ReadAllLines(ReminderDataPath).Skip(1); // Skip header line
+            var reminders = new List<IReminder>();
+
+            foreach (var line in lines)
+            {
+                var values = line.Split(',');
+                if (values[6] == "TaskReminder")
+                {
+                    IReminder reminder = TaskFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy HH:mm:ss",null).Date,
+                        TimeSpan.Parse(values[2]),
+                        values[3],
+                        values[4],
+                        values[5]);
+                    reminders.Add(reminder);
+                }
+                else
+                {
+                    IReminder reminder = MeetingFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy HH:mm:ss", null).Date,
+                     TimeSpan.Parse(values[2]),
+                     values[3],
+                     values[4],
+                     values[5]);
+                 reminders.Add(reminder);
+                }
+            }
+
+            return reminders;
+        }
+
     }
+
 }
