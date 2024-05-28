@@ -9,6 +9,7 @@ namespace Personal_Organizer.Models
 {
     public class MeetingReminder : IReminder
     {
+        public int UserID { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
         public string Title { get;set; }
