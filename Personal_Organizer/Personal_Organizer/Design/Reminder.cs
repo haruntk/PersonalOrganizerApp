@@ -28,9 +28,11 @@ namespace Personal_Organizer
             reminders = csvOperations.ReadRemindersFromCsv();
             foreach (IReminder reminder in reminders)
             {
-                reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
+                //reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
                 reminder.Attach(new TaskReminderObserver());
             }
+            Notification not  = new Notification();
+            not.Show();
 
         }
 
@@ -144,10 +146,10 @@ namespace Personal_Organizer
 
                 }
                 csvOperations.WriteRemindersToCsv(reminders);
-                reminderListBox.Items.Clear();
+                //reminderListBox.Items.Clear();
                 foreach(IReminder reminder in reminders)
                 {
-                    reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
+                    //reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
                 }
             }
 
@@ -222,7 +224,7 @@ namespace Personal_Organizer
             reminderDate.Hour == now.Hour &&
             reminderDate.Minute == now.Minute)
                 {
-                    reminder.Notify(this,);
+                    reminder.Notify(this);
                     reminder.IsTriggered = true;
                 }
             }

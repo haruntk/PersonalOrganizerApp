@@ -29,42 +29,48 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.sidebarflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.menubtn = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.homebtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.personalinfobtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.phonebookbtn = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.notesbtn = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.salarycalcbtn = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.reminderbtn = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.usermanagmentbtn = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.logoutbtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.listitemsayisi = new System.Windows.Forms.Label();
-            this.listnamlbl = new System.Windows.Forms.Label();
-            this.reminderListBox = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.addreminderbtn = new System.Windows.Forms.Button();
             this.sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.reminderdatagridview = new System.Windows.Forms.DataGridView();
+            this.deletebtn = new System.Windows.Forms.Button();
+            this.menubtn = new System.Windows.Forms.PictureBox();
+            this.homebtn = new System.Windows.Forms.Button();
+            this.personalinfobtn = new System.Windows.Forms.Button();
+            this.phonebookbtn = new System.Windows.Forms.Button();
+            this.notesbtn = new System.Windows.Forms.Button();
+            this.salarycalcbtn = new System.Windows.Forms.Button();
+            this.reminderbtn = new System.Windows.Forms.Button();
+            this.usermanagmentbtn = new System.Windows.Forms.Button();
+            this.logoutbtn = new System.Windows.Forms.Button();
             this.tasksbtn = new Personal_Organizer.RoundedButton();
             this.allbtn = new Personal_Organizer.RoundedButton();
             this.mettingbtn = new Personal_Organizer.RoundedButton();
             this.circularPicture2 = new Personal_Organizer.CircularPicture();
+            this.Done = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Summary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -73,6 +79,8 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reminderdatagridview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,6 +127,187 @@
             this.label7.Size = new System.Drawing.Size(0, 24);
             this.label7.TabIndex = 18;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.homebtn);
+            this.panel2.Location = new System.Drawing.Point(4, 158);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(366, 87);
+            this.panel2.TabIndex = 20;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.personalinfobtn);
+            this.panel3.Location = new System.Drawing.Point(4, 253);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(360, 87);
+            this.panel3.TabIndex = 21;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.phonebookbtn);
+            this.panel4.Location = new System.Drawing.Point(4, 348);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(360, 87);
+            this.panel4.TabIndex = 22;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.notesbtn);
+            this.panel5.Location = new System.Drawing.Point(4, 443);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(360, 87);
+            this.panel5.TabIndex = 22;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.salarycalcbtn);
+            this.panel6.Location = new System.Drawing.Point(4, 538);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(360, 87);
+            this.panel6.TabIndex = 22;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.reminderbtn);
+            this.panel7.Location = new System.Drawing.Point(4, 633);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(360, 87);
+            this.panel7.TabIndex = 22;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.usermanagmentbtn);
+            this.panel8.Location = new System.Drawing.Point(4, 728);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(360, 87);
+            this.panel8.TabIndex = 22;
+            // 
+            // panel9
+            // 
+            this.panel9.Location = new System.Drawing.Point(4, 823);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(360, 75);
+            this.panel9.TabIndex = 20;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.logoutbtn);
+            this.panel10.Location = new System.Drawing.Point(4, 906);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(360, 75);
+            this.panel10.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Firebrick;
+            this.label2.Location = new System.Drawing.Point(418, 62);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(275, 61);
+            this.label2.TabIndex = 70;
+            this.label2.Text = "REMINDER";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(1579, 80);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(133, 24);
+            this.label3.TabIndex = 62;
+            this.label3.Text = "Kullanıcı İsmi";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // addreminderbtn
+            // 
+            this.addreminderbtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.addreminderbtn.FlatAppearance.BorderSize = 0;
+            this.addreminderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addreminderbtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addreminderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addreminderbtn.Location = new System.Drawing.Point(1497, 963);
+            this.addreminderbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.addreminderbtn.Name = "addreminderbtn";
+            this.addreminderbtn.Size = new System.Drawing.Size(304, 48);
+            this.addreminderbtn.TabIndex = 59;
+            this.addreminderbtn.Text = "Add Reminder";
+            this.addreminderbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addreminderbtn.UseVisualStyleBackColor = false;
+            this.addreminderbtn.Click += new System.EventHandler(this.addreminderbtn_Click);
+            // 
+            // sidebartimer
+            // 
+            this.sidebartimer.Interval = 7;
+            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // reminderdatagridview
+            // 
+            this.reminderdatagridview.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.reminderdatagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.reminderdatagridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.reminderdatagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reminderdatagridview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Done,
+            this.Title,
+            this.Description,
+            this.Summary,
+            this.Date,
+            this.Time,
+            this.Category});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.reminderdatagridview.DefaultCellStyle = dataGridViewCellStyle2;
+            this.reminderdatagridview.Location = new System.Drawing.Point(434, 360);
+            this.reminderdatagridview.Name = "reminderdatagridview";
+            this.reminderdatagridview.ReadOnly = true;
+            this.reminderdatagridview.RowHeadersWidth = 82;
+            this.reminderdatagridview.RowTemplate.Height = 33;
+            this.reminderdatagridview.Size = new System.Drawing.Size(1348, 576);
+            this.reminderdatagridview.TabIndex = 71;
+            // 
+            // deletebtn
+            // 
+            this.deletebtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.deletebtn.FlatAppearance.BorderSize = 0;
+            this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletebtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletebtn.Image = global::Personal_Organizer.Properties.Resources.trash2;
+            this.deletebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deletebtn.Location = new System.Drawing.Point(434, 963);
+            this.deletebtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deletebtn.Name = "deletebtn";
+            this.deletebtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.deletebtn.Size = new System.Drawing.Size(48, 48);
+            this.deletebtn.TabIndex = 72;
+            this.deletebtn.Text = "      Delete Reminder";
+            this.deletebtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deletebtn.UseVisualStyleBackColor = false;
+            // 
             // menubtn
             // 
             this.menubtn.ErrorImage = null;
@@ -131,15 +320,6 @@
             this.menubtn.TabIndex = 18;
             this.menubtn.TabStop = false;
             this.menubtn.Click += new System.EventHandler(this.menubtn_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.homebtn);
-            this.panel2.Location = new System.Drawing.Point(4, 158);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(366, 87);
-            this.panel2.TabIndex = 20;
             // 
             // homebtn
             // 
@@ -161,15 +341,6 @@
             this.homebtn.MouseEnter += new System.EventHandler(this.homebtn_MouseEnter);
             this.homebtn.MouseLeave += new System.EventHandler(this.homebtn_MouseLeave);
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.personalinfobtn);
-            this.panel3.Location = new System.Drawing.Point(4, 253);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(360, 87);
-            this.panel3.TabIndex = 21;
-            // 
             // personalinfobtn
             // 
             this.personalinfobtn.BackColor = System.Drawing.Color.Firebrick;
@@ -180,7 +351,7 @@
             this.personalinfobtn.Margin = new System.Windows.Forms.Padding(8);
             this.personalinfobtn.Name = "personalinfobtn";
             this.personalinfobtn.Padding = new System.Windows.Forms.Padding(120, 0, 0, 0);
-            this.personalinfobtn.Size = new System.Drawing.Size(501, 121);
+            this.personalinfobtn.Size = new System.Drawing.Size(501, 130);
             this.personalinfobtn.TabIndex = 23;
             this.personalinfobtn.Text = "            Personal Info";
             this.personalinfobtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -189,41 +360,23 @@
             this.personalinfobtn.MouseEnter += new System.EventHandler(this.personalinfobtn_MouseEnter);
             this.personalinfobtn.MouseLeave += new System.EventHandler(this.personalinfobtn_MouseLeave);
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.phonebookbtn);
-            this.panel4.Location = new System.Drawing.Point(4, 348);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(360, 87);
-            this.panel4.TabIndex = 22;
-            // 
             // phonebookbtn
             // 
             this.phonebookbtn.BackColor = System.Drawing.Color.Firebrick;
             this.phonebookbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.phonebookbtn.Image = global::Personal_Organizer.Properties.Resources.address_book;
             this.phonebookbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.phonebookbtn.Location = new System.Drawing.Point(-83, -26);
+            this.phonebookbtn.Location = new System.Drawing.Point(-83, -35);
             this.phonebookbtn.Margin = new System.Windows.Forms.Padding(8);
             this.phonebookbtn.Name = "phonebookbtn";
             this.phonebookbtn.Padding = new System.Windows.Forms.Padding(120, 0, 0, 0);
-            this.phonebookbtn.Size = new System.Drawing.Size(475, 117);
+            this.phonebookbtn.Size = new System.Drawing.Size(475, 131);
             this.phonebookbtn.TabIndex = 24;
             this.phonebookbtn.Text = "             Phone Book";
             this.phonebookbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.phonebookbtn.UseVisualStyleBackColor = false;
             this.phonebookbtn.MouseEnter += new System.EventHandler(this.phonebookbtn_MouseEnter);
             this.phonebookbtn.MouseLeave += new System.EventHandler(this.phonebookbtn_MouseLeave);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.notesbtn);
-            this.panel5.Location = new System.Drawing.Point(4, 443);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(360, 87);
-            this.panel5.TabIndex = 22;
             // 
             // notesbtn
             // 
@@ -243,15 +396,6 @@
             this.notesbtn.MouseEnter += new System.EventHandler(this.notesbtn_MouseEnter);
             this.notesbtn.MouseLeave += new System.EventHandler(this.notesbtn_MouseLeave);
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.salarycalcbtn);
-            this.panel6.Location = new System.Drawing.Point(4, 538);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(360, 87);
-            this.panel6.TabIndex = 22;
-            // 
             // salarycalcbtn
             // 
             this.salarycalcbtn.BackColor = System.Drawing.Color.Firebrick;
@@ -269,15 +413,6 @@
             this.salarycalcbtn.UseVisualStyleBackColor = false;
             this.salarycalcbtn.MouseEnter += new System.EventHandler(this.salarycalcbtn_MouseEnter);
             this.salarycalcbtn.MouseLeave += new System.EventHandler(this.salarycalcbtn_MouseLeave);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.reminderbtn);
-            this.panel7.Location = new System.Drawing.Point(4, 633);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(360, 87);
-            this.panel7.TabIndex = 22;
             // 
             // reminderbtn
             // 
@@ -297,15 +432,6 @@
             this.reminderbtn.MouseEnter += new System.EventHandler(this.reminderbtn_MouseEnter);
             this.reminderbtn.MouseLeave += new System.EventHandler(this.reminderbtn_MouseLeave);
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.usermanagmentbtn);
-            this.panel8.Location = new System.Drawing.Point(4, 728);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(360, 87);
-            this.panel8.TabIndex = 22;
-            // 
             // usermanagmentbtn
             // 
             this.usermanagmentbtn.BackColor = System.Drawing.Color.Firebrick;
@@ -323,23 +449,6 @@
             this.usermanagmentbtn.UseVisualStyleBackColor = false;
             this.usermanagmentbtn.MouseEnter += new System.EventHandler(this.usermanagmentbtn_MouseEnter);
             this.usermanagmentbtn.MouseLeave += new System.EventHandler(this.usermanagmentbtn_MouseLeave);
-            // 
-            // panel9
-            // 
-            this.panel9.Location = new System.Drawing.Point(4, 823);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(360, 75);
-            this.panel9.TabIndex = 20;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.logoutbtn);
-            this.panel10.Location = new System.Drawing.Point(4, 906);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(360, 75);
-            this.panel10.TabIndex = 21;
             // 
             // logoutbtn
             // 
@@ -359,97 +468,6 @@
             this.logoutbtn.MouseEnter += new System.EventHandler(this.logoutbtn_MouseEnter);
             this.logoutbtn.MouseLeave += new System.EventHandler(this.logoutbtn_MouseLeave);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Firebrick;
-            this.label2.Location = new System.Drawing.Point(418, 42);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(275, 61);
-            this.label2.TabIndex = 70;
-            this.label2.Text = "REMINDER";
-            // 
-            // listitemsayisi
-            // 
-            this.listitemsayisi.AutoSize = true;
-            this.listitemsayisi.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listitemsayisi.ForeColor = System.Drawing.Color.Maroon;
-            this.listitemsayisi.Location = new System.Drawing.Point(1678, 148);
-            this.listitemsayisi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.listitemsayisi.Name = "listitemsayisi";
-            this.listitemsayisi.Size = new System.Drawing.Size(55, 61);
-            this.listitemsayisi.TabIndex = 69;
-            this.listitemsayisi.Text = "0";
-            this.listitemsayisi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // listnamlbl
-            // 
-            this.listnamlbl.AutoSize = true;
-            this.listnamlbl.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listnamlbl.ForeColor = System.Drawing.Color.Maroon;
-            this.listnamlbl.Location = new System.Drawing.Point(863, 148);
-            this.listnamlbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.listnamlbl.Name = "listnamlbl";
-            this.listnamlbl.Size = new System.Drawing.Size(253, 61);
-            this.listnamlbl.TabIndex = 68;
-            this.listnamlbl.Text = "List Name";
-            // 
-            // reminderListBox
-            // 
-            this.reminderListBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.reminderListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.reminderListBox.Font = new System.Drawing.Font("Microsoft PhagsPa", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reminderListBox.FormattingEnabled = true;
-            this.reminderListBox.ItemHeight = 34;
-            this.reminderListBox.Location = new System.Drawing.Point(416, 503);
-            this.reminderListBox.Margin = new System.Windows.Forms.Padding(4);
-            this.reminderListBox.Name = "reminderListBox";
-            this.reminderListBox.Size = new System.Drawing.Size(412, 408);
-            this.reminderListBox.TabIndex = 63;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(1580, 62);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(133, 24);
-            this.label3.TabIndex = 62;
-            this.label3.Text = "Kullanıcı İsmi";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // addreminderbtn
-            // 
-            this.addreminderbtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.addreminderbtn.FlatAppearance.BorderSize = 0;
-            this.addreminderbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addreminderbtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addreminderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addreminderbtn.Location = new System.Drawing.Point(1478, 973);
-            this.addreminderbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.addreminderbtn.Name = "addreminderbtn";
-            this.addreminderbtn.Size = new System.Drawing.Size(304, 48);
-            this.addreminderbtn.TabIndex = 59;
-            this.addreminderbtn.Text = "Add Reminder";
-            this.addreminderbtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addreminderbtn.UseVisualStyleBackColor = false;
-            this.addreminderbtn.Click += new System.EventHandler(this.addreminderbtn_Click);
-            // 
-            // sidebartimer
-            // 
-            this.sidebartimer.Interval = 7;
-            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // tasksbtn
             // 
             this.tasksbtn.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -459,11 +477,11 @@
             this.tasksbtn.ForeColor = System.Drawing.Color.Black;
             this.tasksbtn.Image = global::Personal_Organizer.Properties.Resources.list_check;
             this.tasksbtn.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.tasksbtn.Location = new System.Drawing.Point(630, 148);
+            this.tasksbtn.Location = new System.Drawing.Point(775, 174);
             this.tasksbtn.Margin = new System.Windows.Forms.Padding(4);
             this.tasksbtn.Name = "tasksbtn";
             this.tasksbtn.Padding = new System.Windows.Forms.Padding(10, 31, 0, 8);
-            this.tasksbtn.Size = new System.Drawing.Size(198, 150);
+            this.tasksbtn.Size = new System.Drawing.Size(321, 150);
             this.tasksbtn.TabIndex = 66;
             this.tasksbtn.Text = "Tasks";
             this.tasksbtn.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -478,11 +496,11 @@
             this.allbtn.ForeColor = System.Drawing.Color.Black;
             this.allbtn.Image = global::Personal_Organizer.Properties.Resources.box;
             this.allbtn.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.allbtn.Location = new System.Drawing.Point(408, 322);
+            this.allbtn.Location = new System.Drawing.Point(1113, 174);
             this.allbtn.Margin = new System.Windows.Forms.Padding(4);
             this.allbtn.Name = "allbtn";
             this.allbtn.Padding = new System.Windows.Forms.Padding(10, 31, 0, 6);
-            this.allbtn.Size = new System.Drawing.Size(420, 133);
+            this.allbtn.Size = new System.Drawing.Size(669, 150);
             this.allbtn.TabIndex = 65;
             this.allbtn.Text = "All";
             this.allbtn.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -497,11 +515,11 @@
             this.mettingbtn.ForeColor = System.Drawing.Color.Black;
             this.mettingbtn.Image = global::Personal_Organizer.Properties.Resources.meeting_alt;
             this.mettingbtn.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.mettingbtn.Location = new System.Drawing.Point(408, 148);
+            this.mettingbtn.Location = new System.Drawing.Point(434, 174);
             this.mettingbtn.Margin = new System.Windows.Forms.Padding(4);
             this.mettingbtn.Name = "mettingbtn";
             this.mettingbtn.Padding = new System.Windows.Forms.Padding(10, 31, 0, 8);
-            this.mettingbtn.Size = new System.Drawing.Size(204, 150);
+            this.mettingbtn.Size = new System.Drawing.Size(321, 150);
             this.mettingbtn.TabIndex = 64;
             this.mettingbtn.Text = "Meeting";
             this.mettingbtn.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -510,12 +528,76 @@
             // circularPicture2
             // 
             this.circularPicture2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.circularPicture2.Location = new System.Drawing.Point(1724, 46);
+            this.circularPicture2.Location = new System.Drawing.Point(1724, 60);
             this.circularPicture2.Margin = new System.Windows.Forms.Padding(6);
             this.circularPicture2.Name = "circularPicture2";
             this.circularPicture2.Size = new System.Drawing.Size(58, 58);
             this.circularPicture2.TabIndex = 61;
             this.circularPicture2.TabStop = false;
+            // 
+            // Done
+            // 
+            this.Done.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Done.FillWeight = 200F;
+            this.Done.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Done.HeaderText = "Done";
+            this.Done.MinimumWidth = 10;
+            this.Done.Name = "Done";
+            this.Done.ReadOnly = true;
+            // 
+            // Title
+            // 
+            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Title.FillWeight = 200F;
+            this.Title.HeaderText = "Title";
+            this.Title.MinimumWidth = 10;
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.FillWeight = 200F;
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 10;
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Summary
+            // 
+            this.Summary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Summary.FillWeight = 200F;
+            this.Summary.HeaderText = "Summary";
+            this.Summary.MinimumWidth = 10;
+            this.Summary.Name = "Summary";
+            this.Summary.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Date.FillWeight = 200F;
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 10;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Time
+            // 
+            this.Time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Time.FillWeight = 200F;
+            this.Time.HeaderText = "Time";
+            this.Time.MinimumWidth = 10;
+            this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
+            // 
+            // Category
+            // 
+            this.Category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Category.FillWeight = 200F;
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 10;
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
             // 
             // Reminder
             // 
@@ -523,13 +605,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1860, 1048);
+            this.Controls.Add(this.deletebtn);
+            this.Controls.Add(this.reminderdatagridview);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listitemsayisi);
-            this.Controls.Add(this.listnamlbl);
             this.Controls.Add(this.tasksbtn);
             this.Controls.Add(this.allbtn);
             this.Controls.Add(this.mettingbtn);
-            this.Controls.Add(this.reminderListBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.circularPicture2);
             this.Controls.Add(this.addreminderbtn);
@@ -542,7 +623,6 @@
             this.sidebarflowLayoutPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -551,6 +631,8 @@
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reminderdatagridview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -581,16 +663,22 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button logoutbtn;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label listitemsayisi;
-        private System.Windows.Forms.Label listnamlbl;
         private RoundedButton tasksbtn;
         private RoundedButton allbtn;
         private RoundedButton mettingbtn;
-        private System.Windows.Forms.ListBox reminderListBox;
         private System.Windows.Forms.Label label3;
         private CircularPicture circularPicture2;
         private System.Windows.Forms.Button addreminderbtn;
         private System.Windows.Forms.Timer sidebartimer;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.DataGridView reminderdatagridview;
+        private System.Windows.Forms.Button deletebtn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Done;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Summary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
     }
 }
