@@ -182,7 +182,7 @@ namespace Personal_Organizer.Models
         public void WriteRemindersToCsv(List<IReminder> reminders)
         {
             var lines = new List<string> { "UserID,Date,Time,Title,Summary,Description,Type" };
-            lines.AddRange(reminders.Select(r => $"{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm\:ss")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
+            lines.AddRange(reminders.Select(r => $"{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
             File.WriteAllLines(ReminderDataPath,lines);
         }
 
