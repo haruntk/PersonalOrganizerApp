@@ -31,6 +31,11 @@ namespace Personal_Organizer
                 reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
                 reminder.Attach(new TaskReminderObserver());
             }
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.AutoReset = true;
+            timer.Enabled = true;
 
         }
 
@@ -200,15 +205,6 @@ namespace Personal_Organizer
             }
         }
 
-        private void Reminder_Load(object sender, EventArgs e)
-        {
-            timer = new System.Timers.Timer();
-            timer.Interval = 1000;
-            timer.Elapsed += Timer_Elapsed;
-            timer.AutoReset = true;
-            timer.Enabled = true;
-        }
-
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             
@@ -222,7 +218,7 @@ namespace Personal_Organizer
             reminderDate.Hour == now.Hour &&
             reminderDate.Minute == now.Minute)
                 {
-                    reminder.Notify(this,);
+                    reminder.Notify(this);
                     reminder.IsTriggered = true;
                 }
             }
