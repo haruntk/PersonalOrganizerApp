@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             this.lblAd = new System.Windows.Forms.Label();
-            this.lblMarka = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.sidebarflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.menubtn = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.homebtn = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.infobtn = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.logoutbtn = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menubtn = new System.Windows.Forms.PictureBox();
+            this.homebtn = new System.Windows.Forms.Button();
+            this.infobtn = new System.Windows.Forms.Button();
+            this.logoutbtn = new System.Windows.Forms.Button();
+            this.roundedButton2 = new Personal_Organizer.RoundedButton();
             this.roundedButton1 = new Personal_Organizer.RoundedButton();
             this.circularPicture1 = new Personal_Organizer.CircularPicture();
             this.rdnManagement = new Personal_Organizer.RoundedButton();
@@ -53,47 +54,36 @@
             this.btnPersonal = new Personal_Organizer.RoundedButton();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPicture1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAd
             // 
             this.lblAd.AutoSize = true;
-            this.lblAd.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblAd.Location = new System.Drawing.Point(1509, 83);
-            this.lblAd.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblAd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAd.Location = new System.Drawing.Point(737, 43);
             this.lblAd.Name = "lblAd";
             this.lblAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblAd.Size = new System.Drawing.Size(133, 24);
+            this.lblAd.Size = new System.Drawing.Size(84, 16);
             this.lblAd.TabIndex = 16;
             this.lblAd.Text = "Kullanıcı İsmi";
             this.lblAd.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblMarka
-            // 
-            this.lblMarka.AutoSize = true;
-            this.lblMarka.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblMarka.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblMarka.Location = new System.Drawing.Point(410, 60);
-            this.lblMarka.Name = "lblMarka";
-            this.lblMarka.Size = new System.Drawing.Size(417, 54);
-            this.lblMarka.TabIndex = 17;
-            this.lblMarka.Text = "Personal Organizer";
-            this.lblMarka.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(451, 257);
+            this.label1.Location = new System.Drawing.Point(226, 134);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 42);
+            this.label1.Size = new System.Drawing.Size(226, 24);
             this.label1.TabIndex = 21;
             this.label1.Text = "Welcome,Kullanıcı ismi";
             // 
@@ -108,11 +98,11 @@
             this.sidebarflowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarflowLayoutPanel.ForeColor = System.Drawing.SystemColors.Control;
             this.sidebarflowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.sidebarflowLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.sidebarflowLayoutPanel.MaximumSize = new System.Drawing.Size(362, 1004);
-            this.sidebarflowLayoutPanel.MinimumSize = new System.Drawing.Size(124, 1004);
+            this.sidebarflowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sidebarflowLayoutPanel.MaximumSize = new System.Drawing.Size(181, 522);
+            this.sidebarflowLayoutPanel.MinimumSize = new System.Drawing.Size(62, 522);
             this.sidebarflowLayoutPanel.Name = "sidebarflowLayoutPanel";
-            this.sidebarflowLayoutPanel.Size = new System.Drawing.Size(362, 1004);
+            this.sidebarflowLayoutPanel.Size = new System.Drawing.Size(181, 522);
             this.sidebarflowLayoutPanel.TabIndex = 22;
             // 
             // panel1
@@ -120,42 +110,88 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(213)))), ((int)(((byte)(216)))));
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.menubtn);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 137);
+            this.panel1.Size = new System.Drawing.Size(180, 71);
             this.panel1.TabIndex = 19;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(116, 56);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(58, 29);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 24);
+            this.label7.Size = new System.Drawing.Size(0, 14);
             this.label7.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.homebtn);
+            this.panel2.Location = new System.Drawing.Point(2, 77);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(183, 45);
+            this.panel2.TabIndex = 20;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.infobtn);
+            this.panel7.Location = new System.Drawing.Point(2, 126);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(180, 45);
+            this.panel7.TabIndex = 22;
+            // 
+            // panel9
+            // 
+            this.panel9.Location = new System.Drawing.Point(2, 175);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(178, 255);
+            this.panel9.TabIndex = 20;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.logoutbtn);
+            this.panel10.Location = new System.Drawing.Point(2, 434);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(180, 39);
+            this.panel10.TabIndex = 21;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Personal_Organizer.Properties.Resources.logo32;
+            this.pictureBox2.Location = new System.Drawing.Point(217, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(91, 92);
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.AliceBlue;
+            this.pictureBox1.Image = global::Personal_Organizer.Properties.Resources.Telecommuting;
+            this.pictureBox1.Location = new System.Drawing.Point(462, 97);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(235, 176);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
             // 
             // menubtn
             // 
             this.menubtn.ErrorImage = null;
             this.menubtn.Image = global::Personal_Organizer.Properties.Resources.menu_burger;
             this.menubtn.InitialImage = global::Personal_Organizer.Properties.Resources.menu_burger;
-            this.menubtn.Location = new System.Drawing.Point(42, 56);
-            this.menubtn.Margin = new System.Windows.Forms.Padding(4);
+            this.menubtn.Location = new System.Drawing.Point(21, 29);
+            this.menubtn.Margin = new System.Windows.Forms.Padding(2);
             this.menubtn.Name = "menubtn";
-            this.menubtn.Size = new System.Drawing.Size(56, 54);
+            this.menubtn.Size = new System.Drawing.Size(28, 28);
             this.menubtn.TabIndex = 18;
             this.menubtn.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.homebtn);
-            this.panel2.Location = new System.Drawing.Point(4, 149);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(366, 87);
-            this.panel2.TabIndex = 20;
             // 
             // homebtn
             // 
@@ -164,24 +200,15 @@
             this.homebtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.homebtn.Image = global::Personal_Organizer.Properties.Resources.home;
             this.homebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homebtn.Location = new System.Drawing.Point(-26, -12);
-            this.homebtn.Margin = new System.Windows.Forms.Padding(4);
+            this.homebtn.Location = new System.Drawing.Point(-13, -6);
+            this.homebtn.Margin = new System.Windows.Forms.Padding(2);
             this.homebtn.Name = "homebtn";
-            this.homebtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.homebtn.Size = new System.Drawing.Size(382, 108);
+            this.homebtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.homebtn.Size = new System.Drawing.Size(191, 56);
             this.homebtn.TabIndex = 22;
             this.homebtn.Text = "             Home";
             this.homebtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homebtn.UseVisualStyleBackColor = false;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.infobtn);
-            this.panel7.Location = new System.Drawing.Point(4, 244);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(360, 87);
-            this.panel7.TabIndex = 22;
             // 
             // infobtn
             // 
@@ -189,32 +216,15 @@
             this.infobtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.infobtn.Image = global::Personal_Organizer.Properties.Resources.info2;
             this.infobtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.infobtn.Location = new System.Drawing.Point(-26, -13);
-            this.infobtn.Margin = new System.Windows.Forms.Padding(4);
+            this.infobtn.Location = new System.Drawing.Point(-13, -7);
+            this.infobtn.Margin = new System.Windows.Forms.Padding(2);
             this.infobtn.Name = "infobtn";
-            this.infobtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.infobtn.Size = new System.Drawing.Size(392, 108);
+            this.infobtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.infobtn.Size = new System.Drawing.Size(196, 56);
             this.infobtn.TabIndex = 27;
             this.infobtn.Text = "             Info";
             this.infobtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.infobtn.UseVisualStyleBackColor = false;
-            // 
-            // panel9
-            // 
-            this.panel9.Location = new System.Drawing.Point(4, 339);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(356, 491);
-            this.panel9.TabIndex = 20;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.logoutbtn);
-            this.panel10.Location = new System.Drawing.Point(4, 838);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(360, 75);
-            this.panel10.TabIndex = 21;
             // 
             // logoutbtn
             // 
@@ -222,37 +232,45 @@
             this.logoutbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.logoutbtn.Image = global::Personal_Organizer.Properties.Resources.exit;
             this.logoutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.logoutbtn.Location = new System.Drawing.Point(-26, -17);
-            this.logoutbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.logoutbtn.Location = new System.Drawing.Point(-13, -9);
+            this.logoutbtn.Margin = new System.Windows.Forms.Padding(2);
             this.logoutbtn.Name = "logoutbtn";
-            this.logoutbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.logoutbtn.Size = new System.Drawing.Size(392, 108);
+            this.logoutbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.logoutbtn.Size = new System.Drawing.Size(196, 56);
             this.logoutbtn.TabIndex = 29;
             this.logoutbtn.Text = "             Log out";
             this.logoutbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logoutbtn.UseVisualStyleBackColor = false;
             this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
             // 
-            // pictureBox1
+            // roundedButton2
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.pictureBox1.Image = global::Personal_Organizer.Properties.Resources.Telecommuting;
-            this.pictureBox1.Location = new System.Drawing.Point(923, 187);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(470, 338);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
+            this.roundedButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            this.roundedButton2.Enabled = false;
+            this.roundedButton2.FlatAppearance.BorderSize = 0;
+            this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.roundedButton2.ForeColor = System.Drawing.Color.DarkGray;
+            this.roundedButton2.Location = new System.Drawing.Point(720, 105);
+            this.roundedButton2.Margin = new System.Windows.Forms.Padding(2);
+            this.roundedButton2.Name = "roundedButton2";
+            this.roundedButton2.Size = new System.Drawing.Size(158, 70);
+            this.roundedButton2.TabIndex = 25;
+            this.roundedButton2.Text = "Your plans, your success";
+            this.roundedButton2.UseVisualStyleBackColor = false;
             // 
             // roundedButton1
             // 
             this.roundedButton1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.roundedButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            this.roundedButton1.Enabled = false;
             this.roundedButton1.FlatAppearance.BorderSize = 0;
             this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButton1.ForeColor = System.Drawing.Color.Yellow;
-            this.roundedButton1.Location = new System.Drawing.Point(404, 187);
+            this.roundedButton1.Location = new System.Drawing.Point(202, 97);
+            this.roundedButton1.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(1010, 338);
+            this.roundedButton1.Size = new System.Drawing.Size(505, 176);
             this.roundedButton1.TabIndex = 19;
             this.roundedButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.roundedButton1.UseVisualStyleBackColor = false;
@@ -260,10 +278,9 @@
             // circularPicture1
             // 
             this.circularPicture1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.circularPicture1.Location = new System.Drawing.Point(1685, 60);
-            this.circularPicture1.Margin = new System.Windows.Forms.Padding(6);
+            this.circularPicture1.Location = new System.Drawing.Point(827, 22);
             this.circularPicture1.Name = "circularPicture1";
-            this.circularPicture1.Size = new System.Drawing.Size(62, 60);
+            this.circularPicture1.Size = new System.Drawing.Size(51, 51);
             this.circularPicture1.TabIndex = 15;
             this.circularPicture1.TabStop = false;
             // 
@@ -274,12 +291,14 @@
             this.rdnManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rdnManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdnManagement.ForeColor = System.Drawing.Color.White;
-            this.rdnManagement.Location = new System.Drawing.Point(1441, 370);
+            this.rdnManagement.Location = new System.Drawing.Point(720, 105);
+            this.rdnManagement.Margin = new System.Windows.Forms.Padding(2);
             this.rdnManagement.Name = "rdnManagement";
-            this.rdnManagement.Size = new System.Drawing.Size(315, 135);
+            this.rdnManagement.Size = new System.Drawing.Size(158, 70);
             this.rdnManagement.TabIndex = 12;
             this.rdnManagement.Text = "User Management";
             this.rdnManagement.UseVisualStyleBackColor = false;
+            this.rdnManagement.Visible = false;
             this.rdnManagement.Click += new System.EventHandler(this.rdnManagement_Click);
             // 
             // btnReminder
@@ -289,9 +308,10 @@
             this.btnReminder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnReminder.ForeColor = System.Drawing.Color.White;
-            this.btnReminder.Location = new System.Drawing.Point(1441, 557);
+            this.btnReminder.Location = new System.Drawing.Point(720, 290);
+            this.btnReminder.Margin = new System.Windows.Forms.Padding(2);
             this.btnReminder.Name = "btnReminder";
-            this.btnReminder.Size = new System.Drawing.Size(320, 273);
+            this.btnReminder.Size = new System.Drawing.Size(160, 142);
             this.btnReminder.TabIndex = 11;
             this.btnReminder.Text = "Reminder";
             this.btnReminder.UseVisualStyleBackColor = false;
@@ -304,9 +324,10 @@
             this.btnSalary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSalary.ForeColor = System.Drawing.Color.White;
-            this.btnSalary.Location = new System.Drawing.Point(750, 557);
+            this.btnSalary.Location = new System.Drawing.Point(375, 290);
+            this.btnSalary.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(320, 273);
+            this.btnSalary.Size = new System.Drawing.Size(160, 142);
             this.btnSalary.TabIndex = 10;
             this.btnSalary.Text = "Salary Calculator";
             this.btnSalary.UseVisualStyleBackColor = false;
@@ -319,9 +340,10 @@
             this.btnNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNotes.ForeColor = System.Drawing.Color.White;
-            this.btnNotes.Location = new System.Drawing.Point(1091, 557);
+            this.btnNotes.Location = new System.Drawing.Point(546, 290);
+            this.btnNotes.Margin = new System.Windows.Forms.Padding(2);
             this.btnNotes.Name = "btnNotes";
-            this.btnNotes.Size = new System.Drawing.Size(320, 273);
+            this.btnNotes.Size = new System.Drawing.Size(160, 142);
             this.btnNotes.TabIndex = 9;
             this.btnNotes.Text = "Notes";
             this.btnNotes.UseVisualStyleBackColor = false;
@@ -334,9 +356,10 @@
             this.btnPhone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPhone.ForeColor = System.Drawing.Color.White;
-            this.btnPhone.Location = new System.Drawing.Point(404, 557);
+            this.btnPhone.Location = new System.Drawing.Point(202, 290);
+            this.btnPhone.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhone.Name = "btnPhone";
-            this.btnPhone.Size = new System.Drawing.Size(320, 273);
+            this.btnPhone.Size = new System.Drawing.Size(160, 142);
             this.btnPhone.TabIndex = 8;
             this.btnPhone.Text = "Phone Book";
             this.btnPhone.UseVisualStyleBackColor = false;
@@ -349,9 +372,10 @@
             this.btnPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPersonal.ForeColor = System.Drawing.Color.White;
-            this.btnPersonal.Location = new System.Drawing.Point(1441, 187);
+            this.btnPersonal.Location = new System.Drawing.Point(720, 194);
+            this.btnPersonal.Margin = new System.Windows.Forms.Padding(2);
             this.btnPersonal.Name = "btnPersonal";
-            this.btnPersonal.Size = new System.Drawing.Size(320, 134);
+            this.btnPersonal.Size = new System.Drawing.Size(160, 70);
             this.btnPersonal.TabIndex = 7;
             this.btnPersonal.Text = "Personal Information";
             this.btnPersonal.UseVisualStyleBackColor = false;
@@ -359,15 +383,16 @@
             // 
             // AraYuz
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1839, 933);
+            this.ClientSize = new System.Drawing.Size(920, 485);
+            this.Controls.Add(this.roundedButton2);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.sidebarflowLayoutPanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.roundedButton1);
-            this.Controls.Add(this.lblMarka);
             this.Controls.Add(this.lblAd);
             this.Controls.Add(this.circularPicture1);
             this.Controls.Add(this.rdnManagement);
@@ -376,7 +401,6 @@
             this.Controls.Add(this.btnNotes);
             this.Controls.Add(this.btnPhone);
             this.Controls.Add(this.btnPersonal);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "AraYuz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AraYuz";
@@ -384,11 +408,12 @@
             this.sidebarflowLayoutPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPicture1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -405,7 +430,6 @@
         private RoundedButton btnPersonal;
         private CircularPicture circularPicture1;
         private System.Windows.Forms.Label lblAd;
-        private System.Windows.Forms.Label lblMarka;
         private RoundedButton roundedButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel sidebarflowLayoutPanel;
@@ -420,5 +444,7 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button logoutbtn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private RoundedButton roundedButton2;
     }
 }
