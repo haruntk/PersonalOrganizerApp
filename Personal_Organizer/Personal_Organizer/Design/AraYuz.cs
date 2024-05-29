@@ -19,7 +19,7 @@ namespace Personal_Organizer
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             roundedButton1.BackColor = Color.FromArgb(227, 238, 241);
             label1.BackColor = Color.FromArgb(227, 238, 241);
-
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
 
         }
 
