@@ -41,6 +41,7 @@ namespace Personal_Organizer.Models
         public void Notify(Reminder reminder)
         {
             if (IsTriggered == true) return;
+            IsTriggered = true;
             foreach (IObserver observer in _observers)
             {
                 observer.Shake(this, reminder);

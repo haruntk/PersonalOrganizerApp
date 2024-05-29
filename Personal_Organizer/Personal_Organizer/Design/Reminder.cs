@@ -26,17 +26,25 @@ namespace Personal_Organizer
         {
             InitializeComponent();
             reminders = csvOperations.ReadRemindersFromCsv();
-            foreach (IReminder reminder in reminders)
-            {
-                //reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
-                reminder.Attach(new TaskReminderObserver());
-            }
+            AddRemindersToDGW();
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
+            Notification not  = new Notification();
+            not.Show();
 
+        }
+
+        void AddRemindersToDGW()
+        {
+            reminderdatagridview.Rows.Clear();
+            foreach (IReminder reminder in reminders)
+            {
+                reminder.Attach(new TaskReminderObserver());
+                reminderdatagridview.Rows.Add(reminder.IsTriggered, reminder.Title, reminder.Description, reminder.Summary, reminder.Date.ToShortDateString(), reminder.Time.ToString(), reminder.GetType().Name);
+            }
         }
 
         private void homebtn_MouseLeave(object sender, EventArgs e)
@@ -149,11 +157,7 @@ namespace Personal_Organizer
 
                 }
                 csvOperations.WriteRemindersToCsv(reminders);
-                //reminderListBox.Items.Clear();
-                foreach(IReminder reminder in reminders)
-                {
-                    //reminderListBox.Items.Add($"{reminder.UserID},{reminder.Date.ToString("dd.MM.yyyy")},{reminder.Time.ToString(@"hh\:mm\:ss")},{reminder.Title},{reminder.Summary},{reminder.Description},{reminder.GetType().Name}");
-                }
+                AddRemindersToDGW();
             }
 
         }
@@ -219,9 +223,45 @@ namespace Personal_Organizer
             reminderDate.Minute == now.Minute)
                 {
                     reminder.Notify(this);
-                    reminder.IsTriggered = true;
                 }
             }
+
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = reminderdatagridview.CurrentRow.Index;
+            reminders.RemoveAt(selectedIndex);
+            AddRemindersToDGW();
+            csvOperations.WriteRemindersToCsv(reminders);
+        }
+
+        private void reminderdatagridview_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            if (e.ColumnIndex == reminderdatagridview.Columns["Done"].Index)
+            {
+                bool isChecked = (bool)reminderdatagridview.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                if (isChecked)
+                {
+                    reminders[e.RowIndex].IsTriggered = true;
+                }
+                else
+                    reminders[e.RowIndex].IsTriggered = false;
+            }
+        }
+
+        private void reminderdatagridview_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            if (e.ColumnIndex == reminderdatagridview.Columns["Done"].Index)
+                reminderdatagridview.EndEdit();
 
         }
     }
