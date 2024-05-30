@@ -249,7 +249,7 @@ namespace Personal_Organizer
 
         private void searchtxtbox_TextChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.DataSource != null && searchtxtbox.Text != string.Empty)
+            if (dataGridView1.DataSource != null && searchtxtbox.Text != string.Empty && searchtxtbox.Text != "Search")
             {
                 dataGridView1.DataSource = phonebooks.Where(x => x.Name.Contains(searchtxtbox.Text)).ToList();
             }
