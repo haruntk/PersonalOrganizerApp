@@ -11,13 +11,16 @@ using System.Windows.Forms;
 
 namespace Personal_Organizer.Design
 {
+
     public partial class SalaryCalculator : Form
     {
-        public SalaryCalculator()
+        User user;
+        public SalaryCalculator(User _user)
         {
             InitializeComponent();
             InitializeComboBoxItems();
             LoadSalaryData();
+            user = _user;
         }
 
         private void InitializeComboBoxItems()
@@ -199,35 +202,35 @@ namespace Personal_Organizer.Design
 
         private void homebtn_Click(object sender, EventArgs e)
         {
-            AraYuz araYuz = new AraYuz();
+            AraYuz araYuz = new AraYuz(user);
             araYuz.ShowDialog();
             this.Close();
         }
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            PersonalInformation personalInformation = new PersonalInformation();
+            PersonalInformation personalInformation = new PersonalInformation(user);
             personalInformation.ShowDialog();
             this.Close();
         }
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            PhoneBook phoneBook = new PhoneBook();
+            PhoneBook phoneBook = new PhoneBook(user);
             phoneBook.ShowDialog();
             this.Close();
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            Notes notes = new Notes();
+            Notes notes = new Notes(user);
             notes.ShowDialog();
             this.Close();
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)
         {
-            Reminder reminder = new Reminder();
+            Reminder reminder = new Reminder(user);
             reminder.ShowDialog();
             this.Close();
         }
@@ -241,7 +244,7 @@ namespace Personal_Organizer.Design
 
         private void logoutbtn_Click(object sender, EventArgs e)
         {
-            AraYuz araYuz = new AraYuz();
+            AraYuz araYuz = new AraYuz(user);
             araYuz.ShowDialog();
             this.Close();
         }

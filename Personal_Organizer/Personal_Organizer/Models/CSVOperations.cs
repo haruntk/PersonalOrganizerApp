@@ -50,9 +50,9 @@ namespace Personal_Organizer.Models
 
                 if (!string.IsNullOrEmpty(photoBase64))
                 {
-                    byte[] photoBytes = Convert.FromBase64String(photoBase64);
+                    //byte[] photoBytes = Convert.FromBase64String(photoBase64);
                     user.PhotoPath = Path.Combine("photos", $"{user.Id}_{user.Name}.jpg");
-                    File.WriteAllBytes(user.PhotoPath, photoBytes);
+                    //File.WriteAllBytes(user.PhotoPath, photoBytes);
                 }
             }
 

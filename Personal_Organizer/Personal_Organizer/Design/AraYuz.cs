@@ -1,4 +1,5 @@
 ﻿using Personal_Organizer.Design;
+using Personal_Organizer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,20 +14,22 @@ namespace Personal_Organizer
 {
     public partial class AraYuz : Form
     {
-        public AraYuz()
+        User user;
+        public AraYuz(User _user)
         {
             InitializeComponent();
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             roundedButton1.BackColor = Color.FromArgb(227, 238, 241);
             label1.BackColor = Color.FromArgb(227, 238, 241);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            this.user = _user;
 
         }
 
 
         private void btnPersonal_Click(object sender, EventArgs e)
         {
-            PersonalInformation personalInformation = new PersonalInformation();
+            PersonalInformation personalInformation = new PersonalInformation(user);
             personalInformation.Show();
             this.Hide();
         }
@@ -46,14 +49,14 @@ namespace Personal_Organizer
 
         private void btnReminder_Click(object sender, EventArgs e)
         {
-            Reminder reminder = new Reminder();
+            Reminder reminder = new Reminder(user);
             reminder.ShowDialog();
             this.Hide();
         }
 
         private void btnNotes_Click(object sender, EventArgs e)
         {
-            Notes notes = new Notes();
+            Notes notes = new Notes(user);
             notes.ShowDialog();
             this.Hide();
         }
@@ -61,14 +64,14 @@ namespace Personal_Organizer
         private void btnPhone_Click(object sender, EventArgs e)
         {
 
-            PhoneBook phonebook = new PhoneBook();
+            PhoneBook phonebook = new PhoneBook(user);
             phonebook.ShowDialog();
             this.Hide();
         }
 
         private void btnSalary_Click(object sender, EventArgs e)
         {
-            SalaryCalculator salaryCalculator = new SalaryCalculator();
+            SalaryCalculator salaryCalculator = new SalaryCalculator(user);
             salaryCalculator.ShowDialog();
             this.Hide();
         }
