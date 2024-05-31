@@ -50,7 +50,7 @@ namespace Personal_Organizer.Design
             EducationBox.Items.Add(new ComboBoxItem("Academic Degree Related to Profession -> Master's - Coefficient: 0.10", 0.10));
             EducationBox.Items.Add(new ComboBoxItem("Academic Degree Related to Profession -> PhD - Coefficient: 0.30", 0.30));
             EducationBox.Items.Add(new ComboBoxItem("Academic Degree Related to Profession -> Associate Professor - Coefficient: 0.35", 0.35));
-            EducationBox.Items.Add(new ComboBoxItem("Academic Degree Unrelated to Profession -> Master's, Coefficient - 0.05", 0.05));
+            EducationBox.Items.Add(new ComboBoxItem("Academic Degree Unrelated to Profession -> Master's - Coefficient: 0.05", 0.05));
             EducationBox.Items.Add(new ComboBoxItem("Academic Degree Unrelated to Profession -> PhD/Associate Professor - Coefficient: 0.15", 0.15));
 
             // Initialize LanguageListBox
