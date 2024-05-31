@@ -1,11 +1,9 @@
 ﻿using Personal_Organizer.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,18 +15,26 @@ namespace Personal_Organizer
         User user;
         bool sidebarExpand;
         private CSVOperations CSVOperations;
-        private string originalUpdateText;
+        private Note selectedNote;
+
         public Notes(User _user)
         {
             user = _user;
             InitializeComponent();
             CSVOperations = new CSVOperations();
-            LoadNotesListBox();
+            LoadNotesDataGridView();
             updateNoteBtn.Visible = false;
+            headerTxt.Visible = false;
             noteTxt.Visible = false;
             donebtn.Visible = false;
             donebtn.Enabled = false;
+            headerLbl.Visible = false;
             updateTextBox.Visible = false;
+            updateHeaderLbl.Visible = false;
+            updateHeaderTxt.Visible = false;
+
+            // Wire up event handlers
+            notesDataGridView.SelectionChanged += notesDataGridView_SelectionChanged;
         }
 
         private void Notes_FormClosing(object sender, FormClosingEventArgs e)
@@ -44,89 +50,113 @@ namespace Personal_Organizer
             }
         }
 
-
-        private void LoadNotesListBox()
+        private void LoadNotesDataGridView()
         {
-            // Clear the ListBox
-            notesListBox.Items.Clear();
+            // Clear the DataGridView
+            notesDataGridView.Rows.Clear();
 
             // Read notes from CSV
             var notes = CSVOperations.ReadNotes(user.Id);
 
-            // Add notes to ListBox
+            // Add notes to DataGridView
             foreach (var note in notes)
             {
-                notesListBox.Items.Add($"{note.UserID},{note.Date},{note.Text}");
+                notesDataGridView.Rows.Add(note.Header, note.Date, note.Text);
             }
         }
+
         private void addNote_Click(object sender, EventArgs e)
         {
-            noteTxt.Visible=true;
+            noteTxt.Visible = true;
             noteTxt.Clear();
-            donebtn.Visible=true;
-            updateTextBox.Visible=false;
-            updateNoteBtn.Visible=false;
+            headerLbl.Visible=true;
+            headerTxt.Visible = true; // Assuming you added a TextBox for Header input
+            headerTxt.Clear();
+            donebtn.Visible = true;
+            updateHeaderLbl.Visible = false;
+            updateHeaderTxt.Visible = false;
+            updateTextBox.Visible = false;
+            updateNoteBtn.Visible = false;
         }
+
         private void deleteNote_Click(object sender, EventArgs e)
         {
-            // Check if any item is selected
-            if (notesListBox.SelectedItem != null)
+            // Check if any row is selected
+            if (notesDataGridView.SelectedRows.Count > 0)
             {
-                // Parse the selected item into a Note object
-                string selectedItem = notesListBox.SelectedItem.ToString();
-                info.Text = selectedItem;
-                string[] parts = selectedItem.Split(',');
-                info2.Text = parts[2];
+                // Get the selected note details
+                var selectedRow = notesDataGridView.SelectedRows[0];
+                int userID = user.Id;
+                string header = selectedRow.Cells[0].Value.ToString();
+                DateTime date = DateTime.Parse(selectedRow.Cells[1].Value.ToString());
+                string text = selectedRow.Cells[2].Value.ToString();
+
                 Note noteToDelete = new Note
                 {
-                    UserID = int.Parse(parts[0]),
-                    Date = DateTime.Parse(parts[1]),
-                    Text = parts[2]
+                    UserID = userID,
+                    Header = header,
+                    Date = date,
+                    Text = text
                 };
 
                 // Delete the note
-                CSVOperations.DeleteNote(noteToDelete,user.Id);
+                CSVOperations.DeleteNote(noteToDelete, user.Id);
 
-                // Refresh the notesListBox
-                LoadNotesListBox();
+                // Refresh the DataGridView
+                LoadNotesDataGridView();
             }
             else
             {
                 MessageBox.Show("Please select a note to delete.");
             }
+
+
+            updateNoteBtn.Visible = false;
+            updateHeaderLbl.Visible = false;
+            updateHeaderTxt.Visible = false;
+            updateTextBox.Visible = false;
+            updateNoteBtn.Visible = false;
+            noteTxt.Visible = false;
+            headerLbl.Visible = false;
+            headerTxt.Visible = false;
+            updateNoteBtn.Enabled = false;
         }
 
         private void updateNoteBtn_Click(object sender, EventArgs e)
         {
-            // Check if any item is selected
-            if (notesListBox.SelectedItem != null)
+            // Check if any row is selected
+            if (selectedNote != null)
             {
-                // Get the selected note details
-                string selectedItem = notesListBox.SelectedItem.ToString();
-                string[] parts = selectedItem.Split(',');
-                int userID = int.Parse(parts[0]);
-                DateTime date = DateTime.Now;
-                string originalText = parts[2];
-
                 // Update the text of the selected note with the text from updateTextBox
                 string updatedText = updateTextBox.Text.Trim();
+                string updatedHeader = updateHeaderTxt.Text.Trim();
                 if (!string.IsNullOrEmpty(updatedText))
                 {
                     // Delete the original note
-                    Note noteToDelete = new Note { UserID = userID, Date = date, Text = originalText };
-                    CSVOperations.DeleteNote(noteToDelete, user.Id);
+                    CSVOperations.DeleteNote(selectedNote, user.Id);
 
                     // Create an updated note with the modified text and original date
-                    Note updatedNote = new Note { UserID = userID, Date = date, Text = updatedText };
+                    Note updatedNote = new Note
+                    {
+                        UserID = user.Id,
+                        Header = updatedHeader,
+                        Date = DateTime.Now, // Keep the original date
+                        Text = updatedText
+                    };
 
                     // Write the updated note to the CSV file
                     CSVOperations.WriteNote(updatedNote);
 
-                    // Refresh the notesListBox
-                    LoadNotesListBox();
+                    // Refresh the DataGridView
+                    LoadNotesDataGridView();
 
                     // Clear the updateTextBox
                     updateTextBox.Clear();
+                    updateHeaderTxt.Clear();
+                    updateTextBox.Visible = false;
+                    updateHeaderLbl.Visible = false;
+                    updateHeaderTxt.Visible = false;
+                    updateNoteBtn.Visible = false;
                     updateNoteBtn.Enabled = false;
                 }
                 else
@@ -138,19 +168,99 @@ namespace Personal_Organizer
             {
                 MessageBox.Show("Please select a note to update.");
             }
-            
         }
 
-        private void notesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void notesDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            // Get the selected note details
-            string selectedItem = notesListBox.SelectedItem.ToString();
-            string[] parts = selectedItem.Split(',');
-            updateNoteBtn.Visible = true;
-            updateTextBox.Visible = true;
-            updateTextBox.Text = parts[2];
-            originalUpdateText = parts[2];
-            updateNoteBtn.Enabled = false;
+            if (notesDataGridView.SelectedRows.Count > 0)
+            {
+                // Get the selected note details
+                var selectedRow = notesDataGridView.SelectedRows[0];
+                selectedNote = new Note
+                {
+                    UserID = user.Id,
+                    Header = selectedRow.Cells[0].Value.ToString(),
+                    Date = DateTime.Parse(selectedRow.Cells[1].Value.ToString()),
+                    Text = selectedRow.Cells[2].Value.ToString()
+                };
+
+                updateNoteBtn.Visible = true;
+                updateTextBox.Visible = true;
+                updateHeaderLbl.Visible = true;
+                updateHeaderTxt.Visible = true;
+                donebtn.Visible = false;
+                noteTxt.Visible = false;
+                headerLbl.Visible = false;
+                headerTxt.Visible = false;
+                updateHeaderTxt.Text = selectedNote.Header;
+                updateTextBox.Text = selectedNote.Text;
+                updateNoteBtn.Enabled = false;
+            }
+        }
+
+        private void donebtn_Click(object sender, EventArgs e)
+        {
+            string text = noteTxt.Text.Trim();
+            string header = headerTxt.Text.Trim(); // Assuming you added a TextBox for Header input
+
+            if (!string.IsNullOrEmpty(text) && !string.IsNullOrEmpty(header))
+            {
+                // Read notes from CSV
+                var notes = CSVOperations.ReadNotes(user.Id);
+
+                // Check if a note with the same header already exists
+                bool duplicateHeader = notes.Any(note => note.Header.Equals(header, StringComparison.OrdinalIgnoreCase));
+
+                if (duplicateHeader)
+                {
+                    MessageBox.Show("A note with the same header already exists. Please use a different header.");
+                }
+                else
+                {
+                    // Create a Note object
+                    Note note = new Note
+                    {
+                        UserID = user.Id,
+                        Header = header,
+                        Date = DateTime.Now,
+                        Text = text
+                    };
+
+                    // Write the note to CSV
+                    CSVOperations.WriteNote(note);
+
+                    // Refresh the DataGridView
+                    LoadNotesDataGridView();
+                    noteTxt.Visible = false;
+                    donebtn.Visible = false;
+                    headerTxt.Visible = false;
+                    headerLbl.Visible = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter both header and note text.");
+            }
+        }
+
+        private void noteTxt_TextChanged(object sender, EventArgs e)
+        {
+            donebtn.Enabled = (noteTxt.Text.Length > 0 && headerTxt.Text.Length > 0);
+        }
+
+        private void updateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            updateNoteBtn.Enabled = updateTextBox.Text != selectedNote.Text;
+        }
+
+        private void headerTxt_TextChanged(object sender, EventArgs e)
+        {
+            donebtn.Enabled = (noteTxt.Text.Length > 0 && headerTxt.Text.Length > 0);
+        }
+
+        private void updateHeaderTxt_TextChanged(object sender, EventArgs e)
+        {
+            updateNoteBtn.Enabled = updateHeaderTxt.Text != selectedNote.Header;
         }
 
         private void homebtn_MouseEnter(object sender, EventArgs e)
@@ -258,48 +368,6 @@ namespace Personal_Organizer
                     sidebartimer.Stop();
                 }
             }
-        }
-
-        private void donebtn_Click(object sender, EventArgs e)
-        {
-            string text = noteTxt.Text.Trim();
-
-            if (!string.IsNullOrEmpty(text))
-            {
-                // Create a Note object
-                Note note = new Note
-                {
-                    UserID = user.Id, // Assuming UserID is fixed for now
-                    Date = DateTime.Now,
-                    Text = text
-                };
-
-                // Write the note to CSV
-                CSVOperations.WriteNote(note);
-
-                // Refresh the notesListBox
-                LoadNotesListBox();
-                noteTxt.Visible = false;
-                donebtn.Visible = false;
-            }
-            else
-            {
-                MessageBox.Show("Please enter a note text.");
-            }
-        }
-
-        private void noteTxt_TextChanged(object sender, EventArgs e)
-        {
-            if (noteTxt.Text.Length > 0)
-            {
-                donebtn.Enabled = true;
-            }
-        }
-
-        private void updateTextBox_TextChanged(object sender, EventArgs e)
-        {
-            updateNoteBtn.Enabled = updateTextBox.Text != originalUpdateText;
-
         }
 
         private void homebtn_Click(object sender, EventArgs e)

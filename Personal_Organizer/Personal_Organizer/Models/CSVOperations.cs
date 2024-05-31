@@ -99,8 +99,9 @@ namespace Personal_Organizer.Models
                     var note = new Note
                     {
                         UserID = int.Parse(fields[0]),
-                        Date = DateTime.ParseExact(fields[1], "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                        Text = fields[2]
+                        Header = fields[1],
+                        Date = DateTime.ParseExact(fields[2], "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                        Text = fields[3]
                     };
 
                     if (note.UserID == userId)
@@ -117,7 +118,7 @@ namespace Personal_Organizer.Models
         {
             using (var writer = new StreamWriter(NotesFilePath, append: true))
             {
-                var line = $"{note.UserID},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
+                var line = $"{note.UserID},{note.Header},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
                 writer.WriteLine(line);
             }
         }
@@ -140,12 +141,13 @@ namespace Personal_Organizer.Models
                     var note = new Note
                     {
                         UserID = int.Parse(values[0]),
-                        Date = DateTime.ParseExact(values[1], "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                        Text = values[2]
+                        Header = values[1],
+                        Date = DateTime.ParseExact(values[2], "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                        Text = values[3]
                     };
 
                     // Add to list if it doesn't match the note to be deleted
-                    if (note.UserID != userId || note.Date != noteToDelete.Date)
+                    if (note.UserID != userId || note.Date != noteToDelete.Date || note.Header != noteToDelete.Header)
                     {
                         notes.Add(note);
                     }
@@ -155,15 +157,16 @@ namespace Personal_Organizer.Models
             // Rewrite the CSV file with the updated list of notes
             using (var writer = new StreamWriter(NotesFilePath, false))
             {
-                writer.WriteLine("UserID,Date,Text"); // Rewrite the header line
+                writer.WriteLine("UserID,Header,Date,Text"); // Rewrite the header line
 
                 foreach (var note in notes)
                 {
-                    var line = $"{note.UserID},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
+                    var line = $"{note.UserID},{note.Header},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
                     writer.WriteLine(line);
                 }
             }
         }
+
         // PhoneBook CSV Operations
         public List<Phonebook> ReadPhoneBooks()
         {
