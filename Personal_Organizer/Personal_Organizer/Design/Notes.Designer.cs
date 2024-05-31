@@ -33,17 +33,25 @@
             this.sidebarflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.menubtn = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.homebtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.personalinfobtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.phonebookbtn = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.notesbtn = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.salarycalcbtn = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.reminderbtn = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.usermanagmentbtn = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.logoutbtn = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.notesListBox = new System.Windows.Forms.ListBox();
             this.updateNoteBtn = new System.Windows.Forms.Button();
             this.updateTextBox = new System.Windows.Forms.TextBox();
             this.sidebartimer = new System.Windows.Forms.Timer(this.components);
@@ -52,18 +60,20 @@
             this.noteTxt = new System.Windows.Forms.TextBox();
             this.deleteNoteBtn = new System.Windows.Forms.Button();
             this.addNoteBtn = new System.Windows.Forms.Button();
-            this.menubtn = new System.Windows.Forms.PictureBox();
-            this.homebtn = new System.Windows.Forms.Button();
-            this.personalinfobtn = new System.Windows.Forms.Button();
-            this.phonebookbtn = new System.Windows.Forms.Button();
-            this.notesbtn = new System.Windows.Forms.Button();
-            this.salarycalcbtn = new System.Windows.Forms.Button();
-            this.reminderbtn = new System.Windows.Forms.Button();
-            this.usermanagmentbtn = new System.Windows.Forms.Button();
-            this.logoutbtn = new System.Windows.Forms.Button();
             this.donebtn = new System.Windows.Forms.Button();
+            this.notesDataGridView = new System.Windows.Forms.DataGridView();
+            this.Header = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.headerLbl = new System.Windows.Forms.Label();
+            this.headerTxt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.updateHeaderTxt = new System.Windows.Forms.TextBox();
+            this.updateHeaderLbl = new System.Windows.Forms.Label();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -72,7 +82,7 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -130,191 +140,6 @@
             this.label7.Size = new System.Drawing.Size(0, 24);
             this.label7.TabIndex = 18;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.homebtn);
-            this.panel2.Location = new System.Drawing.Point(4, 149);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(366, 87);
-            this.panel2.TabIndex = 20;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.personalinfobtn);
-            this.panel3.Location = new System.Drawing.Point(4, 244);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(360, 87);
-            this.panel3.TabIndex = 21;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.phonebookbtn);
-            this.panel4.Location = new System.Drawing.Point(4, 339);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(360, 87);
-            this.panel4.TabIndex = 22;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.notesbtn);
-            this.panel5.Location = new System.Drawing.Point(4, 434);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(360, 87);
-            this.panel5.TabIndex = 22;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.salarycalcbtn);
-            this.panel6.Location = new System.Drawing.Point(4, 529);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(360, 87);
-            this.panel6.TabIndex = 22;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.reminderbtn);
-            this.panel7.Location = new System.Drawing.Point(4, 624);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(360, 87);
-            this.panel7.TabIndex = 22;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.usermanagmentbtn);
-            this.panel8.Location = new System.Drawing.Point(4, 719);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(360, 87);
-            this.panel8.TabIndex = 22;
-            // 
-            // panel9
-            // 
-            this.panel9.Location = new System.Drawing.Point(4, 814);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(326, 35);
-            this.panel9.TabIndex = 20;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.logoutbtn);
-            this.panel10.Location = new System.Drawing.Point(4, 857);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(360, 75);
-            this.panel10.TabIndex = 21;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // notesListBox
-            // 
-            this.notesListBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.notesListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.notesListBox.Font = new System.Drawing.Font("Microsoft Tai Le", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notesListBox.FormattingEnabled = true;
-            this.notesListBox.ItemHeight = 34;
-            this.notesListBox.Location = new System.Drawing.Point(408, 165);
-            this.notesListBox.Name = "notesListBox";
-            this.notesListBox.Size = new System.Drawing.Size(462, 850);
-            this.notesListBox.TabIndex = 22;
-            this.notesListBox.SelectedIndexChanged += new System.EventHandler(this.notesListBox_SelectedIndexChanged);
-            // 
-            // updateNoteBtn
-            // 
-            this.updateNoteBtn.FlatAppearance.BorderSize = 0;
-            this.updateNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateNoteBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateNoteBtn.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.updateNoteBtn.Location = new System.Drawing.Point(1564, 109);
-            this.updateNoteBtn.Name = "updateNoteBtn";
-            this.updateNoteBtn.Size = new System.Drawing.Size(250, 43);
-            this.updateNoteBtn.TabIndex = 31;
-            this.updateNoteBtn.Text = "Update Note";
-            this.updateNoteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.updateNoteBtn.UseVisualStyleBackColor = true;
-            this.updateNoteBtn.Click += new System.EventHandler(this.updateNoteBtn_Click);
-            // 
-            // updateTextBox
-            // 
-            this.updateTextBox.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateTextBox.Location = new System.Drawing.Point(923, 173);
-            this.updateTextBox.Multiline = true;
-            this.updateTextBox.Name = "updateTextBox";
-            this.updateTextBox.Size = new System.Drawing.Size(881, 831);
-            this.updateTextBox.TabIndex = 30;
-            this.updateTextBox.TextChanged += new System.EventHandler(this.updateTextBox_TextChanged);
-            // 
-            // sidebartimer
-            // 
-            this.sidebartimer.Interval = 7;
-            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
-            // 
-            // info
-            // 
-            this.info.AutoSize = true;
-            this.info.Location = new System.Drawing.Point(894, 38);
-            this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(0, 25);
-            this.info.TabIndex = 27;
-            // 
-            // info2
-            // 
-            this.info2.AutoSize = true;
-            this.info2.Location = new System.Drawing.Point(970, 38);
-            this.info2.Name = "info2";
-            this.info2.Size = new System.Drawing.Size(0, 25);
-            this.info2.TabIndex = 28;
-            // 
-            // noteTxt
-            // 
-            this.noteTxt.Location = new System.Drawing.Point(923, 175);
-            this.noteTxt.Multiline = true;
-            this.noteTxt.Name = "noteTxt";
-            this.noteTxt.Size = new System.Drawing.Size(881, 840);
-            this.noteTxt.TabIndex = 20;
-            this.noteTxt.TextChanged += new System.EventHandler(this.noteTxt_TextChanged);
-            // 
-            // deleteNoteBtn
-            // 
-            this.deleteNoteBtn.FlatAppearance.BorderSize = 0;
-            this.deleteNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteNoteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteNoteBtn.Location = new System.Drawing.Point(704, 105);
-            this.deleteNoteBtn.Name = "deleteNoteBtn";
-            this.deleteNoteBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.deleteNoteBtn.Size = new System.Drawing.Size(54, 47);
-            this.deleteNoteBtn.TabIndex = 26;
-            this.deleteNoteBtn.Text = "       Sil";
-            this.deleteNoteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteNoteBtn.UseVisualStyleBackColor = true;
-            this.deleteNoteBtn.Click += new System.EventHandler(this.deleteNote_Click);
-            // 
-            // addNoteBtn
-            // 
-            this.addNoteBtn.FlatAppearance.BorderSize = 0;
-            this.addNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addNoteBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNoteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addNoteBtn.Location = new System.Drawing.Point(794, 104);
-            this.addNoteBtn.Name = "addNoteBtn";
-            this.addNoteBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.addNoteBtn.Size = new System.Drawing.Size(54, 50);
-            this.addNoteBtn.TabIndex = 24;
-            this.addNoteBtn.Text = "      Add Note";
-            this.addNoteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addNoteBtn.UseVisualStyleBackColor = true;
-            this.addNoteBtn.Click += new System.EventHandler(this.addNote_Click);
-            // 
             // menubtn
             // 
             this.menubtn.ErrorImage = null;
@@ -327,6 +152,15 @@
             this.menubtn.TabIndex = 18;
             this.menubtn.TabStop = false;
             this.menubtn.Click += new System.EventHandler(this.menubtn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.homebtn);
+            this.panel2.Location = new System.Drawing.Point(4, 149);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(366, 87);
+            this.panel2.TabIndex = 20;
             // 
             // homebtn
             // 
@@ -348,6 +182,15 @@
             this.homebtn.MouseEnter += new System.EventHandler(this.homebtn_MouseEnter);
             this.homebtn.MouseLeave += new System.EventHandler(this.homebtn_MouseLeave);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.personalinfobtn);
+            this.panel3.Location = new System.Drawing.Point(4, 244);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(360, 87);
+            this.panel3.TabIndex = 21;
+            // 
             // personalinfobtn
             // 
             this.personalinfobtn.BackColor = System.Drawing.Color.Gold;
@@ -367,6 +210,15 @@
             this.personalinfobtn.MouseEnter += new System.EventHandler(this.personalinfobtn_MouseEnter);
             this.personalinfobtn.MouseLeave += new System.EventHandler(this.personalinfobtn_MouseLeave);
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.phonebookbtn);
+            this.panel4.Location = new System.Drawing.Point(4, 339);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(360, 87);
+            this.panel4.TabIndex = 22;
+            // 
             // phonebookbtn
             // 
             this.phonebookbtn.BackColor = System.Drawing.Color.Gold;
@@ -384,6 +236,15 @@
             this.phonebookbtn.UseVisualStyleBackColor = false;
             this.phonebookbtn.MouseEnter += new System.EventHandler(this.phonebookbtn_MouseEnter);
             this.phonebookbtn.MouseLeave += new System.EventHandler(this.phonebookbtn_MouseLeave);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.notesbtn);
+            this.panel5.Location = new System.Drawing.Point(4, 434);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(360, 87);
+            this.panel5.TabIndex = 22;
             // 
             // notesbtn
             // 
@@ -403,6 +264,15 @@
             this.notesbtn.MouseEnter += new System.EventHandler(this.notesbtn_MouseEnter);
             this.notesbtn.MouseLeave += new System.EventHandler(this.notesbtn_MouseLeave);
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.salarycalcbtn);
+            this.panel6.Location = new System.Drawing.Point(4, 529);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(360, 87);
+            this.panel6.TabIndex = 22;
+            // 
             // salarycalcbtn
             // 
             this.salarycalcbtn.BackColor = System.Drawing.Color.Gold;
@@ -420,6 +290,15 @@
             this.salarycalcbtn.UseVisualStyleBackColor = false;
             this.salarycalcbtn.MouseEnter += new System.EventHandler(this.salarycalcbtn_MouseEnter);
             this.salarycalcbtn.MouseLeave += new System.EventHandler(this.salarycalcbtn_MouseLeave);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.reminderbtn);
+            this.panel7.Location = new System.Drawing.Point(4, 624);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(360, 87);
+            this.panel7.TabIndex = 22;
             // 
             // reminderbtn
             // 
@@ -440,6 +319,15 @@
             this.reminderbtn.MouseEnter += new System.EventHandler(this.reminderbtn_MouseEnter);
             this.reminderbtn.MouseLeave += new System.EventHandler(this.reminderbtn_MouseLeave);
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.usermanagmentbtn);
+            this.panel8.Location = new System.Drawing.Point(4, 719);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(360, 87);
+            this.panel8.TabIndex = 22;
+            // 
             // usermanagmentbtn
             // 
             this.usermanagmentbtn.BackColor = System.Drawing.Color.Gold;
@@ -457,6 +345,23 @@
             this.usermanagmentbtn.UseVisualStyleBackColor = false;
             this.usermanagmentbtn.MouseEnter += new System.EventHandler(this.usermanagmentbtn_MouseEnter);
             this.usermanagmentbtn.MouseLeave += new System.EventHandler(this.usermanagmentbtn_MouseLeave);
+            // 
+            // panel9
+            // 
+            this.panel9.Location = new System.Drawing.Point(4, 814);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(326, 35);
+            this.panel9.TabIndex = 20;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.logoutbtn);
+            this.panel10.Location = new System.Drawing.Point(4, 857);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(360, 75);
+            this.panel10.TabIndex = 21;
             // 
             // logoutbtn
             // 
@@ -476,6 +381,98 @@
             this.logoutbtn.MouseEnter += new System.EventHandler(this.logoutbtn_MouseEnter);
             this.logoutbtn.MouseLeave += new System.EventHandler(this.logoutbtn_MouseLeave);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // updateNoteBtn
+            // 
+            this.updateNoteBtn.FlatAppearance.BorderSize = 0;
+            this.updateNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateNoteBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateNoteBtn.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.updateNoteBtn.Location = new System.Drawing.Point(1564, 109);
+            this.updateNoteBtn.Name = "updateNoteBtn";
+            this.updateNoteBtn.Size = new System.Drawing.Size(250, 43);
+            this.updateNoteBtn.TabIndex = 31;
+            this.updateNoteBtn.Text = "Update Note";
+            this.updateNoteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.updateNoteBtn.UseVisualStyleBackColor = true;
+            this.updateNoteBtn.Click += new System.EventHandler(this.updateNoteBtn_Click);
+            // 
+            // updateTextBox
+            // 
+            this.updateTextBox.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateTextBox.Location = new System.Drawing.Point(419, 529);
+            this.updateTextBox.Multiline = true;
+            this.updateTextBox.Name = "updateTextBox";
+            this.updateTextBox.Size = new System.Drawing.Size(791, 350);
+            this.updateTextBox.TabIndex = 30;
+            this.updateTextBox.TextChanged += new System.EventHandler(this.updateTextBox_TextChanged);
+            // 
+            // sidebartimer
+            // 
+            this.sidebartimer.Interval = 7;
+            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
+            // 
+            // info
+            // 
+            this.info.AutoSize = true;
+            this.info.Location = new System.Drawing.Point(1693, 414);
+            this.info.Name = "info";
+            this.info.Size = new System.Drawing.Size(0, 25);
+            this.info.TabIndex = 27;
+            // 
+            // info2
+            // 
+            this.info2.AutoSize = true;
+            this.info2.Location = new System.Drawing.Point(1819, 414);
+            this.info2.Name = "info2";
+            this.info2.Size = new System.Drawing.Size(0, 25);
+            this.info2.TabIndex = 28;
+            // 
+            // noteTxt
+            // 
+            this.noteTxt.Location = new System.Drawing.Point(419, 529);
+            this.noteTxt.Multiline = true;
+            this.noteTxt.Name = "noteTxt";
+            this.noteTxt.Size = new System.Drawing.Size(791, 350);
+            this.noteTxt.TabIndex = 20;
+            this.noteTxt.TextChanged += new System.EventHandler(this.noteTxt_TextChanged);
+            // 
+            // deleteNoteBtn
+            // 
+            this.deleteNoteBtn.FlatAppearance.BorderSize = 0;
+            this.deleteNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteNoteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteNoteBtn.Location = new System.Drawing.Point(1503, 481);
+            this.deleteNoteBtn.Name = "deleteNoteBtn";
+            this.deleteNoteBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.deleteNoteBtn.Size = new System.Drawing.Size(54, 47);
+            this.deleteNoteBtn.TabIndex = 26;
+            this.deleteNoteBtn.Text = "       Sil";
+            this.deleteNoteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteNoteBtn.UseVisualStyleBackColor = true;
+            this.deleteNoteBtn.Click += new System.EventHandler(this.deleteNote_Click);
+            // 
+            // addNoteBtn
+            // 
+            this.addNoteBtn.FlatAppearance.BorderSize = 0;
+            this.addNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addNoteBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNoteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addNoteBtn.Location = new System.Drawing.Point(1593, 480);
+            this.addNoteBtn.Name = "addNoteBtn";
+            this.addNoteBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.addNoteBtn.Size = new System.Drawing.Size(54, 50);
+            this.addNoteBtn.TabIndex = 24;
+            this.addNoteBtn.Text = "      Add Note";
+            this.addNoteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addNoteBtn.UseVisualStyleBackColor = true;
+            this.addNoteBtn.Click += new System.EventHandler(this.addNote_Click);
+            // 
             // donebtn
             // 
             this.donebtn.FlatAppearance.BorderSize = 0;
@@ -491,12 +488,111 @@
             this.donebtn.UseVisualStyleBackColor = true;
             this.donebtn.Click += new System.EventHandler(this.donebtn_Click);
             // 
+            // notesDataGridView
+            // 
+            this.notesDataGridView.AllowUserToAddRows = false;
+            this.notesDataGridView.AllowUserToDeleteRows = false;
+            this.notesDataGridView.AllowUserToOrderColumns = true;
+            this.notesDataGridView.AllowUserToResizeColumns = false;
+            this.notesDataGridView.AllowUserToResizeRows = false;
+            this.notesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.notesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Header,
+            this.Date,
+            this.Text});
+            this.notesDataGridView.Location = new System.Drawing.Point(419, 252);
+            this.notesDataGridView.Name = "notesDataGridView";
+            this.notesDataGridView.RowHeadersWidth = 82;
+            this.notesDataGridView.RowTemplate.Height = 33;
+            this.notesDataGridView.Size = new System.Drawing.Size(791, 255);
+            this.notesDataGridView.TabIndex = 33;
+            // 
+            // Header
+            // 
+            this.Header.HeaderText = "Header";
+            this.Header.MinimumWidth = 10;
+            this.Header.Name = "Header";
+            this.Header.Width = 200;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 10;
+            this.Date.Name = "Date";
+            this.Date.Width = 200;
+            // 
+            // Text
+            // 
+            this.Text.HeaderText = "Text";
+            this.Text.MinimumWidth = 10;
+            this.Text.Name = "Text";
+            this.Text.Width = 200;
+            // 
+            // headerLbl
+            // 
+            this.headerLbl.AutoSize = true;
+            this.headerLbl.Location = new System.Drawing.Point(1392, 688);
+            this.headerLbl.Name = "headerLbl";
+            this.headerLbl.Size = new System.Drawing.Size(82, 25);
+            this.headerLbl.TabIndex = 34;
+            this.headerLbl.Text = "Header";
+            // 
+            // headerTxt
+            // 
+            this.headerTxt.Location = new System.Drawing.Point(1533, 688);
+            this.headerTxt.Name = "headerTxt";
+            this.headerTxt.Size = new System.Drawing.Size(190, 31);
+            this.headerTxt.TabIndex = 35;
+            this.headerTxt.TextChanged += new System.EventHandler(this.headerTxt_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1499, 434);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 25);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "delete";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1597, 434);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 25);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "add";
+            // 
+            // updateHeaderTxt
+            // 
+            this.updateHeaderTxt.Location = new System.Drawing.Point(1533, 747);
+            this.updateHeaderTxt.Name = "updateHeaderTxt";
+            this.updateHeaderTxt.Size = new System.Drawing.Size(190, 31);
+            this.updateHeaderTxt.TabIndex = 39;
+            this.updateHeaderTxt.TextChanged += new System.EventHandler(this.updateHeaderTxt_TextChanged);
+            // 
+            // updateHeaderLbl
+            // 
+            this.updateHeaderLbl.AutoSize = true;
+            this.updateHeaderLbl.Location = new System.Drawing.Point(1310, 753);
+            this.updateHeaderLbl.Name = "updateHeaderLbl";
+            this.updateHeaderLbl.Size = new System.Drawing.Size(192, 25);
+            this.updateHeaderLbl.TabIndex = 38;
+            this.updateHeaderLbl.Text = "Update Header Lbl";
+            // 
             // Notes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1922, 996);
+            this.ClientSize = new System.Drawing.Size(1922, 1316);
+            this.Controls.Add(this.updateHeaderTxt);
+            this.Controls.Add(this.updateHeaderLbl);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.headerTxt);
+            this.Controls.Add(this.headerLbl);
+            this.Controls.Add(this.notesDataGridView);
             this.Controls.Add(this.donebtn);
             this.Controls.Add(this.updateNoteBtn);
             this.Controls.Add(this.updateTextBox);
@@ -504,18 +600,17 @@
             this.Controls.Add(this.info);
             this.Controls.Add(this.deleteNoteBtn);
             this.Controls.Add(this.addNoteBtn);
-            this.Controls.Add(this.notesListBox);
             this.Controls.Add(this.noteTxt);
             this.Controls.Add(this.sidebarflowLayoutPanel);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Notes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Notes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Notes_FormClosing);
             this.sidebarflowLayoutPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -524,7 +619,7 @@
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -554,7 +649,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button logoutbtn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ListBox notesListBox;
         private System.Windows.Forms.Button addNoteBtn;
         private System.Windows.Forms.Button deleteNoteBtn;
         private System.Windows.Forms.Button updateNoteBtn;
@@ -564,5 +658,15 @@
         private System.Windows.Forms.Label info2;
         private System.Windows.Forms.TextBox noteTxt;
         private System.Windows.Forms.Button donebtn;
+        private System.Windows.Forms.DataGridView notesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Header;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Text;
+        private System.Windows.Forms.Label headerLbl;
+        private System.Windows.Forms.TextBox headerTxt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox updateHeaderTxt;
+        private System.Windows.Forms.Label updateHeaderLbl;
     }
 }
