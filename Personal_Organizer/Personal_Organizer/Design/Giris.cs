@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -14,18 +15,26 @@ namespace Personal_Organizer
 {
     public partial class Giris : Form
     {
-        readonly CSVOperations csvOperations;
+        readonly CSVOperations csvOperations = new CSVOperations();
+        List<User> users = new List<User>();
         public Giris()
         {
             InitializeComponent();
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            users = csvOperations.ReadAllUsers();
         }
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            AraYuz araYuz = new AraYuz();
-            araYuz.Show();
-            this.Hide();
+            foreach (User user in users)
+            {
+                if (user.Name == usertxt.Text && user.Password == passwordtxt.Text)
+                {
+                    AraYuz araYuz = new AraYuz(user);
+                    araYuz.Show();
+                    this.Hide();
+                }
+            }
 
         }
 

@@ -14,15 +14,17 @@ namespace Personal_Organizer
 {
     public partial class PhoneBook : Form
     {
+        User user;
         bool sidebarExpand;
         private CSVOperations _csvOperations = new CSVOperations();
         private List<Phonebook> phonebooks;
-        public PhoneBook()
+        public PhoneBook(User _user)
         {
             InitializeComponent();
             SetPlaceholder();
             phonebooks = _csvOperations.ReadPhoneBooks();
             dataGridView1.DataSource = phonebooks;
+            user = _user;
         }
         private void SetPlaceholder()
         {
@@ -74,7 +76,7 @@ namespace Personal_Organizer
 
         private void homebtn_Click(object sender, EventArgs e)
         {
-            AraYuz araYuz = new AraYuz();
+            AraYuz araYuz = new AraYuz(user);
             araYuz.Show();
             this.Hide();
         }
@@ -101,14 +103,14 @@ namespace Personal_Organizer
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            PersonalInformation personalInformation = new PersonalInformation();
+            PersonalInformation personalInformation = new PersonalInformation(user);
             personalInformation.ShowDialog();
             this.Hide();
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            Notes notes = new Notes();
+            Notes notes = new Notes(user);
             notes.ShowDialog();
             this.Hide();
         }
@@ -120,7 +122,7 @@ namespace Personal_Organizer
 
         private void reminderbtn_Click(object sender, EventArgs e)
         {
-            Reminder reminder = new Reminder();
+            Reminder reminder = new Reminder(user);
             reminder.ShowDialog();
             this.Hide();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personal_Organizer.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace Personal_Organizer
 {
     public partial class PersonalInformation : Form
     {
-        public PersonalInformation()
+        User user;
+        public PersonalInformation(User _user)
         {
             InitializeComponent();
+            user = _user;
         }
         bool sidebarExpand;
 
@@ -25,7 +28,7 @@ namespace Personal_Organizer
 
         private void homebtn_Click(object sender, EventArgs e)
         {
-            AraYuz araYuz = new AraYuz();
+            AraYuz araYuz = new AraYuz(user);
             araYuz.ShowDialog();
             this.Hide();
         }
