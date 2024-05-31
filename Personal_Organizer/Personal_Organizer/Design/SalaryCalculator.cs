@@ -20,7 +20,6 @@ namespace Personal_Organizer.Design
             InitializeComponent();
             InitializeComboBoxItems();
             LoadSalaryData();
-            RoleLbl.Text = $"Role: {user.Role}";
         }
 
         private void InitializeComboBoxItems()
@@ -92,7 +91,6 @@ namespace Personal_Organizer.Design
 
         private void CalculateBtn_Click(object sender, EventArgs e)
         {
-
             // Check if any ComboBox is not selected
             if (ExperienceBox.SelectedItem == null || LocationBox.SelectedItem == null ||
                 EducationBox.SelectedItem == null || LanguagesBox.SelectedItem == null ||
@@ -244,9 +242,6 @@ namespace Personal_Organizer.Design
             this.Close();
         }
 
-        private void SalaryCalculator_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

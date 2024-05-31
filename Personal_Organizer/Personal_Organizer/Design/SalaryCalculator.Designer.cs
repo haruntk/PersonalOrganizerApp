@@ -63,12 +63,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.MinWageTxt = new System.Windows.Forms.TextBox();
-            this.CalculateBtn = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.CoefficientSumsLbl = new System.Windows.Forms.Label();
             this.EngineerWageLbl = new System.Windows.Forms.Label();
-            this.RoleLbl = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.RoleBox = new System.Windows.Forms.ComboBox();
+            this.CalculateBtn = new Personal_Organizer.RoundedButton();
+            this.label12 = new System.Windows.Forms.Label();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
@@ -356,52 +358,63 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(507, 256);
+            this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(514, 202);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 25);
+            this.label1.Size = new System.Drawing.Size(171, 35);
             this.label1.TabIndex = 20;
             this.label1.Text = "Experience ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(507, 317);
+            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(514, 296);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 25);
+            this.label2.Size = new System.Drawing.Size(127, 35);
             this.label2.TabIndex = 22;
             this.label2.Text = "Location";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(507, 377);
+            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(514, 394);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(177, 25);
+            this.label3.Size = new System.Drawing.Size(245, 35);
             this.label3.TabIndex = 23;
             this.label3.Text = "Higher Education";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(507, 431);
+            this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(514, 490);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 25);
+            this.label4.Size = new System.Drawing.Size(163, 35);
             this.label4.TabIndex = 24;
             this.label4.Text = "Languages";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(507, 496);
+            this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(514, 592);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(202, 25);
+            this.label5.Size = new System.Drawing.Size(276, 35);
             this.label5.TabIndex = 25;
             this.label5.Text = "Managerial Position";
             // 
             // ExperienceBox
             // 
             this.ExperienceBox.FormattingEnabled = true;
-            this.ExperienceBox.Location = new System.Drawing.Point(745, 262);
+            this.ExperienceBox.Location = new System.Drawing.Point(496, 242);
+            this.ExperienceBox.Margin = new System.Windows.Forms.Padding(4);
             this.ExperienceBox.Name = "ExperienceBox";
             this.ExperienceBox.Size = new System.Drawing.Size(1096, 33);
             this.ExperienceBox.TabIndex = 31;
@@ -409,7 +422,8 @@
             // LanguagesBox
             // 
             this.LanguagesBox.FormattingEnabled = true;
-            this.LanguagesBox.Location = new System.Drawing.Point(745, 430);
+            this.LanguagesBox.Location = new System.Drawing.Point(496, 529);
+            this.LanguagesBox.Margin = new System.Windows.Forms.Padding(4);
             this.LanguagesBox.Name = "LanguagesBox";
             this.LanguagesBox.Size = new System.Drawing.Size(1096, 33);
             this.LanguagesBox.TabIndex = 32;
@@ -417,7 +431,8 @@
             // EducationBox
             // 
             this.EducationBox.FormattingEnabled = true;
-            this.EducationBox.Location = new System.Drawing.Point(745, 374);
+            this.EducationBox.Location = new System.Drawing.Point(496, 431);
+            this.EducationBox.Margin = new System.Windows.Forms.Padding(4);
             this.EducationBox.Name = "EducationBox";
             this.EducationBox.Size = new System.Drawing.Size(1096, 33);
             this.EducationBox.TabIndex = 33;
@@ -425,7 +440,8 @@
             // ManagerialPositionBox
             // 
             this.ManagerialPositionBox.FormattingEnabled = true;
-            this.ManagerialPositionBox.Location = new System.Drawing.Point(745, 488);
+            this.ManagerialPositionBox.Location = new System.Drawing.Point(496, 638);
+            this.ManagerialPositionBox.Margin = new System.Windows.Forms.Padding(4);
             this.ManagerialPositionBox.Name = "ManagerialPositionBox";
             this.ManagerialPositionBox.Size = new System.Drawing.Size(1096, 33);
             this.ManagerialPositionBox.TabIndex = 34;
@@ -433,7 +449,8 @@
             // LocationBox
             // 
             this.LocationBox.FormattingEnabled = true;
-            this.LocationBox.Location = new System.Drawing.Point(745, 317);
+            this.LocationBox.Location = new System.Drawing.Point(496, 333);
+            this.LocationBox.Margin = new System.Windows.Forms.Padding(4);
             this.LocationBox.Name = "LocationBox";
             this.LocationBox.Size = new System.Drawing.Size(1096, 33);
             this.LocationBox.TabIndex = 36;
@@ -441,7 +458,8 @@
             // FamilyBox
             // 
             this.FamilyBox.FormattingEnabled = true;
-            this.FamilyBox.Location = new System.Drawing.Point(745, 550);
+            this.FamilyBox.Location = new System.Drawing.Point(496, 746);
+            this.FamilyBox.Margin = new System.Windows.Forms.Padding(4);
             this.FamilyBox.Name = "FamilyBox";
             this.FamilyBox.Size = new System.Drawing.Size(1096, 33);
             this.FamilyBox.TabIndex = 38;
@@ -449,95 +467,141 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(507, 553);
+            this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(514, 706);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(142, 25);
+            this.label6.Size = new System.Drawing.Size(195, 35);
             this.label6.TabIndex = 37;
             this.label6.Text = "Family Status";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(510, 148);
+            this.label8.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(1148, 113);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(223, 25);
+            this.label8.Size = new System.Drawing.Size(311, 35);
             this.label8.TabIndex = 39;
             this.label8.Text = "Gross Minimum Wage";
             // 
             // MinWageTxt
             // 
-            this.MinWageTxt.Location = new System.Drawing.Point(774, 136);
+            this.MinWageTxt.BackColor = System.Drawing.Color.Lavender;
+            this.MinWageTxt.Location = new System.Drawing.Point(1472, 113);
+            this.MinWageTxt.Margin = new System.Windows.Forms.Padding(4);
             this.MinWageTxt.Multiline = true;
             this.MinWageTxt.Name = "MinWageTxt";
             this.MinWageTxt.Size = new System.Drawing.Size(212, 50);
             this.MinWageTxt.TabIndex = 40;
             // 
-            // CalculateBtn
-            // 
-            this.CalculateBtn.Location = new System.Drawing.Point(1640, 656);
-            this.CalculateBtn.Name = "CalculateBtn";
-            this.CalculateBtn.Size = new System.Drawing.Size(201, 55);
-            this.CalculateBtn.TabIndex = 41;
-            this.CalculateBtn.Text = "Calculate";
-            this.CalculateBtn.UseVisualStyleBackColor = true;
-            this.CalculateBtn.Click += new System.EventHandler(this.CalculateBtn_Click);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(508, 738);
+            this.label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.Location = new System.Drawing.Point(564, 900);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(321, 25);
+            this.label9.Size = new System.Drawing.Size(447, 35);
             this.label9.TabIndex = 42;
             this.label9.Text = "Gross Minimum Engineer Wage:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(508, 640);
+            this.label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.Location = new System.Drawing.Point(754, 835);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(180, 25);
+            this.label10.Size = new System.Drawing.Size(247, 35);
             this.label10.TabIndex = 44;
             this.label10.Text = "Coefficient Sums:";
             // 
             // CoefficientSumsLbl
             // 
             this.CoefficientSumsLbl.AutoSize = true;
-            this.CoefficientSumsLbl.Location = new System.Drawing.Point(722, 640);
+            this.CoefficientSumsLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CoefficientSumsLbl.ForeColor = System.Drawing.Color.Indigo;
+            this.CoefficientSumsLbl.Location = new System.Drawing.Point(1066, 833);
+            this.CoefficientSumsLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CoefficientSumsLbl.Name = "CoefficientSumsLbl";
-            this.CoefficientSumsLbl.Size = new System.Drawing.Size(55, 25);
+            this.CoefficientSumsLbl.Size = new System.Drawing.Size(98, 43);
             this.CoefficientSumsLbl.TabIndex = 45;
             this.CoefficientSumsLbl.Text = "Sum";
             // 
             // EngineerWageLbl
             // 
             this.EngineerWageLbl.AutoSize = true;
-            this.EngineerWageLbl.Location = new System.Drawing.Point(871, 738);
+            this.EngineerWageLbl.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.EngineerWageLbl.ForeColor = System.Drawing.Color.Indigo;
+            this.EngineerWageLbl.Location = new System.Drawing.Point(1066, 900);
+            this.EngineerWageLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EngineerWageLbl.Name = "EngineerWageLbl";
-            this.EngineerWageLbl.Size = new System.Drawing.Size(68, 25);
+            this.EngineerWageLbl.Size = new System.Drawing.Size(118, 43);
             this.EngineerWageLbl.TabIndex = 46;
             this.EngineerWageLbl.Text = "Wage";
             // 
-            // RoleLbl
+            // label11
             // 
-            this.RoleLbl.AutoSize = true;
-            this.RoleLbl.Location = new System.Drawing.Point(1135, 149);
-            this.RoleLbl.Name = "RoleLbl";
-            this.RoleLbl.Size = new System.Drawing.Size(56, 25);
-            this.RoleLbl.TabIndex = 47;
-            this.RoleLbl.Text = "Role";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1068, 17);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 25);
+            this.label11.TabIndex = 47;
+            this.label11.Text = "Role";
+            // 
+            // RoleBox
+            // 
+            this.RoleBox.FormattingEnabled = true;
+            this.RoleBox.Location = new System.Drawing.Point(1200, 4);
+            this.RoleBox.Margin = new System.Windows.Forms.Padding(4);
+            this.RoleBox.Name = "RoleBox";
+            this.RoleBox.Size = new System.Drawing.Size(228, 33);
+            this.RoleBox.TabIndex = 48;
+            // 
+            // CalculateBtn
+            // 
+            this.CalculateBtn.BackColor = System.Drawing.Color.MediumPurple;
+            this.CalculateBtn.FlatAppearance.BorderSize = 0;
+            this.CalculateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CalculateBtn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CalculateBtn.ForeColor = System.Drawing.Color.White;
+            this.CalculateBtn.Location = new System.Drawing.Point(1472, 833);
+            this.CalculateBtn.Margin = new System.Windows.Forms.Padding(6);
+            this.CalculateBtn.Name = "CalculateBtn";
+            this.CalculateBtn.Size = new System.Drawing.Size(300, 77);
+            this.CalculateBtn.TabIndex = 49;
+            this.CalculateBtn.Text = "CALCULATE";
+            this.CalculateBtn.UseVisualStyleBackColor = false;
+            this.CalculateBtn.Click += new System.EventHandler(this.CalculateBtn_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(444, 85);
+            this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(555, 56);
+            this.label12.TabIndex = 50;
+            this.label12.Text = "SALARY CALCULATOR";
             // 
             // SalaryCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2010, 963);
-            this.Controls.Add(this.RoleLbl);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(1846, 996);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.CalculateBtn);
+            this.Controls.Add(this.RoleBox);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.EngineerWageLbl);
             this.Controls.Add(this.CoefficientSumsLbl);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.CalculateBtn);
             this.Controls.Add(this.MinWageTxt);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.FamilyBox);
@@ -556,7 +620,6 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "SalaryCalculator";
             this.Text = "SalaryCalculator";
-            this.Load += new System.EventHandler(this.SalaryCalculator_Load);
             this.sidebarflowLayoutPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -611,11 +674,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox MinWageTxt;
-        private System.Windows.Forms.Button CalculateBtn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label CoefficientSumsLbl;
         private System.Windows.Forms.Label EngineerWageLbl;
-        private System.Windows.Forms.Label RoleLbl;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox RoleBox;
+        private RoundedButton CalculateBtn;
+        private System.Windows.Forms.Label label12;
     }
 }
