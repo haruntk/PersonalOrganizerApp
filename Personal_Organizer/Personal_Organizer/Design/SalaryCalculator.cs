@@ -14,13 +14,13 @@ namespace Personal_Organizer.Design
 
     public partial class SalaryCalculator : Form
     {
-        User user;
+        User user = new User();
         public SalaryCalculator(User _user)
         {
             InitializeComponent();
             InitializeComboBoxItems();
             LoadSalaryData();
-            user = _user;
+            RoleLbl.Text = $"Role: {user.Role}";
         }
 
         private void InitializeComboBoxItems()
@@ -71,10 +71,6 @@ namespace Personal_Organizer.Design
             FamilyBox.Items.Add(new ComboBoxItem("Children aged 0-6 - Coefficient: 0.20", 0.20));
             FamilyBox.Items.Add(new ComboBoxItem("Children aged 7-18 - Coefficient: 0.30", 0.30));
             FamilyBox.Items.Add(new ComboBoxItem("Children over 18 (Must be a university undergraduate or associate degree student) - Coefficient: 0.40", 0.40));
-
-            RoleBox.Items.Add("User");
-            RoleBox.Items.Add("Part-Time User");
-            RoleBox.Items.Add("Admin");
         }
 
         public class ComboBoxItem
@@ -100,8 +96,7 @@ namespace Personal_Organizer.Design
             // Check if any ComboBox is not selected
             if (ExperienceBox.SelectedItem == null || LocationBox.SelectedItem == null ||
                 EducationBox.SelectedItem == null || LanguagesBox.SelectedItem == null ||
-                ManagerialPositionBox.SelectedItem == null || FamilyBox.SelectedItem == null ||
-                RoleBox.SelectedItem == null)
+                ManagerialPositionBox.SelectedItem == null || FamilyBox.SelectedItem == null)
             {
                 MessageBox.Show("Please select values from all ComboBoxes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -131,7 +126,7 @@ namespace Personal_Organizer.Design
             double engineerWage = (minWage * 2) * (1 + coefficientSums);
 
             // Will be change when the login session is completed.
-            if (RoleBox.SelectedItem.ToString() == "Part-Time User")
+            if (user.Role.ToString() == "Part-Time User")
             {
                 engineerWage /= 2;
             }
@@ -165,7 +160,7 @@ namespace Personal_Organizer.Design
             var csvOperations = new CSVOperations();
             var updatedSalary = new Salary
             {
-                Id = 1, // Assuming the ID is 1 for now, this should be dynamic based on your requirements.
+                Id = user.Id, // Assuming the ID is 1 for now, this should be dynamic based on your requirements.
                 GrossMinWage = minWage,
                 Experience = ExperienceBox.SelectedItem.ToString(),
                 Location = LocationBox.SelectedItem.ToString(),
@@ -183,7 +178,7 @@ namespace Personal_Organizer.Design
         private void LoadSalaryData()
         {
             var csvOperations = new CSVOperations();
-            Salary salary = csvOperations.ReadSalary(1); // Assuming we are loading the salary record with ID 1
+            Salary salary = csvOperations.ReadSalary(user.Id); // Assuming we are loading the salary record with ID 1
 
             if (salary != null)
             {

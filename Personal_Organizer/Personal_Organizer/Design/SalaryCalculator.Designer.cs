@@ -68,8 +68,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.CoefficientSumsLbl = new System.Windows.Forms.Label();
             this.EngineerWageLbl = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.RoleBox = new System.Windows.Forms.ComboBox();
+            this.RoleLbl = new System.Windows.Forms.Label();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
@@ -519,30 +518,21 @@
             this.EngineerWageLbl.TabIndex = 46;
             this.EngineerWageLbl.Text = "Wage";
             // 
-            // label11
+            // RoleLbl
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1135, 149);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 25);
-            this.label11.TabIndex = 47;
-            this.label11.Text = "Role";
-            // 
-            // RoleBox
-            // 
-            this.RoleBox.FormattingEnabled = true;
-            this.RoleBox.Location = new System.Drawing.Point(1237, 146);
-            this.RoleBox.Name = "RoleBox";
-            this.RoleBox.Size = new System.Drawing.Size(227, 33);
-            this.RoleBox.TabIndex = 48;
+            this.RoleLbl.AutoSize = true;
+            this.RoleLbl.Location = new System.Drawing.Point(1135, 149);
+            this.RoleLbl.Name = "RoleLbl";
+            this.RoleLbl.Size = new System.Drawing.Size(56, 25);
+            this.RoleLbl.TabIndex = 47;
+            this.RoleLbl.Text = "Role";
             // 
             // SalaryCalculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2010, 963);
-            this.Controls.Add(this.RoleBox);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.RoleLbl);
             this.Controls.Add(this.EngineerWageLbl);
             this.Controls.Add(this.CoefficientSumsLbl);
             this.Controls.Add(this.label10);
@@ -626,7 +616,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label CoefficientSumsLbl;
         private System.Windows.Forms.Label EngineerWageLbl;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox RoleBox;
+        private System.Windows.Forms.Label RoleLbl;
     }
 }
