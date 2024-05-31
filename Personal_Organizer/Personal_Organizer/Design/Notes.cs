@@ -20,6 +20,7 @@ namespace Personal_Organizer
         private string originalUpdateText;
         public Notes(User _user)
         {
+            user = _user;
             InitializeComponent();
             CSVOperations = new CSVOperations();
             LoadNotesListBox();
@@ -28,7 +29,6 @@ namespace Personal_Organizer
             donebtn.Visible = false;
             donebtn.Enabled = false;
             updateTextBox.Visible = false;
-            user = _user;
         }
 
         private void Notes_FormClosing(object sender, FormClosingEventArgs e)
@@ -51,7 +51,7 @@ namespace Personal_Organizer
             notesListBox.Items.Clear();
 
             // Read notes from CSV
-            var notes = CSVOperations.ReadNotes();
+            var notes = CSVOperations.ReadNotes(user.Id);
 
             // Add notes to ListBox
             foreach (var note in notes)
@@ -85,7 +85,7 @@ namespace Personal_Organizer
                 };
 
                 // Delete the note
-                CSVOperations.DeleteNote(noteToDelete);
+                CSVOperations.DeleteNote(noteToDelete,user.Id);
 
                 // Refresh the notesListBox
                 LoadNotesListBox();
@@ -105,7 +105,7 @@ namespace Personal_Organizer
                 string selectedItem = notesListBox.SelectedItem.ToString();
                 string[] parts = selectedItem.Split(',');
                 int userID = int.Parse(parts[0]);
-                DateTime date = DateTime.Parse(parts[1]);
+                DateTime date = DateTime.Now;
                 string originalText = parts[2];
 
                 // Update the text of the selected note with the text from updateTextBox
@@ -114,7 +114,7 @@ namespace Personal_Organizer
                 {
                     // Delete the original note
                     Note noteToDelete = new Note { UserID = userID, Date = date, Text = originalText };
-                    CSVOperations.DeleteNote(noteToDelete);
+                    CSVOperations.DeleteNote(noteToDelete, user.Id);
 
                     // Create an updated note with the modified text and original date
                     Note updatedNote = new Note { UserID = userID, Date = date, Text = updatedText };
@@ -269,7 +269,7 @@ namespace Personal_Organizer
                 // Create a Note object
                 Note note = new Note
                 {
-                    UserID = 1, // Assuming UserID is fixed for now
+                    UserID = user.Id, // Assuming UserID is fixed for now
                     Date = DateTime.Now,
                     Text = text
                 };

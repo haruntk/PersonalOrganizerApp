@@ -78,7 +78,7 @@ namespace Personal_Organizer.Models
         }
 
         // Notes CSV Operations
-        public List<Note> ReadNotes()
+        public List<Note> ReadNotes(int userId)
         {
             List<Note> notes = new List<Note>();
 
@@ -103,7 +103,10 @@ namespace Personal_Organizer.Models
                         Text = fields[2]
                     };
 
-                    notes.Add(note);
+                    if (note.UserID == userId)
+                    {
+                        notes.Add(note);
+                    }
                 }
             }
 
@@ -119,16 +122,33 @@ namespace Personal_Organizer.Models
             }
         }
 
-        public void DeleteNote(Note noteToDelete)
+        public void DeleteNote(Note noteToDelete, int userId)
         {
-            var notes = ReadNotes();
-            var updatedNotes = new List<Note>();
+            var notes = new List<Note>();
 
-            foreach (var note in notes)
+            // Read the CSV file and load notes
+            using (var reader = new StreamReader(NotesFilePath))
             {
-                if (note.Date != noteToDelete.Date)
+                // Skip the header line
+                reader.ReadLine();
+
+                while (!reader.EndOfStream)
                 {
-                    updatedNotes.Add(note);
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+
+                    var note = new Note
+                    {
+                        UserID = int.Parse(values[0]),
+                        Date = DateTime.ParseExact(values[1], "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                        Text = values[2]
+                    };
+
+                    // Add to list if it doesn't match the note to be deleted
+                    if (note.UserID != userId || note.Date != noteToDelete.Date)
+                    {
+                        notes.Add(note);
+                    }
                 }
             }
 
@@ -137,7 +157,7 @@ namespace Personal_Organizer.Models
             {
                 writer.WriteLine("UserID,Date,Text"); // Rewrite the header line
 
-                foreach (var note in updatedNotes)
+                foreach (var note in notes)
                 {
                     var line = $"{note.UserID},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
                     writer.WriteLine(line);
