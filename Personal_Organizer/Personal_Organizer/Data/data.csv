@@ -1,2 +1,2 @@
-Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,PhotoBase64,Salary
-1,harun,kepenek,harun123,harun@gmail.com,0,05414161570,istanbul,0
+Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo,Salary
+1,harun,kepenek,harun123,harun@gmail.com,Part_Time_User,05414161570,istanbul,,23100

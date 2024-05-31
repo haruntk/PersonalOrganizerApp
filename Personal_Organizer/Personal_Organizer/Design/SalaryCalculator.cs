@@ -15,8 +15,10 @@ namespace Personal_Organizer.Design
     public partial class SalaryCalculator : Form
     {
         User user = new User();
+        private CSVOperations csvOperations = new CSVOperations();
         public SalaryCalculator(User _user)
         {
+            user = _user;
             InitializeComponent();
             InitializeComboBoxItems();
             LoadSalaryData();
@@ -123,8 +125,8 @@ namespace Personal_Organizer.Design
             // Calculate engineer wage
             double engineerWage = (minWage * 2) * (1 + coefficientSums);
 
-            // Will be change when the login session is completed.
-            if (user.Role.ToString() == "Part-Time User")
+            // 3 => part-time user
+            if (user.Role.ToString() == "Part_Time_User")
             {
                 engineerWage /= 2;
             }
@@ -133,7 +135,12 @@ namespace Personal_Organizer.Design
             // Display engineer wage
             EngineerWageLbl.Text = engineerWage.ToString();
 
+            user.Salary = engineerWage;
+
+            csvOperations.UpdateUserSalary(user.Id, engineerWage);
+
             SalaryUpdate(minWage, coefficientSums, engineerWage);
+
         }
 
         private double GetCoefficientSums()
@@ -150,12 +157,8 @@ namespace Personal_Organizer.Design
 
             return sum;
         }
-
-
-
         private void SalaryUpdate(double minWage, double coefficientSums, double engineerWage)
         {
-            var csvOperations = new CSVOperations();
             var updatedSalary = new Salary
             {
                 Id = user.Id, // Assuming the ID is 1 for now, this should be dynamic based on your requirements.
@@ -175,8 +178,7 @@ namespace Personal_Organizer.Design
 
         private void LoadSalaryData()
         {
-            var csvOperations = new CSVOperations();
-            Salary salary = csvOperations.ReadSalary(user.Id); // Assuming we are loading the salary record with ID 1
+            Salary salary = csvOperations.ReadSalary(user.Id);
 
             if (salary != null)
             {
