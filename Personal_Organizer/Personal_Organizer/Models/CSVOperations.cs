@@ -44,6 +44,7 @@ namespace Personal_Organizer.Models
                     PhoneNumber = values[6],
                     Address = values[7],
                     PhotoPath = null,
+                    Salary = double.Parse(values[9]),
                 };
                 users.Add(user);
                 string photoBase64 = values[8];
@@ -62,7 +63,7 @@ namespace Personal_Organizer.Models
 
         public void WriteUsers(List<User> users)
         {
-            var lines = new List<string> { "Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo" };
+            var lines = new List<string> { "Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo,Salary" };
             lines.AddRange(users.Select(u =>
             {
                 string photoBase64 = string.Empty;
@@ -71,7 +72,7 @@ namespace Personal_Organizer.Models
                     byte[] photoBytes = File.ReadAllBytes(u.PhotoPath);
                     photoBase64 = Convert.ToBase64String(photoBytes);
                 }
-                return $"{u.Id},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64}";
+                return $"{u.Id},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64},{u.Salary}";
             }));
             File.WriteAllLines(FilePath, lines);
         }
@@ -324,6 +325,26 @@ namespace Personal_Organizer.Models
                 {
                     writer.WriteLine(line);
                 }
+            }
+        }
+        public void UpdateUserSalary(int userId, double newSalary)
+        {
+            var users = ReadAllUsers();
+
+            // Find the user to update
+            var userToUpdate = users.FirstOrDefault(u => u.Id == userId);
+
+            if (userToUpdate != null)
+            {
+                // Update the user's salary
+                userToUpdate.Salary = newSalary;
+
+                // Rewrite all users to the file
+                WriteUsers(users);
+            }
+            else
+            {
+                Console.WriteLine($"User with ID {userId} not found.");
             }
         }
 
