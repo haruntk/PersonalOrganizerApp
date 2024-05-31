@@ -9,6 +9,7 @@ using System.Globalization;
 using static System.Windows.Forms.LinkLabel;
 using Personal_Organizer.Factories;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using System.Windows.Forms;
 
 
 namespace Personal_Organizer.Models
@@ -19,6 +20,8 @@ namespace Personal_Organizer.Models
         private string NotesFilePath = ConfigurationManager.AppSettings["NotesDataPath"];
         private string PhoneBookDataPath = ConfigurationManager.AppSettings["PhoneBookDataPath"];
         private string ReminderDataPath = ConfigurationManager.AppSettings["ReminderDataPath"];
+        private string SalaryDataPath = ConfigurationManager.AppSettings["SalaryDataPath"];
+
         private TaskReminderFactory TaskFactory = new TaskReminderFactory();
         private MeetingReminderFactory MeetingFactory = new MeetingReminderFactory();
 
@@ -47,9 +50,9 @@ namespace Personal_Organizer.Models
 
                 if (!string.IsNullOrEmpty(photoBase64))
                 {
-                    byte[] photoBytes = Convert.FromBase64String(photoBase64);
+                    //byte[] photoBytes = Convert.FromBase64String(photoBase64);
                     user.PhotoPath = Path.Combine("photos", $"{user.Id}_{user.Name}.jpg");
-                    File.WriteAllBytes(user.PhotoPath, photoBytes);
+                    //File.WriteAllBytes(user.PhotoPath, photoBytes);
                 }
             }
 
@@ -183,7 +186,7 @@ namespace Personal_Organizer.Models
         {
             var lines = new List<string> { "UserID,Date,Time,Title,Summary,Description,Type" };
             lines.AddRange(reminders.Select(r => $"{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
-            File.WriteAllLines(ReminderDataPath,lines);
+            File.WriteAllLines(ReminderDataPath, lines);
         }
 
         public List<IReminder> ReadRemindersFromCsv()
@@ -196,7 +199,7 @@ namespace Personal_Organizer.Models
                 var values = line.Split(',');
                 if (values[6] == "TaskReminder")
                 {
-                    IReminder reminder = TaskFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy",null).Date,
+                    IReminder reminder = TaskFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy", null).Date,
                         TimeSpan.Parse(values[2]),
                         values[3],
                         values[4],
@@ -210,11 +213,118 @@ namespace Personal_Organizer.Models
                      values[3],
                      values[4],
                      values[5]);
-                 reminders.Add(reminder);
+                    reminders.Add(reminder);
                 }
             }
 
             return reminders;
+        }
+
+        public void WriteSalary(Salary salary)
+        {
+            bool fileExists = File.Exists(SalaryDataPath);
+
+            using (var writer = new StreamWriter(SalaryDataPath, true))
+            {
+                if (!fileExists)
+                {
+                    // Write header if file does not exist
+                    writer.WriteLine("Id,GrossMinWage,Experience,Location,Education,Languages,ManagerialPosition,FamilyStatus,CoefficientSum,EngineerMinWage");
+                }
+
+                // Write salary record
+                writer.WriteLine($"{salary.Id},{salary.GrossMinWage},{salary.Experience},{salary.Location},{salary.Education},{salary.Languages},{salary.ManagerialPosition},{salary.FamilyStatus},{salary.CoefficientSum},{salary.EngineerMinWage}");
+            }
+        }
+
+        public Salary ReadSalary(int id)
+        {
+            if (!File.Exists(SalaryDataPath))
+            {
+                return null;
+            }
+
+            using (var reader = new StreamReader(SalaryDataPath))
+            {
+                string header = reader.ReadLine(); // Skip the header line
+
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+
+                    if (values.Length == 10 && int.Parse(values[0]) == id)
+                    {
+                        return new Salary
+                        {
+                            Id = int.Parse(values[0]),
+                            GrossMinWage = double.Parse(values[1]),
+                            Experience = values[2],
+                            Location = values[3],
+                            Education = values[4],
+                            Languages = values[5],
+                            ManagerialPosition = values[6],
+                            FamilyStatus = values[7],
+                            CoefficientSum = double.Parse(values[8]),
+                            EngineerMinWage = double.Parse(values[9])
+                        };
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public void UpdateSalary(Salary updatedSalary)
+        {
+            if (!File.Exists(SalaryDataPath))
+            {
+                MessageBox.Show("No salary data file found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var lines = new List<string>();
+            bool recordFound = false;
+
+            using (var reader = new StreamReader(SalaryDataPath))
+            {
+                string header = reader.ReadLine();
+                lines.Add(header); // Keep the header
+
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+
+                    if (values.Length == 10 && int.Parse(values[0]) == updatedSalary.Id)
+                    {
+                        // Update the record
+                        var updatedLine = $"{updatedSalary.Id},{updatedSalary.GrossMinWage},{updatedSalary.Experience},{updatedSalary.Location},{updatedSalary.Education},{updatedSalary.Languages},{updatedSalary.ManagerialPosition},{updatedSalary.FamilyStatus},{updatedSalary.CoefficientSum},{updatedSalary.EngineerMinWage}";
+                        lines.Add(updatedLine);
+                        recordFound = true;
+                    }
+                    else
+                    {
+                        lines.Add(line);
+                    }
+                }
+            }
+
+            if (!recordFound)
+            {
+                WriteSalary(updatedSalary);
+                return;
+                //MessageBox.Show($"No salary record found for ID {updatedSalary.Id}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //return;
+            }
+
+            using (var writer = new StreamWriter(SalaryDataPath, false)) // Overwrite the file
+            {
+                foreach (var line in lines)
+                {
+                    writer.WriteLine(line);
+                }
+            }
         }
 
     }

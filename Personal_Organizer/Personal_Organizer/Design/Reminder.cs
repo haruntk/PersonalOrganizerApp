@@ -16,6 +16,7 @@ namespace Personal_Organizer
 {
     public partial class Reminder : Form
     {
+        User user;
         bool sidebarExpand;
         List<IReminder> reminders = new List<IReminder>();
         MeetingReminderFactory meetingFactory = new MeetingReminderFactory();
@@ -23,7 +24,7 @@ namespace Personal_Organizer
         CSVOperations csvOperations = new CSVOperations();
         System.Timers.Timer timer;
         string filter = "all";
-        public Reminder()
+        public Reminder(User _user)
         {
             InitializeComponent();
             reminders = csvOperations.ReadRemindersFromCsv();
@@ -42,7 +43,7 @@ namespace Personal_Organizer
             timer.Enabled = true;
             Notification not  = new Notification();
             not.Show();
-
+            user = _user;
         }
 
         void AddRemindersToDGW()
@@ -166,7 +167,7 @@ namespace Personal_Organizer
 
         private void homebtn_Click(object sender, EventArgs e)
         {
-            AraYuz araYuz = new AraYuz();
+            AraYuz araYuz = new AraYuz(user);
             araYuz.Show();
             this.Hide();
         }
@@ -201,7 +202,7 @@ namespace Personal_Organizer
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            PersonalInformation personalInformation = new PersonalInformation();
+            PersonalInformation personalInformation = new PersonalInformation(user);
             personalInformation.ShowDialog();
             this.Hide();
         }

@@ -14,10 +14,11 @@ namespace Personal_Organizer
 {
     public partial class Notes : Form
     {
+        User user;
         bool sidebarExpand;
         private CSVOperations CSVOperations;
         private string originalUpdateText;
-        public Notes()
+        public Notes(User _user)
         {
             InitializeComponent();
             CSVOperations = new CSVOperations();
@@ -27,7 +28,7 @@ namespace Personal_Organizer
             donebtn.Visible = false;
             donebtn.Enabled = false;
             updateTextBox.Visible = false;
-
+            user = _user;
         }
 
         private void Notes_FormClosing(object sender, FormClosingEventArgs e)
@@ -303,21 +304,21 @@ namespace Personal_Organizer
 
         private void homebtn_Click(object sender, EventArgs e)
         {
-            AraYuz arayuz = new AraYuz();
+            AraYuz arayuz = new AraYuz(user);
             arayuz.Show();
             this.Hide();
         }
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            PersonalInformation personalInformation = new PersonalInformation();
+            PersonalInformation personalInformation = new PersonalInformation(user);
             personalInformation.Show();
             this.Hide();
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)
         {
-            Reminder reminder = new Reminder();
+            Reminder reminder = new Reminder(user);
             reminder.Show();
             this.Hide();
         }
