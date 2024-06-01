@@ -184,8 +184,8 @@ namespace Personal_Organizer.Models
 
         public void WriteRemindersToCsv(List<IReminder> reminders)
         {
-            var lines = new List<string> { "UserID,Date,Time,Title,Summary,Description,Type" };
-            lines.AddRange(reminders.Select(r => $"{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
+            var lines = new List<string> { "ReminderID,UserID,Date,Time,Title,Summary,Description,Type" };
+            lines.AddRange(reminders.Select(r => $"{r.ReminderID},{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
             File.WriteAllLines(ReminderDataPath, lines);
         }
 
@@ -199,20 +199,20 @@ namespace Personal_Organizer.Models
                 var values = line.Split(',');
                 if (values[6] == "TaskReminder")
                 {
-                    IReminder reminder = TaskFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy", null).Date,
-                        TimeSpan.Parse(values[2]),
-                        values[3],
+                    IReminder reminder = TaskFactory.CreateReminder(int.Parse(values[0]), int.Parse(values[1]),DateTime.ParseExact(values[2], "dd.MM.yyyy", null).Date,
+                        TimeSpan.Parse(values[3]),
                         values[4],
-                        values[5]);
+                        values[5],
+                        values[6]);
                     reminders.Add(reminder);
                 }
                 else
                 {
-                    IReminder reminder = MeetingFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy", null).Date,
-                     TimeSpan.Parse(values[2]),
-                     values[3],
-                     values[4],
-                     values[5]);
+                    IReminder reminder = MeetingFactory.CreateReminder(int.Parse(values[0]), int.Parse(values[1]), DateTime.ParseExact(values[2], "dd.MM.yyyy", null).Date,
+                        TimeSpan.Parse(values[3]),
+                        values[4],
+                        values[5],
+                        values[6]);
                     reminders.Add(reminder);
                 }
             }

@@ -9,6 +9,7 @@ namespace Personal_Organizer.Models
 {
     public class TaskReminder : IReminder
     {
+        public int ReminderID { get; set; }
         public int UserID { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
@@ -17,8 +18,10 @@ namespace Personal_Organizer.Models
         public string Description { get; set; }
         public bool IsTriggered { get; set; }
 
-        public TaskReminder(DateTime date, TimeSpan time, string title, string description, string summary)
+        public TaskReminder(int reminderid,int userid, DateTime date, TimeSpan time, string title, string description, string summary)
         {
+            this.ReminderID = reminderid;
+            this.UserID = userid;
             this.Date = date;
             this.Time = time;
             this.Title = title;
