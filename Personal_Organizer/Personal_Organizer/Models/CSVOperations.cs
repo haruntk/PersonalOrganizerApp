@@ -45,6 +45,7 @@ namespace Personal_Organizer.Models
                     Address = values[7],
                     PhotoPath = null,
                     Salary = double.Parse(values[9]),
+                    IsForgotten = bool.Parse(values[10]),
                 };
                 users.Add(user);
                 string photoBase64 = values[8];
@@ -72,7 +73,7 @@ namespace Personal_Organizer.Models
                     byte[] photoBytes = File.ReadAllBytes(u.PhotoPath);
                     photoBase64 = Convert.ToBase64String(photoBytes);
                 }
-                return $"{u.Id},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64},{u.Salary}";
+                return $"{u.Id},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64},{u.Salary},{u.IsForgotten}";
             }));
             File.WriteAllLines(FilePath, lines);
         }

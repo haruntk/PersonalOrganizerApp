@@ -79,7 +79,6 @@ namespace Personal_Organizer
         {
             PasswordSender passwordSender = new PasswordSender();
             passwordSender.Show();
-
         }
     }
 }

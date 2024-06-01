@@ -17,8 +17,8 @@ namespace Personal_Organizer.Models
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string PhotoPath { get; set; }
-
         public double Salary { get; set; }
+        public bool IsForgotten { get; set; }
 
         //public List<Note> Notes;
     }
