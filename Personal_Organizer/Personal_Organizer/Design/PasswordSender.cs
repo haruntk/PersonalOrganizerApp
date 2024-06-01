@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personal_Organizer.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace Personal_Organizer.Design
     public partial class PasswordSender : Form
     {
         private const string EmailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+        private CSVOperations csvOperations = new CSVOperations();
+
         public PasswordSender()
         {
             InitializeComponent();
@@ -39,6 +42,19 @@ namespace Personal_Organizer.Design
                 emailtxt.Visible = false;
                 label2.Visible = false;
                 sendbtn.Visible = false;
+
+                // Update the IsForgotten property
+                var users = csvOperations.ReadAllUsers();
+                var user = users.FirstOrDefault(u => u.Email == emailtxt.Text);
+
+                if (user != null)
+                {
+                    csvOperations.UpdateUserIsForgotten(user.Id, true);
+                }
+                else
+                {
+                    emailerrorlbl.Text = "Email not found.";
+                }
             }
         }
 

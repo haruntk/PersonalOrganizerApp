@@ -12,7 +12,7 @@ namespace Personal_Organizer
 {
     public partial class Notes : Form
     {
-        User user;
+        User user = new User();
         bool sidebarExpand;
         private CSVOperations CSVOperations;
         private Note selectedNote;

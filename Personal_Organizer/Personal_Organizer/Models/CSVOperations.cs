@@ -372,6 +372,58 @@ namespace Personal_Organizer.Models
             }
         }
 
+        public void UpdateUserIsForgotten(int userId, bool isForgotten)
+        {
+            var users = ReadAllUsers();
+
+            var userToUpdate = users.FirstOrDefault(u => u.Id == userId);
+
+            if (userToUpdate != null)
+            {
+                userToUpdate.IsForgotten = isForgotten;
+                WriteUsers(users);
+            }
+            else
+            {
+                Console.WriteLine($"User with ID {userId} not found.");
+            }
+        }
+
+        public void UpdateUserRole(int userId, Roles newRole)
+        {
+            var users = ReadAllUsers();
+
+            var userToUpdate = users.FirstOrDefault(u => u.Id == userId);
+
+            if (userToUpdate != null)
+            {
+                userToUpdate.Role = newRole;
+                WriteUsers(users);
+            }
+            else
+            {
+                Console.WriteLine($"User with ID {userId} not found.");
+            }
+        }
+
+        public void UpdateUserPassword(int userId, string password)
+        {
+            var users = ReadAllUsers();
+
+            var userToUpdate = users.FirstOrDefault(u => u.Id == userId);
+
+            if (userToUpdate != null)
+            {
+                userToUpdate.Password = password;
+                WriteUsers(users);
+            }
+            else
+            {
+                Console.WriteLine($"User with ID {userId} not found.");
+            }
+        }
+
+
     }
 
 }

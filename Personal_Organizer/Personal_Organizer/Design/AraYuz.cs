@@ -14,16 +14,21 @@ namespace Personal_Organizer
 {
     public partial class AraYuz : Form
     {
-        User user;
+        User user = new User();
         public AraYuz(User _user)
         {
+            this.user = _user;
             InitializeComponent();
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             roundedButton1.BackColor = Color.FromArgb(227, 238, 241);
             label1.BackColor = Color.FromArgb(227, 238, 241);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            this.user = _user;
 
+            // Check user role and set userManagementBtn visibility
+            if (user.Role != Roles.Admin)
+            {
+                userManagementBtn.Visible = false;
+            }
         }
 
 
@@ -76,11 +81,14 @@ namespace Personal_Organizer
             this.Hide();
         }
 
-        private void rdnManagement_Click(object sender, EventArgs e)
+        private void userManagementBtn_Click(object sender, EventArgs e)
         {
-            UserManagament userManagament=new UserManagament();
-            userManagament.ShowDialog();
-            this.Hide();
+            if(user.Role == Roles.Admin)
+            {
+                UserManagement userManagament = new UserManagement(user);
+                userManagament.ShowDialog();
+                this.Hide();
+            }
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)
