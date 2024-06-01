@@ -80,19 +80,6 @@ namespace Personal_Organizer
             }
 
         }
-        private void Notes_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-            }
-        }
-
         private void LoadNotesDataGridView()
         {
             // Clear the DataGridView
@@ -416,22 +403,57 @@ namespace Personal_Organizer
         private void homebtn_Click(object sender, EventArgs e)
         {
             AraYuz arayuz = new AraYuz(user);
-            arayuz.Show();
-            this.Hide();
+            arayuz.ShowDialog();
+            this.Close();
         }
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
             PersonalInformation personalInformation = new PersonalInformation(user);
-            personalInformation.Show();
-            this.Hide();
+            personalInformation.ShowDialog();
+            this.Close();
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)
         {
             Reminder reminder = new Reminder(user);
-            reminder.Show();
-            this.Hide();
+            reminder.ShowDialog();
+            this.Close();
+        }
+
+        private void phonebookbtn_Click(object sender, EventArgs e)
+        {
+            PhoneBook phonebook = new PhoneBook(user);
+            phonebook.ShowDialog();
+            this.Close();
+        }
+
+        private void notesbtn_Click(object sender, EventArgs e)
+        {
+            Notes notes = new Notes(user);
+            notes.ShowDialog();
+            this.Close();
+        }
+
+        private void salarycalcbtn_Click(object sender, EventArgs e)
+        {
+            SalaryCalculator salaryCalculator = new SalaryCalculator(user);
+            salaryCalculator.ShowDialog();
+            this.Close();
+        }
+
+        private void usermanagmentbtn_Click(object sender, EventArgs e)
+        {
+            UserManagament userManagament = new UserManagament(user);
+            userManagament.ShowDialog();
+            this.Close();
+        }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            Giris giris = new Giris();
+            giris.ShowDialog();
+            this.Close();
         }
     }
 }
