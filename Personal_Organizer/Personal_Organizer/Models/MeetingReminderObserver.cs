@@ -5,12 +5,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Personal_Organizer.Models
 {
     public class MeetingReminderObserver : IObserver
     {
-        public void Shake(ISubject subject, Reminder form)
+        public void Shake(ISubject subject, Form form)
         {
             form.BeginInvoke((Action)(() =>
             {

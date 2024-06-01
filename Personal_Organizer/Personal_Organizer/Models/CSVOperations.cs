@@ -44,6 +44,7 @@ namespace Personal_Organizer.Models
                     PhoneNumber = values[6],
                     Address = values[7],
                     PhotoPath = null,
+                    Salary = double.Parse(values[9]),
                 };
                 users.Add(user);
                 string photoBase64 = values[8];
@@ -62,7 +63,7 @@ namespace Personal_Organizer.Models
 
         public void WriteUsers(List<User> users)
         {
-            var lines = new List<string> { "Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo" };
+            var lines = new List<string> { "Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo,Salary" };
             lines.AddRange(users.Select(u =>
             {
                 string photoBase64 = string.Empty;
@@ -71,13 +72,13 @@ namespace Personal_Organizer.Models
                     byte[] photoBytes = File.ReadAllBytes(u.PhotoPath);
                     photoBase64 = Convert.ToBase64String(photoBytes);
                 }
-                return $"{u.Id},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64}";
+                return $"{u.Id},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64},{u.Salary}";
             }));
             File.WriteAllLines(FilePath, lines);
         }
 
         // Notes CSV Operations
-        public List<Note> ReadNotes()
+        public List<Note> ReadNotes(int userId)
         {
             List<Note> notes = new List<Note>();
 
@@ -98,11 +99,15 @@ namespace Personal_Organizer.Models
                     var note = new Note
                     {
                         UserID = int.Parse(fields[0]),
-                        Date = DateTime.ParseExact(fields[1], "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                        Text = fields[2]
+                        Header = fields[1],
+                        Date = DateTime.ParseExact(fields[2], "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                        Text = fields[3]
                     };
 
-                    notes.Add(note);
+                    if (note.UserID == userId)
+                    {
+                        notes.Add(note);
+                    }
                 }
             }
 
@@ -113,36 +118,55 @@ namespace Personal_Organizer.Models
         {
             using (var writer = new StreamWriter(NotesFilePath, append: true))
             {
-                var line = $"{note.UserID},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
+                var line = $"{note.UserID},{note.Header},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
                 writer.WriteLine(line);
             }
         }
 
-        public void DeleteNote(Note noteToDelete)
+        public void DeleteNote(Note noteToDelete, int userId)
         {
-            var notes = ReadNotes();
-            var updatedNotes = new List<Note>();
+            var notes = new List<Note>();
 
-            foreach (var note in notes)
+            // Read the CSV file and load notes
+            using (var reader = new StreamReader(NotesFilePath))
             {
-                if (note.Date != noteToDelete.Date)
+                // Skip the header line
+                reader.ReadLine();
+
+                while (!reader.EndOfStream)
                 {
-                    updatedNotes.Add(note);
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+
+                    var note = new Note
+                    {
+                        UserID = int.Parse(values[0]),
+                        Header = values[1],
+                        Date = DateTime.ParseExact(values[2], "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                        Text = values[3]
+                    };
+
+                    // Add to list if it doesn't match the note to be deleted
+                    if (note.UserID != userId || note.Date != noteToDelete.Date || note.Header != noteToDelete.Header)
+                    {
+                        notes.Add(note);
+                    }
                 }
             }
 
             // Rewrite the CSV file with the updated list of notes
             using (var writer = new StreamWriter(NotesFilePath, false))
             {
-                writer.WriteLine("UserID,Date,Text"); // Rewrite the header line
+                writer.WriteLine("UserID,Header,Date,Text"); // Rewrite the header line
 
-                foreach (var note in updatedNotes)
+                foreach (var note in notes)
                 {
-                    var line = $"{note.UserID},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
+                    var line = $"{note.UserID},{note.Header},{note.Date.ToString("MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture)},{note.Text}";
                     writer.WriteLine(line);
                 }
             }
         }
+
         // PhoneBook CSV Operations
         public List<Phonebook> ReadPhoneBooks()
         {
@@ -184,8 +208,8 @@ namespace Personal_Organizer.Models
 
         public void WriteRemindersToCsv(List<IReminder> reminders)
         {
-            var lines = new List<string> { "UserID,Date,Time,Title,Summary,Description,Type" };
-            lines.AddRange(reminders.Select(r => $"{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
+            var lines = new List<string> { "ReminderID,UserID,Date,Time,Title,Summary,Description,Type" };
+            lines.AddRange(reminders.Select(r => $"{r.ReminderID},{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
             File.WriteAllLines(ReminderDataPath, lines);
         }
 
@@ -199,20 +223,20 @@ namespace Personal_Organizer.Models
                 var values = line.Split(',');
                 if (values[6] == "TaskReminder")
                 {
-                    IReminder reminder = TaskFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy", null).Date,
-                        TimeSpan.Parse(values[2]),
-                        values[3],
+                    IReminder reminder = TaskFactory.CreateReminder(int.Parse(values[0]), int.Parse(values[1]),DateTime.ParseExact(values[2], "dd.MM.yyyy", null).Date,
+                        TimeSpan.Parse(values[3]),
                         values[4],
-                        values[5]);
+                        values[5],
+                        values[6]);
                     reminders.Add(reminder);
                 }
                 else
                 {
-                    IReminder reminder = MeetingFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy", null).Date,
-                     TimeSpan.Parse(values[2]),
-                     values[3],
-                     values[4],
-                     values[5]);
+                    IReminder reminder = MeetingFactory.CreateReminder(int.Parse(values[0]), int.Parse(values[1]), DateTime.ParseExact(values[2], "dd.MM.yyyy", null).Date,
+                        TimeSpan.Parse(values[3]),
+                        values[4],
+                        values[5],
+                        values[6]);
                     reminders.Add(reminder);
                 }
             }
@@ -324,6 +348,26 @@ namespace Personal_Organizer.Models
                 {
                     writer.WriteLine(line);
                 }
+            }
+        }
+        public void UpdateUserSalary(int userId, double newSalary)
+        {
+            var users = ReadAllUsers();
+
+            // Find the user to update
+            var userToUpdate = users.FirstOrDefault(u => u.Id == userId);
+
+            if (userToUpdate != null)
+            {
+                // Update the user's salary
+                userToUpdate.Salary = newSalary;
+
+                // Rewrite all users to the file
+                WriteUsers(users);
+            }
+            else
+            {
+                Console.WriteLine($"User with ID {userId} not found.");
             }
         }
 

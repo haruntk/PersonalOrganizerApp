@@ -9,9 +9,9 @@ namespace Personal_Organizer.Factories
 {
     public class TaskReminderFactory : IReminderFactory
     {
-            public IReminder CreateReminder(DateTime date, TimeSpan time, string title, string description, string summary)
+            public IReminder CreateReminder(int reminderid,int userid, DateTime date, TimeSpan time, string title, string description, string summary)
             {
-                return new TaskReminder(date, time, title, description, summary);
+                return new TaskReminder(reminderid,userid,date, time, title, description, summary);
             }
     }
 }

@@ -1,2 +1,3 @@
-Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,PhotoBase64,Salary
-1,harun,kepenek,harun123,harun@gmail.com,0,05414161570,istanbul,0
+Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo
+1,arda,cabuk,arda1,ardacabuk1@hotmail.com,0,5432305540,tekirdag,
+2,adem,cabuk,adem1,fotoboy@gmail.com,0,5432305540aa,tekirdag,

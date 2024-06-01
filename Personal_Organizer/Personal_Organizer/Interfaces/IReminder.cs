@@ -9,6 +9,7 @@ namespace Personal_Organizer.Models
 {
     public interface IReminder : ISubject
     {
+        int ReminderID { get; set; }
         int UserID { get; set; }
         DateTime Date { get; set;}
         TimeSpan Time { get;set;}
