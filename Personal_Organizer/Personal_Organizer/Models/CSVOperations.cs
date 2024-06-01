@@ -36,18 +36,19 @@ namespace Personal_Organizer.Models
                 User user = new User()
                 {
                     Id = int.Parse(values[0]),
-                    Name = values[1],
-                    Surname = values[2],
-                    Password = values[3],
-                    Email = values[4],
-                    Role = (Roles)Enum.Parse(typeof(Roles), values[5]),
-                    PhoneNumber = values[6],
-                    Address = values[7],
+                    Username = values[1],
+                    Name = values[2],
+                    Surname = values[3],
+                    Password = values[4],
+                    Email = values[5],
+                    Role = (Roles)Enum.Parse(typeof(Roles), values[6]),
+                    PhoneNumber = values[7],
+                    Address = values[8],
                     PhotoPath = null,
-                    Salary = double.Parse(values[9]),
+                    Salary = double.Parse(values[10]),
                 };
                 users.Add(user);
-                string photoBase64 = values[8];
+                string photoBase64 = values[9];
 
                 if (!string.IsNullOrEmpty(photoBase64))
                 {
@@ -63,7 +64,7 @@ namespace Personal_Organizer.Models
 
         public void WriteUsers(List<User> users)
         {
-            var lines = new List<string> { "Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo,Salary" };
+            var lines = new List<string> { "Id,Username,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo,Salary" };
             lines.AddRange(users.Select(u =>
             {
                 string photoBase64 = string.Empty;
@@ -72,7 +73,7 @@ namespace Personal_Organizer.Models
                     byte[] photoBytes = File.ReadAllBytes(u.PhotoPath);
                     photoBase64 = Convert.ToBase64String(photoBytes);
                 }
-                return $"{u.Id},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64},{u.Salary}";
+                return $"{u.Id},{u.Username},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64},{u.Salary}";
             }));
             File.WriteAllLines(FilePath, lines);
         }

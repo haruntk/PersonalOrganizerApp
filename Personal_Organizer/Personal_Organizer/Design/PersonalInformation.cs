@@ -184,9 +184,5 @@ namespace Personal_Organizer
             SaveState();
         }
 
-        private void savebtn_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -23,9 +23,11 @@ namespace Personal_Organizer
             InitializeComponent();
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             roundedButton1.BackColor = Color.FromArgb(227, 238, 241);
-            label1.BackColor = Color.FromArgb(227, 238, 241);
+            lblWelcome.BackColor = Color.FromArgb(227, 238, 241);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             this.user = _user;
+            lblWelcome.Text = $"Welcome, {user.Name} {user.Surname}";
+            lblAd.Text = user.Username;
             reminders = csvOperations.ReadRemindersFromCsv();
             List<IReminder> _reminders = new List<IReminder>();
             foreach (IReminder reminder in reminders)

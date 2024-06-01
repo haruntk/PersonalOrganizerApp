@@ -54,6 +54,7 @@ namespace Personal_Organizer
             User user = new User()
             {
                 Id = lastId + 1,
+                Username = usernametxt.Text,
                 Name = nametxt.Text,
                 Surname = surnametxt.Text,
                 Password = passwordtxt.Text,
@@ -65,7 +66,8 @@ namespace Personal_Organizer
 
             if (user.Id == 1) // The first user should be an Admin
                 user.Role = Roles.Admin;
-
+            else
+                user.Role = Roles.User;
             users.Add(user);
             csvOperations.WriteUsers(users);
             giris.Show();
