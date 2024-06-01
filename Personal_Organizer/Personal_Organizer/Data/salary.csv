@@ -1,1 +1,2 @@
 Id,GrossMinWage,Experience,Location,Education,Languages,ManagerialPosition,FamilyStatus,CoefficientSum,EngineerMinWage
+1,6000,Experience Duration (Years) 15-20 - Coefficient: 1.35,TR21: Edirne/Kirklareli/Tekirdag - Coefficient: 0.10,Academic Degree Related to Profession -> PhD - Coefficient: 0.30,Documented Other Foreign Language Proficiency (per language) - Coefficient: 0.05,Director/Project Director - Coefficient: 0.85,Children aged 0-6 - Coefficient: 0.20,2.85,23100

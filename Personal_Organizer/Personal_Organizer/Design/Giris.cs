@@ -1,4 +1,5 @@
-﻿using Personal_Organizer.Models;
+﻿using Personal_Organizer.Design;
+using Personal_Organizer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +18,13 @@ namespace Personal_Organizer
     {
         readonly CSVOperations csvOperations = new CSVOperations();
         List<User> users = new List<User>();
+        private bool isPasswordVisible = false;
         public Giris()
         {
             InitializeComponent();
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             users = csvOperations.ReadAllUsers();
+            passwordtxt.PasswordChar = '*';
         }
 
         private void btnGiris_Click(object sender, EventArgs e)
@@ -56,7 +59,27 @@ namespace Personal_Organizer
         {
             Kayıt kayıt = new Kayıt();
             kayıt.Show();
-            this.Hide();
+
+        }
+
+        private void visiblitybtn_Click(object sender, EventArgs e)
+        {
+            isPasswordVisible = !isPasswordVisible;
+
+            if (isPasswordVisible)
+            {
+                passwordtxt.PasswordChar = '\0';
+            }
+            else
+            {
+                passwordtxt.PasswordChar = '*'; 
+            }
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PasswordSender passwordSender = new PasswordSender();
+            passwordSender.Show();
 
         }
     }

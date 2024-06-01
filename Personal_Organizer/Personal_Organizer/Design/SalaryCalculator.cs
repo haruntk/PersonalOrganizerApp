@@ -14,13 +14,14 @@ namespace Personal_Organizer.Design
 
     public partial class SalaryCalculator : Form
     {
-        User user;
+        User user = new User();
+        private CSVOperations csvOperations = new CSVOperations();
         public SalaryCalculator(User _user)
         {
+            user = _user;
             InitializeComponent();
             InitializeComboBoxItems();
             LoadSalaryData();
-            user = _user;
         }
 
         private void InitializeComboBoxItems()
@@ -50,7 +51,7 @@ namespace Personal_Organizer.Design
             EducationBox.Items.Add(new ComboBoxItem("Academic Degree Related to Profession -> Master's - Coefficient: 0.10", 0.10));
             EducationBox.Items.Add(new ComboBoxItem("Academic Degree Related to Profession -> PhD - Coefficient: 0.30", 0.30));
             EducationBox.Items.Add(new ComboBoxItem("Academic Degree Related to Profession -> Associate Professor - Coefficient: 0.35", 0.35));
-            EducationBox.Items.Add(new ComboBoxItem("Academic Degree Unrelated to Profession -> Master's, Coefficient - 0.05", 0.05));
+            EducationBox.Items.Add(new ComboBoxItem("Academic Degree Unrelated to Profession -> Master's - Coefficient: 0.05", 0.05));
             EducationBox.Items.Add(new ComboBoxItem("Academic Degree Unrelated to Profession -> PhD/Associate Professor - Coefficient: 0.15", 0.15));
 
             // Initialize LanguageListBox
@@ -71,10 +72,6 @@ namespace Personal_Organizer.Design
             FamilyBox.Items.Add(new ComboBoxItem("Children aged 0-6 - Coefficient: 0.20", 0.20));
             FamilyBox.Items.Add(new ComboBoxItem("Children aged 7-18 - Coefficient: 0.30", 0.30));
             FamilyBox.Items.Add(new ComboBoxItem("Children over 18 (Must be a university undergraduate or associate degree student) - Coefficient: 0.40", 0.40));
-
-            RoleBox.Items.Add("User");
-            RoleBox.Items.Add("Part-Time User");
-            RoleBox.Items.Add("Admin");
         }
 
         public class ComboBoxItem
@@ -96,12 +93,10 @@ namespace Personal_Organizer.Design
 
         private void CalculateBtn_Click(object sender, EventArgs e)
         {
-
             // Check if any ComboBox is not selected
             if (ExperienceBox.SelectedItem == null || LocationBox.SelectedItem == null ||
                 EducationBox.SelectedItem == null || LanguagesBox.SelectedItem == null ||
-                ManagerialPositionBox.SelectedItem == null || FamilyBox.SelectedItem == null ||
-                RoleBox.SelectedItem == null)
+                ManagerialPositionBox.SelectedItem == null || FamilyBox.SelectedItem == null)
             {
                 MessageBox.Show("Please select values from all ComboBoxes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -130,8 +125,8 @@ namespace Personal_Organizer.Design
             // Calculate engineer wage
             double engineerWage = (minWage * 2) * (1 + coefficientSums);
 
-            // Will be change when the login session is completed.
-            if (RoleBox.SelectedItem.ToString() == "Part-Time User")
+            // 3 => part-time user
+            if (user.Role.ToString() == "Part_Time_User")
             {
                 engineerWage /= 2;
             }
@@ -140,7 +135,12 @@ namespace Personal_Organizer.Design
             // Display engineer wage
             EngineerWageLbl.Text = engineerWage.ToString();
 
+            user.Salary = engineerWage;
+
+            csvOperations.UpdateUserSalary(user.Id, engineerWage);
+
             SalaryUpdate(minWage, coefficientSums, engineerWage);
+
         }
 
         private double GetCoefficientSums()
@@ -157,15 +157,11 @@ namespace Personal_Organizer.Design
 
             return sum;
         }
-
-
-
         private void SalaryUpdate(double minWage, double coefficientSums, double engineerWage)
         {
-            var csvOperations = new CSVOperations();
             var updatedSalary = new Salary
             {
-                Id = 1, // Assuming the ID is 1 for now, this should be dynamic based on your requirements.
+                Id = user.Id, // Assuming the ID is 1 for now, this should be dynamic based on your requirements.
                 GrossMinWage = minWage,
                 Experience = ExperienceBox.SelectedItem.ToString(),
                 Location = LocationBox.SelectedItem.ToString(),
@@ -182,8 +178,7 @@ namespace Personal_Organizer.Design
 
         private void LoadSalaryData()
         {
-            var csvOperations = new CSVOperations();
-            Salary salary = csvOperations.ReadSalary(1); // Assuming we are loading the salary record with ID 1
+            Salary salary = csvOperations.ReadSalary(user.Id);
 
             if (salary != null)
             {
@@ -249,9 +244,6 @@ namespace Personal_Organizer.Design
             this.Close();
         }
 
-        private void SalaryCalculator_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
