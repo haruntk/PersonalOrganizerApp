@@ -29,17 +29,21 @@ namespace Personal_Organizer
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
+            bool validated = false;
             users = csvOperations.ReadAllUsers();
             foreach (User user in users)
             {
-                if (user.Name == usertxt.Text && user.Password == passwordtxt.Text)
+                if (user.Username == usertxt.Text && user.Password == passwordtxt.Text)
                 {
                     AraYuz araYuz = new AraYuz(user);
                     araYuz.Show();
                     this.Hide();
+                    validated = true;
+
                 }
             }
-
+                if (!validated)
+                    MessageBox.Show("Hatalı Şifre.Tekrar kontrol ediniz.", "Hatalı Şifre!");
         }
 
         private void Giris_FormClosing(object sender, FormClosingEventArgs e)

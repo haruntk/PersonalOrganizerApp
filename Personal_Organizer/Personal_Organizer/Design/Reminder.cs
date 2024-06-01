@@ -30,6 +30,7 @@ namespace Personal_Organizer
         {
             InitializeComponent();
             user = _user;
+            label3.Text = user.Username;
             allReminders = csvOperations.ReadRemindersFromCsv();
             foreach (IReminder reminder in allReminders)
             {

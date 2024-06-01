@@ -27,6 +27,7 @@ namespace Personal_Organizer
             phonebooks = _csvOperations.ReadPhoneBooks();
             dataGridView1.DataSource = phonebooks;
             user = _user;
+            label3.Text = user.Username;
             reminders = _csvOperations.ReadRemindersFromCsv();
             List<IReminder> _reminders = new List<IReminder>();
             foreach (IReminder reminder in reminders)
