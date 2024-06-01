@@ -29,6 +29,7 @@ namespace Personal_Organizer
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
+            users = csvOperations.ReadAllUsers();
             foreach (User user in users)
             {
                 if (user.Name == usertxt.Text && user.Password == passwordtxt.Text)
