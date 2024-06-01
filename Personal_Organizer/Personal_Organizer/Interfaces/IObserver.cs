@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Personal_Organizer.Interfaces
 {
     public interface IObserver
     {
-        void Shake(ISubject subject, Reminder reminder);
+        void Shake(ISubject subject, Form reminder);
     }
 }

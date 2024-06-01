@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Personal_Organizer.Models
 {
@@ -41,7 +42,7 @@ namespace Personal_Organizer.Models
             _observers.Remove(observer);
         }
 
-        public void Notify(Reminder reminder)
+        public void Notify(Form reminder)
         {
             if (IsTriggered == true) return;
             IsTriggered = true;
