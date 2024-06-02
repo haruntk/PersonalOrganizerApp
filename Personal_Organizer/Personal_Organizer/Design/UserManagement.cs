@@ -276,7 +276,7 @@ namespace Personal_Organizer.Design
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user));
+            NavigateToForm(new PersonalInformation(user,reminders));
         }
 
         private void personalinfobtn_MouseEnter(object sender, EventArgs e)
@@ -291,7 +291,7 @@ namespace Personal_Organizer.Design
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user,reminders));
         }
 
         private void phonebookbtn_MouseEnter(object sender, EventArgs e)
@@ -306,7 +306,7 @@ namespace Personal_Organizer.Design
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user,reminders));
         }
 
         private void notesbtn_MouseEnter(object sender, EventArgs e)
@@ -321,7 +321,7 @@ namespace Personal_Organizer.Design
 
         private void salarycalcbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new SalaryCalculator(user));
+            NavigateToForm(new SalaryCalculator(user,reminders));
         }
 
         private void salarycalcbtn_MouseEnter(object sender, EventArgs e)
