@@ -75,6 +75,7 @@
             this.lblAd.Name = "lblAd";
             this.lblAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblAd.Size = new System.Drawing.Size(96, 18);
+
             this.lblAd.TabIndex = 16;
             this.lblAd.Text = "Kullanıcı İsmi";
             this.lblAd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -137,6 +138,7 @@
             this.menubtn.InitialImage = global::Personal_Organizer.Properties.Resources.menu_burger;
             this.menubtn.Location = new System.Drawing.Point(21, 29);
             this.menubtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.menubtn.Name = "menubtn";
             this.menubtn.Size = new System.Drawing.Size(28, 28);
             this.menubtn.TabIndex = 18;
@@ -147,7 +149,9 @@
             // 
             this.panel2.Controls.Add(this.homebtn);
             this.panel2.Location = new System.Drawing.Point(2, 77);
+
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(183, 45);
             this.panel2.TabIndex = 20;
@@ -160,7 +164,9 @@
             this.homebtn.Image = global::Personal_Organizer.Properties.Resources.home;
             this.homebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homebtn.Location = new System.Drawing.Point(-13, -6);
+
             this.homebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.homebtn.Name = "homebtn";
             this.homebtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.homebtn.Size = new System.Drawing.Size(191, 56);
@@ -175,7 +181,9 @@
             // 
             this.panel7.Controls.Add(this.infobtn);
             this.panel7.Location = new System.Drawing.Point(2, 126);
+
             this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(180, 45);
             this.panel7.TabIndex = 22;
@@ -187,7 +195,9 @@
             this.infobtn.Image = global::Personal_Organizer.Properties.Resources.info2;
             this.infobtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.infobtn.Location = new System.Drawing.Point(-13, -7);
+
             this.infobtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.infobtn.Name = "infobtn";
             this.infobtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.infobtn.Size = new System.Drawing.Size(196, 56);
@@ -203,6 +213,7 @@
             // 
             this.panel9.Location = new System.Drawing.Point(2, 175);
             this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(178, 255);
             this.panel9.TabIndex = 20;
@@ -290,9 +301,11 @@
             // circularPicture1
             // 
             this.circularPicture1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.circularPicture1.Location = new System.Drawing.Point(827, 22);
+
+            this.circularPicture1.Location = new System.Drawing.Point(815, 6);
             this.circularPicture1.Name = "circularPicture1";
-            this.circularPicture1.Size = new System.Drawing.Size(51, 51);
+            this.circularPicture1.Size = new System.Drawing.Size(93, 88);
+            this.circularPicture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.circularPicture1.TabIndex = 15;
             this.circularPicture1.TabStop = false;
             // 
@@ -305,6 +318,7 @@
             this.rdnManagement.ForeColor = System.Drawing.Color.White;
             this.rdnManagement.Location = new System.Drawing.Point(720, 105);
             this.rdnManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.rdnManagement.Name = "rdnManagement";
             this.rdnManagement.Size = new System.Drawing.Size(158, 70);
             this.rdnManagement.TabIndex = 12;
@@ -385,6 +399,7 @@
             this.btnPersonal.ForeColor = System.Drawing.Color.White;
             this.btnPersonal.Location = new System.Drawing.Point(720, 194);
             this.btnPersonal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.Size = new System.Drawing.Size(160, 70);
             this.btnPersonal.TabIndex = 7;

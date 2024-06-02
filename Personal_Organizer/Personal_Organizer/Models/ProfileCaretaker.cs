@@ -10,30 +10,29 @@ namespace Personal_Organizer.Models
     {
         private readonly Stack<ProfileMemento> _undoStack = new Stack<ProfileMemento>();
         private readonly Stack<ProfileMemento> _redoStack = new Stack<ProfileMemento>();
-        public void SaveState(ProfileMemento memento)
+        public void SaveState(User user)
         {
-            _undoStack.Push(memento);
-            _redoStack.Clear();
+            _undoStack.Push(user.CreateMemento());
         }
 
-        public ProfileMemento Undo()
+        public ProfileMemento Undo(User user)
         {
             if (_undoStack.Count > 1)
             {
-                var memento = _undoStack.Pop();
-                _redoStack.Push(memento);
-                return _undoStack.Peek();
+                _redoStack.Push(_undoStack.Pop());
+                var memento = _undoStack.First();
+                user.RestoreMemento(memento);
             }
             return null;
         }
 
-        public ProfileMemento Redo()
+        public ProfileMemento Redo(User user)
         {
             if (_redoStack.Count > 0)
             {
+                _undoStack.Push(_redoStack.First());
                 var memento = _redoStack.Pop();
-                _undoStack.Push(memento);
-                return memento;
+                user.RestoreMemento(memento);
             }
             return null;
         }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,32 +20,25 @@ namespace Personal_Organizer.Design
         List<IReminder> reminders = new List<IReminder>();
         System.Timers.Timer timer;
         private bool isNavigating = false;
-        public SalaryCalculator(User _user)
+            
+        public SalaryCalculator(User _user, List<IReminder> _reminders)
         {
             user = _user;
             InitializeComponent();
             InitializeComboBoxItems();
             LoadSalaryData();
             reminders = csvOperations.ReadRemindersFromCsv();
-            List<IReminder> _reminders = new List<IReminder>();
-            foreach (IReminder reminder in reminders)
-            {
-                if (user.Id == reminder.UserID)
-                {
-                    _reminders.Add(reminder);
-                    if (reminder.GetType().Name == "MeetingReminder")
-                        reminder.Attach(new MeetingReminderObserver());
-                    else
-                        reminder.Attach(new MeetingReminderObserver());
-                }
-            }
             reminders = _reminders;
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
-
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                circularPicture2.Image = Image.FromStream(ms);
+            }
             if (user.Role != Roles.Admin)
             {
                 usermanagmentbtn.Visible = false;
@@ -68,7 +62,7 @@ namespace Personal_Organizer.Design
                     reminder.Notify(this);
                     Notification not = new Notification(reminder);
                     not.ShowDialog();
-
+                    csvOperations.WriteRemindersToCsv(reminders);
                 }
             }
 
@@ -258,17 +252,17 @@ namespace Personal_Organizer.Design
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user));
+            NavigateToForm(new PersonalInformation(user, reminders));
         }
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user, reminders));
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Notes(user));
+            NavigateToForm(new Notes(user, reminders));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)

@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +24,7 @@ namespace Personal_Organizer
         List<IReminder> reminders = new List<IReminder>();
         System.Timers.Timer timer;
         private bool isNavigating = false;
-        public PhoneBook(User _user)
+        public PhoneBook(User _user, List<IReminder> _reminders)
         {
             InitializeComponent();
             SetPlaceholder();
@@ -30,19 +32,12 @@ namespace Personal_Organizer
             dataGridView1.DataSource = phonebooks;
             user = _user;
             label3.Text = user.Username;
-            reminders = _csvOperations.ReadRemindersFromCsv();
-            List<IReminder> _reminders = new List<IReminder>();
-            foreach (IReminder reminder in reminders)
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
             {
-                if (user.Id == reminder.UserID)
-                {
-                    _reminders.Add(reminder);
-                    if (reminder.GetType().Name == "MeetingReminder")
-                        reminder.Attach(new MeetingReminderObserver());
-                    else
-                        reminder.Attach(new MeetingReminderObserver());
-                }
+                circularPicture2.Image = Image.FromStream(ms);
             }
+            reminders = _csvOperations.ReadRemindersFromCsv();
             reminders = _reminders;
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
@@ -72,7 +67,7 @@ namespace Personal_Organizer
                     reminder.Notify(this);
                     Notification not = new Notification(reminder);
                     not.ShowDialog();
-
+                    _csvOperations.WriteRemindersToCsv(reminders);
                 }
             }
 
@@ -148,20 +143,20 @@ namespace Personal_Organizer
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user));
+            NavigateToForm(new PersonalInformation(user, reminders));
         }
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user, reminders));
         }
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Notes(user));
+            NavigateToForm(new Notes(user, reminders));
         }
 
         private void salarycalcbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new SalaryCalculator(user));
+            NavigateToForm(new SalaryCalculator(user, reminders));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)
@@ -266,23 +261,30 @@ namespace Personal_Organizer
         private void deleteContactbtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete this contact?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (result == DialogResult.Yes)
                 {
-                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    if (dataGridView1.SelectedRows.Count > 0)
                     {
-                        var selectedData = row.DataBoundItem as Phonebook;
-                        phonebooks.Remove(selectedData);
+                        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                        {
+                            var selectedData = row.DataBoundItem as Phonebook;
+                            phonebooks.Remove(selectedData);
+                        }
+                        dataGridView1.DataSource = null;
+                        dataGridView1.DataSource = phonebooks;
+                        _csvOperations.WritePhonebook(phonebooks);
                     }
-                    dataGridView1.DataSource = null;
-                    dataGridView1.DataSource = phonebooks;
-                    _csvOperations.WritePhonebook(phonebooks);
+                    else
+                    {
+                        MessageBox.Show("Please select a row to delete.");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Please select a row to delete.");
-                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
             }
         }
 

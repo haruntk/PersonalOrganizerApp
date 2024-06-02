@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -23,7 +24,8 @@ namespace Personal_Organizer
         private const string NamePattern = "^[A-Za-zğüşıöçĞÜŞİÖÇ]+$";
         private bool isPasswordVisible = false;
         bool isValid = true;
-
+        private Image selectedImage;
+        private string base64string = null;
         public Kayıt()
         {
             InitializeComponent();
@@ -64,9 +66,48 @@ namespace Personal_Organizer
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+
             Giris giris = new Giris();
             int lastId = users.Count > 0 ? users[users.Count - 1].Id : 0;
+            foreach(User _user in users)
+            {
+                bool isValid = true;
+                usernameerror.Text = "";
+                phoneeror.Text = "";
+                emailerror.Text = "";
+                if (_user.Username== usernametxt.Text)
+                {
+                    usernameerror.Text = "This username is already taken.";
+                    isValid = false;
+                }
+                if (_user.PhoneNumber == phonenumbertxt.Text)
+                {
+                    phoneeror.Text = "This phone number is already taken.";
+                    isValid = false;
 
+                }
+                if (_user.Email == emailtxt.Text)
+                {
+                    emailerror.Text = "This E-mail is already taken.";
+                    isValid = false;
+                }
+                if (!isValid) return;
+
+            }
+            if (selectedImage != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    selectedImage.Save(ms, selectedImage.RawFormat);
+                    byte[] imageBytes = ms.ToArray();
+                    base64string = Convert.ToBase64String(imageBytes);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select an image first.");
+                return;
+            }
             User user = new User()
             {
                 Id = lastId + 1,
@@ -77,7 +118,7 @@ namespace Personal_Organizer
                 Email = emailtxt.Text,
                 PhoneNumber = phonenumbertxt.Text,
                 Address = adresstxt.Text,
-                PhotoPath = ""
+                Base64Photo = base64string
             };
 
             if (user.Id == 1) // The first user should be an Admin
@@ -244,18 +285,37 @@ namespace Personal_Organizer
 
         private void usernametxt_Leave(object sender, EventArgs e)
         {
-            if (users.Any(u => u.Username.Equals(usernametxt.Text, StringComparison.OrdinalIgnoreCase)))
-            {
-                usernameerror.Text = "The username is already taken. \nPlease choose a different username.";
-                usernametxt.Text = "";
-                usernametxt.Focus();
-            }
-            else
-            {
-                usernameerror.Text = "";
-                UpdateRegisterButtonState();
-            }
+            //if (users.Any(u => u.Username.Equals(usernametxt.Text, StringComparison.OrdinalIgnoreCase)))
+            //{
+            //    usernameerror.Text = "The username is already taken. \nPlease choose a different username.";
+            //    usernametxt.Text = "";
+            //    usernametxt.Focus();
+            //}
+            //else
+            //{
+            //    usernameerror.Text = "";
+            //    UpdateRegisterButtonState();
+            //}
 
+        }
+
+        private void uploadbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.*";
+                if(dialog.ShowDialog() == DialogResult.OK)
+                {
+                    selectedImage = Image.FromFile(dialog.FileName);
+                    pictureBox1.Image = selectedImage;
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Bir hata oluştu!");
+            }
         }
     }
 }

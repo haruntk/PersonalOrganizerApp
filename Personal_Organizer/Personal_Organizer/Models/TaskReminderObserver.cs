@@ -13,18 +13,25 @@ namespace Personal_Organizer.Models
     {
         public void Shake(ISubject subject,Form form)
         {
-            form.BeginInvoke((Action)(() =>
+            try
             {
-                var original = form.Location;
-                var rnd = new Random(1337);
-                const int shake_amplitude = 10;
-                for (int i = 0; i < 50; i++)
+                form.BeginInvoke((Action)(() =>
                 {
-                    form.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
-                    System.Threading.Thread.Sleep(20);
-                }
-                form.Location = original;
-            }));
+                    var original = form.Location;
+                    var rnd = new Random(1337);
+                    const int shake_amplitude = 10;
+                    for (int i = 0; i < 50; i++)
+                    {
+                        form.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
+                        System.Threading.Thread.Sleep(20);
+                    }
+                    form.Location = original;
+                }));
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
     }
 }

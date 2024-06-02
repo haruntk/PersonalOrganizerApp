@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,19 +22,62 @@ namespace Personal_Organizer
         private CSVOperations csvOperations = new CSVOperations();
         private readonly ProfileCaretaker _caretaker = new ProfileCaretaker();
         private bool isNavigating = false;
+        private List<IReminder> reminders = new List<IReminder>();
+        private System.Timers.Timer timer;
         bool sidebarExpand;
-        public PersonalInformation(User _user)
+        public PersonalInformation(User _user,List<IReminder> _reminders)
         {
             InitializeComponent();
             users = csvOperations.ReadAllUsers();
             user = _user;
             InitializeInitialState();
             AttachEventHandlers();
-
+            reminders = _reminders;
             if (user.Role != Roles.Admin)
             {
                 usermanagmentbtn.Visible = false;
             }
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                circularPicture2.Image = Image.FromStream(ms);
+            }
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.AutoReset = true;
+            timer.Enabled = true;
+        }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+
+            foreach (IReminder reminder in reminders)
+            {
+                DateTime now = DateTime.Now;
+                DateTime reminderDate = reminder.Date + reminder.Time;
+                if (reminderDate.Year == now.Year &&
+            reminderDate.Month == now.Month &&
+            reminderDate.Day == now.Day &&
+            reminderDate.Hour == now.Hour &&
+            reminderDate.Minute == now.Minute && !reminder.IsTriggered)
+                {
+                    reminder.Notify(this);
+                    Notification not = new Notification(reminder);
+                    not.ShowDialog();
+                    csvOperations.WriteRemindersToCsv(reminders);
+                }
+            }
+
+        }
+        private void UpdateUser()
+        {
+            user.Email = emailtxt.Text;
+            user.PhoneNumber = phonenumbertxt.Text;
+            user.Surname = surnametxt.Text;
+            user.Name = nametxt.Text;
+            user.Address = adresstxt.Text;
+            user.Password = passwordtxt.Text;
         }
 
         private void InitializeInitialState()
@@ -44,8 +88,7 @@ namespace Personal_Organizer
             phonenumbertxt.Text = user.PhoneNumber;
             surnametxt.Text = user.Surname;
             emailtxt.Text = user.Email;
-            _initialState = user.CreateMemento(); // Başlangıç durumunu kaydet
-            _caretaker.SaveState(_initialState);
+            _caretaker.SaveState(user);
             UpdateFormFields();
         }
         private void AttachEventHandlers()
@@ -57,48 +100,31 @@ namespace Personal_Organizer
             surnametxt.TextChanged += textBox_TextChanged;
             emailtxt.TextChanged += textBox_TextChanged;
         }
-        private void DetachEventHandlers()
-        {
-            adresstxt.TextChanged -= textBox_TextChanged;
-            nametxt.TextChanged -= textBox_TextChanged;
-            passwordtxt.TextChanged -= textBox_TextChanged;
-            phonenumbertxt.TextChanged -= textBox_TextChanged;
-            surnametxt.TextChanged -= textBox_TextChanged;
-            emailtxt.TextChanged -= textBox_TextChanged;
-        }
         private void SaveState()
         {
-            user.Name = nametxt.Text;
-            user.Surname = surnametxt.Text;
-            user.PhoneNumber = phonenumbertxt.Text;
-            user.Address = adresstxt.Text;
-            user.Password = passwordtxt.Text;
-            user.Email = emailtxt.Text;
-
-            _caretaker.SaveState(user.CreateMemento());
-
-        }
-        private void RestoreState(ProfileMemento memento)
-        {
-            if (memento != null)
-            {
-                user.RestoreMemento(memento);
-                UpdateFormFields();
-            }
+            UpdateUser();
+            _caretaker.SaveState(user);
         }
         private void UpdateFormFields()
         {
-            DetachEventHandlers();
             nametxt.Text = user.Name;
             surnametxt.Text = user.Surname;
             phonenumbertxt.Text = user.PhoneNumber;
             adresstxt.Text = user.Address;
             passwordtxt.Text = user.Password;
             emailtxt.Text = user.Email;
-            AttachEventHandlers();
+        }
+        private void Undo()
+        {
+            _caretaker.Undo(user);
+            UpdateFormFields();
         }
 
-
+        private void Redo()
+        {
+            _caretaker.Redo(user);
+            UpdateFormFields();
+        }
 
         //sidebar menu minimization
         private void sidebartimer_Tick(object sender, EventArgs e)
@@ -137,43 +163,45 @@ namespace Personal_Organizer
 
         private void savebtn_Click(object sender, EventArgs e)
         {
-            int index = users.FindIndex(x => x.Id == user.Id);
-            if (index == -1)
+            try
             {
-                MessageBox.Show("Bir hata oluştu!");
+                int index = users.FindIndex(x => x.Id == user.Id);
+                if (index == -1)
+                {
+                    MessageBox.Show("Bir hata oluştu!");
+                }
+                users[index].Email = emailtxt.Text;
+                users[index].Password = passwordtxt.Text;
+                users[index].Surname = surnametxt.Text;
+                users[index].Address = adresstxt.Text;
+                users[index].Name = nametxt.Text;
+                users[index].PhoneNumber = phonenumbertxt.Text;
+                csvOperations.WriteUsers(users);
+                MessageBox.Show("Bilgileriniz başarıyla güncellendi");
             }
-            users[index].Email = emailtxt.Text;
-            users[index].Password = passwordtxt.Text;
-            users[index].Surname = surnametxt.Text;
-            users[index].Address = adresstxt.Text;
-            users[index].Name = nametxt.Text;
-            users[index].PhoneNumber = phonenumbertxt.Text;
-            csvOperations.WriteUsers(users);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata : " + ex.Message);
+            }
         }
-        private bool ctrlKeyPressed = false;
         private void PersonalInformation_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.ControlKey)
+            if (e.Control && e.KeyCode == Keys.Z)
             {
-                ctrlKeyPressed = true;
+                Undo();
             }
-            else if (ctrlKeyPressed && e.KeyCode == Keys.Z)
+            if (e.Control && e.KeyCode == Keys.Y)
             {
-                var memento = _caretaker.Undo();
-                RestoreState(memento);
-                ctrlKeyPressed = false;
-            }
-            else if (ctrlKeyPressed && e.KeyCode == Keys.Y)
-            {
-                var memento = _caretaker.Redo();
-                RestoreState(memento);
-                ctrlKeyPressed = false;
+                Redo();
             }
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
-            SaveState();
+            if (((System.Windows.Forms.TextBox)sender).Modified)
+            {
+                SaveState();
+            }
         }
         private void NavigateToForm(Form form)
         {
@@ -185,26 +213,26 @@ namespace Personal_Organizer
         private void homebtn_Click(object sender, EventArgs e)
         {
             this.Close();
-        }   
+        }
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user));
+            NavigateToForm(new PersonalInformation(user, reminders));
         }
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user, reminders));
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Notes(user));
+            NavigateToForm(new Notes(user, reminders));
         }
 
         private void salarycalcbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new SalaryCalculator(user));
+            NavigateToForm(new SalaryCalculator(user, reminders));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)

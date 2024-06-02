@@ -1,1 +1,3 @@
-UserID,Date,Time,Title,Summary,Description,Type
+ReminderID,UserID,Date,Time,Title,Summary,Description,Type,IsTriggered
+1,1,02.06.2024,21:06,sadsa,dasad,sadasd,MeetingReminder,True
+2,1,02.06.2024,21:07,sadsa,dsadsa,dsadsadsadsa,MeetingReminder,True

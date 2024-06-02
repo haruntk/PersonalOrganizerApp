@@ -600,9 +600,10 @@
             // circularPicture2
             // 
             this.circularPicture2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.circularPicture2.Location = new System.Drawing.Point(847, 29);
+            this.circularPicture2.Location = new System.Drawing.Point(834, 2);
             this.circularPicture2.Name = "circularPicture2";
-            this.circularPicture2.Size = new System.Drawing.Size(29, 30);
+            this.circularPicture2.Size = new System.Drawing.Size(77, 77);
+            this.circularPicture2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.circularPicture2.TabIndex = 63;
             this.circularPicture2.TabStop = false;
             // 

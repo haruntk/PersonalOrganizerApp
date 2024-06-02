@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,11 @@ namespace Personal_Organizer
                         reminder.Attach(new MeetingReminderObserver());
                 }
             }
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                circularPicture1.Image = Image.FromStream(ms);
+            }
             reminders = _reminders;
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
@@ -78,6 +84,7 @@ namespace Personal_Organizer
                     reminder.Notify(this);
                     Notification not = new Notification(reminder);
                     not.ShowDialog();
+                    csvOperations.WriteRemindersToCsv(reminders);
 
                 }
             }
@@ -109,7 +116,7 @@ namespace Personal_Organizer
         }
         private void btnPersonal_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user));
+            NavigateToForm(new PersonalInformation(user,reminders));
         }
         private void btnReminder_Click(object sender, EventArgs e)
         {
@@ -118,17 +125,17 @@ namespace Personal_Organizer
 
         private void btnNotes_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Notes(user));
+            NavigateToForm(new Notes(user, reminders));
         }
 
         private void btnPhone_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user, reminders));
         }
 
         private void btnSalary_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new SalaryCalculator(user));
+            NavigateToForm(new SalaryCalculator(user, reminders));
         }
 
         private void userManagementBtn_Click(object sender, EventArgs e)
@@ -149,7 +156,7 @@ namespace Personal_Organizer
 
         private void infobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Info(user));
+            NavigateToForm(new Info(user, reminders));
         }
 
         private void homebtn_MouseEnter(object sender, EventArgs e)
