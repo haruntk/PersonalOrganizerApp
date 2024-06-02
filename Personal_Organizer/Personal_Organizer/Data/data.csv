@@ -1,6 +1,6 @@
 Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo,Salary
-1,harun,kepenek,harun123,haruntkepenek@gmail.com,Admin,05414161570,istanbul,,23100,True
-2,alperen,gultekin,alperen123,alperen06gultekin@gmail.com,User,05050174436,Ankara,,23100,False
-3,arda,cabuk,arda123,ardacabuk1@hotmail.com,Part_Time_User,05555555555,Tekirdag,,23100,True
-4,gamze,dag,gamze123,gamze@gmail.com,Admin,05553412175,Balikesir,,20000,True
-5,ceren,adiyaman,ceren123,ceren@gmail.com,Admin,05050002020,Bursa,,23100,False
+1,harun,kepenek,harun1234,haruntkepenek@gmail.com,Admin,05414161570,istanbul,,23100,True
+2,alperen,gultekin,alperenNewPass,alperen06gultekin@gmail.com,Admin,05050174436,Ankara,,23100,True
+3,arda,cabuk,arda1234,ardacabuk1@hotmail.com,User,05555555555,Tekirdag,,23100,False
+4,gamze,dag,gamze1234,gamze@gmail.com,Admin,05553412175,Balikesir,,20000,True
+5,ceren,adiyaman,ceren123,ceren@gmail.com,Admin,05050002020,Bursa,,23100,True

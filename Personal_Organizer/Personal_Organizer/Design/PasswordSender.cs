@@ -50,6 +50,7 @@ namespace Personal_Organizer.Design
                 if (user != null)
                 {
                     csvOperations.UpdateUserIsForgotten(user.Id, true);
+                    MessageBox.Show("Your new password will be sent by the admin. Please check your email inbox.");
                 }
                 else
                 {

@@ -415,6 +415,7 @@ namespace Personal_Organizer.Models
             if (userToUpdate != null)
             {
                 userToUpdate.Password = password;
+                userToUpdate.IsForgotten = false;
                 WriteUsers(users);
             }
             else

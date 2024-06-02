@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Threading;
 
 namespace Personal_Organizer.Design
 {
@@ -57,30 +58,6 @@ namespace Personal_Organizer.Design
                 usersDataGridView.Rows.Add(user.Id.ToString(),user.Name.ToString(),user.Surname.ToString(), user.Role.ToString(), user.Email.ToString(), user.IsForgotten.ToString());
             }
         }
-
-        private void saveBtn_Click(object sender, EventArgs e)
-        {
-            if (usersDataGridView.SelectedRows.Count > 0)
-            {
-                var selectedRow = usersDataGridView.SelectedRows[0];
-                int userId = int.Parse(selectedRow.Cells["userId"].Value.ToString());
-                var selectedRole = (Roles)Enum.Parse(typeof(Roles), roleCombobox.SelectedItem.ToString());
-
-                csvOperations.UpdateUserRole(userId, selectedRole);
-                LoadUsersIntoDataGridView();
-            }
-            else
-            {
-                MessageBox.Show("Please select a user to update their role.", "No User Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            userCurrentRoleLbl.Visible = false;
-            userNewRoleLbl.Visible = false;
-            currentRoleLbl.Visible = false;
-            roleCombobox.Visible = false;
-            saveBtn.Visible = false;
-            saveBtn.Enabled = false;
-        }
         private void usersDataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (usersDataGridView.SelectedRows.Count > 0)
@@ -116,7 +93,32 @@ namespace Personal_Organizer.Design
                 }
             }
         }
-        private void passSendBtn_Click(object sender, EventArgs e)
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            if (usersDataGridView.SelectedRows.Count > 0)
+            {
+                var selectedRow = usersDataGridView.SelectedRows[0];
+                int userId = int.Parse(selectedRow.Cells["userId"].Value.ToString());
+                var selectedRole = (Roles)Enum.Parse(typeof(Roles), roleCombobox.SelectedItem.ToString());
+
+                csvOperations.UpdateUserRole(userId, selectedRole);
+                LoadUsersIntoDataGridView();
+                MessageBox.Show("User's role is updated successfully");
+            }
+            else
+            {
+                MessageBox.Show("Please select a user to update their role.", "No User Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            userCurrentRoleLbl.Visible = false;
+            userNewRoleLbl.Visible = false;
+            currentRoleLbl.Visible = false;
+            roleCombobox.Visible = false;
+            saveBtn.Visible = false;
+            saveBtn.Enabled = false;
+        }
+        private async void passSendBtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -126,6 +128,21 @@ namespace Personal_Organizer.Design
                     progressBar.Visible = false;
                     return;
                 }
+
+                var selectedRow = usersDataGridView.SelectedRows[0];
+                int userId = int.Parse(selectedRow.Cells["userId"].Value.ToString());
+                // Retrieve the current password of the selected user
+                var users = csvOperations.ReadAllUsers();
+                var selectedUser = users.FirstOrDefault(u => u.Id == userId);
+
+                if (selectedUser != null && selectedUser.Password == passTextBox.Text)
+                {
+                    MessageBox.Show("The new password cannot be the same as the previous password.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    progressBar.Visible = false;
+                    return;
+                }
+
+                progressBar.Visible = true;
 
                 // Set up the email message
                 MailMessage mail = new MailMessage();
@@ -140,8 +157,10 @@ namespace Personal_Organizer.Design
                 smtpClient.Credentials = new NetworkCredential("pofrom2626@gmail.com", "cknwzbypidtuzdkk");
                 smtpClient.EnableSsl = true; // Enable SSL if required by your SMTP server
 
-                // Send the email asynchronously
-                smtpClient.Send(mail);
+                // Send the email 
+                await smtpClient.SendMailAsync(mail);
+                // Update the user's password
+                csvOperations.UpdateUserPassword(userId, passTextBox.Text);
 
                 // Hide password-related controls after successful sending
                 newPasswordLbl.Visible = false;

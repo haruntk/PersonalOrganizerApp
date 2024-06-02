@@ -232,7 +232,7 @@ namespace Personal_Organizer.Design
 
         private void usermanagmentbtn_Click(object sender, EventArgs e)
         {
-            UserManagament userManagament = new UserManagament();
+            UserManagement userManagament = new UserManagement(user);
             userManagament.ShowDialog();
             this.Close();
         }
