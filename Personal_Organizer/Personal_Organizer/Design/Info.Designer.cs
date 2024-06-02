@@ -28,19 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Info));
             this.sidebarflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.menubtn = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.homebtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.personalinfobtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.phonebookbtn = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.notesbtn = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.salarycalcbtn = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.reminderbtn = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.usermanagmentbtn = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.logoutbtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,16 +60,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.alperenlinkedinlinkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.menubtn = new System.Windows.Forms.PictureBox();
-            this.homebtn = new System.Windows.Forms.Button();
-            this.personalinfobtn = new System.Windows.Forms.Button();
-            this.phonebookbtn = new System.Windows.Forms.Button();
-            this.notesbtn = new System.Windows.Forms.Button();
-            this.salarycalcbtn = new System.Windows.Forms.Button();
-            this.reminderbtn = new System.Windows.Forms.Button();
-            this.usermanagmentbtn = new System.Windows.Forms.Button();
-            this.logoutbtn = new System.Windows.Forms.Button();
+            this.LinkLabel10 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
@@ -68,8 +69,10 @@
             this.linkLabel7 = new System.Windows.Forms.LinkLabel();
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
             this.linkLabel9 = new System.Windows.Forms.LinkLabel();
+            this.sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -78,12 +81,11 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebarflowLayoutPanel
             // 
-            this.sidebarflowLayoutPanel.BackColor = System.Drawing.Color.Gold;
+            this.sidebarflowLayoutPanel.BackColor = System.Drawing.Color.PaleVioletRed;
             this.sidebarflowLayoutPanel.Controls.Add(this.panel1);
             this.sidebarflowLayoutPanel.Controls.Add(this.panel2);
             this.sidebarflowLayoutPanel.Controls.Add(this.panel3);
@@ -106,7 +108,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Gold;
+            this.panel1.BackColor = System.Drawing.Color.PaleVioletRed;
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.menubtn);
             this.panel1.Location = new System.Drawing.Point(4, 4);
@@ -125,6 +127,19 @@
             this.label7.Size = new System.Drawing.Size(0, 24);
             this.label7.TabIndex = 18;
             // 
+            // menubtn
+            // 
+            this.menubtn.ErrorImage = null;
+            this.menubtn.Image = global::Personal_Organizer.Properties.Resources.menu_burger;
+            this.menubtn.InitialImage = global::Personal_Organizer.Properties.Resources.menu_burger;
+            this.menubtn.Location = new System.Drawing.Point(42, 56);
+            this.menubtn.Margin = new System.Windows.Forms.Padding(4);
+            this.menubtn.Name = "menubtn";
+            this.menubtn.Size = new System.Drawing.Size(56, 54);
+            this.menubtn.TabIndex = 18;
+            this.menubtn.TabStop = false;
+            this.menubtn.Click += new System.EventHandler(this.menubtn_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.homebtn);
@@ -133,6 +148,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(366, 87);
             this.panel2.TabIndex = 20;
+            // 
+            // homebtn
+            // 
+            this.homebtn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.homebtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.homebtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.homebtn.Image = global::Personal_Organizer.Properties.Resources.home;
+            this.homebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.homebtn.Location = new System.Drawing.Point(-26, -12);
+            this.homebtn.Margin = new System.Windows.Forms.Padding(4);
+            this.homebtn.Name = "homebtn";
+            this.homebtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.homebtn.Size = new System.Drawing.Size(460, 108);
+            this.homebtn.TabIndex = 22;
+            this.homebtn.Text = "             Home";
+            this.homebtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.homebtn.UseVisualStyleBackColor = false;
+            this.homebtn.Click += new System.EventHandler(this.homebtn_Click);
+            this.homebtn.MouseEnter += new System.EventHandler(this.homebtn_MouseEnter);
+            this.homebtn.MouseLeave += new System.EventHandler(this.homebtn_MouseLeave);
             // 
             // panel3
             // 
@@ -143,6 +178,25 @@
             this.panel3.Size = new System.Drawing.Size(360, 87);
             this.panel3.TabIndex = 21;
             // 
+            // personalinfobtn
+            // 
+            this.personalinfobtn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.personalinfobtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.personalinfobtn.Image = global::Personal_Organizer.Properties.Resources.user;
+            this.personalinfobtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.personalinfobtn.Location = new System.Drawing.Point(-26, -10);
+            this.personalinfobtn.Margin = new System.Windows.Forms.Padding(4);
+            this.personalinfobtn.Name = "personalinfobtn";
+            this.personalinfobtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.personalinfobtn.Size = new System.Drawing.Size(410, 108);
+            this.personalinfobtn.TabIndex = 23;
+            this.personalinfobtn.Text = "            Personal Info";
+            this.personalinfobtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.personalinfobtn.UseVisualStyleBackColor = false;
+            this.personalinfobtn.Click += new System.EventHandler(this.personalinfobtn_Click);
+            this.personalinfobtn.MouseEnter += new System.EventHandler(this.personalinfobtn_MouseEnter);
+            this.personalinfobtn.MouseLeave += new System.EventHandler(this.personalinfobtn_MouseLeave);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.phonebookbtn);
@@ -151,6 +205,25 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(360, 87);
             this.panel4.TabIndex = 22;
+            // 
+            // phonebookbtn
+            // 
+            this.phonebookbtn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.phonebookbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.phonebookbtn.Image = global::Personal_Organizer.Properties.Resources.address_book;
+            this.phonebookbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.phonebookbtn.Location = new System.Drawing.Point(-26, -10);
+            this.phonebookbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.phonebookbtn.Name = "phonebookbtn";
+            this.phonebookbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.phonebookbtn.Size = new System.Drawing.Size(410, 108);
+            this.phonebookbtn.TabIndex = 24;
+            this.phonebookbtn.Text = "             Phone Book";
+            this.phonebookbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.phonebookbtn.UseVisualStyleBackColor = false;
+            this.phonebookbtn.Click += new System.EventHandler(this.phonebookbtn_Click);
+            this.phonebookbtn.MouseEnter += new System.EventHandler(this.phonebookbtn_MouseEnter);
+            this.phonebookbtn.MouseLeave += new System.EventHandler(this.phonebookbtn_MouseLeave);
             // 
             // panel5
             // 
@@ -161,6 +234,25 @@
             this.panel5.Size = new System.Drawing.Size(360, 87);
             this.panel5.TabIndex = 22;
             // 
+            // notesbtn
+            // 
+            this.notesbtn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.notesbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.notesbtn.Image = global::Personal_Organizer.Properties.Resources.note_sticky;
+            this.notesbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.notesbtn.Location = new System.Drawing.Point(-26, -12);
+            this.notesbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.notesbtn.Name = "notesbtn";
+            this.notesbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.notesbtn.Size = new System.Drawing.Size(386, 108);
+            this.notesbtn.TabIndex = 25;
+            this.notesbtn.Text = "             Notes";
+            this.notesbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.notesbtn.UseVisualStyleBackColor = false;
+            this.notesbtn.Click += new System.EventHandler(this.notesbtn_Click);
+            this.notesbtn.MouseEnter += new System.EventHandler(this.notesbtn_MouseEnter);
+            this.notesbtn.MouseLeave += new System.EventHandler(this.notesbtn_MouseLeave);
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.salarycalcbtn);
@@ -169,6 +261,25 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(360, 87);
             this.panel6.TabIndex = 22;
+            // 
+            // salarycalcbtn
+            // 
+            this.salarycalcbtn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.salarycalcbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.salarycalcbtn.Image = global::Personal_Organizer.Properties.Resources.user_salary;
+            this.salarycalcbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.salarycalcbtn.Location = new System.Drawing.Point(-26, -29);
+            this.salarycalcbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.salarycalcbtn.Name = "salarycalcbtn";
+            this.salarycalcbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.salarycalcbtn.Size = new System.Drawing.Size(392, 133);
+            this.salarycalcbtn.TabIndex = 26;
+            this.salarycalcbtn.Text = "             Salary Calculator";
+            this.salarycalcbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.salarycalcbtn.UseVisualStyleBackColor = false;
+            this.salarycalcbtn.Click += new System.EventHandler(this.salarycalcbtn_Click);
+            this.salarycalcbtn.MouseEnter += new System.EventHandler(this.salarycalcbtn_MouseEnter);
+            this.salarycalcbtn.MouseLeave += new System.EventHandler(this.salarycalcbtn_MouseLeave);
             // 
             // panel7
             // 
@@ -179,6 +290,25 @@
             this.panel7.Size = new System.Drawing.Size(360, 87);
             this.panel7.TabIndex = 22;
             // 
+            // reminderbtn
+            // 
+            this.reminderbtn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.reminderbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.reminderbtn.Image = global::Personal_Organizer.Properties.Resources.note;
+            this.reminderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reminderbtn.Location = new System.Drawing.Point(-26, -13);
+            this.reminderbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.reminderbtn.Name = "reminderbtn";
+            this.reminderbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.reminderbtn.Size = new System.Drawing.Size(392, 108);
+            this.reminderbtn.TabIndex = 27;
+            this.reminderbtn.Text = "             Reminder";
+            this.reminderbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reminderbtn.UseVisualStyleBackColor = false;
+            this.reminderbtn.Click += new System.EventHandler(this.reminderbtn_Click);
+            this.reminderbtn.MouseEnter += new System.EventHandler(this.reminderbtn_MouseEnter);
+            this.reminderbtn.MouseLeave += new System.EventHandler(this.reminderbtn_MouseLeave);
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.usermanagmentbtn);
@@ -187,6 +317,25 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(360, 87);
             this.panel8.TabIndex = 22;
+            // 
+            // usermanagmentbtn
+            // 
+            this.usermanagmentbtn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.usermanagmentbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.usermanagmentbtn.Image = global::Personal_Organizer.Properties.Resources.user_gear;
+            this.usermanagmentbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usermanagmentbtn.Location = new System.Drawing.Point(-26, -10);
+            this.usermanagmentbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.usermanagmentbtn.Name = "usermanagmentbtn";
+            this.usermanagmentbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.usermanagmentbtn.Size = new System.Drawing.Size(410, 108);
+            this.usermanagmentbtn.TabIndex = 28;
+            this.usermanagmentbtn.Text = "             User Managment";
+            this.usermanagmentbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usermanagmentbtn.UseVisualStyleBackColor = false;
+            this.usermanagmentbtn.Click += new System.EventHandler(this.usermanagmentbtn_Click);
+            this.usermanagmentbtn.MouseEnter += new System.EventHandler(this.usermanagmentbtn_MouseEnter);
+            this.usermanagmentbtn.MouseLeave += new System.EventHandler(this.usermanagmentbtn_MouseLeave);
             // 
             // panel9
             // 
@@ -204,6 +353,25 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(360, 75);
             this.panel10.TabIndex = 21;
+            // 
+            // logoutbtn
+            // 
+            this.logoutbtn.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.logoutbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.logoutbtn.Image = global::Personal_Organizer.Properties.Resources.exit;
+            this.logoutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.logoutbtn.Location = new System.Drawing.Point(-26, -17);
+            this.logoutbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.logoutbtn.Name = "logoutbtn";
+            this.logoutbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.logoutbtn.Size = new System.Drawing.Size(410, 108);
+            this.logoutbtn.TabIndex = 29;
+            this.logoutbtn.Text = "             Log out";
+            this.logoutbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.logoutbtn.UseVisualStyleBackColor = false;
+            this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
+            this.logoutbtn.MouseEnter += new System.EventHandler(this.logoutbtn_MouseEnter);
+            this.logoutbtn.MouseLeave += new System.EventHandler(this.logoutbtn_MouseLeave);
             // 
             // label1
             // 
@@ -296,253 +464,137 @@
             // linkLabel5
             // 
             this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.linkLabel5.Image = global::Personal_Organizer.Properties.Resources.github;
-            this.linkLabel5.Location = new System.Drawing.Point(750, 480);
+            this.linkLabel5.Location = new System.Drawing.Point(748, 471);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(24, 25);
+            this.linkLabel5.Size = new System.Drawing.Size(35, 37);
             this.linkLabel5.TabIndex = 34;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "  ";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
-            // alperenlinkedinlinkLabel1
+            // LinkLabel10
             // 
-            this.alperenlinkedinlinkLabel1.AutoSize = true;
-            this.alperenlinkedinlinkLabel1.Image = global::Personal_Organizer.Properties.Resources.linkedin1;
-            this.alperenlinkedinlinkLabel1.Location = new System.Drawing.Point(710, 480);
-            this.alperenlinkedinlinkLabel1.Name = "alperenlinkedinlinkLabel1";
-            this.alperenlinkedinlinkLabel1.Size = new System.Drawing.Size(24, 25);
-            this.alperenlinkedinlinkLabel1.TabIndex = 29;
-            this.alperenlinkedinlinkLabel1.TabStop = true;
-            this.alperenlinkedinlinkLabel1.Text = "  ";
-            // 
-            // menubtn
-            // 
-            this.menubtn.ErrorImage = null;
-            this.menubtn.Image = global::Personal_Organizer.Properties.Resources.menu_burger;
-            this.menubtn.InitialImage = global::Personal_Organizer.Properties.Resources.menu_burger;
-            this.menubtn.Location = new System.Drawing.Point(42, 56);
-            this.menubtn.Margin = new System.Windows.Forms.Padding(4);
-            this.menubtn.Name = "menubtn";
-            this.menubtn.Size = new System.Drawing.Size(56, 54);
-            this.menubtn.TabIndex = 18;
-            this.menubtn.TabStop = false;
-            // 
-            // homebtn
-            // 
-            this.homebtn.BackColor = System.Drawing.Color.Gold;
-            this.homebtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.homebtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.homebtn.Image = global::Personal_Organizer.Properties.Resources.home;
-            this.homebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homebtn.Location = new System.Drawing.Point(-26, -12);
-            this.homebtn.Margin = new System.Windows.Forms.Padding(4);
-            this.homebtn.Name = "homebtn";
-            this.homebtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.homebtn.Size = new System.Drawing.Size(460, 108);
-            this.homebtn.TabIndex = 22;
-            this.homebtn.Text = "             Home";
-            this.homebtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homebtn.UseVisualStyleBackColor = false;
-            // 
-            // personalinfobtn
-            // 
-            this.personalinfobtn.BackColor = System.Drawing.Color.Gold;
-            this.personalinfobtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.personalinfobtn.Image = global::Personal_Organizer.Properties.Resources.user;
-            this.personalinfobtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personalinfobtn.Location = new System.Drawing.Point(-26, -10);
-            this.personalinfobtn.Margin = new System.Windows.Forms.Padding(4);
-            this.personalinfobtn.Name = "personalinfobtn";
-            this.personalinfobtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.personalinfobtn.Size = new System.Drawing.Size(410, 108);
-            this.personalinfobtn.TabIndex = 23;
-            this.personalinfobtn.Text = "            Personal Info";
-            this.personalinfobtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personalinfobtn.UseVisualStyleBackColor = false;
-            // 
-            // phonebookbtn
-            // 
-            this.phonebookbtn.BackColor = System.Drawing.Color.Gold;
-            this.phonebookbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.phonebookbtn.Image = global::Personal_Organizer.Properties.Resources.address_book;
-            this.phonebookbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.phonebookbtn.Location = new System.Drawing.Point(-26, -10);
-            this.phonebookbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.phonebookbtn.Name = "phonebookbtn";
-            this.phonebookbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.phonebookbtn.Size = new System.Drawing.Size(410, 108);
-            this.phonebookbtn.TabIndex = 24;
-            this.phonebookbtn.Text = "             Phone Book";
-            this.phonebookbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.phonebookbtn.UseVisualStyleBackColor = false;
-            // 
-            // notesbtn
-            // 
-            this.notesbtn.BackColor = System.Drawing.Color.Gold;
-            this.notesbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.notesbtn.Image = global::Personal_Organizer.Properties.Resources.note_sticky;
-            this.notesbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.notesbtn.Location = new System.Drawing.Point(-26, -12);
-            this.notesbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.notesbtn.Name = "notesbtn";
-            this.notesbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.notesbtn.Size = new System.Drawing.Size(386, 108);
-            this.notesbtn.TabIndex = 25;
-            this.notesbtn.Text = "             Notes";
-            this.notesbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.notesbtn.UseVisualStyleBackColor = false;
-            // 
-            // salarycalcbtn
-            // 
-            this.salarycalcbtn.BackColor = System.Drawing.Color.Gold;
-            this.salarycalcbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.salarycalcbtn.Image = global::Personal_Organizer.Properties.Resources.user_salary;
-            this.salarycalcbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salarycalcbtn.Location = new System.Drawing.Point(-26, -29);
-            this.salarycalcbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.salarycalcbtn.Name = "salarycalcbtn";
-            this.salarycalcbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.salarycalcbtn.Size = new System.Drawing.Size(392, 133);
-            this.salarycalcbtn.TabIndex = 26;
-            this.salarycalcbtn.Text = "             Salary Calculator";
-            this.salarycalcbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salarycalcbtn.UseVisualStyleBackColor = false;
-            // 
-            // reminderbtn
-            // 
-            this.reminderbtn.BackColor = System.Drawing.Color.Gold;
-            this.reminderbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.reminderbtn.Image = global::Personal_Organizer.Properties.Resources.note;
-            this.reminderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reminderbtn.Location = new System.Drawing.Point(-26, -13);
-            this.reminderbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.reminderbtn.Name = "reminderbtn";
-            this.reminderbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.reminderbtn.Size = new System.Drawing.Size(392, 108);
-            this.reminderbtn.TabIndex = 27;
-            this.reminderbtn.Text = "             Reminder";
-            this.reminderbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reminderbtn.UseVisualStyleBackColor = false;
-            // 
-            // usermanagmentbtn
-            // 
-            this.usermanagmentbtn.BackColor = System.Drawing.Color.Gold;
-            this.usermanagmentbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.usermanagmentbtn.Image = global::Personal_Organizer.Properties.Resources.user_gear;
-            this.usermanagmentbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.usermanagmentbtn.Location = new System.Drawing.Point(-26, -10);
-            this.usermanagmentbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.usermanagmentbtn.Name = "usermanagmentbtn";
-            this.usermanagmentbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.usermanagmentbtn.Size = new System.Drawing.Size(410, 108);
-            this.usermanagmentbtn.TabIndex = 28;
-            this.usermanagmentbtn.Text = "             User Managment";
-            this.usermanagmentbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.usermanagmentbtn.UseVisualStyleBackColor = false;
-            // 
-            // logoutbtn
-            // 
-            this.logoutbtn.BackColor = System.Drawing.Color.Gold;
-            this.logoutbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.logoutbtn.Image = global::Personal_Organizer.Properties.Resources.exit;
-            this.logoutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.logoutbtn.Location = new System.Drawing.Point(-26, -17);
-            this.logoutbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.logoutbtn.Name = "logoutbtn";
-            this.logoutbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.logoutbtn.Size = new System.Drawing.Size(410, 108);
-            this.logoutbtn.TabIndex = 29;
-            this.logoutbtn.Text = "             Log out";
-            this.logoutbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.logoutbtn.UseVisualStyleBackColor = false;
+            this.LinkLabel10.AutoSize = true;
+            this.LinkLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LinkLabel10.Image = global::Personal_Organizer.Properties.Resources.linkedin1;
+            this.LinkLabel10.Location = new System.Drawing.Point(708, 471);
+            this.LinkLabel10.Name = "LinkLabel10";
+            this.LinkLabel10.Size = new System.Drawing.Size(35, 37);
+            this.LinkLabel10.TabIndex = 29;
+            this.LinkLabel10.TabStop = true;
+            this.LinkLabel10.Text = "  ";
+            this.LinkLabel10.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel10_LinkClicked_1);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.linkLabel1.Image = global::Personal_Organizer.Properties.Resources.github;
-            this.linkLabel1.Location = new System.Drawing.Point(676, 532);
+            this.linkLabel1.Location = new System.Drawing.Point(674, 524);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(24, 25);
+            this.linkLabel1.Size = new System.Drawing.Size(35, 37);
             this.linkLabel1.TabIndex = 36;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "  ";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.linkLabel2.Image = global::Personal_Organizer.Properties.Resources.linkedin1;
-            this.linkLabel2.Location = new System.Drawing.Point(636, 532);
+            this.linkLabel2.Location = new System.Drawing.Point(634, 524);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(24, 25);
+            this.linkLabel2.Size = new System.Drawing.Size(35, 37);
             this.linkLabel2.TabIndex = 35;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "  ";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.linkLabel3.Image = global::Personal_Organizer.Properties.Resources.github;
-            this.linkLabel3.Location = new System.Drawing.Point(739, 589);
+            this.linkLabel3.Location = new System.Drawing.Point(739, 579);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(24, 25);
+            this.linkLabel3.Size = new System.Drawing.Size(35, 37);
             this.linkLabel3.TabIndex = 38;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "  ";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // linkLabel4
             // 
             this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.linkLabel4.Image = global::Personal_Organizer.Properties.Resources.linkedin1;
-            this.linkLabel4.Location = new System.Drawing.Point(699, 589);
+            this.linkLabel4.Location = new System.Drawing.Point(699, 579);
             this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(24, 25);
+            this.linkLabel4.Size = new System.Drawing.Size(35, 37);
             this.linkLabel4.TabIndex = 37;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "  ";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // linkLabel6
             // 
             this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.linkLabel6.Image = global::Personal_Organizer.Properties.Resources.github;
-            this.linkLabel6.Location = new System.Drawing.Point(676, 646);
+            this.linkLabel6.Location = new System.Drawing.Point(674, 637);
             this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(24, 25);
+            this.linkLabel6.Size = new System.Drawing.Size(35, 37);
             this.linkLabel6.TabIndex = 40;
             this.linkLabel6.TabStop = true;
             this.linkLabel6.Text = "  ";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
             // 
             // linkLabel7
             // 
             this.linkLabel7.AutoSize = true;
+            this.linkLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.linkLabel7.Image = global::Personal_Organizer.Properties.Resources.linkedin1;
-            this.linkLabel7.Location = new System.Drawing.Point(636, 646);
+            this.linkLabel7.Location = new System.Drawing.Point(634, 637);
             this.linkLabel7.Name = "linkLabel7";
-            this.linkLabel7.Size = new System.Drawing.Size(24, 25);
+            this.linkLabel7.Size = new System.Drawing.Size(35, 37);
             this.linkLabel7.TabIndex = 39;
             this.linkLabel7.TabStop = true;
             this.linkLabel7.Text = "  ";
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked);
             // 
             // linkLabel8
             // 
             this.linkLabel8.AutoSize = true;
+            this.linkLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.linkLabel8.Image = global::Personal_Organizer.Properties.Resources.github;
-            this.linkLabel8.Location = new System.Drawing.Point(799, 699);
+            this.linkLabel8.Location = new System.Drawing.Point(798, 691);
             this.linkLabel8.Name = "linkLabel8";
-            this.linkLabel8.Size = new System.Drawing.Size(24, 25);
+            this.linkLabel8.Size = new System.Drawing.Size(35, 37);
             this.linkLabel8.TabIndex = 42;
             this.linkLabel8.TabStop = true;
             this.linkLabel8.Text = "  ";
+            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
             // 
             // linkLabel9
             // 
             this.linkLabel9.AutoSize = true;
+            this.linkLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.linkLabel9.Image = global::Personal_Organizer.Properties.Resources.linkedin1;
-            this.linkLabel9.Location = new System.Drawing.Point(759, 699);
+            this.linkLabel9.Location = new System.Drawing.Point(758, 691);
             this.linkLabel9.Name = "linkLabel9";
-            this.linkLabel9.Size = new System.Drawing.Size(24, 25);
+            this.linkLabel9.Size = new System.Drawing.Size(35, 37);
             this.linkLabel9.TabIndex = 41;
             this.linkLabel9.TabStop = true;
             this.linkLabel9.Text = "  ";
+            this.linkLabel9.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel9_LinkClicked);
+            // 
+            // sidebartimer
+            // 
+            this.sidebartimer.Interval = 7;
+            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
             // 
             // Info
             // 
@@ -558,7 +610,7 @@
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel5);
-            this.Controls.Add(this.alperenlinkedinlinkLabel1);
+            this.Controls.Add(this.LinkLabel10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -569,10 +621,14 @@
             this.Controls.Add(this.sidebarflowLayoutPanel);
             this.Controls.Add(this.label1);
             this.Name = "Info";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Info";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Info_FormClosing);
             this.sidebarflowLayoutPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -581,7 +637,6 @@
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,7 +673,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.LinkLabel alperenlinkedinlinkLabel1;
+        private System.Windows.Forms.LinkLabel LinkLabel10;
         private System.Windows.Forms.LinkLabel linkLabel5;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
@@ -628,5 +683,6 @@
         private System.Windows.Forms.LinkLabel linkLabel7;
         private System.Windows.Forms.LinkLabel linkLabel8;
         private System.Windows.Forms.LinkLabel linkLabel9;
+        private System.Windows.Forms.Timer sidebartimer;
     }
 }

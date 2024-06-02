@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace Personal_Organizer
 {
+
     public partial class PhoneBook : Form
     {
         User user;
@@ -20,6 +21,7 @@ namespace Personal_Organizer
         private List<Phonebook> phonebooks;
         List<IReminder> reminders = new List<IReminder>();
         System.Timers.Timer timer;
+        private bool isNavigating = false;
         public PhoneBook(User _user)
         {
             InitializeComponent();
@@ -47,6 +49,11 @@ namespace Personal_Organizer
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
+
+            if (user.Role != Roles.Admin)
+            {
+                usermanagmentbtn.Visible = false;
+            }
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -70,6 +77,14 @@ namespace Personal_Organizer
             }
 
         }
+        private void NavigateToForm(Form form)
+        {
+            isNavigating = true;
+            this.Close(); 
+            form.FormClosed += (s, args) => isNavigating = false; 
+            form.Show(); 
+        }
+
 
         private void SetPlaceholder()
         {
@@ -121,57 +136,53 @@ namespace Personal_Organizer
 
         private void homebtn_Click(object sender, EventArgs e)
         {
-            AraYuz araYuz = new AraYuz(user);
-            araYuz.Show();
-            this.Hide();
-        }
-
-        private void Phonebook_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-            }
+            this.Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             AddContact addcontact = new AddContact(dataGridView1, ref phonebooks);
-            addcontact.ShowDialog();
+            addcontact.Show();
 
         }
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            PersonalInformation personalInformation = new PersonalInformation(user);
-            personalInformation.ShowDialog();
-            this.Hide();
+            NavigateToForm(new PersonalInformation(user));
         }
-
+        private void phonebookbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new PhoneBook(user));
+        }
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            Notes notes = new Notes(user);
-            notes.ShowDialog();
-            this.Hide();
+            NavigateToForm(new Notes(user));
         }
 
         private void salarycalcbtn_Click(object sender, EventArgs e)
         {
-
+            NavigateToForm(new SalaryCalculator(user));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)
         {
-            Reminder reminder = new Reminder(user);
-            reminder.ShowDialog();
-            this.Hide();
+            NavigateToForm(new Reminder(user));
         }
+        private void usermanagmentbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new UserManagament(user));
+        }
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                Application.Restart();
+                
+            }
+        }
         private void homebtn_MouseEnter(object sender, EventArgs e)
         {
             homebtn.BackColor = Color.FromArgb(64, 64, 64);
@@ -305,5 +316,16 @@ namespace Personal_Organizer
                 dataGridView1.DataSource = phonebooks;
             }
         }
+
+        private void PhoneBook_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isNavigating && e.CloseReason == CloseReason.UserClosing)
+            {
+                AraYuz araYuz = new AraYuz(user);
+                araYuz.Show();
+            }
+        }
+
+
     }
 }

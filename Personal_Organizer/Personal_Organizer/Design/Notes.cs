@@ -19,7 +19,7 @@ namespace Personal_Organizer
         private Note selectedNote;
         List<IReminder> reminders = new List<IReminder>();
         System.Timers.Timer timer;
-
+        private bool isNavigating = false;
         public Notes(User _user)
         {
             user = _user;
@@ -54,6 +54,11 @@ namespace Personal_Organizer
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
+
+            if (user.Role != Roles.Admin)
+            {
+                usermanagmentbtn.Visible = false;
+            }
 
             // Wire up event handlers
             notesDataGridView.SelectionChanged += notesDataGridView_SelectionChanged;
@@ -400,60 +405,68 @@ namespace Personal_Organizer
             }
         }
 
+        private void NavigateToForm(Form form)
+        {
+            isNavigating = true;
+            this.Close();
+            form.FormClosed += (s, args) => isNavigating = false;
+            form.Show();
+        }
+
         private void homebtn_Click(object sender, EventArgs e)
         {
-            AraYuz arayuz = new AraYuz(user);
-            arayuz.ShowDialog();
-            this.Close();
+            NavigateToForm(new AraYuz(user));
         }
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            PersonalInformation personalInformation = new PersonalInformation(user);
-            personalInformation.ShowDialog();
-            this.Close();
+            NavigateToForm(new PersonalInformation(user));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)
         {
-            Reminder reminder = new Reminder(user);
-            reminder.ShowDialog();
-            this.Close();
+            NavigateToForm(new Reminder(user));
         }
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            PhoneBook phonebook = new PhoneBook(user);
-            phonebook.ShowDialog();
-            this.Close();
+            NavigateToForm(new PhoneBook(user));
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            Notes notes = new Notes(user);
-            notes.ShowDialog();
-            this.Close();
+            NavigateToForm(new Notes(user));
         }
 
         private void salarycalcbtn_Click(object sender, EventArgs e)
         {
-            SalaryCalculator salaryCalculator = new SalaryCalculator(user);
-            salaryCalculator.ShowDialog();
-            this.Close();
+            NavigateToForm(new SalaryCalculator(user));
         }
 
         private void usermanagmentbtn_Click(object sender, EventArgs e)
         {
-            UserManagament userManagament = new UserManagament(user);
-            userManagament.ShowDialog();
-            this.Close();
+            NavigateToForm(new UserManagament(user));
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)
         {
-            Giris giris = new Giris();
-            giris.ShowDialog();
-            this.Close();
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                Application.Restart();
+
+            }
+        }
+
+        private void Notes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isNavigating && e.CloseReason == CloseReason.UserClosing)
+            {
+                AraYuz araYuz = new AraYuz(user);
+                araYuz.Show();
+            }
         }
     }
 }
