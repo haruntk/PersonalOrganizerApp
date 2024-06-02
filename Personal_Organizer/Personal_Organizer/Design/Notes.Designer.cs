@@ -62,13 +62,13 @@
             this.addNoteBtn = new System.Windows.Forms.Button();
             this.donebtn = new System.Windows.Forms.Button();
             this.notesDataGridView = new System.Windows.Forms.DataGridView();
+            this.Header = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.headerLbl = new System.Windows.Forms.Label();
             this.headerTxt = new System.Windows.Forms.TextBox();
             this.updateHeaderTxt = new System.Windows.Forms.TextBox();
             this.updateHeaderLbl = new System.Windows.Forms.Label();
-            this.Header = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
@@ -519,6 +519,30 @@
             this.notesDataGridView.Size = new System.Drawing.Size(648, 790);
             this.notesDataGridView.TabIndex = 33;
             // 
+            // Header
+            // 
+            this.Header.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Header.HeaderText = "Header";
+            this.Header.MinimumWidth = 10;
+            this.Header.Name = "Header";
+            this.Header.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 10;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Text
+            // 
+            this.Text.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Text.HeaderText = "Text";
+            this.Text.MinimumWidth = 10;
+            this.Text.Name = "Text";
+            this.Text.ReadOnly = true;
+            // 
             // headerLbl
             // 
             this.headerLbl.AutoSize = true;
@@ -558,27 +582,6 @@
             this.updateHeaderLbl.Size = new System.Drawing.Size(218, 34);
             this.updateHeaderLbl.TabIndex = 38;
             this.updateHeaderLbl.Text = "Update Header ";
-            // 
-            // Header
-            // 
-            this.Header.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Header.HeaderText = "Header";
-            this.Header.MinimumWidth = 10;
-            this.Header.Name = "Header";
-            // 
-            // Date
-            // 
-            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Date.HeaderText = "Date";
-            this.Date.MinimumWidth = 10;
-            this.Date.Name = "Date";
-            // 
-            // Text
-            // 
-            this.Text.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Text.HeaderText = "Text";
-            this.Text.MinimumWidth = 10;
-            this.Text.Name = "Text";
             // 
             // Notes
             // 

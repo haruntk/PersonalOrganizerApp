@@ -14,20 +14,30 @@ namespace Personal_Organizer
 {
     public partial class AraYuz : Form
     {
+        User user = new User();
         List<IReminder> reminders = new List<IReminder>();
         System.Timers.Timer timer;
         CSVOperations csvOperations = new CSVOperations();
-        User user = new User();
         bool sidebarExpand;
         private bool isNavigating = false;
 
+
         public AraYuz(User _user)
         {
+            this.user = _user;
             InitializeComponent();
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             roundedButton1.BackColor = Color.FromArgb(227, 238, 241);
             lblWelcome.BackColor = Color.FromArgb(227, 238, 241);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+
+
+            // Check user role and set userManagementBtn visibility
+            if (user.Role != Roles.Admin)
+            {
+                userManagementBtn.Visible = false;
+            }
+
             this.user = _user;
             lblWelcome.Text = $"Welcome, {user.Name} {user.Surname}";
             lblAd.Text = user.Username;
@@ -50,6 +60,7 @@ namespace Personal_Organizer
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
+
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -120,9 +131,15 @@ namespace Personal_Organizer
             NavigateToForm(new SalaryCalculator(user));
         }
 
-        private void rdnManagement_Click(object sender, EventArgs e)
+        private void userManagementBtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new UserManagament(user));
+            if(user.Role == Roles.Admin)
+            {
+                UserManagement userManagament = new UserManagement(user);
+                userManagament.ShowDialog();
+                this.Hide();
+            }
+            NavigateToForm(new UserManagement(user));
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)

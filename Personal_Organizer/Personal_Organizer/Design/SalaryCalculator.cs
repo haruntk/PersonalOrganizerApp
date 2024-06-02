@@ -275,7 +275,7 @@ namespace Personal_Organizer.Design
 
         private void usermanagmentbtn_Click(object sender, EventArgs e)
         {
-            UserManagament userManagament = new UserManagament(user);
+            UserManagement userManagament = new UserManagement(user);
             userManagament.ShowDialog();
             this.Close();
         }

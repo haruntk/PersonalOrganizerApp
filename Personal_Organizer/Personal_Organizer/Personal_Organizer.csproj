@@ -149,11 +149,11 @@
     <Compile Include="Design\UpdateReminder.Designer.cs">
       <DependentUpon>UpdateReminder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Design\UserManagament.cs">
+    <Compile Include="Design\UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Design\UserManagament.Designer.cs">
-      <DependentUpon>UserManagament.cs</DependentUpon>
+    <Compile Include="Design\UserManagement.Designer.cs">
+      <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\MeetingReminderFactory.cs" />
     <Compile Include="Factories\TaskReminderFactory.cs" />
@@ -228,8 +228,8 @@
     <EmbeddedResource Include="Design\UpdateReminder.resx">
       <DependentUpon>UpdateReminder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Design\UserManagament.resx">
-      <DependentUpon>UserManagament.cs</DependentUpon>
+    <EmbeddedResource Include="Design\UserManagement.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Personal_Organizer.AraYuz.resources" />
     <EmbeddedResource Include="obj\Debug\Personal_Organizer.Design.AddContact.resources" />
