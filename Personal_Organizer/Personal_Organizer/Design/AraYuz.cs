@@ -19,7 +19,6 @@ namespace Personal_Organizer
         System.Timers.Timer timer;
         CSVOperations csvOperations = new CSVOperations();
         bool sidebarExpand;
-        private bool isNavigating = false;
 
 
         public AraYuz(User _user)
@@ -85,32 +84,33 @@ namespace Personal_Organizer
 
         }
 
-        private void btnPersonal_Click(object sender, EventArgs e)
-        {
-            PersonalInformation personalInformation = new PersonalInformation(user);
-            personalInformation.Show();
-            this.Close();
-        }
         private void NavigateToForm(Form form)
         {
-            isNavigating = true;
-            this.Hide(); // Hide AraYuz form
-            form.FormClosed += (s, args) => this.Show(); // Show AraYuz form again when the new form is closed
+            this.Hide();
+            //form.FormClosed += (s, args) => this.Show();
             form.Show();
+
         }
 
         private void AraYuz_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!isNavigating && e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.No)
                 {
                     e.Cancel = true;
                 }
+                else
+                {
+                    Application.Exit();
+                }
             }
         }
-
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new PersonalInformation(user));
+        }
         private void btnReminder_Click(object sender, EventArgs e)
         {
             NavigateToForm(new Reminder(user));
@@ -148,13 +148,14 @@ namespace Personal_Organizer
 
             if (result == DialogResult.Yes)
             {
-                NavigateToForm(new Giris());
+                Application.Restart();
+
             }
         }
 
         private void infobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Info());
+            NavigateToForm(new Info(user));
         }
 
         private void homebtn_MouseEnter(object sender, EventArgs e)
@@ -213,5 +214,6 @@ namespace Personal_Organizer
                 }
             }
         }
+
     }
 }

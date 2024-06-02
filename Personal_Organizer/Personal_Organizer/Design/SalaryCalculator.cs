@@ -18,6 +18,7 @@ namespace Personal_Organizer.Design
         private CSVOperations csvOperations = new CSVOperations();
         List<IReminder> reminders = new List<IReminder>();
         System.Timers.Timer timer;
+        private bool isNavigating = false;
         public SalaryCalculator(User _user)
         {
             user = _user;
@@ -44,6 +45,10 @@ namespace Personal_Organizer.Design
             timer.AutoReset = true;
             timer.Enabled = true;
 
+            if (user.Role != Roles.Admin)
+            {
+                usermanagmentbtn.Visible = false;
+            }
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -237,56 +242,63 @@ namespace Personal_Organizer.Design
                 EngineerWageLbl.Text = salary.EngineerMinWage.ToString();
             }
         }
+        private void NavigateToForm(Form form)
+        {
+            isNavigating = true;
+            this.Close();
+            form.FormClosed += (s, args) => isNavigating = false;
+            form.Show();
+        }
 
         private void homebtn_Click(object sender, EventArgs e)
         {
-            AraYuz araYuz = new AraYuz(user);
-            araYuz.ShowDialog();
             this.Close();
         }
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            PersonalInformation personalInformation = new PersonalInformation(user);
-            personalInformation.ShowDialog();
-            this.Close();
+            NavigateToForm(new PersonalInformation(user));
         }
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            PhoneBook phoneBook = new PhoneBook(user);
-            phoneBook.ShowDialog();
-            this.Close();
+            NavigateToForm(new PhoneBook(user));
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            Notes notes = new Notes(user);
-            notes.ShowDialog();
-            this.Close();
+            NavigateToForm(new Notes(user));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)
         {
-            Reminder reminder = new Reminder(user);
-            reminder.ShowDialog();
-            this.Close();
+            NavigateToForm(new Reminder(user));
         }
 
         private void usermanagmentbtn_Click(object sender, EventArgs e)
         {
-            UserManagement userManagament = new UserManagement(user);
-            userManagament.ShowDialog();
-            this.Close();
+            NavigateToForm(new UserManagement(user));
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)
         {
-            AraYuz araYuz = new AraYuz(user);
-            araYuz.ShowDialog();
-            this.Close();
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                Application.Restart();
+
+            }
         }
 
-       
+        private void SalaryCalculator_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isNavigating && e.CloseReason == CloseReason.UserClosing)
+            {
+                AraYuz araYuz = new AraYuz(user);
+                araYuz.Show();
+            }
+        }
     }
 }

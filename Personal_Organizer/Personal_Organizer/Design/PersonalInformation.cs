@@ -20,7 +20,8 @@ namespace Personal_Organizer
         private ProfileMemento _initialState; // İlk durumu saklamak için
         private CSVOperations csvOperations = new CSVOperations();
         private readonly ProfileCaretaker _caretaker = new ProfileCaretaker();
-
+        private bool isNavigating = false;
+        bool sidebarExpand;
         public PersonalInformation(User _user)
         {
             InitializeComponent();
@@ -28,8 +29,13 @@ namespace Personal_Organizer
             user = _user;
             InitializeInitialState();
             AttachEventHandlers();
+
+            if (user.Role != Roles.Admin)
+            {
+                usermanagmentbtn.Visible = false;
+            }
         }
-        bool sidebarExpand;
+
         private void InitializeInitialState()
         {
             adresstxt.Text = user.Address;
@@ -92,12 +98,7 @@ namespace Personal_Organizer
             AttachEventHandlers();
         }
 
-        private void homebtn_Click(object sender, EventArgs e)
-        {
-            AraYuz araYuz = new AraYuz(user);
-            araYuz.ShowDialog();
-            this.Hide();
-        }
+
 
         //sidebar menu minimization
         private void sidebartimer_Tick(object sender, EventArgs e)
@@ -123,14 +124,10 @@ namespace Personal_Organizer
         }
         private void PersonalInformation_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (!isNavigating && e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
+                AraYuz araYuz = new AraYuz(user);
+                araYuz.Show();
             }
         }
         private void menubtn_Click(object sender, EventArgs e)
@@ -174,15 +171,142 @@ namespace Personal_Organizer
             }
         }
 
-        private void PersonalInformation_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             SaveState();
         }
+        private void NavigateToForm(Form form)
+        {
+            isNavigating = true;
+            this.Close();
+            form.FormClosed += (s, args) => isNavigating = false;
+            form.Show();
+        }
+        private void homebtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }   
 
+        private void personalinfobtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new PersonalInformation(user));
+        }
+
+        private void phonebookbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new PhoneBook(user));
+        }
+
+        private void notesbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new Notes(user));
+        }
+
+        private void salarycalcbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new SalaryCalculator(user));
+        }
+
+        private void reminderbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new Reminder(user));
+        }
+
+        private void usermanagmentbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new UserManagament(user));
+        }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                Application.Restart();
+
+            }
+        }
+
+        private void homebtn_MouseEnter(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.FromArgb(56, 94, 138);
+        }
+
+        private void homebtn_MouseLeave(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.SteelBlue;
+        }
+
+        private void personalinfobtn_MouseEnter(object sender, EventArgs e)
+        {
+            personalinfobtn.BackColor = Color.FromArgb(56, 94, 138);
+        }
+
+        private void personalinfobtn_MouseLeave(object sender, EventArgs e)
+        {
+            personalinfobtn.BackColor = Color.SteelBlue;
+        }
+
+        private void phonebookbtn_MouseEnter(object sender, EventArgs e)
+        {
+            phonebookbtn.BackColor = Color.FromArgb(56, 94, 138);
+        }
+
+        private void phonebookbtn_MouseLeave(object sender, EventArgs e)
+        {
+            phonebookbtn.BackColor = Color.SteelBlue;
+        }
+
+        private void notesbtn_MouseEnter(object sender, EventArgs e)
+        {
+            notesbtn.BackColor = Color.FromArgb(56, 94, 138);
+        }
+
+        private void notesbtn_MouseLeave(object sender, EventArgs e)
+        {
+            notesbtn.BackColor = Color.SteelBlue;
+        }
+
+        private void salarycalcbtn_MouseEnter(object sender, EventArgs e)
+        {
+            salarycalcbtn.BackColor = Color.FromArgb(56, 94, 138);
+        }
+
+        private void salarycalcbtn_MouseLeave(object sender, EventArgs e)
+        {
+            salarycalcbtn.BackColor = Color.SteelBlue;
+        }
+
+        private void reminderbtn_MouseEnter(object sender, EventArgs e)
+        {
+            reminderbtn.BackColor = Color.FromArgb(56, 94, 138);
+        }
+
+        private void reminderbtn_MouseLeave(object sender, EventArgs e)
+        {
+            reminderbtn.BackColor = Color.SteelBlue;
+        }
+
+        private void usermanagmentbtn_MouseEnter(object sender, EventArgs e)
+        {
+            usermanagmentbtn.BackColor = Color.FromArgb(56, 94, 138);
+        }
+
+        private void usermanagmentbtn_MouseLeave(object sender, EventArgs e)
+        {
+            usermanagmentbtn.BackColor = Color.SteelBlue;
+        }
+
+        private void logoutbtn_MouseEnter(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor = Color.FromArgb(56, 94, 138);
+        }
+
+        private void logoutbtn_MouseLeave(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor = Color.SteelBlue;
+        }
     }
 }

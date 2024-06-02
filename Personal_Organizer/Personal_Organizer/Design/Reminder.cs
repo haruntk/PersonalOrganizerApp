@@ -26,6 +26,7 @@ namespace Personal_Organizer
         CSVOperations csvOperations = new CSVOperations();
         System.Timers.Timer timer;
         string filter = "all";
+        private bool isNavigating = false;
         public Reminder(User _user)
         {
             InitializeComponent();
@@ -49,6 +50,11 @@ namespace Personal_Organizer
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
+
+            if (user.Role != Roles.Admin)
+            {
+                usermanagmentbtn.Visible = false;
+            }
         }
 
         void AddRemindersToDGW()
@@ -150,13 +156,6 @@ namespace Personal_Organizer
             logoutbtn.BackColor = Color.Firebrick;
         }
 
-        private void homebtn_Click(object sender, EventArgs e)
-        {
-            AraYuz araYuz = new AraYuz(user);
-            araYuz.Show();
-            this.Hide();
-        }
-
         private void addlistbtn_Click(object sender, EventArgs e)
         {
             AddList addList = new AddList();
@@ -193,13 +192,6 @@ namespace Personal_Organizer
 
         }
 
-        private void personalinfobtn_Click(object sender, EventArgs e)
-        {
-            PersonalInformation personalInformation = new PersonalInformation(user);
-            personalInformation.ShowDialog();
-            this.Hide();
-        }
-
         private void menubtn_Click(object sender, EventArgs e)
         {
             sidebartimer.Start();
@@ -229,14 +221,10 @@ namespace Personal_Organizer
 
         private void Reminder_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (!isNavigating && e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
+                AraYuz araYuz = new AraYuz(user);
+                araYuz.Show();
             }
         }
 
@@ -353,6 +341,59 @@ namespace Personal_Organizer
             }
             csvOperations.WriteRemindersToCsv(allReminders);
             AddRemindersToDGW();
+        }
+
+        private void NavigateToForm(Form form)
+        {
+            isNavigating = true;
+            this.Close();
+            form.FormClosed += (s, args) => isNavigating = false;
+            form.Show();
+        }
+
+        private void homebtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        } 
+        private void personalinfobtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new PersonalInformation(user));
+        }
+        private void phonebookbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new PhoneBook(user));
+        }
+
+        private void notesbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new Notes(user));
+        }
+
+        private void salarycalcbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new SalaryCalculator(user));
+        }
+
+        private void reminderbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new Reminder(user));
+        }
+
+        private void usermanagmentbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new UserManagament(user));
+        }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                Application.Restart();
+
+            }
         }
     }
 }

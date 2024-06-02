@@ -69,6 +69,8 @@
             this.headerTxt = new System.Windows.Forms.TextBox();
             this.updateHeaderTxt = new System.Windows.Forms.TextBox();
             this.updateHeaderLbl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.circularPicture2 = new Personal_Organizer.CircularPicture();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
@@ -81,12 +83,14 @@
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.notesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.Gold;
             this.label1.Location = new System.Drawing.Point(409, 60);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
@@ -396,7 +400,7 @@
             this.updateNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateNoteBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateNoteBtn.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.updateNoteBtn.Location = new System.Drawing.Point(1564, 109);
+            this.updateNoteBtn.Location = new System.Drawing.Point(1564, 131);
             this.updateNoteBtn.Name = "updateNoteBtn";
             this.updateNoteBtn.Size = new System.Drawing.Size(250, 43);
             this.updateNoteBtn.TabIndex = 31;
@@ -408,7 +412,7 @@
             // updateTextBox
             // 
             this.updateTextBox.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateTextBox.Location = new System.Drawing.Point(1089, 219);
+            this.updateTextBox.Location = new System.Drawing.Point(1089, 241);
             this.updateTextBox.Multiline = true;
             this.updateTextBox.Name = "updateTextBox";
             this.updateTextBox.Size = new System.Drawing.Size(715, 742);
@@ -438,7 +442,7 @@
             // 
             // noteTxt
             // 
-            this.noteTxt.Location = new System.Drawing.Point(1089, 219);
+            this.noteTxt.Location = new System.Drawing.Point(1089, 241);
             this.noteTxt.Multiline = true;
             this.noteTxt.Name = "noteTxt";
             this.noteTxt.Size = new System.Drawing.Size(715, 742);
@@ -451,7 +455,7 @@
             this.deleteNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteNoteBtn.Image = global::Personal_Organizer.Properties.Resources.trash2;
             this.deleteNoteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteNoteBtn.Location = new System.Drawing.Point(939, 112);
+            this.deleteNoteBtn.Location = new System.Drawing.Point(939, 134);
             this.deleteNoteBtn.Name = "deleteNoteBtn";
             this.deleteNoteBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.deleteNoteBtn.Size = new System.Drawing.Size(62, 49);
@@ -468,7 +472,7 @@
             this.addNoteBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addNoteBtn.Image = global::Personal_Organizer.Properties.Resources.edit;
             this.addNoteBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addNoteBtn.Location = new System.Drawing.Point(1007, 111);
+            this.addNoteBtn.Location = new System.Drawing.Point(1007, 133);
             this.addNoteBtn.Name = "addNoteBtn";
             this.addNoteBtn.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.addNoteBtn.Size = new System.Drawing.Size(60, 50);
@@ -484,7 +488,7 @@
             this.donebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donebtn.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.donebtn.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.donebtn.Location = new System.Drawing.Point(1554, 111);
+            this.donebtn.Location = new System.Drawing.Point(1554, 133);
             this.donebtn.Name = "donebtn";
             this.donebtn.Size = new System.Drawing.Size(250, 43);
             this.donebtn.TabIndex = 32;
@@ -508,7 +512,7 @@
             this.Header,
             this.Date,
             this.Text});
-            this.notesDataGridView.Location = new System.Drawing.Point(419, 171);
+            this.notesDataGridView.Location = new System.Drawing.Point(419, 193);
             this.notesDataGridView.MultiSelect = false;
             this.notesDataGridView.Name = "notesDataGridView";
             this.notesDataGridView.ReadOnly = true;
@@ -547,7 +551,7 @@
             // 
             this.headerLbl.AutoSize = true;
             this.headerLbl.Font = new System.Drawing.Font("Microsoft Tai Le", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headerLbl.Location = new System.Drawing.Point(1099, 171);
+            this.headerLbl.Location = new System.Drawing.Point(1099, 193);
             this.headerLbl.Name = "headerLbl";
             this.headerLbl.Size = new System.Drawing.Size(109, 34);
             this.headerLbl.TabIndex = 34;
@@ -557,7 +561,7 @@
             // 
             this.headerTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.headerTxt.Font = new System.Drawing.Font("Microsoft Tai Le", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headerTxt.Location = new System.Drawing.Point(1259, 163);
+            this.headerTxt.Location = new System.Drawing.Point(1259, 185);
             this.headerTxt.Name = "headerTxt";
             this.headerTxt.Size = new System.Drawing.Size(268, 42);
             this.headerTxt.TabIndex = 35;
@@ -567,7 +571,7 @@
             // 
             this.updateHeaderTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.updateHeaderTxt.Font = new System.Drawing.Font("Microsoft Tai Le", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateHeaderTxt.Location = new System.Drawing.Point(1352, 163);
+            this.updateHeaderTxt.Location = new System.Drawing.Point(1352, 185);
             this.updateHeaderTxt.Name = "updateHeaderTxt";
             this.updateHeaderTxt.Size = new System.Drawing.Size(268, 42);
             this.updateHeaderTxt.TabIndex = 39;
@@ -577,11 +581,34 @@
             // 
             this.updateHeaderLbl.AutoSize = true;
             this.updateHeaderLbl.Font = new System.Drawing.Font("Microsoft Tai Le", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateHeaderLbl.Location = new System.Drawing.Point(1099, 171);
+            this.updateHeaderLbl.Location = new System.Drawing.Point(1099, 193);
             this.updateHeaderLbl.Name = "updateHeaderLbl";
             this.updateHeaderLbl.Size = new System.Drawing.Size(218, 34);
             this.updateHeaderLbl.TabIndex = 38;
             this.updateHeaderLbl.Text = "Update Header ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(1632, 77);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(133, 24);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "Kullanıcı İsmi";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // circularPicture2
+            // 
+            this.circularPicture2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.circularPicture2.Location = new System.Drawing.Point(1776, 56);
+            this.circularPicture2.Margin = new System.Windows.Forms.Padding(6);
+            this.circularPicture2.Name = "circularPicture2";
+            this.circularPicture2.Size = new System.Drawing.Size(58, 58);
+            this.circularPicture2.TabIndex = 63;
+            this.circularPicture2.TabStop = false;
             // 
             // Notes
             // 
@@ -589,6 +616,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1922, 992);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.circularPicture2);
             this.Controls.Add(this.updateHeaderTxt);
             this.Controls.Add(this.updateHeaderLbl);
             this.Controls.Add(this.headerTxt);
@@ -607,6 +636,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Notes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Notes_FormClosing);
             this.sidebarflowLayoutPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -620,6 +650,7 @@
             this.panel8.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.notesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -666,5 +697,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Header;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Text;
+        private System.Windows.Forms.Label label3;
+        private CircularPicture circularPicture2;
     }
 }
