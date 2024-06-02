@@ -1,4 +1,5 @@
-﻿using Personal_Organizer.Models;
+﻿using Personal_Organizer.Design;
+using Personal_Organizer.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,8 +15,10 @@ namespace Personal_Organizer
     {
         User user = new User();
         bool sidebarExpand;
-        private CSVOperations CSVOperations;
+        private CSVOperations CSVOperations = new CSVOperations();
         private Note selectedNote;
+        List<IReminder> reminders = new List<IReminder>();
+        System.Timers.Timer timer;
 
         public Notes(User _user)
         {
@@ -32,24 +35,51 @@ namespace Personal_Organizer
             updateTextBox.Visible = false;
             updateHeaderLbl.Visible = false;
             updateHeaderTxt.Visible = false;
+            reminders = CSVOperations.ReadRemindersFromCsv();
+            List<IReminder> _reminders = new List<IReminder>();
+            foreach (IReminder reminder in reminders)
+            {
+                if (user.Id == reminder.UserID)
+                {
+                    _reminders.Add(reminder);
+                    if (reminder.GetType().Name == "MeetingReminder")
+                        reminder.Attach(new MeetingReminderObserver());
+                    else
+                        reminder.Attach(new MeetingReminderObserver());
+                }
+            }
+            reminders = _reminders;
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.AutoReset = true;
+            timer.Enabled = true;
 
             // Wire up event handlers
             notesDataGridView.SelectionChanged += notesDataGridView_SelectionChanged;
         }
 
-        private void Notes_FormClosing(object sender, FormClosingEventArgs e)
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (result == DialogResult.No)
+            foreach (IReminder reminder in reminders)
+            {
+                DateTime now = DateTime.Now;
+                DateTime reminderDate = reminder.Date + reminder.Time;
+                if (reminderDate.Year == now.Year &&
+            reminderDate.Month == now.Month &&
+            reminderDate.Day == now.Day &&
+            reminderDate.Hour == now.Hour &&
+            reminderDate.Minute == now.Minute && !reminder.IsTriggered)
                 {
-                    e.Cancel = true;
+                    reminder.Notify(this);
+                    Notification not = new Notification(reminder);
+                    not.ShowDialog();
+
                 }
             }
-        }
 
+        }
         private void LoadNotesDataGridView()
         {
             // Clear the DataGridView
@@ -373,22 +403,57 @@ namespace Personal_Organizer
         private void homebtn_Click(object sender, EventArgs e)
         {
             AraYuz arayuz = new AraYuz(user);
-            arayuz.Show();
-            this.Hide();
+            arayuz.ShowDialog();
+            this.Close();
         }
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
             PersonalInformation personalInformation = new PersonalInformation(user);
-            personalInformation.Show();
-            this.Hide();
+            personalInformation.ShowDialog();
+            this.Close();
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)
         {
             Reminder reminder = new Reminder(user);
-            reminder.Show();
-            this.Hide();
+            reminder.ShowDialog();
+            this.Close();
+        }
+
+        private void phonebookbtn_Click(object sender, EventArgs e)
+        {
+            PhoneBook phonebook = new PhoneBook(user);
+            phonebook.ShowDialog();
+            this.Close();
+        }
+
+        private void notesbtn_Click(object sender, EventArgs e)
+        {
+            Notes notes = new Notes(user);
+            notes.ShowDialog();
+            this.Close();
+        }
+
+        private void salarycalcbtn_Click(object sender, EventArgs e)
+        {
+            SalaryCalculator salaryCalculator = new SalaryCalculator(user);
+            salaryCalculator.ShowDialog();
+            this.Close();
+        }
+
+        private void usermanagmentbtn_Click(object sender, EventArgs e)
+        {
+            UserManagement userManagament = new UserManagement(user);
+            userManagament.ShowDialog();
+            this.Close();
+        }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            Giris giris = new Giris();
+            giris.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Personal_Organizer.Models
 {
     public class TaskReminderObserver : IObserver
     {
-        public void Shake(ISubject subject, Reminder form)
+        public void Shake(ISubject subject,Form form)
         {
             form.BeginInvoke((Action)(() =>
             {

@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Personal_Organizer
 {
@@ -19,6 +20,7 @@ namespace Personal_Organizer
         readonly CSVOperations csvOperations = new CSVOperations();
         List<User> users = new List<User>();
         private bool isPasswordVisible = false;
+        private bool isLoginSuccessful = false;
         public Giris()
         {
             InitializeComponent();
@@ -29,21 +31,35 @@ namespace Personal_Organizer
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
+            bool validated = false;
+            users = csvOperations.ReadAllUsers();
             foreach (User user in users)
             {
-                if (user.Name == usertxt.Text && user.Password == passwordtxt.Text)
+                if (user.Username == usertxt.Text && user.Password == passwordtxt.Text)
                 {
                     AraYuz araYuz = new AraYuz(user);
                     araYuz.Show();
-                    this.Hide();
+                    isLoginSuccessful = true;
+
+                    Thread thread = new Thread(() =>
+                    {
+                        Application.Run(new AraYuz(user));
+                    });
+                    thread.Start();
+
+
+                    this.Close();
+                    validated = true;
+                   
                 }
             }
-
+                if (!validated)
+                    MessageBox.Show("Invalid username or password. Please check and try again.", "Invalid Credentials");
         }
 
         private void Giris_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (!isLoginSuccessful && e.CloseReason == CloseReason.UserClosing)
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -53,6 +69,7 @@ namespace Personal_Organizer
                 }
             }
         }
+    
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -79,6 +96,15 @@ namespace Personal_Organizer
         {
             PasswordSender passwordSender = new PasswordSender();
             passwordSender.Show();
+        }
+
+        private void usertxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                passwordtxt.Focus();
+                e.Handled = true;
+            }
         }
     }
 }

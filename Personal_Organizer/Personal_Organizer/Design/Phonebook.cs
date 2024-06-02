@@ -18,6 +18,8 @@ namespace Personal_Organizer
         bool sidebarExpand;
         private CSVOperations _csvOperations = new CSVOperations();
         private List<Phonebook> phonebooks;
+        List<IReminder> reminders = new List<IReminder>();
+        System.Timers.Timer timer;
         public PhoneBook(User _user)
         {
             InitializeComponent();
@@ -25,7 +27,50 @@ namespace Personal_Organizer
             phonebooks = _csvOperations.ReadPhoneBooks();
             dataGridView1.DataSource = phonebooks;
             user = _user;
+            label3.Text = user.Username;
+            reminders = _csvOperations.ReadRemindersFromCsv();
+            List<IReminder> _reminders = new List<IReminder>();
+            foreach (IReminder reminder in reminders)
+            {
+                if (user.Id == reminder.UserID)
+                {
+                    _reminders.Add(reminder);
+                    if (reminder.GetType().Name == "MeetingReminder")
+                        reminder.Attach(new MeetingReminderObserver());
+                    else
+                        reminder.Attach(new MeetingReminderObserver());
+                }
+            }
+            reminders = _reminders;
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.AutoReset = true;
+            timer.Enabled = true;
         }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+
+            foreach (IReminder reminder in reminders)
+            {
+                DateTime now = DateTime.Now;
+                DateTime reminderDate = reminder.Date + reminder.Time;
+                if (reminderDate.Year == now.Year &&
+            reminderDate.Month == now.Month &&
+            reminderDate.Day == now.Day &&
+            reminderDate.Hour == now.Hour &&
+            reminderDate.Minute == now.Minute && !reminder.IsTriggered)
+                {
+                    reminder.Notify(this);
+                    Notification not = new Notification(reminder);
+                    not.ShowDialog();
+
+                }
+            }
+
+        }
+
         private void SetPlaceholder()
         {
             if (string.IsNullOrWhiteSpace(searchtxtbox.Text))
@@ -251,7 +296,7 @@ namespace Personal_Organizer
 
         private void searchtxtbox_TextChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.DataSource != null && searchtxtbox.Text != string.Empty)
+            if (dataGridView1.DataSource != null && searchtxtbox.Text != string.Empty && searchtxtbox.Text != "Search")
             {
                 dataGridView1.DataSource = phonebooks.Where(x => x.Name.Contains(searchtxtbox.Text)).ToList();
             }

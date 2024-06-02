@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Personal_Organizer.Interfaces
 {
@@ -10,6 +11,6 @@ namespace Personal_Organizer.Interfaces
     {
         void Attach(IObserver observer);
         void Detach(IObserver observer);
-        void Notify(Reminder reminder);
+        void Notify(Form reminder);
     }
 }

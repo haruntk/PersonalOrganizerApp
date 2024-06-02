@@ -9,6 +9,7 @@ namespace Personal_Organizer.Models
     public class User
     {
         public int Id { get; set; }
+        public string Username { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Password { get; set; }
@@ -18,9 +19,25 @@ namespace Personal_Organizer.Models
         public string Address { get; set; }
         public string PhotoPath { get; set; }
         public double Salary { get; set; }
+
         public bool IsForgotten { get; set; }
 
-        //public List<Note> Notes;
+        public ProfileMemento CreateMemento() // Originator Class (Saklamak istediğimiz gerçek nesne)
+        {
+            return new ProfileMemento(Name, Surname, PhoneNumber, Address, Password, Email);
+        }
+
+        public void RestoreMemento(ProfileMemento memento)
+        {
+            Name = memento.Name;
+            Surname = memento.Surname;
+            PhoneNumber = memento.PhoneNumber;
+            Address = memento.Address;
+            Password = memento.Password;
+            Email = memento.Email;
+        }
+
+
     }
     public enum Roles
     {

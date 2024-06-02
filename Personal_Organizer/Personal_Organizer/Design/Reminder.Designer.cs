@@ -33,21 +33,37 @@
             this.sidebarflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
+            this.menubtn = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.homebtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.personalinfobtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.phonebookbtn = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.notesbtn = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.salarycalcbtn = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.reminderbtn = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.usermanagmentbtn = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.logoutbtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.addreminderbtn = new System.Windows.Forms.Button();
             this.sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.reminderdatagridview = new System.Windows.Forms.DataGridView();
+            this.updatereminderbtn = new System.Windows.Forms.Button();
+            this.deletebtn = new System.Windows.Forms.Button();
+            this.tasksbtn = new Personal_Organizer.RoundedButton();
+            this.allbtn = new Personal_Organizer.RoundedButton();
+            this.mettingbtn = new Personal_Organizer.RoundedButton();
+            this.circularPicture2 = new Personal_Organizer.CircularPicture();
+            this.ReminderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Done = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,23 +71,9 @@
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.updatereminderbtn = new System.Windows.Forms.Button();
-            this.deletebtn = new System.Windows.Forms.Button();
-            this.tasksbtn = new Personal_Organizer.RoundedButton();
-            this.allbtn = new Personal_Organizer.RoundedButton();
-            this.mettingbtn = new Personal_Organizer.RoundedButton();
-            this.circularPicture2 = new Personal_Organizer.CircularPicture();
-            this.menubtn = new System.Windows.Forms.PictureBox();
-            this.homebtn = new System.Windows.Forms.Button();
-            this.personalinfobtn = new System.Windows.Forms.Button();
-            this.phonebookbtn = new System.Windows.Forms.Button();
-            this.notesbtn = new System.Windows.Forms.Button();
-            this.salarycalcbtn = new System.Windows.Forms.Button();
-            this.reminderbtn = new System.Windows.Forms.Button();
-            this.usermanagmentbtn = new System.Windows.Forms.Button();
-            this.logoutbtn = new System.Windows.Forms.Button();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -82,7 +84,6 @@
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reminderdatagridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebarflowLayoutPanel
@@ -128,6 +129,19 @@
             this.label7.Size = new System.Drawing.Size(0, 14);
             this.label7.TabIndex = 18;
             // 
+            // menubtn
+            // 
+            this.menubtn.ErrorImage = null;
+            this.menubtn.Image = global::Personal_Organizer.Properties.Resources.menu_burger;
+            this.menubtn.InitialImage = global::Personal_Organizer.Properties.Resources.menu_burger;
+            this.menubtn.Location = new System.Drawing.Point(22, 22);
+            this.menubtn.Margin = new System.Windows.Forms.Padding(4);
+            this.menubtn.Name = "menubtn";
+            this.menubtn.Size = new System.Drawing.Size(36, 30);
+            this.menubtn.TabIndex = 18;
+            this.menubtn.TabStop = false;
+            this.menubtn.Click += new System.EventHandler(this.menubtn_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.homebtn);
@@ -136,6 +150,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(183, 45);
             this.panel2.TabIndex = 20;
+            // 
+            // homebtn
+            // 
+            this.homebtn.BackColor = System.Drawing.Color.Firebrick;
+            this.homebtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.homebtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.homebtn.Image = global::Personal_Organizer.Properties.Resources.home;
+            this.homebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.homebtn.Location = new System.Drawing.Point(-42, -10);
+            this.homebtn.Margin = new System.Windows.Forms.Padding(4);
+            this.homebtn.Name = "homebtn";
+            this.homebtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.homebtn.Size = new System.Drawing.Size(238, 59);
+            this.homebtn.TabIndex = 22;
+            this.homebtn.Text = "             Home";
+            this.homebtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.homebtn.UseVisualStyleBackColor = false;
+            this.homebtn.Click += new System.EventHandler(this.homebtn_Click);
+            this.homebtn.MouseEnter += new System.EventHandler(this.homebtn_MouseEnter);
+            this.homebtn.MouseLeave += new System.EventHandler(this.homebtn_MouseLeave);
             // 
             // panel3
             // 
@@ -146,6 +180,25 @@
             this.panel3.Size = new System.Drawing.Size(180, 45);
             this.panel3.TabIndex = 21;
             // 
+            // personalinfobtn
+            // 
+            this.personalinfobtn.BackColor = System.Drawing.Color.Firebrick;
+            this.personalinfobtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.personalinfobtn.Image = global::Personal_Organizer.Properties.Resources.user;
+            this.personalinfobtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.personalinfobtn.Location = new System.Drawing.Point(-42, -15);
+            this.personalinfobtn.Margin = new System.Windows.Forms.Padding(4);
+            this.personalinfobtn.Name = "personalinfobtn";
+            this.personalinfobtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.personalinfobtn.Size = new System.Drawing.Size(250, 68);
+            this.personalinfobtn.TabIndex = 23;
+            this.personalinfobtn.Text = "            Personal Info";
+            this.personalinfobtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.personalinfobtn.UseVisualStyleBackColor = false;
+            this.personalinfobtn.Click += new System.EventHandler(this.personalinfobtn_Click);
+            this.personalinfobtn.MouseEnter += new System.EventHandler(this.personalinfobtn_MouseEnter);
+            this.personalinfobtn.MouseLeave += new System.EventHandler(this.personalinfobtn_MouseLeave);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.phonebookbtn);
@@ -154,6 +207,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(180, 45);
             this.panel4.TabIndex = 22;
+            // 
+            // phonebookbtn
+            // 
+            this.phonebookbtn.BackColor = System.Drawing.Color.Firebrick;
+            this.phonebookbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.phonebookbtn.Image = global::Personal_Organizer.Properties.Resources.address_book;
+            this.phonebookbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.phonebookbtn.Location = new System.Drawing.Point(-42, -18);
+            this.phonebookbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.phonebookbtn.Name = "phonebookbtn";
+            this.phonebookbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.phonebookbtn.Size = new System.Drawing.Size(238, 68);
+            this.phonebookbtn.TabIndex = 24;
+            this.phonebookbtn.Text = "             Phone Book";
+            this.phonebookbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.phonebookbtn.UseVisualStyleBackColor = false;
+            this.phonebookbtn.MouseEnter += new System.EventHandler(this.phonebookbtn_MouseEnter);
+            this.phonebookbtn.MouseLeave += new System.EventHandler(this.phonebookbtn_MouseLeave);
             // 
             // panel5
             // 
@@ -164,6 +235,24 @@
             this.panel5.Size = new System.Drawing.Size(180, 45);
             this.panel5.TabIndex = 22;
             // 
+            // notesbtn
+            // 
+            this.notesbtn.BackColor = System.Drawing.Color.Firebrick;
+            this.notesbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.notesbtn.Image = global::Personal_Organizer.Properties.Resources.note_sticky;
+            this.notesbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.notesbtn.Location = new System.Drawing.Point(-42, -12);
+            this.notesbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.notesbtn.Name = "notesbtn";
+            this.notesbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.notesbtn.Size = new System.Drawing.Size(238, 69);
+            this.notesbtn.TabIndex = 25;
+            this.notesbtn.Text = "             Notes";
+            this.notesbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.notesbtn.UseVisualStyleBackColor = false;
+            this.notesbtn.MouseEnter += new System.EventHandler(this.notesbtn_MouseEnter);
+            this.notesbtn.MouseLeave += new System.EventHandler(this.notesbtn_MouseLeave);
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.salarycalcbtn);
@@ -172,6 +261,24 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(180, 45);
             this.panel6.TabIndex = 22;
+            // 
+            // salarycalcbtn
+            // 
+            this.salarycalcbtn.BackColor = System.Drawing.Color.Firebrick;
+            this.salarycalcbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.salarycalcbtn.Image = global::Personal_Organizer.Properties.Resources.user_salary;
+            this.salarycalcbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.salarycalcbtn.Location = new System.Drawing.Point(-42, -18);
+            this.salarycalcbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.salarycalcbtn.Name = "salarycalcbtn";
+            this.salarycalcbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.salarycalcbtn.Size = new System.Drawing.Size(224, 72);
+            this.salarycalcbtn.TabIndex = 26;
+            this.salarycalcbtn.Text = "             Salary Calculator";
+            this.salarycalcbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.salarycalcbtn.UseVisualStyleBackColor = false;
+            this.salarycalcbtn.MouseEnter += new System.EventHandler(this.salarycalcbtn_MouseEnter);
+            this.salarycalcbtn.MouseLeave += new System.EventHandler(this.salarycalcbtn_MouseLeave);
             // 
             // panel7
             // 
@@ -182,6 +289,24 @@
             this.panel7.Size = new System.Drawing.Size(180, 45);
             this.panel7.TabIndex = 22;
             // 
+            // reminderbtn
+            // 
+            this.reminderbtn.BackColor = System.Drawing.Color.Firebrick;
+            this.reminderbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.reminderbtn.Image = global::Personal_Organizer.Properties.Resources.note;
+            this.reminderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reminderbtn.Location = new System.Drawing.Point(-42, -10);
+            this.reminderbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.reminderbtn.Name = "reminderbtn";
+            this.reminderbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.reminderbtn.Size = new System.Drawing.Size(220, 61);
+            this.reminderbtn.TabIndex = 27;
+            this.reminderbtn.Text = "             Reminder";
+            this.reminderbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reminderbtn.UseVisualStyleBackColor = false;
+            this.reminderbtn.MouseEnter += new System.EventHandler(this.reminderbtn_MouseEnter);
+            this.reminderbtn.MouseLeave += new System.EventHandler(this.reminderbtn_MouseLeave);
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.usermanagmentbtn);
@@ -190,6 +315,24 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(180, 45);
             this.panel8.TabIndex = 22;
+            // 
+            // usermanagmentbtn
+            // 
+            this.usermanagmentbtn.BackColor = System.Drawing.Color.Firebrick;
+            this.usermanagmentbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.usermanagmentbtn.Image = global::Personal_Organizer.Properties.Resources.user_gear;
+            this.usermanagmentbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usermanagmentbtn.Location = new System.Drawing.Point(-42, -10);
+            this.usermanagmentbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.usermanagmentbtn.Name = "usermanagmentbtn";
+            this.usermanagmentbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.usermanagmentbtn.Size = new System.Drawing.Size(224, 66);
+            this.usermanagmentbtn.TabIndex = 28;
+            this.usermanagmentbtn.Text = "             User Managment";
+            this.usermanagmentbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usermanagmentbtn.UseVisualStyleBackColor = false;
+            this.usermanagmentbtn.MouseEnter += new System.EventHandler(this.usermanagmentbtn_MouseEnter);
+            this.usermanagmentbtn.MouseLeave += new System.EventHandler(this.usermanagmentbtn_MouseLeave);
             // 
             // panel9
             // 
@@ -207,6 +350,24 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(180, 39);
             this.panel10.TabIndex = 21;
+            // 
+            // logoutbtn
+            // 
+            this.logoutbtn.BackColor = System.Drawing.Color.Firebrick;
+            this.logoutbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.logoutbtn.Image = global::Personal_Organizer.Properties.Resources.exit;
+            this.logoutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.logoutbtn.Location = new System.Drawing.Point(-42, -12);
+            this.logoutbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.logoutbtn.Name = "logoutbtn";
+            this.logoutbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.logoutbtn.Size = new System.Drawing.Size(224, 58);
+            this.logoutbtn.TabIndex = 29;
+            this.logoutbtn.Text = "             Log out";
+            this.logoutbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.logoutbtn.UseVisualStyleBackColor = false;
+            this.logoutbtn.MouseEnter += new System.EventHandler(this.logoutbtn_MouseEnter);
+            this.logoutbtn.MouseLeave += new System.EventHandler(this.logoutbtn_MouseLeave);
             // 
             // label2
             // 
@@ -271,6 +432,7 @@
             this.reminderdatagridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.reminderdatagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reminderdatagridview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ReminderID,
             this.Done,
             this.Title,
             this.Description,
@@ -298,69 +460,6 @@
             this.reminderdatagridview.TabIndex = 71;
             this.reminderdatagridview.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.reminderdatagridview_CellMouseUp);
             this.reminderdatagridview.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.reminderdatagridview_CellValueChanged);
-            // 
-            // Done
-            // 
-            this.Done.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Done.FillWeight = 200F;
-            this.Done.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Done.HeaderText = "Done";
-            this.Done.MinimumWidth = 10;
-            this.Done.Name = "Done";
-            // 
-            // Title
-            // 
-            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Title.FillWeight = 200F;
-            this.Title.HeaderText = "Title";
-            this.Title.MinimumWidth = 10;
-            this.Title.Name = "Title";
-            this.Title.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.FillWeight = 200F;
-            this.Description.HeaderText = "Description";
-            this.Description.MinimumWidth = 10;
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // Summary
-            // 
-            this.Summary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Summary.FillWeight = 200F;
-            this.Summary.HeaderText = "Summary";
-            this.Summary.MinimumWidth = 10;
-            this.Summary.Name = "Summary";
-            this.Summary.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Date.FillWeight = 200F;
-            this.Date.HeaderText = "Date";
-            this.Date.MinimumWidth = 10;
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Time
-            // 
-            this.Time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Time.FillWeight = 200F;
-            this.Time.HeaderText = "Time";
-            this.Time.MinimumWidth = 10;
-            this.Time.Name = "Time";
-            this.Time.ReadOnly = true;
-            // 
-            // Category
-            // 
-            this.Category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Category.FillWeight = 200F;
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 10;
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
             // 
             // updatereminderbtn
             // 
@@ -467,165 +566,74 @@
             this.circularPicture2.TabIndex = 61;
             this.circularPicture2.TabStop = false;
             // 
-            // menubtn
+            // ReminderID
             // 
-            this.menubtn.ErrorImage = null;
-            this.menubtn.Image = global::Personal_Organizer.Properties.Resources.menu_burger;
-            this.menubtn.InitialImage = global::Personal_Organizer.Properties.Resources.menu_burger;
-            this.menubtn.Location = new System.Drawing.Point(22, 22);
-            this.menubtn.Margin = new System.Windows.Forms.Padding(4);
-            this.menubtn.Name = "menubtn";
-            this.menubtn.Size = new System.Drawing.Size(36, 30);
-            this.menubtn.TabIndex = 18;
-            this.menubtn.TabStop = false;
-            this.menubtn.Click += new System.EventHandler(this.menubtn_Click);
+            this.ReminderID.HeaderText = "ReminderID";
+            this.ReminderID.Name = "ReminderID";
+            this.ReminderID.Visible = false;
             // 
-            // homebtn
+            // Done
             // 
-            this.homebtn.BackColor = System.Drawing.Color.Firebrick;
-            this.homebtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.homebtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.homebtn.Image = global::Personal_Organizer.Properties.Resources.home;
-            this.homebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homebtn.Location = new System.Drawing.Point(-42, -10);
-            this.homebtn.Margin = new System.Windows.Forms.Padding(4);
-            this.homebtn.Name = "homebtn";
-            this.homebtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.homebtn.Size = new System.Drawing.Size(238, 59);
-            this.homebtn.TabIndex = 22;
-            this.homebtn.Text = "             Home";
-            this.homebtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homebtn.UseVisualStyleBackColor = false;
-            this.homebtn.Click += new System.EventHandler(this.homebtn_Click);
-            this.homebtn.MouseEnter += new System.EventHandler(this.homebtn_MouseEnter);
-            this.homebtn.MouseLeave += new System.EventHandler(this.homebtn_MouseLeave);
+            this.Done.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Done.FillWeight = 200F;
+            this.Done.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Done.HeaderText = "Done";
+            this.Done.MinimumWidth = 10;
+            this.Done.Name = "Done";
             // 
-            // personalinfobtn
+            // Title
             // 
-            this.personalinfobtn.BackColor = System.Drawing.Color.Firebrick;
-            this.personalinfobtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.personalinfobtn.Image = global::Personal_Organizer.Properties.Resources.user;
-            this.personalinfobtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personalinfobtn.Location = new System.Drawing.Point(-42, -15);
-            this.personalinfobtn.Margin = new System.Windows.Forms.Padding(4);
-            this.personalinfobtn.Name = "personalinfobtn";
-            this.personalinfobtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.personalinfobtn.Size = new System.Drawing.Size(250, 68);
-            this.personalinfobtn.TabIndex = 23;
-            this.personalinfobtn.Text = "            Personal Info";
-            this.personalinfobtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personalinfobtn.UseVisualStyleBackColor = false;
-            this.personalinfobtn.Click += new System.EventHandler(this.personalinfobtn_Click);
-            this.personalinfobtn.MouseEnter += new System.EventHandler(this.personalinfobtn_MouseEnter);
-            this.personalinfobtn.MouseLeave += new System.EventHandler(this.personalinfobtn_MouseLeave);
+            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Title.FillWeight = 200F;
+            this.Title.HeaderText = "Title";
+            this.Title.MinimumWidth = 10;
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
             // 
-            // phonebookbtn
+            // Description
             // 
-            this.phonebookbtn.BackColor = System.Drawing.Color.Firebrick;
-            this.phonebookbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.phonebookbtn.Image = global::Personal_Organizer.Properties.Resources.address_book;
-            this.phonebookbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.phonebookbtn.Location = new System.Drawing.Point(-42, -18);
-            this.phonebookbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.phonebookbtn.Name = "phonebookbtn";
-            this.phonebookbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.phonebookbtn.Size = new System.Drawing.Size(238, 68);
-            this.phonebookbtn.TabIndex = 24;
-            this.phonebookbtn.Text = "             Phone Book";
-            this.phonebookbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.phonebookbtn.UseVisualStyleBackColor = false;
-            this.phonebookbtn.MouseEnter += new System.EventHandler(this.phonebookbtn_MouseEnter);
-            this.phonebookbtn.MouseLeave += new System.EventHandler(this.phonebookbtn_MouseLeave);
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.FillWeight = 200F;
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 10;
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
             // 
-            // notesbtn
+            // Summary
             // 
-            this.notesbtn.BackColor = System.Drawing.Color.Firebrick;
-            this.notesbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.notesbtn.Image = global::Personal_Organizer.Properties.Resources.note_sticky;
-            this.notesbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.notesbtn.Location = new System.Drawing.Point(-42, -12);
-            this.notesbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.notesbtn.Name = "notesbtn";
-            this.notesbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.notesbtn.Size = new System.Drawing.Size(238, 69);
-            this.notesbtn.TabIndex = 25;
-            this.notesbtn.Text = "             Notes";
-            this.notesbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.notesbtn.UseVisualStyleBackColor = false;
-            this.notesbtn.MouseEnter += new System.EventHandler(this.notesbtn_MouseEnter);
-            this.notesbtn.MouseLeave += new System.EventHandler(this.notesbtn_MouseLeave);
+            this.Summary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Summary.FillWeight = 200F;
+            this.Summary.HeaderText = "Summary";
+            this.Summary.MinimumWidth = 10;
+            this.Summary.Name = "Summary";
+            this.Summary.ReadOnly = true;
             // 
-            // salarycalcbtn
+            // Date
             // 
-            this.salarycalcbtn.BackColor = System.Drawing.Color.Firebrick;
-            this.salarycalcbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.salarycalcbtn.Image = global::Personal_Organizer.Properties.Resources.user_salary;
-            this.salarycalcbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salarycalcbtn.Location = new System.Drawing.Point(-42, -18);
-            this.salarycalcbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.salarycalcbtn.Name = "salarycalcbtn";
-            this.salarycalcbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.salarycalcbtn.Size = new System.Drawing.Size(224, 72);
-            this.salarycalcbtn.TabIndex = 26;
-            this.salarycalcbtn.Text = "             Salary Calculator";
-            this.salarycalcbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salarycalcbtn.UseVisualStyleBackColor = false;
-            this.salarycalcbtn.MouseEnter += new System.EventHandler(this.salarycalcbtn_MouseEnter);
-            this.salarycalcbtn.MouseLeave += new System.EventHandler(this.salarycalcbtn_MouseLeave);
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Date.FillWeight = 200F;
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 10;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
             // 
-            // reminderbtn
+            // Time
             // 
-            this.reminderbtn.BackColor = System.Drawing.Color.Firebrick;
-            this.reminderbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.reminderbtn.Image = global::Personal_Organizer.Properties.Resources.note;
-            this.reminderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reminderbtn.Location = new System.Drawing.Point(-42, -10);
-            this.reminderbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.reminderbtn.Name = "reminderbtn";
-            this.reminderbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.reminderbtn.Size = new System.Drawing.Size(220, 61);
-            this.reminderbtn.TabIndex = 27;
-            this.reminderbtn.Text = "             Reminder";
-            this.reminderbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reminderbtn.UseVisualStyleBackColor = false;
-            this.reminderbtn.MouseEnter += new System.EventHandler(this.reminderbtn_MouseEnter);
-            this.reminderbtn.MouseLeave += new System.EventHandler(this.reminderbtn_MouseLeave);
+            this.Time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Time.FillWeight = 200F;
+            this.Time.HeaderText = "Time";
+            this.Time.MinimumWidth = 10;
+            this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
             // 
-            // usermanagmentbtn
+            // Category
             // 
-            this.usermanagmentbtn.BackColor = System.Drawing.Color.Firebrick;
-            this.usermanagmentbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.usermanagmentbtn.Image = global::Personal_Organizer.Properties.Resources.user_gear;
-            this.usermanagmentbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.usermanagmentbtn.Location = new System.Drawing.Point(-42, -10);
-            this.usermanagmentbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.usermanagmentbtn.Name = "usermanagmentbtn";
-            this.usermanagmentbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.usermanagmentbtn.Size = new System.Drawing.Size(224, 66);
-            this.usermanagmentbtn.TabIndex = 28;
-            this.usermanagmentbtn.Text = "             User Managment";
-            this.usermanagmentbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.usermanagmentbtn.UseVisualStyleBackColor = false;
-            this.usermanagmentbtn.MouseEnter += new System.EventHandler(this.usermanagmentbtn_MouseEnter);
-            this.usermanagmentbtn.MouseLeave += new System.EventHandler(this.usermanagmentbtn_MouseLeave);
-            // 
-            // logoutbtn
-            // 
-            this.logoutbtn.BackColor = System.Drawing.Color.Firebrick;
-            this.logoutbtn.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.logoutbtn.Image = global::Personal_Organizer.Properties.Resources.exit;
-            this.logoutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.logoutbtn.Location = new System.Drawing.Point(-42, -12);
-            this.logoutbtn.Margin = new System.Windows.Forms.Padding(4);
-            this.logoutbtn.Name = "logoutbtn";
-            this.logoutbtn.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.logoutbtn.Size = new System.Drawing.Size(224, 58);
-            this.logoutbtn.TabIndex = 29;
-            this.logoutbtn.Text = "             Log out";
-            this.logoutbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.logoutbtn.UseVisualStyleBackColor = false;
-            this.logoutbtn.MouseEnter += new System.EventHandler(this.logoutbtn_MouseEnter);
-            this.logoutbtn.MouseLeave += new System.EventHandler(this.logoutbtn_MouseLeave);
+            this.Category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Category.FillWeight = 200F;
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 10;
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
             // 
             // Reminder
             // 
@@ -652,6 +660,7 @@
             this.sidebarflowLayoutPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -662,7 +671,6 @@
             this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reminderdatagridview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menubtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -702,6 +710,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.DataGridView reminderdatagridview;
         private System.Windows.Forms.Button deletebtn;
+        private System.Windows.Forms.Button updatereminderbtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReminderID;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Done;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
@@ -709,6 +719,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.Button updatereminderbtn;
     }
 }

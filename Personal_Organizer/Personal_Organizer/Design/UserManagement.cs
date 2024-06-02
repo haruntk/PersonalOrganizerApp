@@ -161,6 +161,7 @@ namespace Personal_Organizer.Design
                 await smtpClient.SendMailAsync(mail);
                 // Update the user's password
                 csvOperations.UpdateUserPassword(userId, passTextBox.Text);
+                LoadUsersIntoDataGridView();
 
                 // Hide password-related controls after successful sending
                 newPasswordLbl.Visible = false;
