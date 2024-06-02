@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "\\\\Mac\\Home\\Desktop\\PersonalOrganizerApp\\Personal_Organizer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9775ECC7-F4F1-492D-A294-9124FB5F0505}|Personal_Organizer\\Personal_Organizer.csproj|\\\\mac\\home\\desktop\\personalorganizerapp\\personal_organizer\\personal_organizer\\data\\data.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9775ECC7-F4F1-492D-A294-9124FB5F0505}|Personal_Organizer\\Personal_Organizer.csproj|\\\\mac\\home\\desktop\\personalorganizerapp\\personal_organizer\\personal_organizer\\data\\salary.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9775ECC7-F4F1-492D-A294-9124FB5F0505}|Personal_Organizer\\Personal_Organizer.csproj|\\\\mac\\home\\desktop\\personalorganizerapp\\personal_organizer\\personal_organizer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "salary.csv",
+              "DocumentMoniker": "\\\\Mac\\Home\\Desktop\\PersonalOrganizerApp\\Personal_Organizer\\Personal_Organizer\\Data\\salary.csv",
+              "RelativeDocumentMoniker": "Personal_Organizer\\Data\\salary.csv",
+              "ToolTip": "\\\\Mac\\Home\\Desktop\\PersonalOrganizerApp\\Personal_Organizer\\Personal_Organizer\\Data\\salary.csv",
+              "RelativeToolTip": "Personal_Organizer\\Data\\salary.csv",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2024-06-02T14:17:31.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "data.csv",
+              "DocumentMoniker": "\\\\Mac\\Home\\Desktop\\PersonalOrganizerApp\\Personal_Organizer\\Personal_Organizer\\Data\\data.csv",
+              "RelativeDocumentMoniker": "Personal_Organizer\\Data\\data.csv",
+              "ToolTip": "\\\\Mac\\Home\\Desktop\\PersonalOrganizerApp\\Personal_Organizer\\Personal_Organizer\\Data\\data.csv",
+              "RelativeToolTip": "Personal_Organizer\\Data\\data.csv",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
+              "WhenOpened": "2024-06-02T14:16:41.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Desktop\\PersonalOrganizerApp\\Personal_Organizer\\Personal_Organizer\\Program.cs",
+              "RelativeDocumentMoniker": "Personal_Organizer\\Program.cs",
+              "ToolTip": "\\\\Mac\\Home\\Desktop\\PersonalOrganizerApp\\Personal_Organizer\\Personal_Organizer\\Program.cs",
+              "RelativeToolTip": "Personal_Organizer\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T14:15:38.464Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
