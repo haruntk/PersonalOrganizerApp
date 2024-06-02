@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -272,23 +273,30 @@ namespace Personal_Organizer
         private void deleteContactbtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete this contact?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (result == DialogResult.Yes)
                 {
-                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    if (dataGridView1.SelectedRows.Count > 0)
                     {
-                        var selectedData = row.DataBoundItem as Phonebook;
-                        phonebooks.Remove(selectedData);
+                        foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                        {
+                            var selectedData = row.DataBoundItem as Phonebook;
+                            phonebooks.Remove(selectedData);
+                        }
+                        dataGridView1.DataSource = null;
+                        dataGridView1.DataSource = phonebooks;
+                        _csvOperations.WritePhonebook(phonebooks);
                     }
-                    dataGridView1.DataSource = null;
-                    dataGridView1.DataSource = phonebooks;
-                    _csvOperations.WritePhonebook(phonebooks);
+                    else
+                    {
+                        MessageBox.Show("Please select a row to delete.");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Please select a row to delete.");
-                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
             }
         }
 
