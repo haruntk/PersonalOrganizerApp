@@ -22,15 +22,17 @@ namespace Personal_Organizer
         private CSVOperations csvOperations = new CSVOperations();
         private readonly ProfileCaretaker _caretaker = new ProfileCaretaker();
         private bool isNavigating = false;
+        private List<IReminder> reminders = new List<IReminder>();
+        private System.Timers.Timer timer;
         bool sidebarExpand;
-        public PersonalInformation(User _user)
+        public PersonalInformation(User _user,List<IReminder> _reminders)
         {
             InitializeComponent();
             users = csvOperations.ReadAllUsers();
             user = _user;
             InitializeInitialState();
             AttachEventHandlers();
-
+            reminders = _reminders;
             if (user.Role != Roles.Admin)
             {
                 usermanagmentbtn.Visible = false;
@@ -40,8 +42,34 @@ namespace Personal_Organizer
             {
                 circularPicture2.Image = Image.FromStream(ms);
             }
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.AutoReset = true;
+            timer.Enabled = true;
         }
 
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+
+            foreach (IReminder reminder in reminders)
+            {
+                DateTime now = DateTime.Now;
+                DateTime reminderDate = reminder.Date + reminder.Time;
+                if (reminderDate.Year == now.Year &&
+            reminderDate.Month == now.Month &&
+            reminderDate.Day == now.Day &&
+            reminderDate.Hour == now.Hour &&
+            reminderDate.Minute == now.Minute && !reminder.IsTriggered)
+                {
+                    reminder.Notify(this);
+                    Notification not = new Notification(reminder);
+                    not.ShowDialog();
+                    csvOperations.WriteRemindersToCsv(reminders);
+                }
+            }
+
+        }
         private void UpdateUser()
         {
             user.Email = emailtxt.Text;
@@ -189,22 +217,22 @@ namespace Personal_Organizer
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user));
+            NavigateToForm(new PersonalInformation(user, reminders));
         }
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user, reminders));
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Notes(user));
+            NavigateToForm(new Notes(user, reminders));
         }
 
         private void salarycalcbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new SalaryCalculator(user));
+            NavigateToForm(new SalaryCalculator(user, reminders));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)

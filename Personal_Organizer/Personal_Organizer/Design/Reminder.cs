@@ -67,18 +67,23 @@ namespace Personal_Organizer
             reminderdatagridview.Rows.Clear();
             foreach (IReminder reminder in reminders)
             {
-                if(filter=="all")
-                    reminderdatagridview.Rows.Add(reminder.ReminderID,reminder.IsTriggered, reminder.Title, reminder.Description, reminder.Summary, reminder.Date.ToShortDateString(), reminder.Time.ToString(@"hh\:mm"), reminder.GetType().Name);
-                if (filter == "task")
+
+                try
                 {
-                    if (reminder.GetType().Name == "TaskReminder")
-                        reminderdatagridview.Rows.Add(reminder.ReminderID,reminder.IsTriggered, reminder.Title, reminder.Description, reminder.Summary, reminder.Date.ToShortDateString(), reminder.Time.ToString(@"hh\:mm"), reminder.GetType().Name);
+                    if (filter == "all")
+                        reminderdatagridview.Rows.Add(reminder.ReminderID, reminder.IsTriggered, reminder.Title, reminder.Description, reminder.Summary, reminder.Date.ToShortDateString(), reminder.Time.ToString(@"hh\:mm"), reminder.GetType().Name);
+                    if (filter == "task")
+                    {
+                        if (reminder.GetType().Name == "TaskReminder")
+                            reminderdatagridview.Rows.Add(reminder.ReminderID, reminder.IsTriggered, reminder.Title, reminder.Description, reminder.Summary, reminder.Date.ToShortDateString(), reminder.Time.ToString(@"hh\:mm"), reminder.GetType().Name);
+                    }
+                    if (filter == "meeting")
+                    {
+                        if (reminder.GetType().Name == "MeetingReminder")
+                            reminderdatagridview.Rows.Add(reminder.ReminderID, reminder.IsTriggered, reminder.Title, reminder.Description, reminder.Summary, reminder.Date.ToShortDateString(), reminder.Time.ToString(@"hh\:mm"), reminder.GetType().Name);
+                    }
                 }
-                if (filter == "meeting")
-                {
-                    if (reminder.GetType().Name == "MeetingReminder")
-                        reminderdatagridview.Rows.Add(reminder.ReminderID,reminder.IsTriggered, reminder.Title, reminder.Description, reminder.Summary, reminder.Date.ToShortDateString(), reminder.Time.ToString(@"hh\:mm"), reminder.GetType().Name);
-                }
+                catch (Exception) { }
             }
         }
         private void homebtn_MouseLeave(object sender, EventArgs e)
@@ -178,14 +183,14 @@ namespace Personal_Organizer
                 }
                 if(addReminder.ReminderType == "meeting")
                 {
-                    IReminder reminder = meetingFactory.CreateReminder(lastId + 1, user.Id, addReminder.ReminderDate, addReminder.ReminderTime, addReminder.Title, addReminder.Description, addReminder.Summary);
+                    IReminder reminder = meetingFactory.CreateReminder(lastId + 1, user.Id, addReminder.ReminderDate, addReminder.ReminderTime, addReminder.Title, addReminder.Description, addReminder.Summary,false);
                     allReminders.Add(reminder);
                     reminders.Add(reminder);
                     reminders[reminders.Count - 1].Attach(new MeetingReminderObserver());
                 }
                 else
                 {
-                    IReminder reminder = taskFactory.CreateReminder(lastId + 1, user.Id, addReminder.ReminderDate, addReminder.ReminderTime, addReminder.Title, addReminder.Description, addReminder.Summary);
+                    IReminder reminder = taskFactory.CreateReminder(lastId + 1, user.Id, addReminder.ReminderDate, addReminder.ReminderTime, addReminder.Title, addReminder.Description, addReminder.Summary,false);
                     allReminders.Add(reminder);
                     reminders.Add(reminder);
                     reminders[reminders.Count - 1].Attach(new TaskReminderObserver()); 
@@ -249,6 +254,7 @@ namespace Personal_Organizer
                     reminder.Notify(this);
                     Notification not = new Notification(reminder);
                     not.ShowDialog();
+                    csvOperations.WriteRemindersToCsv(reminders);
                     if (this.InvokeRequired)
                     {
                         this.Invoke((MethodInvoker)delegate {
@@ -362,21 +368,21 @@ namespace Personal_Organizer
         } 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user));
+            NavigateToForm(new PersonalInformation(user, reminders));
         }
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user, reminders));
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Notes(user));
+            NavigateToForm(new Notes(user, reminders));
         }
 
         private void salarycalcbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new SalaryCalculator(user));
+            NavigateToForm(new SalaryCalculator(user, reminders));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)
