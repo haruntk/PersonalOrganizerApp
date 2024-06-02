@@ -18,6 +18,9 @@ namespace Personal_Organizer
         System.Timers.Timer timer;
         CSVOperations csvOperations = new CSVOperations();
         User user = new User();
+        bool sidebarExpand;
+        private bool isNavigating = false;
+
         public AraYuz(User _user)
         {
             InitializeComponent();
@@ -75,15 +78,21 @@ namespace Personal_Organizer
         {
             PersonalInformation personalInformation = new PersonalInformation(user);
             personalInformation.Show();
-            this.Hide();
+            this.Close();
+        }
+        private void NavigateToForm(Form form)
+        {
+            isNavigating = true;
+            this.Hide(); // Hide AraYuz form
+            form.FormClosed += (s, args) => this.Show(); // Show AraYuz form again when the new form is closed
+            form.Show();
         }
 
         private void AraYuz_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (!isNavigating && e.CloseReason == CloseReason.UserClosing)
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
                 if (result == DialogResult.No)
                 {
                     e.Cancel = true;
@@ -93,38 +102,27 @@ namespace Personal_Organizer
 
         private void btnReminder_Click(object sender, EventArgs e)
         {
-            Reminder reminder = new Reminder(user);
-            reminder.ShowDialog();
-            this.Hide();
+            NavigateToForm(new Reminder(user));
         }
 
         private void btnNotes_Click(object sender, EventArgs e)
         {
-            Notes notes = new Notes(user);
-            notes.ShowDialog();
-            this.Hide();
+            NavigateToForm(new Notes(user));
         }
 
         private void btnPhone_Click(object sender, EventArgs e)
         {
-
-            PhoneBook phonebook = new PhoneBook(user);
-            phonebook.ShowDialog();
-            this.Hide();
+            NavigateToForm(new PhoneBook(user));
         }
 
         private void btnSalary_Click(object sender, EventArgs e)
         {
-            SalaryCalculator salaryCalculator = new SalaryCalculator(user);
-            salaryCalculator.ShowDialog();
-            this.Hide();
+            NavigateToForm(new SalaryCalculator(user));
         }
 
         private void rdnManagement_Click(object sender, EventArgs e)
         {
-            UserManagament userManagament=new UserManagament(user);
-            userManagament.ShowDialog();
-            this.Hide();
+            NavigateToForm(new UserManagament(user));
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)
@@ -133,9 +131,69 @@ namespace Personal_Organizer
 
             if (result == DialogResult.Yes)
             {
-                Giris giris = new Giris();
-                giris.ShowDialog();
-                this.Hide();
+                NavigateToForm(new Giris());
+            }
+        }
+
+        private void infobtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new Info());
+        }
+
+        private void homebtn_MouseEnter(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.CadetBlue;
+        }
+
+        private void homebtn_MouseLeave(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.FromArgb(173, 213, 216);
+        }
+
+        private void infobtn_MouseEnter(object sender, EventArgs e)
+        {
+            infobtn.BackColor = Color.CadetBlue;
+        }
+
+        private void infobtn_MouseLeave(object sender, EventArgs e)
+        {
+            infobtn.BackColor = Color.FromArgb(173, 213, 216);
+        }
+
+        private void logoutbtn_MouseEnter(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor = Color.CadetBlue;
+        }
+
+        private void logoutbtn_MouseLeave(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor = Color.FromArgb(173, 213, 216);
+        }
+
+        private void menubtn_Click(object sender, EventArgs e)
+        {
+            sidebartimer.Start();
+        }
+
+        private void sidebartimer_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                sidebarflowLayoutPanel.Width -= 10;
+                if (sidebarflowLayoutPanel.Width == sidebarflowLayoutPanel.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebartimer.Stop();
+                }
+            }
+            else
+            {
+                sidebarflowLayoutPanel.Width += 10;
+                if (sidebarflowLayoutPanel.Width == sidebarflowLayoutPanel.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebartimer.Stop();
+                }
             }
         }
     }

@@ -52,6 +52,7 @@
             this.usertxt.Name = "usertxt";
             this.usertxt.Size = new System.Drawing.Size(382, 44);
             this.usertxt.TabIndex = 2;
+            this.usertxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usertxt_KeyDown);
             // 
             // passwordtxt
             // 
