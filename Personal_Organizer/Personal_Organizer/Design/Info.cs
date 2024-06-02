@@ -66,7 +66,7 @@ namespace Personal_Organizer.Design
 
         private void usermanagmentbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new UserManagament(user));
+            NavigateToForm(new UserManagement(user));
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)
