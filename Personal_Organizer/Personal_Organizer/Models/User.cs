@@ -18,8 +18,10 @@ namespace Personal_Organizer.Models
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string PhotoPath { get; set; }
-
         public double Salary { get; set; }
+
+        public bool IsForgotten { get; set; }
+
         public ProfileMemento CreateMemento() // Originator Class (Saklamak istediğimiz gerçek nesne)
         {
             return new ProfileMemento(Name, Surname, PhoneNumber, Address, Password, Email);
@@ -34,6 +36,7 @@ namespace Personal_Organizer.Models
             Password = memento.Password;
             Email = memento.Email;
         }
+
 
     }
     public enum Roles

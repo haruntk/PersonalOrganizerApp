@@ -13,7 +13,7 @@ namespace Personal_Organizer
 {
     public partial class Notes : Form
     {
-        User user;
+        User user = new User();
         bool sidebarExpand;
         private CSVOperations CSVOperations = new CSVOperations();
         private Note selectedNote;
@@ -445,7 +445,7 @@ namespace Personal_Organizer
 
         private void usermanagmentbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new UserManagament(user));
+            NavigateToForm(new UserManagement(user));
         }
 
         private void logoutbtn_Click(object sender, EventArgs e)

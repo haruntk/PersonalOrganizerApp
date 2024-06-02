@@ -96,7 +96,6 @@ namespace Personal_Organizer
         {
             PasswordSender passwordSender = new PasswordSender();
             passwordSender.Show();
-
         }
 
         private void usertxt_KeyDown(object sender, KeyEventArgs e)

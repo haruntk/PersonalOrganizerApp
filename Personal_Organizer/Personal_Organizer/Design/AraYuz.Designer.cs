@@ -53,6 +53,7 @@
             this.btnNotes = new Personal_Organizer.RoundedButton();
             this.btnPhone = new Personal_Organizer.RoundedButton();
             this.btnPersonal = new Personal_Organizer.RoundedButton();
+            this.userManagementBtn = new Personal_Organizer.RoundedButton();
             this.sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -312,7 +313,6 @@
             this.rdnManagement.Text = "User Management";
             this.rdnManagement.UseVisualStyleBackColor = false;
             this.rdnManagement.Visible = false;
-            this.rdnManagement.Click += new System.EventHandler(this.rdnManagement_Click);
             // 
             // btnReminder
             // 
@@ -394,6 +394,22 @@
             this.btnPersonal.UseVisualStyleBackColor = false;
             this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
             // 
+            // userManagementBtn
+            // 
+            this.userManagementBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(213)))), ((int)(((byte)(216)))));
+            this.userManagementBtn.FlatAppearance.BorderSize = 0;
+            this.userManagementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userManagementBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.userManagementBtn.ForeColor = System.Drawing.Color.White;
+            this.userManagementBtn.Location = new System.Drawing.Point(709, 42);
+            this.userManagementBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.userManagementBtn.Name = "userManagementBtn";
+            this.userManagementBtn.Size = new System.Drawing.Size(596, 112);
+            this.userManagementBtn.TabIndex = 26;
+            this.userManagementBtn.Text = "User Management ";
+            this.userManagementBtn.UseVisualStyleBackColor = false;
+            this.userManagementBtn.Click += new System.EventHandler(this.userManagementBtn_Click);
+            // 
             // sidebartimer
             // 
             this.sidebartimer.Interval = 7;
@@ -405,6 +421,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1840, 933);
+            this.Controls.Add(this.userManagementBtn);
             this.Controls.Add(this.roundedButton2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -465,6 +482,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private RoundedButton roundedButton2;
+        private RoundedButton userManagementBtn;
         private System.Windows.Forms.Timer sidebartimer;
     }
 }
