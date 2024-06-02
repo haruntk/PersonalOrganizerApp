@@ -36,19 +36,20 @@ namespace Personal_Organizer.Models
                 User user = new User()
                 {
                     Id = int.Parse(values[0]),
-                    Name = values[1],
-                    Surname = values[2],
-                    Password = values[3],
-                    Email = values[4],
-                    Role = (Roles)Enum.Parse(typeof(Roles), values[5]),
-                    PhoneNumber = values[6],
-                    Address = values[7],
+                    Username = values[1],
+                    Name = values[2],
+                    Surname = values[3],
+                    Password = values[4],
+                    Email = values[5],
+                    Role = (Roles)Enum.Parse(typeof(Roles), values[6]),
+                    PhoneNumber = values[7],
+                    Address = values[8],
                     PhotoPath = null,
-                    Salary = double.Parse(values[9]),
-                    IsForgotten = bool.Parse(values[10]),
+                    Salary = double.Parse(values[10]),
+                    IsForgotten = bool.Parse(values[11]),
                 };
                 users.Add(user);
-                string photoBase64 = values[8];
+                string photoBase64 = values[9];
 
                 if (!string.IsNullOrEmpty(photoBase64))
                 {
@@ -64,7 +65,7 @@ namespace Personal_Organizer.Models
 
         public void WriteUsers(List<User> users)
         {
-            var lines = new List<string> { "Id,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo,Salary" };
+            var lines = new List<string> { "Id,Username,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo,Salary" };
             lines.AddRange(users.Select(u =>
             {
                 string photoBase64 = string.Empty;
@@ -73,7 +74,7 @@ namespace Personal_Organizer.Models
                     byte[] photoBytes = File.ReadAllBytes(u.PhotoPath);
                     photoBase64 = Convert.ToBase64String(photoBytes);
                 }
-                return $"{u.Id},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64},{u.Salary},{u.IsForgotten}";
+                return $"{u.Id},{u.Username},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64},{u.Salary},{u.IsForgotten}";
             }));
             File.WriteAllLines(FilePath, lines);
         }
@@ -209,8 +210,8 @@ namespace Personal_Organizer.Models
 
         public void WriteRemindersToCsv(List<IReminder> reminders)
         {
-            var lines = new List<string> { "UserID,Date,Time,Title,Summary,Description,Type" };
-            lines.AddRange(reminders.Select(r => $"{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
+            var lines = new List<string> { "ReminderID,UserID,Date,Time,Title,Summary,Description,Type" };
+            lines.AddRange(reminders.Select(r => $"{r.ReminderID},{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
             File.WriteAllLines(ReminderDataPath, lines);
         }
 
@@ -224,20 +225,20 @@ namespace Personal_Organizer.Models
                 var values = line.Split(',');
                 if (values[6] == "TaskReminder")
                 {
-                    IReminder reminder = TaskFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy", null).Date,
-                        TimeSpan.Parse(values[2]),
-                        values[3],
+                    IReminder reminder = TaskFactory.CreateReminder(int.Parse(values[0]), int.Parse(values[1]),DateTime.ParseExact(values[2], "dd.MM.yyyy", null).Date,
+                        TimeSpan.Parse(values[3]),
                         values[4],
-                        values[5]);
+                        values[5],
+                        values[6]);
                     reminders.Add(reminder);
                 }
                 else
                 {
-                    IReminder reminder = MeetingFactory.CreateReminder(DateTime.ParseExact(values[1], "dd.MM.yyyy", null).Date,
-                     TimeSpan.Parse(values[2]),
-                     values[3],
-                     values[4],
-                     values[5]);
+                    IReminder reminder = MeetingFactory.CreateReminder(int.Parse(values[0]), int.Parse(values[1]), DateTime.ParseExact(values[2], "dd.MM.yyyy", null).Date,
+                        TimeSpan.Parse(values[3]),
+                        values[4],
+                        values[5],
+                        values[6]);
                     reminders.Add(reminder);
                 }
             }

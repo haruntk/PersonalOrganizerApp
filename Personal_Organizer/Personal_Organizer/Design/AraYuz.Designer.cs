@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblAd = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.sidebarflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@
             this.btnPhone = new Personal_Organizer.RoundedButton();
             this.btnPersonal = new Personal_Organizer.RoundedButton();
             this.userManagementBtn = new Personal_Organizer.RoundedButton();
+            this.sidebartimer = new System.Windows.Forms.Timer(this.components);
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
@@ -75,19 +77,19 @@
             this.lblAd.Size = new System.Drawing.Size(164, 31);
             this.lblAd.TabIndex = 16;
             this.lblAd.Text = "Kullanıcı İsmi";
-            this.lblAd.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblAd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label1
+            // lblWelcome
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(452, 258);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 42);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Welcome,Kullanıcı ismi";
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblWelcome.Location = new System.Drawing.Point(452, 258);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(419, 42);
+            this.lblWelcome.TabIndex = 21;
+            this.lblWelcome.Text = "Welcome,Kullanıcı ismi";
             // 
             // sidebarflowLayoutPanel
             // 
@@ -139,6 +141,7 @@
             this.menubtn.Size = new System.Drawing.Size(56, 54);
             this.menubtn.TabIndex = 18;
             this.menubtn.TabStop = false;
+            this.menubtn.Click += new System.EventHandler(this.menubtn_Click);
             // 
             // panel2
             // 
@@ -165,6 +168,8 @@
             this.homebtn.Text = "             Home";
             this.homebtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homebtn.UseVisualStyleBackColor = false;
+            this.homebtn.MouseEnter += new System.EventHandler(this.homebtn_MouseEnter);
+            this.homebtn.MouseLeave += new System.EventHandler(this.homebtn_MouseLeave);
             // 
             // panel7
             // 
@@ -190,6 +195,9 @@
             this.infobtn.Text = "             Info";
             this.infobtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.infobtn.UseVisualStyleBackColor = false;
+            this.infobtn.Click += new System.EventHandler(this.infobtn_Click);
+            this.infobtn.MouseEnter += new System.EventHandler(this.infobtn_MouseEnter);
+            this.infobtn.MouseLeave += new System.EventHandler(this.infobtn_MouseLeave);
             // 
             // panel9
             // 
@@ -224,6 +232,8 @@
             this.logoutbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logoutbtn.UseVisualStyleBackColor = false;
             this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
+            this.logoutbtn.MouseEnter += new System.EventHandler(this.logoutbtn_MouseEnter);
+            this.logoutbtn.MouseLeave += new System.EventHandler(this.logoutbtn_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -400,6 +410,11 @@
             this.userManagementBtn.UseVisualStyleBackColor = false;
             this.userManagementBtn.Click += new System.EventHandler(this.userManagementBtn_Click);
             // 
+            // sidebartimer
+            // 
+            this.sidebartimer.Interval = 7;
+            this.sidebartimer.Tick += new System.EventHandler(this.sidebartimer_Tick);
+            // 
             // AraYuz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -411,7 +426,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.sidebarflowLayoutPanel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.roundedButton1);
             this.Controls.Add(this.lblAd);
             this.Controls.Add(this.circularPicture1);
@@ -452,7 +467,7 @@
         private CircularPicture circularPicture1;
         private System.Windows.Forms.Label lblAd;
         private RoundedButton roundedButton1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.FlowLayoutPanel sidebarflowLayoutPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
@@ -468,5 +483,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private RoundedButton roundedButton2;
         private RoundedButton userManagementBtn;
+        private System.Windows.Forms.Timer sidebartimer;
     }
 }
