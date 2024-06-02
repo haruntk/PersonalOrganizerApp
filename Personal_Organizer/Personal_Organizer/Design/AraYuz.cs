@@ -140,12 +140,6 @@ namespace Personal_Organizer
 
         private void userManagementBtn_Click(object sender, EventArgs e)
         {
-            if(user.Role == Roles.Admin)
-            {
-                UserManagement userManagament = new UserManagement(user);
-                userManagament.ShowDialog();
-                this.Hide();
-            }
             NavigateToForm(new UserManagement(user));
         }
 
@@ -222,5 +216,19 @@ namespace Personal_Organizer
             }
         }
 
+        private void AraYuz_Load(object sender, EventArgs e)
+        {
+            if(user.Role==Roles.Admin)
+            {
+                userManagementBtn.Visible = true;
+                roundedButton2.Visible = false;
+            }
+            else if(user.Role==Roles.User||user.Role==Roles.Part_Time_User)
+            {
+                roundedButton2.Visible = true;
+                userManagementBtn.Visible=false;
+                userManagementBtn.Enabled=false;
+            }
+        }
     }
 }

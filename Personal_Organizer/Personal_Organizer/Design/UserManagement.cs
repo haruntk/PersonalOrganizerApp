@@ -20,11 +20,17 @@ namespace Personal_Organizer.Design
         User user = new User();
         private CSVOperations csvOperations = new CSVOperations();
         string _userEmail = string.Empty;
+        bool sidebarExpand;
+        List<IReminder> reminders = new List<IReminder>();
+        System.Timers.Timer timer;
+        private bool isNavigating = false;
+        
+        
         public UserManagement(User _user)
         {
             InitializeComponent();
             user = _user;
-
+            label1.Text=user.Name;
             LoadUsersIntoDataGridView();
 
             userCurrentRoleLbl.Visible = false;
@@ -42,8 +48,55 @@ namespace Personal_Organizer.Design
 
             progressBar.Style = ProgressBarStyle.Marquee;
             progressBar.Visible = false;
-        }
 
+            reminders = csvOperations.ReadRemindersFromCsv();
+            List<IReminder> _reminders = new List<IReminder>();
+            foreach (IReminder reminder in reminders)
+            {
+                if (user.Id == reminder.UserID)
+                {
+                    _reminders.Add(reminder);
+                    if (reminder.GetType().Name == "MeetingReminder")
+                        reminder.Attach(new MeetingReminderObserver());
+                    else
+                        reminder.Attach(new MeetingReminderObserver());
+                }
+            }
+            reminders = _reminders;
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+            timer.AutoReset = true;
+            timer.Enabled = true;
+        }
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+
+            foreach (IReminder reminder in reminders)
+            {
+                DateTime now = DateTime.Now;
+                DateTime reminderDate = reminder.Date + reminder.Time;
+                if (reminderDate.Year == now.Year &&
+            reminderDate.Month == now.Month &&
+            reminderDate.Day == now.Day &&
+            reminderDate.Hour == now.Hour &&
+            reminderDate.Minute == now.Minute && !reminder.IsTriggered)
+                {
+                    reminder.Notify(this);
+                    Notification not = new Notification(reminder);
+                    not.ShowDialog();
+
+                }
+            }
+
+        }
+        private void NavigateToForm(Form form)
+        {
+            isNavigating = true;
+            this.Close();
+            form.FormClosed += (s, args) => isNavigating = false;
+            form.Show();
+        }
         private void LoadUsersIntoDataGridView()
         {
             // Read all users
@@ -179,6 +232,160 @@ namespace Personal_Organizer.Design
             finally
             {
                 progressBar.Visible = false;
+            }
+        }
+        private void menubtn_Click(object sender, EventArgs e)
+        {
+            sidebartimer.Start();
+        }
+        private void sidebartimer_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                sidebarflowLayoutPanel.Width -= 10;
+                if (sidebarflowLayoutPanel.Width == sidebarflowLayoutPanel.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebartimer.Stop();
+                }
+            }
+            else
+            {
+                sidebarflowLayoutPanel.Width += 10;
+                if (sidebarflowLayoutPanel.Width == sidebarflowLayoutPanel.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebartimer.Stop();
+                }
+            }
+        }
+        private void homebtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void homebtn_MouseEnter(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.SeaGreen;
+        }
+
+        private void homebtn_MouseLeave(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.MediumSeaGreen;
+        }
+
+        private void personalinfobtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new PersonalInformation(user));
+        }
+
+        private void personalinfobtn_MouseEnter(object sender, EventArgs e)
+        {
+            personalinfobtn.BackColor = Color.SeaGreen;
+        }
+
+        private void personalinfobtn_MouseLeave(object sender, EventArgs e)
+        {
+            personalinfobtn.BackColor = Color.MediumSeaGreen;
+        }
+
+        private void phonebookbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new PhoneBook(user));
+        }
+
+        private void phonebookbtn_MouseEnter(object sender, EventArgs e)
+        {
+            phonebookbtn.BackColor = Color.SeaGreen;
+        }
+
+        private void phonebookbtn_MouseLeave(object sender, EventArgs e)
+        {
+            phonebookbtn.BackColor= Color.MediumSeaGreen;
+        }
+
+        private void notesbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new PhoneBook(user));
+        }
+
+        private void notesbtn_MouseEnter(object sender, EventArgs e)
+        {
+            notesbtn.BackColor = Color.SeaGreen;
+        }
+
+        private void notesbtn_MouseLeave(object sender, EventArgs e)
+        {
+            notesbtn.BackColor = Color.MediumSeaGreen;
+        }
+
+        private void salarycalcbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new SalaryCalculator(user));
+        }
+
+        private void salarycalcbtn_MouseEnter(object sender, EventArgs e)
+        {
+            salarycalcbtn.BackColor = Color.SeaGreen;
+        }
+
+        private void salarycalcbtn_MouseLeave(object sender, EventArgs e)
+        {
+            salarycalcbtn.BackColor = Color.MediumSeaGreen;
+        }
+
+        private void reminderbtn_Click(object sender, EventArgs e)
+        {
+            NavigateToForm(new Reminder(user));
+        }
+
+        private void reminderbtn_MouseEnter(object sender, EventArgs e)
+        {
+            reminderbtn.BackColor = Color.SeaGreen;
+        }
+
+        private void reminderbtn_MouseLeave(object sender, EventArgs e)
+        {
+            reminderbtn.BackColor = Color.MediumSeaGreen;
+        }
+
+        private void usermanagmentbtn_MouseEnter(object sender, EventArgs e)
+        {
+            usermanagmentbtn.BackColor = Color.SeaGreen;
+        }
+
+        private void usermanagmentbtn_MouseLeave(object sender, EventArgs e)
+        {
+            usermanagmentbtn.BackColor = Color.MediumSeaGreen;
+        }
+
+        private void logoutbtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                Application.Restart();
+            }
+        }
+
+        private void logoutbtn_MouseEnter(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor = Color.SeaGreen;
+        }
+
+        private void logoutbtn_MouseLeave(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor= Color.MediumSeaGreen;
+        }
+
+        private void UserManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isNavigating && e.CloseReason == CloseReason.UserClosing)
+            {
+                AraYuz araYuz = new AraYuz(user);
+                araYuz.Show();
             }
         }
     }

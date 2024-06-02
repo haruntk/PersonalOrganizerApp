@@ -43,6 +43,7 @@ namespace Personal_Organizer.Design
             {
                 usermanagmentbtn.Visible = false;
             }
+            label11.Text = user.Name;
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -293,6 +294,86 @@ namespace Personal_Organizer.Design
                 AraYuz araYuz = new AraYuz(user);
                 araYuz.Show();
             }
+        }
+
+        private void homebtn_MouseEnter(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.Indigo;
+        }
+
+        private void homebtn_MouseLeave(object sender, EventArgs e)
+        {
+            homebtn.BackColor = Color.MediumPurple;
+        }
+
+        private void personalinfobtn_MouseEnter(object sender, EventArgs e)
+        {
+            personalinfobtn.BackColor = Color.Indigo;
+        }
+
+        private void personalinfobtn_MouseLeave(object sender, EventArgs e)
+        {
+            personalinfobtn.BackColor= Color.MediumPurple;
+        }
+
+        private void phonebookbtn_MouseEnter(object sender, EventArgs e)
+        {
+            phonebookbtn.BackColor = Color.Indigo;
+        }
+
+        private void phonebookbtn_MouseLeave(object sender, EventArgs e)
+        {
+            phonebookbtn.BackColor = Color.MediumPurple;
+        }
+
+        private void notesbtn_MouseEnter(object sender, EventArgs e)
+        {
+            notesbtn.BackColor = Color.Indigo;
+        }
+
+        private void notesbtn_MouseLeave(object sender, EventArgs e)
+        {
+            notesbtn.BackColor= Color.MediumPurple;
+        }
+
+        private void salarycalcbtn_MouseEnter(object sender, EventArgs e)
+        {
+            salarycalcbtn.BackColor = Color.Indigo;
+        }
+
+        private void salarycalcbtn_MouseLeave(object sender, EventArgs e)
+        {
+            salarycalcbtn.BackColor= Color.MediumPurple;
+        }
+
+        private void reminderbtn_MouseEnter(object sender, EventArgs e)
+        {
+            reminderbtn.BackColor = Color.Indigo;
+        }
+
+        private void reminderbtn_MouseLeave(object sender, EventArgs e)
+        {
+            reminderbtn.BackColor= Color.MediumPurple;
+        }
+
+        private void usermanagmentbtn_MouseEnter(object sender, EventArgs e)
+        {
+            usermanagmentbtn.BackColor = Color.Indigo;
+        }
+
+        private void usermanagmentbtn_MouseLeave(object sender, EventArgs e)
+        {
+            usermanagmentbtn.BackColor = Color.MediumPurple;
+        }
+
+        private void logoutbtn_MouseEnter(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor = Color.Indigo;
+        }
+
+        private void logoutbtn_MouseLeave(object sender, EventArgs e)
+        {
+            logoutbtn.BackColor= Color.MediumPurple;
         }
     }
 }

@@ -101,7 +101,7 @@
             this.sidebarflowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarflowLayoutPanel.ForeColor = System.Drawing.SystemColors.Control;
             this.sidebarflowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.sidebarflowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sidebarflowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.sidebarflowLayoutPanel.MaximumSize = new System.Drawing.Size(181, 522);
             this.sidebarflowLayoutPanel.MinimumSize = new System.Drawing.Size(62, 522);
             this.sidebarflowLayoutPanel.Name = "sidebarflowLayoutPanel";
@@ -114,7 +114,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.menubtn);
             this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(180, 71);
             this.panel1.TabIndex = 19;
@@ -134,7 +134,7 @@
             this.menubtn.ErrorImage = null;
             this.menubtn.Image = global::Personal_Organizer.Properties.Resources.menu_burger;
             this.menubtn.Location = new System.Drawing.Point(21, 29);
-            this.menubtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menubtn.Margin = new System.Windows.Forms.Padding(2);
             this.menubtn.Name = "menubtn";
             this.menubtn.Size = new System.Drawing.Size(28, 28);
             this.menubtn.TabIndex = 18;
@@ -144,7 +144,7 @@
             // 
             this.panel2.Controls.Add(this.homebtn);
             this.panel2.Location = new System.Drawing.Point(2, 77);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(180, 45);
             this.panel2.TabIndex = 20;
@@ -156,7 +156,7 @@
             this.homebtn.Image = global::Personal_Organizer.Properties.Resources.home;
             this.homebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homebtn.Location = new System.Drawing.Point(-13, -7);
-            this.homebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.homebtn.Margin = new System.Windows.Forms.Padding(2);
             this.homebtn.Name = "homebtn";
             this.homebtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.homebtn.Size = new System.Drawing.Size(196, 56);
@@ -165,12 +165,14 @@
             this.homebtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homebtn.UseVisualStyleBackColor = false;
             this.homebtn.Click += new System.EventHandler(this.homebtn_Click);
+            this.homebtn.MouseEnter += new System.EventHandler(this.homebtn_MouseEnter);
+            this.homebtn.MouseLeave += new System.EventHandler(this.homebtn_MouseLeave);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.personalinfobtn);
             this.panel3.Location = new System.Drawing.Point(2, 126);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(180, 45);
             this.panel3.TabIndex = 21;
@@ -182,7 +184,7 @@
             this.personalinfobtn.Image = global::Personal_Organizer.Properties.Resources.user;
             this.personalinfobtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.personalinfobtn.Location = new System.Drawing.Point(-13, -5);
-            this.personalinfobtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.personalinfobtn.Margin = new System.Windows.Forms.Padding(2);
             this.personalinfobtn.Name = "personalinfobtn";
             this.personalinfobtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.personalinfobtn.Size = new System.Drawing.Size(203, 56);
@@ -191,12 +193,14 @@
             this.personalinfobtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.personalinfobtn.UseVisualStyleBackColor = false;
             this.personalinfobtn.Click += new System.EventHandler(this.personalinfobtn_Click);
+            this.personalinfobtn.MouseEnter += new System.EventHandler(this.personalinfobtn_MouseEnter);
+            this.personalinfobtn.MouseLeave += new System.EventHandler(this.personalinfobtn_MouseLeave);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.phonebookbtn);
             this.panel4.Location = new System.Drawing.Point(2, 175);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(192, 45);
             this.panel4.TabIndex = 22;
@@ -208,7 +212,7 @@
             this.phonebookbtn.Image = global::Personal_Organizer.Properties.Resources.address_book;
             this.phonebookbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.phonebookbtn.Location = new System.Drawing.Point(-13, -5);
-            this.phonebookbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phonebookbtn.Margin = new System.Windows.Forms.Padding(2);
             this.phonebookbtn.Name = "phonebookbtn";
             this.phonebookbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.phonebookbtn.Size = new System.Drawing.Size(196, 56);
@@ -217,12 +221,14 @@
             this.phonebookbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.phonebookbtn.UseVisualStyleBackColor = false;
             this.phonebookbtn.Click += new System.EventHandler(this.phonebookbtn_Click);
+            this.phonebookbtn.MouseEnter += new System.EventHandler(this.phonebookbtn_MouseEnter);
+            this.phonebookbtn.MouseLeave += new System.EventHandler(this.phonebookbtn_MouseLeave);
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.notesbtn);
             this.panel5.Location = new System.Drawing.Point(2, 224);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(180, 45);
             this.panel5.TabIndex = 22;
@@ -234,7 +240,7 @@
             this.notesbtn.Image = global::Personal_Organizer.Properties.Resources.note_sticky;
             this.notesbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.notesbtn.Location = new System.Drawing.Point(-13, -4);
-            this.notesbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.notesbtn.Margin = new System.Windows.Forms.Padding(2);
             this.notesbtn.Name = "notesbtn";
             this.notesbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.notesbtn.Size = new System.Drawing.Size(196, 56);
@@ -243,12 +249,14 @@
             this.notesbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.notesbtn.UseVisualStyleBackColor = false;
             this.notesbtn.Click += new System.EventHandler(this.notesbtn_Click);
+            this.notesbtn.MouseEnter += new System.EventHandler(this.notesbtn_MouseEnter);
+            this.notesbtn.MouseLeave += new System.EventHandler(this.notesbtn_MouseLeave);
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.salarycalcbtn);
             this.panel6.Location = new System.Drawing.Point(2, 273);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(180, 45);
             this.panel6.TabIndex = 22;
@@ -260,7 +268,7 @@
             this.salarycalcbtn.Image = global::Personal_Organizer.Properties.Resources.user_salary;
             this.salarycalcbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.salarycalcbtn.Location = new System.Drawing.Point(-13, -15);
-            this.salarycalcbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.salarycalcbtn.Margin = new System.Windows.Forms.Padding(2);
             this.salarycalcbtn.Name = "salarycalcbtn";
             this.salarycalcbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.salarycalcbtn.Size = new System.Drawing.Size(193, 69);
@@ -268,12 +276,14 @@
             this.salarycalcbtn.Text = "             Salary Calculator";
             this.salarycalcbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.salarycalcbtn.UseVisualStyleBackColor = false;
+            this.salarycalcbtn.MouseEnter += new System.EventHandler(this.salarycalcbtn_MouseEnter);
+            this.salarycalcbtn.MouseLeave += new System.EventHandler(this.salarycalcbtn_MouseLeave);
             // 
             // panel7
             // 
             this.panel7.Controls.Add(this.reminderbtn);
             this.panel7.Location = new System.Drawing.Point(2, 322);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(180, 45);
             this.panel7.TabIndex = 22;
@@ -285,7 +295,7 @@
             this.reminderbtn.Image = global::Personal_Organizer.Properties.Resources.note;
             this.reminderbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reminderbtn.Location = new System.Drawing.Point(-13, -7);
-            this.reminderbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reminderbtn.Margin = new System.Windows.Forms.Padding(2);
             this.reminderbtn.Name = "reminderbtn";
             this.reminderbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.reminderbtn.Size = new System.Drawing.Size(205, 56);
@@ -294,12 +304,14 @@
             this.reminderbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reminderbtn.UseVisualStyleBackColor = false;
             this.reminderbtn.Click += new System.EventHandler(this.reminderbtn_Click);
+            this.reminderbtn.MouseEnter += new System.EventHandler(this.reminderbtn_MouseEnter);
+            this.reminderbtn.MouseLeave += new System.EventHandler(this.reminderbtn_MouseLeave);
             // 
             // panel8
             // 
             this.panel8.Controls.Add(this.usermanagmentbtn);
             this.panel8.Location = new System.Drawing.Point(2, 371);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(180, 45);
             this.panel8.TabIndex = 22;
@@ -311,7 +323,7 @@
             this.usermanagmentbtn.Image = global::Personal_Organizer.Properties.Resources.user_gear;
             this.usermanagmentbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.usermanagmentbtn.Location = new System.Drawing.Point(-13, -5);
-            this.usermanagmentbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usermanagmentbtn.Margin = new System.Windows.Forms.Padding(2);
             this.usermanagmentbtn.Name = "usermanagmentbtn";
             this.usermanagmentbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.usermanagmentbtn.Size = new System.Drawing.Size(196, 56);
@@ -320,12 +332,14 @@
             this.usermanagmentbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.usermanagmentbtn.UseVisualStyleBackColor = false;
             this.usermanagmentbtn.Click += new System.EventHandler(this.usermanagmentbtn_Click);
+            this.usermanagmentbtn.MouseEnter += new System.EventHandler(this.usermanagmentbtn_MouseEnter);
+            this.usermanagmentbtn.MouseLeave += new System.EventHandler(this.usermanagmentbtn_MouseLeave);
             // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.MediumPurple;
             this.panel9.Location = new System.Drawing.Point(2, 420);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(179, 18);
             this.panel9.TabIndex = 23;
@@ -334,7 +348,7 @@
             // 
             this.panel20.Controls.Add(this.logoutbtn);
             this.panel20.Location = new System.Drawing.Point(2, 442);
-            this.panel20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel20.Margin = new System.Windows.Forms.Padding(2);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(180, 39);
             this.panel20.TabIndex = 24;
@@ -346,7 +360,7 @@
             this.logoutbtn.Image = global::Personal_Organizer.Properties.Resources.exit;
             this.logoutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logoutbtn.Location = new System.Drawing.Point(-13, -9);
-            this.logoutbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logoutbtn.Margin = new System.Windows.Forms.Padding(2);
             this.logoutbtn.Name = "logoutbtn";
             this.logoutbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.logoutbtn.Size = new System.Drawing.Size(196, 56);
@@ -355,6 +369,8 @@
             this.logoutbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logoutbtn.UseVisualStyleBackColor = false;
             this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
+            this.logoutbtn.MouseEnter += new System.EventHandler(this.logoutbtn_MouseEnter);
+            this.logoutbtn.MouseLeave += new System.EventHandler(this.logoutbtn_MouseLeave);
             // 
             // label1
             // 
@@ -415,7 +431,7 @@
             // 
             this.ExperienceBox.FormattingEnabled = true;
             this.ExperienceBox.Location = new System.Drawing.Point(248, 126);
-            this.ExperienceBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ExperienceBox.Margin = new System.Windows.Forms.Padding(2);
             this.ExperienceBox.Name = "ExperienceBox";
             this.ExperienceBox.Size = new System.Drawing.Size(550, 21);
             this.ExperienceBox.TabIndex = 31;
@@ -424,7 +440,7 @@
             // 
             this.LanguagesBox.FormattingEnabled = true;
             this.LanguagesBox.Location = new System.Drawing.Point(248, 275);
-            this.LanguagesBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LanguagesBox.Margin = new System.Windows.Forms.Padding(2);
             this.LanguagesBox.Name = "LanguagesBox";
             this.LanguagesBox.Size = new System.Drawing.Size(550, 21);
             this.LanguagesBox.TabIndex = 32;
@@ -433,7 +449,7 @@
             // 
             this.EducationBox.FormattingEnabled = true;
             this.EducationBox.Location = new System.Drawing.Point(248, 224);
-            this.EducationBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EducationBox.Margin = new System.Windows.Forms.Padding(2);
             this.EducationBox.Name = "EducationBox";
             this.EducationBox.Size = new System.Drawing.Size(550, 21);
             this.EducationBox.TabIndex = 33;
@@ -442,7 +458,7 @@
             // 
             this.ManagerialPositionBox.FormattingEnabled = true;
             this.ManagerialPositionBox.Location = new System.Drawing.Point(248, 332);
-            this.ManagerialPositionBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ManagerialPositionBox.Margin = new System.Windows.Forms.Padding(2);
             this.ManagerialPositionBox.Name = "ManagerialPositionBox";
             this.ManagerialPositionBox.Size = new System.Drawing.Size(550, 21);
             this.ManagerialPositionBox.TabIndex = 34;
@@ -451,7 +467,7 @@
             // 
             this.LocationBox.FormattingEnabled = true;
             this.LocationBox.Location = new System.Drawing.Point(248, 173);
-            this.LocationBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LocationBox.Margin = new System.Windows.Forms.Padding(2);
             this.LocationBox.Name = "LocationBox";
             this.LocationBox.Size = new System.Drawing.Size(550, 21);
             this.LocationBox.TabIndex = 36;
@@ -460,7 +476,7 @@
             // 
             this.FamilyBox.FormattingEnabled = true;
             this.FamilyBox.Location = new System.Drawing.Point(248, 388);
-            this.FamilyBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FamilyBox.Margin = new System.Windows.Forms.Padding(2);
             this.FamilyBox.Name = "FamilyBox";
             this.FamilyBox.Size = new System.Drawing.Size(550, 21);
             this.FamilyBox.TabIndex = 38;
@@ -491,7 +507,7 @@
             // 
             this.MinWageTxt.BackColor = System.Drawing.Color.Lavender;
             this.MinWageTxt.Location = new System.Drawing.Point(736, 77);
-            this.MinWageTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinWageTxt.Margin = new System.Windows.Forms.Padding(2);
             this.MinWageTxt.Multiline = true;
             this.MinWageTxt.Name = "MinWageTxt";
             this.MinWageTxt.Size = new System.Drawing.Size(108, 28);
@@ -572,14 +588,14 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(761, 31);
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.Location = new System.Drawing.Point(745, 39);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label11.Size = new System.Drawing.Size(67, 14);
+            this.label11.Size = new System.Drawing.Size(96, 18);
             this.label11.TabIndex = 64;
             this.label11.Text = "Kullanıcı İsmi";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // circularPicture2
             // 
@@ -621,6 +637,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sidebarflowLayoutPanel);
             this.Name = "SalaryCalculator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SalaryCalculator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SalaryCalculator_FormClosing);
             this.sidebarflowLayoutPanel.ResumeLayout(false);
