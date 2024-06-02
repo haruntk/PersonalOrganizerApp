@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -50,7 +51,11 @@ namespace Personal_Organizer
             timer.Elapsed += Timer_Elapsed;
             timer.AutoReset = true;
             timer.Enabled = true;
-
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                circularPicture2.Image = Image.FromStream(ms);
+            }
             if (user.Role != Roles.Admin)
             {
                 usermanagmentbtn.Visible = false;
@@ -164,7 +169,7 @@ namespace Personal_Organizer
 
         private void addreminderbtn_Click(object sender, EventArgs e)
         {
-            AddReminder addReminder = new AddReminder();
+           AddReminder addReminder = new AddReminder();
            if(addReminder.ShowDialog() == DialogResult.OK)
             {
                 int lastId = 0;

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,12 @@ namespace Personal_Organizer
                         reminder.Attach(new MeetingReminderObserver());
                 }
             }
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                circularPicture2.Image = Image.FromStream(ms);
+            }
+            label3.Text = user.Username;
             reminders = _reminders;
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
