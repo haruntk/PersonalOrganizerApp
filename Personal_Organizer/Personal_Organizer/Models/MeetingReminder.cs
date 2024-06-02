@@ -19,7 +19,7 @@ namespace Personal_Organizer.Models
         public string Description { get; set; }
         public bool IsTriggered { get; set; }
 
-        public MeetingReminder(int reminderid, int userid, DateTime date, TimeSpan time, string title, string description, string summary)
+        public MeetingReminder(int reminderid, int userid, DateTime date, TimeSpan time, string title, string description, string summary,bool isTriggered)
         {
             this.ReminderID = reminderid;
             this.UserID = userid;
@@ -28,7 +28,7 @@ namespace Personal_Organizer.Models
             this.Title = title;
             this.Description = description;
             this.Summary = summary;
-            this.IsTriggered = false;
+            this.IsTriggered = isTriggered;
         }
 
         private List<IObserver> _observers = new List<IObserver>();

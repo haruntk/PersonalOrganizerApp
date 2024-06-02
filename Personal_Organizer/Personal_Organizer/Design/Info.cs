@@ -17,7 +17,8 @@ namespace Personal_Organizer.Design
         User user;
         bool sidebarExpand;
         private bool isNavigating = false;
-        public Info(User _user)
+        private List<IReminder> reminders = new List<IReminder>();
+        public Info(User _user, List<IReminder> _reminders)
         {
             user = _user;
             InitializeComponent();
@@ -41,22 +42,22 @@ namespace Personal_Organizer.Design
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user));
+            NavigateToForm(new PersonalInformation(user, reminders));
         }
 
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user, reminders));
         }
 
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Notes(user));
+            NavigateToForm(new Notes(user,reminders));
         }
 
         private void salarycalcbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new SalaryCalculator(user));
+            NavigateToForm(new SalaryCalculator(user, reminders));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)

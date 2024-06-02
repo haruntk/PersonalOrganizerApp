@@ -24,7 +24,7 @@ namespace Personal_Organizer
         List<IReminder> reminders = new List<IReminder>();
         System.Timers.Timer timer;
         private bool isNavigating = false;
-        public PhoneBook(User _user)
+        public PhoneBook(User _user, List<IReminder> _reminders)
         {
             InitializeComponent();
             SetPlaceholder();
@@ -38,18 +38,6 @@ namespace Personal_Organizer
                 circularPicture2.Image = Image.FromStream(ms);
             }
             reminders = _csvOperations.ReadRemindersFromCsv();
-            List<IReminder> _reminders = new List<IReminder>();
-            foreach (IReminder reminder in reminders)
-            {
-                if (user.Id == reminder.UserID)
-                {
-                    _reminders.Add(reminder);
-                    if (reminder.GetType().Name == "MeetingReminder")
-                        reminder.Attach(new MeetingReminderObserver());
-                    else
-                        reminder.Attach(new MeetingReminderObserver());
-                }
-            }
             reminders = _reminders;
             timer = new System.Timers.Timer();
             timer.Interval = 1000;
@@ -79,7 +67,7 @@ namespace Personal_Organizer
                     reminder.Notify(this);
                     Notification not = new Notification(reminder);
                     not.ShowDialog();
-
+                    _csvOperations.WriteRemindersToCsv(reminders);
                 }
             }
 
@@ -155,20 +143,20 @@ namespace Personal_Organizer
 
         private void personalinfobtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user));
+            NavigateToForm(new PersonalInformation(user, reminders));
         }
         private void phonebookbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PhoneBook(user));
+            NavigateToForm(new PhoneBook(user, reminders));
         }
         private void notesbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new Notes(user));
+            NavigateToForm(new Notes(user, reminders));
         }
 
         private void salarycalcbtn_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new SalaryCalculator(user));
+            NavigateToForm(new SalaryCalculator(user, reminders));
         }
 
         private void reminderbtn_Click(object sender, EventArgs e)

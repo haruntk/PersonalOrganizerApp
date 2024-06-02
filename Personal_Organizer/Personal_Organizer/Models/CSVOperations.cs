@@ -198,8 +198,8 @@ namespace Personal_Organizer.Models
 
         public void WriteRemindersToCsv(List<IReminder> reminders)
         {
-            var lines = new List<string> { "ReminderID,UserID,Date,Time,Title,Summary,Description,Type" };
-            lines.AddRange(reminders.Select(r => $"{r.ReminderID},{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name}"));
+            var lines = new List<string> { "ReminderID,UserID,Date,Time,Title,Summary,Description,Type,IsTriggered" };
+            lines.AddRange(reminders.Select(r => $"{r.ReminderID},{r.UserID},{r.Date.ToString("dd.MM.yyyy")},{r.Time.ToString(@"hh\:mm")},{r.Title},{r.Summary},{r.Description},{r.GetType().Name},{r.IsTriggered}"));
             File.WriteAllLines(ReminderDataPath, lines);
         }
 
@@ -217,7 +217,8 @@ namespace Personal_Organizer.Models
                         TimeSpan.Parse(values[3]),
                         values[4],
                         values[5],
-                        values[6]);
+                        values[6],
+                        bool.Parse(values[8]));
                     reminders.Add(reminder);
                 }
                 else
@@ -226,7 +227,8 @@ namespace Personal_Organizer.Models
                         TimeSpan.Parse(values[3]),
                         values[4],
                         values[5],
-                        values[6]);
+                        values[6], 
+                        bool.Parse(values[8]));
                     reminders.Add(reminder);
                 }
             }
