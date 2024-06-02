@@ -49,6 +49,7 @@
             this.visiblitybtn = new System.Windows.Forms.Button();
             this.btnRegister = new Personal_Organizer.RoundedButton();
             this.nameerrorlbl = new System.Windows.Forms.Label();
+            this.usernameerror = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // splitter1
@@ -91,7 +92,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(629, 359);
+            this.label4.Location = new System.Drawing.Point(629, 374);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(210, 33);
@@ -115,7 +116,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(95, 359);
+            this.label2.Location = new System.Drawing.Point(96, 374);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 33);
@@ -145,6 +146,8 @@
             this.adresstxt.Name = "adresstxt";
             this.adresstxt.Size = new System.Drawing.Size(418, 52);
             this.adresstxt.TabIndex = 22;
+            this.adresstxt.TextChanged += new System.EventHandler(this.adresstxt_TextChanged);
+            this.adresstxt.Leave += new System.EventHandler(this.adresstxt_Leave);
             // 
             // surnametxt
             // 
@@ -176,7 +179,7 @@
             this.emailtxt.BackColor = System.Drawing.SystemColors.Menu;
             this.emailtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.emailtxt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.emailtxt.Location = new System.Drawing.Point(101, 398);
+            this.emailtxt.Location = new System.Drawing.Point(101, 410);
             this.emailtxt.Margin = new System.Windows.Forms.Padding(6);
             this.emailtxt.Name = "emailtxt";
             this.emailtxt.Size = new System.Drawing.Size(418, 37);
@@ -231,6 +234,7 @@
             this.usernametxt.Size = new System.Drawing.Size(418, 37);
             this.usernametxt.TabIndex = 31;
             this.usernametxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernametxt_KeyDown);
+            this.usernametxt.Leave += new System.EventHandler(this.usernametxt_Leave);
             // 
             // emailerrorlbl
             // 
@@ -255,7 +259,7 @@
             this.phonenumbertxt.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.phonenumbertxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.phonenumbertxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.phonenumbertxt.Location = new System.Drawing.Point(635, 398);
+            this.phonenumbertxt.Location = new System.Drawing.Point(635, 410);
             this.phonenumbertxt.Name = "phonenumbertxt";
             this.phonenumbertxt.Size = new System.Drawing.Size(418, 37);
             this.phonenumbertxt.TabIndex = 35;
@@ -299,12 +303,22 @@
             this.nameerrorlbl.Size = new System.Drawing.Size(0, 25);
             this.nameerrorlbl.TabIndex = 37;
             // 
+            // usernameerror
+            // 
+            this.usernameerror.AutoSize = true;
+            this.usernameerror.ForeColor = System.Drawing.Color.Brown;
+            this.usernameerror.Location = new System.Drawing.Point(630, 312);
+            this.usernameerror.Name = "usernameerror";
+            this.usernameerror.Size = new System.Drawing.Size(0, 25);
+            this.usernameerror.TabIndex = 38;
+            // 
             // Kayıt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1600, 866);
+            this.Controls.Add(this.usernameerror);
             this.Controls.Add(this.nameerrorlbl);
             this.Controls.Add(this.visiblitybtn);
             this.Controls.Add(this.phonenumbertxt);
@@ -359,5 +373,6 @@
         private System.Windows.Forms.MaskedTextBox phonenumbertxt;
         private System.Windows.Forms.Button visiblitybtn;
         private System.Windows.Forms.Label nameerrorlbl;
+        private System.Windows.Forms.Label usernameerror;
     }
 }

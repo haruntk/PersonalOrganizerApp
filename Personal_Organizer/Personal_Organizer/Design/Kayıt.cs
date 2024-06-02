@@ -30,6 +30,22 @@ namespace Personal_Organizer
             users = csvOperations.ReadAllUsers();
             phonenumbertxt.Mask = "0 (000) 000-0000";
             passwordtxt.PasswordChar = '*';
+            UpdateRegisterButtonState();
+        }
+        private void UpdateRegisterButtonState()
+        {
+            btnRegister.Enabled = !string.IsNullOrWhiteSpace(nametxt.Text) &&
+                                  !string.IsNullOrWhiteSpace(surnametxt.Text) &&
+                                  !string.IsNullOrWhiteSpace(emailtxt.Text) &&
+                                  !string.IsNullOrWhiteSpace(passwordtxt.Text) &&
+                                  !string.IsNullOrWhiteSpace(usernametxt.Text) &&
+                                  !string.IsNullOrWhiteSpace(phonenumbertxt.Text) &&
+                                  !string.IsNullOrWhiteSpace(adresstxt.Text) &&
+                                  !string.IsNullOrWhiteSpace(usernametxt.Text) &&
+                                  IsValidEmail(emailtxt.Text) &&
+                                  IsValidPhoneNumber(phonenumbertxt.Text) &&
+                                  IsValidName(nametxt.Text) &&
+                                  IsValidName(surnametxt.Text);
         }
 
         private bool IsValidEmail(string email)
@@ -131,7 +147,7 @@ namespace Personal_Organizer
                 adresstxt.Focus();
                 e.Handled = true;
             }
-        }
+        }  
 
         private void visiblitybtn_Click(object sender, EventArgs e)
         {
@@ -159,6 +175,7 @@ namespace Personal_Organizer
             {
                 emailerrorlbl.Text = "";
             }
+            UpdateRegisterButtonState();
         }
 
         private void phonenumbertxt_Leave(object sender, EventArgs e)
@@ -179,6 +196,7 @@ namespace Personal_Organizer
             {
                 return;
             }
+            UpdateRegisterButtonState();
         }
 
         private void nametxt_Leave(object sender, EventArgs e)
@@ -193,6 +211,7 @@ namespace Personal_Organizer
             {
                 nameerrorlbl.Text = "";
             }
+            UpdateRegisterButtonState();
         }
 
         private void surnametxt_Leave(object sender, EventArgs e)
@@ -207,6 +226,36 @@ namespace Personal_Organizer
             {
                 nameerrorlbl.Text = "";
             }
+            UpdateRegisterButtonState();
+        }
+
+        private void adresstxt_Leave(object sender, EventArgs e)
+        {
+            UpdateRegisterButtonState();
+        }
+
+        private void adresstxt_TextChanged(object sender, EventArgs e)
+        {
+            if(adresstxt.Text.Length > 0)
+            {
+                UpdateRegisterButtonState();
+            }
+        }
+
+        private void usernametxt_Leave(object sender, EventArgs e)
+        {
+            if (users.Any(u => u.Username.Equals(usernametxt.Text, StringComparison.OrdinalIgnoreCase)))
+            {
+                usernameerror.Text = "The username is already taken. \nPlease choose a different username.";
+                usernametxt.Text = "";
+                usernametxt.Focus();
+            }
+            else
+            {
+                usernameerror.Text = "";
+                UpdateRegisterButtonState();
+            }
+
         }
     }
 }
