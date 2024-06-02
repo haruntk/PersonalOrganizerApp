@@ -64,9 +64,31 @@ namespace Personal_Organizer
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+
             Giris giris = new Giris();
             int lastId = users.Count > 0 ? users[users.Count - 1].Id : 0;
+            foreach(User _user in users)
+            {
+                bool isValid = true;
+                if(_user.Username== usernametxt.Text)
+                {
+                    usernameerror.Text = "This username is already taken.";
+                    isValid = false;
+                }
+                if (_user.PhoneNumber == phonenumbertxt.Text)
+                {
+                    phoneeror.Text = "This phone number is already taken.";
+                    isValid = false;
 
+                }
+                if (_user.Email == emailtxt.Text)
+                {
+                    emailerror.Text = "This E-mail is already taken.";
+                    isValid = false;
+                }
+                if (!isValid) return;
+
+            }
             User user = new User()
             {
                 Id = lastId + 1,
@@ -244,17 +266,17 @@ namespace Personal_Organizer
 
         private void usernametxt_Leave(object sender, EventArgs e)
         {
-            if (users.Any(u => u.Username.Equals(usernametxt.Text, StringComparison.OrdinalIgnoreCase)))
-            {
-                usernameerror.Text = "The username is already taken. \nPlease choose a different username.";
-                usernametxt.Text = "";
-                usernametxt.Focus();
-            }
-            else
-            {
-                usernameerror.Text = "";
-                UpdateRegisterButtonState();
-            }
+            //if (users.Any(u => u.Username.Equals(usernametxt.Text, StringComparison.OrdinalIgnoreCase)))
+            //{
+            //    usernameerror.Text = "The username is already taken. \nPlease choose a different username.";
+            //    usernametxt.Text = "";
+            //    usernametxt.Focus();
+            //}
+            //else
+            //{
+            //    usernameerror.Text = "";
+            //    UpdateRegisterButtonState();
+            //}
 
         }
     }
