@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -31,6 +32,11 @@ namespace Personal_Organizer
             dataGridView1.DataSource = phonebooks;
             user = _user;
             label3.Text = user.Username;
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                circularPicture2.Image = Image.FromStream(ms);
+            }
             reminders = _csvOperations.ReadRemindersFromCsv();
             List<IReminder> _reminders = new List<IReminder>();
             foreach (IReminder reminder in reminders)

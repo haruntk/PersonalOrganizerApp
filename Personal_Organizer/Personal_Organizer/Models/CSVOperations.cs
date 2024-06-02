@@ -44,20 +44,12 @@ namespace Personal_Organizer.Models
                     Role = (Roles)Enum.Parse(typeof(Roles), values[6]),
                     PhoneNumber = values[7],
                     Address = values[8],
-                    PhotoPath = null,
-                    Salary = double.Parse(values[10]),
-                    IsForgotten = bool.Parse(values[11]),
+                    Salary = double.Parse(values[9]),
+                    IsForgotten = bool.Parse(values[10]),
+                    Base64Photo = values[11],
 
                 };
                 users.Add(user);
-                string photoBase64 = values[9];
-
-                if (!string.IsNullOrEmpty(photoBase64))
-                {
-                    //byte[] photoBytes = Convert.FromBase64String(photoBase64);
-                    user.PhotoPath = Path.Combine("photos", $"{user.Id}_{user.Name}.jpg");
-                    //File.WriteAllBytes(user.PhotoPath, photoBytes);
-                }
             }
 
             return users;
@@ -66,17 +58,10 @@ namespace Personal_Organizer.Models
 
         public void WriteUsers(List<User> users)
         {
-            var lines = new List<string> { "Id,Username,Name,Surname,Password,Email,Role,PhoneNumber,Address,Photo,Salary" };
+            var lines = new List<string> { "Id,Username,Name,Surname,Password,Email,Role,PhoneNumber,Address,Salary,IsForgotten,Base64Photo" };
             lines.AddRange(users.Select(u =>
             {
-                string photoBase64 = string.Empty;
-                if (!string.IsNullOrEmpty(u.PhotoPath) && File.Exists(u.PhotoPath))
-                {
-                    byte[] photoBytes = File.ReadAllBytes(u.PhotoPath);
-                    photoBase64 = Convert.ToBase64String(photoBytes);
-                }
-
-                return $"{u.Id},{u.Username},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{photoBase64},{u.Salary},{u.IsForgotten}";
+                return $"{u.Id},{u.Username},{u.Name},{u.Surname},{u.Password},{u.Email},{u.Role},{u.PhoneNumber},{u.Address},{u.Salary},{u.IsForgotten},{u.Base64Photo}";
 
             }));
             File.WriteAllLines(FilePath, lines);

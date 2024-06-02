@@ -52,15 +52,18 @@
             this.btnRegister = new Personal_Organizer.RoundedButton();
             this.emailerror = new System.Windows.Forms.Label();
             this.phoneeror = new System.Windows.Forms.Label();
+            this.uploadbtn = new Personal_Organizer.RoundedButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitter1
             // 
             this.splitter1.BackColor = System.Drawing.Color.Lavender;
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(586, 0);
+            this.splitter1.Location = new System.Drawing.Point(744, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(214, 450);
+            this.splitter1.Size = new System.Drawing.Size(56, 450);
             this.splitter1.TabIndex = 10;
             this.splitter1.TabStop = false;
             // 
@@ -303,7 +306,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Microsoft YaHei", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Location = new System.Drawing.Point(176, 360);
+            this.btnRegister.Location = new System.Drawing.Point(177, 398);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(213, 40);
             this.btnRegister.TabIndex = 9;
@@ -331,12 +334,38 @@
             this.phoneeror.Size = new System.Drawing.Size(0, 13);
             this.phoneeror.TabIndex = 40;
             // 
+            // uploadbtn
+            // 
+            this.uploadbtn.BackColor = System.Drawing.Color.DarkGray;
+            this.uploadbtn.FlatAppearance.BorderSize = 0;
+            this.uploadbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadbtn.Font = new System.Drawing.Font("Microsoft YaHei", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.uploadbtn.ForeColor = System.Drawing.Color.White;
+            this.uploadbtn.Location = new System.Drawing.Point(542, 272);
+            this.uploadbtn.Name = "uploadbtn";
+            this.uploadbtn.Size = new System.Drawing.Size(185, 37);
+            this.uploadbtn.TabIndex = 41;
+            this.uploadbtn.Text = "UPLOAD PHOTO";
+            this.uploadbtn.UseVisualStyleBackColor = false;
+            this.uploadbtn.Click += new System.EventHandler(this.uploadbtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(570, 128);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 119);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            // 
             // Kayıt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.uploadbtn);
             this.Controls.Add(this.phoneeror);
             this.Controls.Add(this.emailerror);
             this.Controls.Add(this.usernameerror);
@@ -365,6 +394,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kayıt";
             this.Load += new System.EventHandler(this.Kayıt_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,5 +426,7 @@
         private System.Windows.Forms.Label usernameerror;
         private System.Windows.Forms.Label emailerror;
         private System.Windows.Forms.Label phoneeror;
+        private RoundedButton uploadbtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

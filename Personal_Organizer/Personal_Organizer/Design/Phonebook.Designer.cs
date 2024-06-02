@@ -436,19 +436,19 @@
             // circularPicture2
             // 
             this.circularPicture2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.circularPicture2.Location = new System.Drawing.Point(1166, 40);
-            this.circularPicture2.Margin = new System.Windows.Forms.Padding(4);
+            this.circularPicture2.Location = new System.Drawing.Point(863, 12);
             this.circularPicture2.Name = "circularPicture2";
-            this.circularPicture2.Size = new System.Drawing.Size(39, 37);
+            this.circularPicture2.Size = new System.Drawing.Size(75, 77);
+            this.circularPicture2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.circularPicture2.TabIndex = 71;
             this.circularPicture2.TabStop = false;
             // 
             // PhoneBook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1267, 628);
+            this.ClientSize = new System.Drawing.Size(950, 510);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.editbtn);
             this.Controls.Add(this.deleteContactbtn);
