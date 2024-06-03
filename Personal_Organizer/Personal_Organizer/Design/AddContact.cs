@@ -17,7 +17,7 @@ namespace Personal_Organizer.Design
         private List<Phonebook> phonebookList;
         private CSVOperations _csvOperations;
         private DataGridView gridView;
-        public AddContact(DataGridView dataGrid,ref List<Phonebook> phonebooks)
+        public AddContact(DataGridView dataGrid, ref List<Phonebook> phonebooks)
         {
             InitializeComponent();
             _csvOperations = new CSVOperations();
