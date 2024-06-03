@@ -28,7 +28,6 @@ namespace Personal_Organizer.Design
                 usermanagmentbtn.Visible = false;
             }
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.BringToFront();
             this.TopMost = true;
             label10.Text = user.Username;
             byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
@@ -36,6 +35,8 @@ namespace Personal_Organizer.Design
             {
                 circularPicture2.Image = Image.FromStream(ms);
             }
+            this.WindowState = FormWindowState.Normal;
+            this.Show();
 
         }
         private void NavigateToForm(Form form)
