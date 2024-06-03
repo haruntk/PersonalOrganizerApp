@@ -12,6 +12,8 @@ using System.Net;
 using System.Net.Mail;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Threading;
+using System.IO;
+using System.Reflection.Emit;
 
 namespace Personal_Organizer.Design
 {
@@ -62,6 +64,12 @@ namespace Personal_Organizer.Design
                         reminder.Attach(new MeetingReminderObserver());
                 }
             }
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                circularPicture2.Image = Image.FromStream(ms);
+            }
+            label1.Text = user.Username;
             reminders = _reminders;
             timer = new System.Timers.Timer();
             timer.Interval = 1000;

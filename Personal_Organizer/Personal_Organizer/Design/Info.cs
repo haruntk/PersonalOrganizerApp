@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace Personal_Organizer.Design
 {
@@ -25,6 +26,15 @@ namespace Personal_Organizer.Design
             if (user.Role != Roles.Admin)
             {
                 usermanagmentbtn.Visible = false;
+            }
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BringToFront();
+            this.TopMost = true;
+            label10.Text = user.Username;
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                circularPicture2.Image = Image.FromStream(ms);
             }
 
         }
@@ -188,64 +198,63 @@ namespace Personal_Organizer.Design
                 }
             }
         }
+        private void OpenLink(string url)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
+        }
         private void LinkLabel10_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.LinkLabel10.Tag = "";
+            OpenLink("https://www.linkedin.com/in/alperen-g%C3%BCltekin-4aa514205?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app");
         }
 
         private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel5.Tag = "https://github.com/CVE-2002-1215";
+            OpenLink("https://github.com/CVE-2002-1215");
+ 
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel2.Tag = "";
+            OpenLink("https://www.linkedin.com/in/arda-%C3%A7abuk-8355b2253?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app ");
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel1.Tag = "https://github.com/ardacbk";
-            var linkLabel = sender as LinkLabel;
-            if (linkLabel != null && linkLabel.Tag != null)
-            {
-                string url = linkLabel.Tag.ToString();
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = url,
-                    UseShellExecute = true
-                });
-            }
+            OpenLink("https://github.com/ardacbk");
         }
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel4.Tag = "";
+            OpenLink("https://www.linkedin.com/in/ceren-ad%C4%B1yaman/");
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel3.Tag = "https://github.com/CerenAdiyaman";
+            OpenLink("https://github.com/CerenAdiyaman");
         }
 
         private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel7.Tag = "";
+            OpenLink("https://www.linkedin.com/in/gamzedag/");
         }
 
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel6.Tag = "https://github.com/gmzdag";
+            OpenLink("https://github.com/gmzdag");
         }
 
         private void linkLabel9_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel9.Tag = "";
+            OpenLink("https://www.linkedin.com/in/harun-taha-kepenek-521722258?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app ");
         }
 
         private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.linkLabel8.Tag = "https://github.com/haruntk";
+            OpenLink("https://github.com/haruntk");
         }
 
         private void Info_FormClosing(object sender, FormClosingEventArgs e)

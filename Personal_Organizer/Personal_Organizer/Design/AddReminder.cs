@@ -80,5 +80,32 @@ namespace Personal_Organizer.Design
         {
             CheckFields();
         }
+
+        private void titletextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                descriptiontextbox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void descriptiontextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                summarytextbox.Focus();
+                e.Handled = true;
+            }
+        }
+
+        private void summarytextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                datePicker.Focus();
+                e.Handled = true;
+            }
+        }
     }
 }
