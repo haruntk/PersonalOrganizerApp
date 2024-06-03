@@ -14,6 +14,7 @@ using System.Xml.Linq;
 
 namespace Personal_Organizer
 {
+    [STAThread]
     public partial class PersonalInformation : Form
     {
         private readonly User user;
@@ -25,6 +26,8 @@ namespace Personal_Organizer
         private List<IReminder> reminders = new List<IReminder>();
         private System.Timers.Timer timer;
         bool sidebarExpand;
+        Image selectedImage;
+
         public PersonalInformation(User _user,List<IReminder> _reminders)
         {
             InitializeComponent();
@@ -83,11 +86,17 @@ namespace Personal_Organizer
         private void InitializeInitialState()
         {
             adresstxt.Text = user.Address;
+            usernametxtbox.Text = user.Username;
             nametxt.Text = user.Name;
             passwordtxt.Text = user.Password;
             phonenumbertxt.Text = user.PhoneNumber;
             surnametxt.Text = user.Surname;
             emailtxt.Text = user.Email;
+            byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                circularPicture2.Image = Image.FromStream(ms);
+            }
             _caretaker.SaveState(user);
             UpdateFormFields();
         }
@@ -176,6 +185,16 @@ namespace Personal_Organizer
                 users[index].Address = adresstxt.Text;
                 users[index].Name = nametxt.Text;
                 users[index].PhoneNumber = phonenumbertxt.Text;
+                users[index].Username = usernametxtbox.Text;
+                if (selectedImage != null)
+                {
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        selectedImage.Save(ms, selectedImage.RawFormat);
+                        byte[] imageBytes = ms.ToArray();
+                        users[index].Base64Photo = Convert.ToBase64String(imageBytes);
+                    }
+                }
                 csvOperations.WriteUsers(users);
                 MessageBox.Show("Bilgileriniz başarıyla güncellendi");
             }
@@ -335,6 +354,25 @@ namespace Personal_Organizer
         private void logoutbtn_MouseLeave(object sender, EventArgs e)
         {
             logoutbtn.BackColor = Color.SteelBlue;
+        }
+
+        private void roundedButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All Files (*.*)|*.*";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                   selectedImage = Image.FromFile(dialog.FileName);
+                   circularPicture2.Image = selectedImage;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
