@@ -304,6 +304,7 @@ namespace Personal_Organizer
                 }
                 else
                     reminders[e.RowIndex].IsTriggered = false;
+                csvOperations.WriteRemindersToCsv(reminders);
             }
         }
 
