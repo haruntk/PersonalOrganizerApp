@@ -8,13 +8,13 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Personal_Organizer
 {
-    [STAThread]
     public partial class PersonalInformation : Form
     {
         private readonly User user;
@@ -202,6 +202,7 @@ namespace Personal_Organizer
             {
                 MessageBox.Show("Hata : " + ex.Message);
             }
+            DialogResult = DialogResult.OK;
         }
         private void PersonalInformation_KeyDown(object sender, KeyEventArgs e)
         {
@@ -360,19 +361,35 @@ namespace Personal_Organizer
         {
             try
             {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "jpg files (*.jpg)|*.jpg|PNG files (*.png)|*.png|All Files (*.*)|*.*";
-                if (dialog.ShowDialog() == DialogResult.OK)
+                // STA modunda bir iş parçacığı oluşturuyoruz
+                var t = new Thread((ThreadStart)(() =>
                 {
-                   selectedImage = Image.FromFile(dialog.FileName);
-                   circularPicture2.Image = selectedImage;
+                    try
+                    {
+                        OpenFileDialog dialog = new OpenFileDialog();
+                        dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png";
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            selectedImage = Image.FromFile(dialog.FileName);
+                            circularPicture2.Image = selectedImage;
 
-                }
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Bir hata oluştu!");
+                    }
+                }));
+
+                t.SetApartmentState(ApartmentState.STA);
+                t.Start();
+                t.Join();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}");
             }
         }
+
     }
 }
