@@ -68,6 +68,18 @@ namespace Personal_Organizer
 
         }
 
+        private User updatedUser(User user)
+        {
+            List<User> users = csvOperations.ReadAllUsers();
+            foreach(User _user in users)
+            {
+                if (_user.Id == user.Id)
+                {
+                    return _user;
+                }
+            }
+            return null;
+        }
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
 
@@ -116,7 +128,20 @@ namespace Personal_Organizer
         }
         private void btnPersonal_Click(object sender, EventArgs e)
         {
-            NavigateToForm(new PersonalInformation(user,reminders));
+            //NavigateToForm(new PersonalInformation(user,reminders));
+            PersonalInformation personalInformation = new PersonalInformation(user,reminders);
+            this.Hide();
+            if (personalInformation.ShowDialog() == DialogResult.OK)
+            {
+                user = updatedUser(user);
+                byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    circularPicture1.Image = Image.FromStream(ms);
+                }
+                this.Show();
+            }
+
         }
         private void btnReminder_Click(object sender, EventArgs e)
         {
