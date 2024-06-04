@@ -51,7 +51,8 @@ namespace Personal_Organizer.Design
             });
             _csvOperations.WritePhonebook(phonebookList);
             gridView.DataSource = null;
-            gridView.DataSource = phonebookList;
+            var userBooks = phonebookList.Where(x => x.UserId == user.Id).ToList();
+            gridView.DataSource = userBooks;
             this.Hide();
         }
         private bool IsValidEmail(string email)

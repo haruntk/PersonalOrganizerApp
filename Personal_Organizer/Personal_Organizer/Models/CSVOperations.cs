@@ -176,7 +176,7 @@ namespace Personal_Organizer.Models
                         Address = values[3],
                         Description = values[4],
                         Email = values[5],
-                        UserId = 1
+                        UserId = int.Parse(values[6])
                     };
                     phonebookList.Add(phonebookEntry);
                 }

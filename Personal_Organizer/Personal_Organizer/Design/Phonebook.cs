@@ -29,8 +29,8 @@ namespace Personal_Organizer
             InitializeComponent();
             SetPlaceholder();
             phonebooks = _csvOperations.ReadPhoneBooks();
-            phonebooks = phonebooks.Where(x => x.UserId == _user.Id).ToList();
-            dataGridView1.DataSource = phonebooks;
+            var userBooks = phonebooks.Where(x => x.UserId == _user.Id).ToList();
+            dataGridView1.DataSource = userBooks;
             user = _user;
             label3.Text = user.Username;
             byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
@@ -264,7 +264,8 @@ namespace Personal_Organizer
             DialogResult result = MessageBox.Show("Are you sure you want to delete this contact?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             try
             {
-                if (result == DialogResult.Yes)
+                int selectedIndex = dataGridView1.SelectedRows[0].Index;
+                if (result == DialogResult.Yes && selectedIndex != -1)
                 {
                     if (dataGridView1.SelectedRows.Count > 0)
                     {
@@ -274,7 +275,8 @@ namespace Personal_Organizer
                             phonebooks.Remove(selectedData);
                         }
                         dataGridView1.DataSource = null;
-                        dataGridView1.DataSource = phonebooks;
+                        var userBooks = phonebooks.Where(x => x.UserId == user.Id).ToList();
+                        dataGridView1.DataSource = userBooks;
                         _csvOperations.WritePhonebook(phonebooks);
                     }
                     else
@@ -293,9 +295,10 @@ namespace Personal_Organizer
         {
             try
             {
-                if (dataGridView1.SelectedRows.Count == 1)
+                int selectedIndex = dataGridView1.SelectedRows[0].Index;
+                if (dataGridView1.SelectedRows.Count == 1 && selectedIndex != -1)
                 {
-                    EditContact editContact = new EditContact(dataGridView1, ref phonebooks);
+                    EditContact editContact = new EditContact(dataGridView1, ref phonebooks, user);
                     editContact.ShowDialog();
                 }
                 else if (dataGridView1.SelectedRows.Count > 1)
