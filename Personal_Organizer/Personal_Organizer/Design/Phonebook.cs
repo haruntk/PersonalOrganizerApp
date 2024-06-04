@@ -291,21 +291,35 @@ namespace Personal_Organizer
 
         private void editbtn_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 1)
+            try
             {
-                EditContact editContact = new EditContact(dataGridView1, ref phonebooks);
-                editContact.ShowDialog();
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    EditContact editContact = new EditContact(dataGridView1, ref phonebooks);
+                    editContact.ShowDialog();
+                }
+                else if (dataGridView1.SelectedRows.Count > 1)
+                    MessageBox.Show("Aynı anda en fazla 1 kişinin bilgilerini değiştirebilirsiniz !");
+                else
+                    MessageBox.Show("Lütfen bir kişi seçiniz !");
             }
-            else if (dataGridView1.SelectedRows.Count > 1)
-                MessageBox.Show("Aynı anda en fazla 1 kişinin bilgilerini değiştirebilirsiniz !");
-            else
-                MessageBox.Show("Lütfen bir kişi seçiniz !");
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void addContactbtn_Click(object sender, EventArgs e)
         {
-            AddContact addContact = new AddContact(dataGridView1, ref phonebooks,user);
-            addContact.ShowDialog();
+            try
+            {
+                AddContact addContact = new AddContact(dataGridView1, ref phonebooks, user);
+                addContact.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void searchtxtbox_TextChanged(object sender, EventArgs e)
