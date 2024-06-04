@@ -17,12 +17,14 @@ namespace Personal_Organizer.Design
         private List<Phonebook> phonebookList;
         private CSVOperations _csvOperations;
         private DataGridView gridView;
-        public AddContact(DataGridView dataGrid, ref List<Phonebook> phonebooks)
+        private User user;
+        public AddContact(DataGridView dataGrid, ref List<Phonebook> phonebooks, User _user)
         {
             InitializeComponent();
             _csvOperations = new CSVOperations();
             gridView = dataGrid;
             phonebookList = phonebooks;
+            user = _user;
         }
 
         private void addbtn_Click(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace Personal_Organizer.Design
             }
             phonebookList.Add(new Phonebook()
             {
-                UserId = 1,
+                UserId = user.Id,
                 Name = txtBoxName.Text,
                 Surname = txtBoxSurname.Text,
                 Address = txtBoxAddress.Text,

@@ -29,6 +29,7 @@ namespace Personal_Organizer
             InitializeComponent();
             SetPlaceholder();
             phonebooks = _csvOperations.ReadPhoneBooks();
+            phonebooks = phonebooks.Where(x => x.UserId == _user.Id).ToList();
             dataGridView1.DataSource = phonebooks;
             user = _user;
             label3.Text = user.Username;
@@ -136,7 +137,7 @@ namespace Personal_Organizer
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AddContact addcontact = new AddContact(dataGridView1, ref phonebooks);
+            AddContact addcontact = new AddContact(dataGridView1, ref phonebooks, user);
             addcontact.Show();
 
         }
@@ -303,7 +304,7 @@ namespace Personal_Organizer
 
         private void addContactbtn_Click(object sender, EventArgs e)
         {
-            AddContact addContact = new AddContact(dataGridView1, ref phonebooks);
+            AddContact addContact = new AddContact(dataGridView1, ref phonebooks,user);
             addContact.ShowDialog();
         }
 
