@@ -50,6 +50,7 @@ namespace Personal_Organizer
             {
                 usermanagmentbtn.Visible = false;
             }
+            label1.Text = user.Username;
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -345,7 +346,6 @@ namespace Personal_Organizer
                 araYuz.Show();
             }
         }
-
 
     }
 }
