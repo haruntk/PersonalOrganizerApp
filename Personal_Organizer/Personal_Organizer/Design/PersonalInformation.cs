@@ -358,7 +358,7 @@ namespace Personal_Organizer
             logoutbtn.BackColor = Color.SteelBlue;
         }
 
-        private void roundedButton1_Click(object sender, EventArgs e)
+        private void roundedButton1_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -391,6 +391,5 @@ namespace Personal_Organizer
                 MessageBox.Show($"Bir hata oluştu: {ex.Message}");
             }
         }
-
     }
 }
