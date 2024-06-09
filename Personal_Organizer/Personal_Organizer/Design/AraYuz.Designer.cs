@@ -71,7 +71,7 @@
             // 
             this.lblAd.AutoSize = true;
             this.lblAd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblAd.Location = new System.Drawing.Point(752, 44);
+            this.lblAd.Location = new System.Drawing.Point(732, 37);
             this.lblAd.Name = "lblAd";
             this.lblAd.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblAd.Size = new System.Drawing.Size(81, 15);
@@ -448,6 +448,7 @@
             this.Controls.Add(this.btnNotes);
             this.Controls.Add(this.btnPhone);
             this.Controls.Add(this.btnPersonal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AraYuz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AraYuz";

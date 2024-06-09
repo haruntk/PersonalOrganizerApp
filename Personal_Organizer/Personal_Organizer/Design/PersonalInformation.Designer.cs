@@ -621,6 +621,7 @@
             this.Controls.Add(this.emailtxt);
             this.Controls.Add(this.nametxt);
             this.Controls.Add(this.circularPicture2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.KeyPreview = true;
             this.Name = "PersonalInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

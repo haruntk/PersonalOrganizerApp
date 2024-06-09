@@ -27,6 +27,7 @@ namespace Personal_Organizer
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             users = csvOperations.ReadAllUsers();
             passwordtxt.PasswordChar = '*';
+
         }
 
         private void btnGiris_Click(object sender, EventArgs e)

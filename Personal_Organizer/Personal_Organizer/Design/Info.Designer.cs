@@ -247,7 +247,7 @@
             this.notesbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.notesbtn.Name = "notesbtn";
             this.notesbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.notesbtn.Size = new System.Drawing.Size(196, 56);
+            this.notesbtn.Size = new System.Drawing.Size(193, 56);
             this.notesbtn.TabIndex = 25;
             this.notesbtn.Text = "             Notes";
             this.notesbtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -617,7 +617,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(749, 44);
+            this.label10.Location = new System.Drawing.Point(730, 37);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label10.Size = new System.Drawing.Size(81, 15);
@@ -639,7 +639,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(926, 522);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.circularPicture2);
@@ -662,6 +661,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.sidebarflowLayoutPanel);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Info";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

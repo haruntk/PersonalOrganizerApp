@@ -587,6 +587,7 @@
             this.Controls.Add(this.userCurrentRoleLbl);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.sidebarflowLayoutPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UserManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserManagament";
