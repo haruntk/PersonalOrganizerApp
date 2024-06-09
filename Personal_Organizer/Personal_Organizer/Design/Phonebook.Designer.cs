@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.sidebarflowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,9 +58,9 @@
             this.editbtn = new System.Windows.Forms.Button();
             this.deleteContactbtn = new System.Windows.Forms.Button();
             this.addContactbtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.circularPicture2 = new Personal_Organizer.CircularPicture();
             this.label1 = new System.Windows.Forms.Label();
+            this.circularPicture2 = new Personal_Organizer.CircularPicture();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.sidebarflowLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menubtn)).BeginInit();
@@ -71,8 +72,8 @@
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebarflowLayoutPanel
@@ -420,7 +421,7 @@
             this.addContactbtn.UseVisualStyleBackColor = true;
             this.addContactbtn.Click += new System.EventHandler(this.addContactbtn_Click);
             // 
-            // dataGridView1
+            // label1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
@@ -445,7 +446,7 @@
             this.circularPicture2.TabIndex = 71;
             this.circularPicture2.TabStop = false;
             // 
-            // label1
+            // dataGridView1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -465,6 +466,7 @@
             this.ClientSize = new System.Drawing.Size(933, 532);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.editbtn);
             this.Controls.Add(this.deleteContactbtn);
             this.Controls.Add(this.addContactbtn);
@@ -491,8 +493,8 @@
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.circularPicture2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,7 +531,7 @@
         private System.Windows.Forms.Button addContactbtn;
         private System.Windows.Forms.Button deleteContactbtn;
         private System.Windows.Forms.Button editbtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

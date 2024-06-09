@@ -582,6 +582,7 @@
             this.roundedButton1.TabIndex = 22;
             this.roundedButton1.Text = "Change Profile Picture";
             this.roundedButton1.UseVisualStyleBackColor = false;
+            this.roundedButton1.Click += new System.EventHandler(this.roundedButton1_Click_1);
             // 
             // label10
             // 

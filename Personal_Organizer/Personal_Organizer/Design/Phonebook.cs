@@ -29,7 +29,8 @@ namespace Personal_Organizer
             InitializeComponent();
             SetPlaceholder();
             phonebooks = _csvOperations.ReadPhoneBooks();
-            dataGridView1.DataSource = phonebooks;
+            var userBooks = phonebooks.Where(x => x.UserId == _user.Id).ToList();
+            dataGridView1.DataSource = userBooks;
             user = _user;
             label3.Text = user.Username;
             byte[] imageBytes = Convert.FromBase64String(user.Base64Photo);
@@ -49,6 +50,7 @@ namespace Personal_Organizer
             {
                 usermanagmentbtn.Visible = false;
             }
+            label1.Text = user.Username;
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -136,7 +138,7 @@ namespace Personal_Organizer
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AddContact addcontact = new AddContact(dataGridView1, ref phonebooks);
+            AddContact addcontact = new AddContact(dataGridView1, ref phonebooks, user);
             addcontact.Show();
 
         }
@@ -263,7 +265,8 @@ namespace Personal_Organizer
             DialogResult result = MessageBox.Show("Are you sure you want to delete this contact?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             try
             {
-                if (result == DialogResult.Yes)
+                int selectedIndex = dataGridView1.SelectedRows[0].Index;
+                if (result == DialogResult.Yes && selectedIndex != -1)
                 {
                     if (dataGridView1.SelectedRows.Count > 0)
                     {
@@ -273,7 +276,8 @@ namespace Personal_Organizer
                             phonebooks.Remove(selectedData);
                         }
                         dataGridView1.DataSource = null;
-                        dataGridView1.DataSource = phonebooks;
+                        var userBooks = phonebooks.Where(x => x.UserId == user.Id).ToList();
+                        dataGridView1.DataSource = userBooks;
                         _csvOperations.WritePhonebook(phonebooks);
                     }
                     else
@@ -290,21 +294,36 @@ namespace Personal_Organizer
 
         private void editbtn_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 1)
+            try
             {
-                EditContact editContact = new EditContact(dataGridView1, ref phonebooks);
-                editContact.ShowDialog();
+                int selectedIndex = dataGridView1.SelectedRows[0].Index;
+                if (dataGridView1.SelectedRows.Count == 1 && selectedIndex != -1)
+                {
+                    EditContact editContact = new EditContact(dataGridView1, ref phonebooks, user);
+                    editContact.ShowDialog();
+                }
+                else if (dataGridView1.SelectedRows.Count > 1)
+                    MessageBox.Show("Aynı anda en fazla 1 kişinin bilgilerini değiştirebilirsiniz !");
+                else
+                    MessageBox.Show("Lütfen bir kişi seçiniz !");
             }
-            else if (dataGridView1.SelectedRows.Count > 1)
-                MessageBox.Show("Aynı anda en fazla 1 kişinin bilgilerini değiştirebilirsiniz !");
-            else
-                MessageBox.Show("Lütfen bir kişi seçiniz !");
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void addContactbtn_Click(object sender, EventArgs e)
         {
-            AddContact addContact = new AddContact(dataGridView1, ref phonebooks);
-            addContact.ShowDialog();
+            try
+            {
+                AddContact addContact = new AddContact(dataGridView1, ref phonebooks, user);
+                addContact.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void searchtxtbox_TextChanged(object sender, EventArgs e)
@@ -327,7 +346,6 @@ namespace Personal_Organizer
                 araYuz.Show();
             }
         }
-
 
     }
 }

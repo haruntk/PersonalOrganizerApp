@@ -17,7 +17,7 @@ namespace Personal_Organizer
 {
     public partial class PersonalInformation : Form
     {
-        private readonly User user;
+        private User user;
         private List<User> users;
         private ProfileMemento _initialState; // İlk durumu saklamak için
         private CSVOperations csvOperations = new CSVOperations();
@@ -195,6 +195,7 @@ namespace Personal_Organizer
                         users[index].Base64Photo = Convert.ToBase64String(imageBytes);
                     }
                 }
+                user = users[index];
                 csvOperations.WriteUsers(users);
                 MessageBox.Show("Bilgileriniz başarıyla güncellendi");
             }
@@ -357,7 +358,7 @@ namespace Personal_Organizer
             logoutbtn.BackColor = Color.SteelBlue;
         }
 
-        private void roundedButton1_Click(object sender, EventArgs e)
+        private void roundedButton1_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -390,6 +391,5 @@ namespace Personal_Organizer
                 MessageBox.Show($"Bir hata oluştu: {ex.Message}");
             }
         }
-
     }
 }

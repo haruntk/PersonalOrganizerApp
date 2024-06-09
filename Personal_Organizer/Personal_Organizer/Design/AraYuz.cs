@@ -128,7 +128,6 @@ namespace Personal_Organizer
         }
         private void btnPersonal_Click(object sender, EventArgs e)
         {
-            //NavigateToForm(new PersonalInformation(user,reminders));
             PersonalInformation personalInformation = new PersonalInformation(user,reminders);
             this.Hide();
             if (personalInformation.ShowDialog() == DialogResult.OK)
@@ -139,7 +138,10 @@ namespace Personal_Organizer
                 {
                     circularPicture1.Image = Image.FromStream(ms);
                 }
+                lblWelcome.Text = $"Welcome, {user.Name} {user.Surname}";
+                lblAd.Text = user.Username;
                 this.Show();
+                
             }
 
         }

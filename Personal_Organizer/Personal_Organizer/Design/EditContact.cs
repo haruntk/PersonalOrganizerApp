@@ -17,7 +17,8 @@ namespace Personal_Organizer.Design
         private CSVOperations _csvOperations;
         private DataGridView gridView;
         private Phonebook selectedData;
-        public EditContact(DataGridView dataGridView, ref List<Phonebook> phonebooks)
+        private User user;
+        public EditContact(DataGridView dataGridView, ref List<Phonebook> phonebooks, User _user)
         {
             InitializeComponent();
             _csvOperations = new CSVOperations();
@@ -31,6 +32,7 @@ namespace Personal_Organizer.Design
             txtBoxNumber.Text = selectedData.PhoneNumber;
             txtBoxSurname.Text = selectedData.Surname;
             phonebooks.Remove(selectedData);
+            user = _user;
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -45,7 +47,8 @@ namespace Personal_Organizer.Design
             phonebookList.Add(selectedData);
             
             gridView.DataSource = null;
-            gridView.DataSource = phonebookList;
+            var userBooks = phonebookList.Where(x => x.UserId == user.Id).ToList();
+            gridView.DataSource = userBooks;
             _csvOperations.WritePhonebook(phonebookList);
             this.Hide();
         }

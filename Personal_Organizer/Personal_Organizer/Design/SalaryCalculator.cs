@@ -43,7 +43,7 @@ namespace Personal_Organizer.Design
             {
                 usermanagmentbtn.Visible = false;
             }
-            label11.Text = user.Name;
+            label11.Text = user.Username;
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
