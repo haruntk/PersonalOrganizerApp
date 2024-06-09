@@ -102,7 +102,7 @@
             this.sidebarflowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarflowLayoutPanel.ForeColor = System.Drawing.SystemColors.Control;
             this.sidebarflowLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.sidebarflowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sidebarflowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.sidebarflowLayoutPanel.MaximumSize = new System.Drawing.Size(181, 522);
             this.sidebarflowLayoutPanel.MinimumSize = new System.Drawing.Size(62, 522);
             this.sidebarflowLayoutPanel.Name = "sidebarflowLayoutPanel";
@@ -115,7 +115,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.menubtn);
             this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(180, 71);
             this.panel1.TabIndex = 19;
@@ -136,7 +136,7 @@
             this.menubtn.Image = global::Personal_Organizer.Properties.Resources.menu_burger;
             this.menubtn.InitialImage = global::Personal_Organizer.Properties.Resources.menu_burger;
             this.menubtn.Location = new System.Drawing.Point(21, 29);
-            this.menubtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menubtn.Margin = new System.Windows.Forms.Padding(2);
             this.menubtn.Name = "menubtn";
             this.menubtn.Size = new System.Drawing.Size(28, 28);
             this.menubtn.TabIndex = 18;
@@ -147,7 +147,7 @@
             // 
             this.panel2.Controls.Add(this.homebtn);
             this.panel2.Location = new System.Drawing.Point(2, 77);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(183, 45);
             this.panel2.TabIndex = 20;
@@ -160,7 +160,7 @@
             this.homebtn.Image = global::Personal_Organizer.Properties.Resources.home;
             this.homebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homebtn.Location = new System.Drawing.Point(-13, -6);
-            this.homebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.homebtn.Margin = new System.Windows.Forms.Padding(2);
             this.homebtn.Name = "homebtn";
             this.homebtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.homebtn.Size = new System.Drawing.Size(191, 56);
@@ -175,7 +175,7 @@
             // 
             this.panel7.Controls.Add(this.infobtn);
             this.panel7.Location = new System.Drawing.Point(2, 126);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(180, 45);
             this.panel7.TabIndex = 22;
@@ -187,7 +187,7 @@
             this.infobtn.Image = global::Personal_Organizer.Properties.Resources.info2;
             this.infobtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.infobtn.Location = new System.Drawing.Point(-13, -7);
-            this.infobtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.infobtn.Margin = new System.Windows.Forms.Padding(2);
             this.infobtn.Name = "infobtn";
             this.infobtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.infobtn.Size = new System.Drawing.Size(196, 56);
@@ -202,7 +202,7 @@
             // panel9
             // 
             this.panel9.Location = new System.Drawing.Point(2, 175);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(178, 255);
             this.panel9.TabIndex = 20;
@@ -211,7 +211,7 @@
             // 
             this.panel10.Controls.Add(this.logoutbtn);
             this.panel10.Location = new System.Drawing.Point(2, 434);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(180, 39);
             this.panel10.TabIndex = 21;
@@ -223,7 +223,7 @@
             this.logoutbtn.Image = global::Personal_Organizer.Properties.Resources.exit;
             this.logoutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logoutbtn.Location = new System.Drawing.Point(-13, -9);
-            this.logoutbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logoutbtn.Margin = new System.Windows.Forms.Padding(2);
             this.logoutbtn.Name = "logoutbtn";
             this.logoutbtn.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.logoutbtn.Size = new System.Drawing.Size(196, 56);
@@ -249,7 +249,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.AliceBlue;
             this.pictureBox1.Image = global::Personal_Organizer.Properties.Resources.Telecommuting;
             this.pictureBox1.Location = new System.Drawing.Point(462, 123);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(235, 176);
             this.pictureBox1.TabIndex = 23;
@@ -264,7 +264,7 @@
             this.roundedButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.roundedButton2.ForeColor = System.Drawing.Color.DarkGray;
             this.roundedButton2.Location = new System.Drawing.Point(720, 131);
-            this.roundedButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.roundedButton2.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton2.Name = "roundedButton2";
             this.roundedButton2.Size = new System.Drawing.Size(158, 70);
             this.roundedButton2.TabIndex = 25;
@@ -280,7 +280,7 @@
             this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButton1.ForeColor = System.Drawing.Color.Yellow;
             this.roundedButton1.Location = new System.Drawing.Point(202, 123);
-            this.roundedButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.roundedButton1.Margin = new System.Windows.Forms.Padding(2);
             this.roundedButton1.Name = "roundedButton1";
             this.roundedButton1.Size = new System.Drawing.Size(505, 176);
             this.roundedButton1.TabIndex = 19;
@@ -305,7 +305,7 @@
             this.rdnManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rdnManagement.ForeColor = System.Drawing.Color.White;
             this.rdnManagement.Location = new System.Drawing.Point(720, 131);
-            this.rdnManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdnManagement.Margin = new System.Windows.Forms.Padding(2);
             this.rdnManagement.Name = "rdnManagement";
             this.rdnManagement.Size = new System.Drawing.Size(158, 70);
             this.rdnManagement.TabIndex = 12;
@@ -321,7 +321,7 @@
             this.btnReminder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnReminder.ForeColor = System.Drawing.Color.White;
             this.btnReminder.Location = new System.Drawing.Point(720, 316);
-            this.btnReminder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReminder.Margin = new System.Windows.Forms.Padding(2);
             this.btnReminder.Name = "btnReminder";
             this.btnReminder.Size = new System.Drawing.Size(160, 142);
             this.btnReminder.TabIndex = 11;
@@ -337,7 +337,7 @@
             this.btnSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSalary.ForeColor = System.Drawing.Color.White;
             this.btnSalary.Location = new System.Drawing.Point(375, 316);
-            this.btnSalary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalary.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalary.Name = "btnSalary";
             this.btnSalary.Size = new System.Drawing.Size(160, 142);
             this.btnSalary.TabIndex = 10;
@@ -353,7 +353,7 @@
             this.btnNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNotes.ForeColor = System.Drawing.Color.White;
             this.btnNotes.Location = new System.Drawing.Point(546, 316);
-            this.btnNotes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNotes.Margin = new System.Windows.Forms.Padding(2);
             this.btnNotes.Name = "btnNotes";
             this.btnNotes.Size = new System.Drawing.Size(160, 142);
             this.btnNotes.TabIndex = 9;
@@ -369,7 +369,7 @@
             this.btnPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPhone.ForeColor = System.Drawing.Color.White;
             this.btnPhone.Location = new System.Drawing.Point(202, 316);
-            this.btnPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPhone.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhone.Name = "btnPhone";
             this.btnPhone.Size = new System.Drawing.Size(160, 142);
             this.btnPhone.TabIndex = 8;
@@ -385,7 +385,7 @@
             this.btnPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPersonal.ForeColor = System.Drawing.Color.White;
             this.btnPersonal.Location = new System.Drawing.Point(720, 219);
-            this.btnPersonal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPersonal.Margin = new System.Windows.Forms.Padding(2);
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.Size = new System.Drawing.Size(160, 70);
             this.btnPersonal.TabIndex = 7;
@@ -401,7 +401,7 @@
             this.userManagementBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.userManagementBtn.ForeColor = System.Drawing.Color.White;
             this.userManagementBtn.Location = new System.Drawing.Point(720, 127);
-            this.userManagementBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userManagementBtn.Margin = new System.Windows.Forms.Padding(2);
             this.userManagementBtn.Name = "userManagementBtn";
             this.userManagementBtn.Size = new System.Drawing.Size(158, 70);
             this.userManagementBtn.TabIndex = 26;
@@ -419,7 +419,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(249, 219);
+            this.label1.Location = new System.Drawing.Point(219, 219);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(193, 20);

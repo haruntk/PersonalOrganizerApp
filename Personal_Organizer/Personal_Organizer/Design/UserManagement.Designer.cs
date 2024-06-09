@@ -533,7 +533,7 @@
             this.passSendBtn.ForeColor = System.Drawing.Color.White;
             this.passSendBtn.Location = new System.Drawing.Point(780, 407);
             this.passSendBtn.Name = "passSendBtn";
-            this.passSendBtn.Size = new System.Drawing.Size(140, 40);
+            this.passSendBtn.Size = new System.Drawing.Size(145, 42);
             this.passSendBtn.TabIndex = 29;
             this.passSendBtn.Text = "SEND NEW PASSWORD";
             this.passSendBtn.UseVisualStyleBackColor = false;

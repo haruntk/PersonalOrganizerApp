@@ -74,8 +74,8 @@ namespace Personal_Organizer
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Kayıt kayıt = new Kayıt();
-            kayıt.Show();
-
+            if (kayıt.ShowDialog() == DialogResult.OK)
+                users = csvOperations.ReadAllUsers();
         }
 
         private void visiblitybtn_Click(object sender, EventArgs e)

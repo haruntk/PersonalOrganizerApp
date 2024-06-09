@@ -67,7 +67,7 @@ namespace Personal_Organizer
         private void btnRegister_Click(object sender, EventArgs e)
         {
 
-            Giris giris = new Giris();
+            
             int lastId = users.Count > 0 ? users[users.Count - 1].Id : 0;
             foreach(User _user in users)
             {
@@ -127,8 +127,7 @@ namespace Personal_Organizer
                 user.Role = Roles.User;
             users.Add(user);
             csvOperations.WriteUsers(users);
-            giris.Show();
-            this.Close();
+            DialogResult = DialogResult.OK;
         }
         private void Kayıt_Load(object sender, EventArgs e)
         {

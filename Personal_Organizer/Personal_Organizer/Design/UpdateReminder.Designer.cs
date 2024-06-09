@@ -64,7 +64,7 @@
             this.titletextbox.Margin = new System.Windows.Forms.Padding(2);
             this.titletextbox.Name = "titletextbox";
             this.titletextbox.Size = new System.Drawing.Size(289, 16);
-            this.titletextbox.TabIndex = 4;
+            this.titletextbox.TabIndex = 1;
             this.titletextbox.TextChanged += new System.EventHandler(this.titletextbox_TextChanged);
             // 
             // label2
@@ -89,7 +89,7 @@
             this.summarytextbox.Multiline = true;
             this.summarytextbox.Name = "summarytextbox";
             this.summarytextbox.Size = new System.Drawing.Size(289, 52);
-            this.summarytextbox.TabIndex = 7;
+            this.summarytextbox.TabIndex = 3;
             this.summarytextbox.TextChanged += new System.EventHandler(this.summarytextbox_TextChanged);
             // 
             // label3
@@ -114,7 +114,7 @@
             this.descriptiontextbox.Multiline = true;
             this.descriptiontextbox.Name = "descriptiontextbox";
             this.descriptiontextbox.Size = new System.Drawing.Size(289, 47);
-            this.descriptiontextbox.TabIndex = 9;
+            this.descriptiontextbox.TabIndex = 2;
             this.descriptiontextbox.TextChanged += new System.EventHandler(this.descriptiontextbox_TextChanged);
             // 
             // datePicker
@@ -124,7 +124,7 @@
             this.datePicker.Margin = new System.Windows.Forms.Padding(2);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(174, 23);
-            this.datePicker.TabIndex = 11;
+            this.datePicker.TabIndex = 4;
             // 
             // label4
             // 
@@ -148,7 +148,7 @@
             this.addbtn.Margin = new System.Windows.Forms.Padding(2);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(122, 28);
-            this.addbtn.TabIndex = 5;
+            this.addbtn.TabIndex = 7;
             this.addbtn.Text = "UPDATE";
             this.addbtn.UseVisualStyleBackColor = true;
             this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
@@ -172,7 +172,7 @@
             this.timePicker.Name = "timePicker";
             this.timePicker.ShowUpDown = true;
             this.timePicker.Size = new System.Drawing.Size(77, 23);
-            this.timePicker.TabIndex = 16;
+            this.timePicker.TabIndex = 5;
             // 
             // label5
             // 
